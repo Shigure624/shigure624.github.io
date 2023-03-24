@@ -1,0 +1,512 @@
+<!DOCTYPE html><html><head>
+      <title>vim</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#383a42;background-color:#eaeaeb !important;border:#d1d1d2;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#a0a1a7}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#986801}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#986801}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#e45649}code[class*="language-"] .token.symbol,pre[class*="language-"] .token.symbol{color:#0184bc}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#a626a4}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#986801}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#50a14f}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#0184bc}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#0184bc}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#383a42}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#a626a4}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#4078f2}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#c18401}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#986801}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex{color:#0184bc}code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#e45649}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:hsl(230,8%,24%);background-color:hsl(230,1%,98%);overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:hsl(0,0%,0%)}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:hsl(230,8%,40%)}html body strong{color:hsl(0,0%,0%)}html body del{color:hsl(230,8%,40%)}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#0184bc;text-decoration:none}html body a:hover{color:#01a0e5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:hsl(230,8%,40%);background-color:hsl(230,1%,92%);border-left:4px solid hsl(230,1%,82%)}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:hsl(230,1%,82%);border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:hsl(0,0%,0%)}html body table td,html body table th{border:1px solid hsl(230,1%,82%);padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:hsl(0,0%,0%);background-color:hsl(230,1%,92%);border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:hsl(230,1%,82%);border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:hsl(0,0%,0%);border:1px solid hsl(230,1%,82%);border-bottom:2px solid hsl(230,1%,76%);padding:2px 4px;background-color:hsl(230,1%,92%);border-radius:3px}@media print{html body{background-color:hsl(230,1%,98%)}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:hsl(0,0%,0%);page-break-after:avoid}html body blockquote{color:hsl(230,8%,40%)}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#vim" class="md-toc-link"><p>vim</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;" class="md-toc-link"><p>&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x624B;&#x52A8;&#x5B89;&#x88C5;-vim" class="md-toc-link">
+            <p>&#x624B;&#x52A8;&#x5B89;&#x88C5; vim</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x7F16;&#x8F91;&#x5668;&#x914D;&#x7F6E;vimrc" class="md-toc-link">
+            <p>&#x7F16;&#x8F91;&#x5668;&#x914D;&#x7F6E;&#xFF1A;vimrc</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x63D2;&#x4EF6;&#x7BA1;&#x7406;" class="md-toc-link">
+            <p>&#x63D2;&#x4EF6;&#x7BA1;&#x7406;</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x6A21;&#x5F0F;" class="md-toc-link">
+            <p>&#x6A21;&#x5F0F;</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x6587;&#x4EF6;&#x64CD;&#x4F5C;" class="md-toc-link"><p>&#x6587;&#x4EF6;&#x64CD;&#x4F5C;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x6253;&#x5F00;&#x6587;&#x4EF6;" class="md-toc-link">
+            <p>&#x6253;&#x5F00;&#x6587;&#x4EF6;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x548C;&#x9000;&#x51FA;" class="md-toc-link">
+            <p>&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x548C;&#x9000;&#x51FA;</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x6307;&#x4EE4;" class="md-toc-link"><p>&#x6307;&#x4EE4;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x8DF3;&#x8F6C;" class="md-toc-link">
+            <p>&#x8DF3;&#x8F6C;</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x9009;&#x62E9;&#x5B57;&#x7B26;&#x548C;&#x590D;&#x5236;&#x7C98;&#x8D34;" class="md-toc-link"><p>&#x9009;&#x62E9;&#x5B57;&#x7B26;&#x548C;&#x590D;&#x5236;&#x7C98;&#x8D34;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x7EB5;&#x5411;&#x7F16;&#x8F91;&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x4EE3;&#x7801;" class="md-toc-link">
+            <p>&#x7EB5;&#x5411;&#x7F16;&#x8F91;&#xFF0C;&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x4EE3;&#x7801;</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x66FF;&#x6362;" class="md-toc-link">
+            <p>&#x66FF;&#x6362;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x6298;&#x53E0;" class="md-toc-link">
+            <p>&#x6298;&#x53E0;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#set" class="md-toc-link">
+            <p>set</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x4EE3;&#x7801;&#x5DE5;&#x5177;ctags-&#x548C;-cscope" class="md-toc-link">
+            <p>&#x4EE3;&#x7801;&#x5DE5;&#x5177;&#xFF1A;ctags &#x548C; cscope</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x95EE;&#x9898;" class="md-toc-link"><p>&#x95EE;&#x9898;</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x63D2;&#x4EF6;" class="md-toc-link"><p>&#x63D2;&#x4EF6;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#vundleycm-&#x5B89;&#x88C5;&#x95EE;&#x9898;" class="md-toc-link">
+            <p>Vundle+YCM &#x5B89;&#x88C5;&#x95EE;&#x9898;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#not-an-editor-command-nerdtreetoggle" class="md-toc-link">
+            <p>Not an editor command: NERDTreeToggle</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x7F16;&#x8F91;&#x548C;&#x683C;&#x5F0F;&#x76F8;&#x5173;" class="md-toc-link"><p>&#x7F16;&#x8F91;&#x548C;&#x683C;&#x5F0F;&#x76F8;&#x5173;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#no-newline-at-end-of-file" class="md-toc-link">
+            <p>No newline at end of file</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x770B;&#x5230;m" class="md-toc-link">
+            <p>&#x770B;&#x5230;<code>^M</code></p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#ctags-error" class="md-toc-link"><p>ctags error</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ctags-error-format-error-in-tags-file" class="md-toc-link">
+            <p>ctags error &#x201C;format error in tags file&#x201D;</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#ctags-tag-not-found" class="md-toc-link"><p>ctags: tag not found</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#format-error-in-tags-file-tags" class="md-toc-link">
+            <p>Format error in tags file &quot;tags&quot;</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cscope-1" class="md-toc-link">
+            <p>cscope</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
+<h1 class="mume-header" id="vim">vim</h1>
+
+<p>&#x6211;&#x7528; vim &#x4E0D;&#x662F;&#x4E3A;&#x4E86;&#x88C5; B&#xFF0C;&#x53EA;&#x662F;&#x56E0;&#x4E3A;&#x4E60;&#x60EF;&#x3002;</p>
+<h2 class="mume-header" id="%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE">&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;</h2>
+
+<h3 class="mume-header" id="%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85-vim">&#x624B;&#x52A8;&#x5B89;&#x88C5; vim</h3>
+
+<p><code>git clone https://github.com/vim/vim.git</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token comment"># &#x5B89;&#x88C5;EPEL&#x6E90;</span>
+yum <span class="token function">install</span> epel-release -y
+<span class="token comment"># &#x5B89;&#x88C5;python3&#x5F00;&#x53D1;&#x5305;</span>
+yum <span class="token function">install</span> python34-devel -y
+<span class="token builtin class-name">cd</span> vim/src
+<span class="token function">make</span> clean
+<span class="token comment"># &#x5982;&#x679C;&#x9700;&#x8981; python3 &#x652F;&#x6301;</span>
+./configure --with-features<span class="token operator">=</span>huge --enable-python3interp --enable-pythoninterp --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-multibyte --enable-cscope --prefix<span class="token operator">=</span>/usr/local/vim/
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+</pre><h3 class="mume-header" id="%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AEvimrc">&#x7F16;&#x8F91;&#x5668;&#x914D;&#x7F6E;&#xFF1A;vimrc</h3>
+
+<p>amix &#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x4F18;&#x96C5;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x672C;&#xFF1A;<a href="https://github.com/amix/vimrc">https://github.com/amix/vimrc</a></p>
+<h3 class="mume-header" id="%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86">&#x63D2;&#x4EF6;&#x7BA1;&#x7406;</h3>
+
+<p>Vundle&#xFF1A;&#x529F;&#x80FD;&#x5927;&#x800C;&#x5168;&#x3002;<br>
+vim plug&#xFF1A;&#x4F7F;&#x7528;&#x611F;&#x53D7;&#xFF1A;&#x7B80;&#x6D01;&#x53CB;&#x597D;&#x3002;</p>
+<ol>
+<li>
+<p>&#x5B89;&#x88C5; vim plug&#xFF1A;clone repo <a href="https://github.com/junegunn/vim-plug">https://github.com/junegunn/vim-plug</a> &#x4E4B;&#x540E;&#xFF0C;&#x5C06; <code>vim-plug</code> &#x653E;&#x5728;<code>./vim/autoload</code>&#x5373;&#x53EF;&#x3002;</p>
+</li>
+<li>
+<p>&#x589E;&#x52A0;&#x9700;&#x8981;&#x7684;&#x76EE;&#x6807;&#x63D2;&#x4EF6;&#xFF1A;&#x5C06;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x53E5;&#x63D2;&#x5165;&#x5230; vimrc &#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash">call plug<span class="token comment">#begin(&apos;~/.vim/plugged&apos;)</span>
+Plug <span class="token string">&apos;jayli/vim-easycomplete&apos;</span>
+Plug <span class="token string">&apos;jayli/vim-dictionary&apos;</span>
+&quot; Initialize plugin system
+call plug<span class="token comment">#end()</span>
+</pre></li>
+<li>
+<p>&#x5B89;&#x88C5;&#x63D2;&#x4EF6;&#xFF1A;&#x5728; vim &#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4E0B;&#x8F93;&#x5165;&#xFF1A;<code>PlugInstall</code></p>
+</li>
+</ol>
+<h2 class="mume-header" id="%E6%A8%A1%E5%BC%8F">&#x6A21;&#x5F0F;</h2>
+
+<p>&#x6A21;&#x5F0F;&#xFF1A;&#x663E;&#x793A;&#x5728;&#x5DE6;&#x4E0B;&#x89D2;&#xFF0C;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x4E0D;&#x540C;&#x6A21;&#x5F0F;&#x4E0B;&#x505A;&#x4E0D;&#x540C;&#x7684;&#x4E8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x6A21;&#x5F0F;</th>
+<th>&#x505A;&#x4EC0;&#x4E48;</th>
+<th>&#x600E;&#x4E48;&#x8FDB;&#x5165;</th>
+<th>&#x4F1A;&#x663E;&#x793A;&#x4EC0;&#x4E48;</th>
+<th>&#x4F8B;&#x5B50;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x547D;&#x4EE4;&#x884C;&#x6A21;&#x5F0F;</td>
+<td>&#x8F93;&#x5165;&#x547D;&#x4EE4;</td>
+<td>&#x8F93;&#x5165;<code>:</code></td>
+<td><code>:</code></td>
+<td>&#x8BBE;&#x7F6E;&#x884C;&#x53F7;<code>:set number</code>&#xFF0C;&#x6216;&#x8005;&#x66FF;&#x6362;&#x5355;&#x8BCD;<code>:%s/int/INT/g</code></td>
+</tr>
+<tr>
+<td>&#x8F93;&#x5165;&#x6A21;&#x5F0F;</td>
+<td>&#x8F93;&#x5165;code&#x3001;&#x5B57;&#x7B26;</td>
+<td>&#x8F93;&#x5165;<code>a</code>&#x6216;<code>i</code>&#x6216;<code>s</code></td>
+<td><code>-- INSERT --</code></td>
+<td>&#x53EF;&#x76F4;&#x63A5;&#x8F93;&#x5165;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td>&#x53EF;&#x89C6;&#x6A21;&#x5F0F;</td>
+<td>&#x9009;&#x62E9;&#x5B57;&#x7B26;&#x4EEC;</td>
+<td><code>v</code>&#x8FDB;&#x884C;&#x9010;&#x4E2A;&#x5B57;&#x7B26;&#x9010;&#x884C;&#x9009;&#x62E9;&#xFF0C;<code>V</code>&#xFF08;ctrl+v&#xFF09;&#x7AD6;&#x5217;&#x9009;&#x62E9;</td>
+<td><code>-- VISUAL --</code></td>
+<td>&#x53EF;&#x5BF9;&#x9009;&#x597D;&#x7684;&#x5185;&#x5BB9;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x5220;&#x9664;&#x6216;&#x8005;&#x6279;&#x91CF;&#x64CD;&#x4F5C;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6309; ESC &#x9000;&#x51FA;&#x5F53;&#x524D;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2 class="mume-header" id="%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C">&#x6587;&#x4EF6;&#x64CD;&#x4F5C;</h2>
+
+<h3 class="mume-header" id="%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6">&#x6253;&#x5F00;&#x6587;&#x4EF6;</h3>
+
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token keyword keyword-vim">vim</span> test<span class="token operator">.</span>txt <span class="token comment">&quot; &#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;</span>
+<span class="token keyword keyword-vim">vim</span> test<span class="token operator">.</span>txt <span class="token operator">+</span><span class="token number">100</span> <span class="token comment">&quot; &#x6253;&#x5F00;&#x5E76;&#x5B9A;&#x4F4D;&#x5230;&#x7B2C; 100 &#x884C;</span>
+<span class="token keyword keyword-vim">vim</span> <span class="token operator">.</span><span class="token operator">/</span> <span class="token comment">&quot; &#x6253;&#x5F00;&#x5F53;&#x524D;&#x76EE;&#x5F55;</span>
+</pre><p>&#x4E8C;&#x8FDB;&#x5236;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ol>
+<li>
+<p>&#x9996;&#x5148;&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x65B9;&#x5F0F;&#x7F16;&#x8F91;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6; <code>vi -b test</code></p>
+</li>
+<li>
+<p>&#x4F7F;&#x7528; xxd &#x8F6C;&#x6362;&#x4E3A; 16 &#x8FDB;&#x5236;<code>:%!xxd</code>&#xFF0C;&#x5982;&#x4E0B;:</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt">0000000: 1f8b 0808 39d7 173b 0203 7474 002b 4e49 ....9...........
+0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30 K,.`.....b..4^.0
+0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9 7;&apos;1.&quot;.....i.59.
+</pre></li>
+<li>
+<p>&#x8F6C;&#x56DE;&#x53BB; <code>:%!xxd -r</code></p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%92%8C%E9%80%80%E5%87%BA">&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x548C;&#x9000;&#x51FA;</h3>
+
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token punctuation">:</span><span class="token keyword keyword-w">w</span> <span class="token comment">&quot; &#x4FDD;&#x5B58;</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-q">q</span> <span class="token comment">&quot; &#x9000;&#x51FA;</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-wq">wq</span> <span class="token comment">&quot; &#x4FDD;&#x5B58;&#x5E76;&#x9000;&#x51FA;</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-q">q</span><span class="token operator">!</span> <span class="token comment">&quot; !&#x8868;&#x793A;&#x5F3A;&#x884C;&#x9000;&#x51FA;</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-qa">qa</span> <span class="token comment">&quot; a&#x8868;&#x793A;&#x9000;&#x51FA;&#x6240;&#x6709;</span>
+</pre><h2 class="mume-header" id="%E6%8C%87%E4%BB%A4">&#x6307;&#x4EE4;</h2>
+
+<p>&#x7B26;&#x53F7;&#xFF1A;<code>%</code> &#x7528;&#x6765;&#x8FDB;&#x884C;&#x5C0F;&#x62EC;&#x53F7;&#x3001;&#x4E2D;&#x62EC;&#x53F7;&#x548C;&#x5927;&#x62EC;&#x53F7;&#x7684;&#x5339;&#x914D;&#x3002;<br>
+&#x4EE5;&#x4E0B;&#x6307;&#x4EE4;&#x7B26;&#x53F7;&#x4E2D;&#xFF0C;&#x7528;&#x5927;&#x5199;&#x8868;&#x793A;<code>Ctrl+&#x5B57;&#x7B26;&#x6309;&#x952E;</code></p>
+<h3 class="mume-header" id="%E8%B7%B3%E8%BD%AC">&#x8DF3;&#x8F6C;</h3>
+
+<p>&#x5728;&#x547D;&#x4EE4;&#x884C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF1A;</p>
+<p><code>b</code> &#x8DF3;&#x5230;&#x524D;&#x4E00;&#x4E2A;&#x8BCD;<br>
+<code>w</code> &#x8DF3;&#x5230;&#x540E;&#x4E00;&#x4E2A;&#x8BCD;<br>
+<code>F</code> &#x4E0B;&#x4E00;&#x9875; <code>B</code> &#x4E0A;&#x4E00;&#x9875;<br>
+<code>E</code> &#x5411;&#x4E0B;&#x6EDA;&#x52A8;&#x4E00;&#x884C;<br>
+<code>Y</code> &#x5411;&#x4E0A;&#x6EDA;&#x52A8;&#x4E00;&#x884C;<br>
+<code>D</code> &#x5411;&#x4E0B;&#x6EDA;&#x52A8;&#x534A;&#x5C4F;<br>
+<code>U</code> &#x5411;&#x4E0A;&#x6EDA;&#x52A8;&#x534A;&#x5C4F;<br>
+<code>[[</code> <code>gg</code>&#x8DF3;&#x5230;&#x6587;&#x4EF6;&#x5F00;&#x5934;<br>
+<code>]]</code> <code>G</code> &#x8DF3;&#x5230;&#x6587;&#x4EF6;&#x7ED3;&#x5C3E;<br>
+<code>[]</code> &#x8DF3;&#x5230;&#x4E0A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7ED3;&#x5C3E;<br>
+<code>][</code> &#x8DF3;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7ED3;&#x5C3E;<br>
+<code>:5</code> &#x8DF3;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x7B2C; 5 &#x884C;<br>
+<code>0</code> &#x884C;&#x9996;<br>
+<code>$</code> &#x884C;&#x5C3E;</p>
+<h3 class="mume-header" id="%E9%80%89%E6%8B%A9%E5%AD%97%E7%AC%A6%E5%92%8C%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4">&#x9009;&#x62E9;&#x5B57;&#x7B26;&#x548C;&#x590D;&#x5236;&#x7C98;&#x8D34;</h3>
+
+<p><code>v</code>&#x6216;&#x8005;<code>V</code>&#x9009;&#x4E2D;&#x4E4B;&#x540E;&#xFF0C;&#x6309;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#xFF0C;&#x6216;&#x8005;<code>G</code> <code>0</code> <code>$</code>&#x4E4B;&#x7C7B;&#x7684;&#xFF0C;&#x8C03;&#x6574;&#x76EE;&#x6807;&#x8303;&#x56F4;&#x3002;</p>
+<p><code>y</code>&#x590D;&#x5236;&#xFF0C;<code>p</code>&#x7C98;&#x8D34;&#xFF0C;&#x591A;&#x884C;&#x4E5F;&#x53EF;&#x4EE5;&#xFF0C;&#x7AD6;&#x5217;&#x64CD;&#x4F5C;&#x9009;&#x4E2D;&#x4E4B;&#x540E;&#xFF0C;<code>p</code>&#x8FD8;&#x53EF;&#x4EE5;&#x7AD6;&#x7740;&#x7C98;&#x8D34;&#x3002;<br>
+<code>yy</code> &#x590D;&#x5236;&#x5F53;&#x524D;&#x884C;<br>
+<code>dd</code> &#x5220;&#x9664;&#x5F53;&#x524D;&#x884C;<br>
+<code>d</code> &#x5220;&#x9664;&#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;</p>
+<h4 class="mume-header" id="%E7%BA%B5%E5%90%91%E7%BC%96%E8%BE%91%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81">&#x7EB5;&#x5411;&#x7F16;&#x8F91;&#xFF0C;&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x4EE3;&#x7801;</h4>
+
+<pre data-role="codeBlock" data-info="txt" class="language-txt">line 1
+line 2
+line 3
+</pre><p>&#x7F16;&#x8F91;&#x6210;&#x5E8F;&#x5217;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt">this is line 1
+this is line 2
+this is line 3
+</pre><p><code>V</code> &#x8FDB;&#x5165;&#x7EB5;&#x5411;&#x7F16;&#x8F91;&#x6A21;&#x5F0F;&#xFF0C;&#x7AD6;&#x5411;&#xFF08;&#x6309;&#x4E0A;&#x4E0B;&#x952E;&#xFF09;&#x9009;&#x62E9;&#x540E;&#xFF0C;<code>I</code>&#x884C;&#x9996;&#x63D2;&#x5165;&#x6A21;&#x5F0F;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x5165;<code>this is</code>&#xFF0C;&#x6309; ESC&#xFF0C;&#x5C31;&#x4F1A;&#x5F97;&#x5230;&#x76EE;&#x6807;&#x5E8F;&#x5217;&#x7ED3;&#x679C;</p>
+<h3 class="mume-header" id="%E6%9B%BF%E6%8D%A2">&#x66FF;&#x6362;</h3>
+
+<p>&#x66FF;&#x6362;&#x4E3A;<code>:s///g</code>&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x3002;</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token punctuation">:</span><span class="token operator">%</span>s<span class="token operator">/</span>old<span class="token operator">/</span><span class="token keyword keyword-new">new</span><span class="token operator">/</span>g <span class="token comment">&quot; &#x5C06;&#x5B57;&#x7B26;&#x4E32;old&#x66FF;&#x6362;&#x6210;new</span>
+<span class="token punctuation">:</span>15s<span class="token operator">/</span>dog<span class="token operator">/</span><span class="token keyword keyword-cat">cat</span><span class="token operator">/</span>g <span class="token comment">&quot; &#x5728;15&#x884C;&#x66FF;&#x6362;dog&#x4E3A;cat</span>
+<span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">,</span>35s<span class="token operator">/</span>int<span class="token operator">/</span>INT<span class="token operator">/</span>g <span class="token comment">&quot; &#x5728;28&#x5230;35&#x884C;&#x7684;int&#x66FF;&#x6362;&#x4E3A;INT</span>
+</pre><p>s &#x7684;&#x5176;&#x4ED6;&#x7528;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token punctuation">:</span><span class="token operator">%</span>s<span class="token operator">/</span>yes<span class="token operator">/</span><span class="token operator">/</span>gn <span class="token comment">&quot; &#x67E5;&#x8BE2;yes&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E2A;&#x6570;</span>
+<span class="token punctuation">:</span><span class="token operator">%</span>s<span class="token operator">/</span>\s\<span class="token operator">+</span>$<span class="token operator">/</span><span class="token operator">/</span> <span class="token comment">&quot; &#x5220;&#x9664;&#x7A7A;&#x683C;</span>
+</pre><h3 class="mume-header" id="%E6%8A%98%E5%8F%A0">&#x6298;&#x53E0;</h3>
+
+<p>&#x4FEE;&#x6539; vimrc</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash">fdm:foldmethod
+<span class="token builtin class-name">set</span> <span class="token assign-left variable">fdm</span><span class="token operator">=</span>indent
+</pre><p><code>no fold found</code></p>
+<p><code>zi</code> &#x5C55;&#x5F00;&#x6240;&#x6709;</p>
+<p><code>zc</code> &#x6298;&#x53E0;&#x4E00;&#x5904;<br>
+<code>zC</code> &#x6298;&#x53E0;&#x6240;&#x6709;<br>
+<code>zo</code> &#x5C55;&#x5F00;&#x4E00;&#x5904;<br>
+<code>zO</code> &#x5C55;&#x5F00;&#x5F53;&#x524D;&#x6240;&#x6709;</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash">:set wrap &#x8BBE;&#x7F6E;&#x81EA;&#x52A8;&#x6298;&#x884C;
+:set nowrap &#x8BBE;&#x7F6E;&#x4E0D;&#x81EA;&#x52A8;&#x6298;&#x884C;
+</pre><h3 class="mume-header" id="set">set</h3>
+
+<p>set &#x4EC5;&#x4E3A;&#x4E34;&#x65F6;&#x7684;&#x8BBE;&#x7F6E;&#xFF08;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x4FEE;&#x6539;&#x4E4B;&#x540E;&#x662F;&#x6C38;&#x4E45;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x4EC5;&#x4EC5;&#x662F;&#x5BF9;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x7684;&#x4FEE;&#x6539;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7F16;&#x8F91;&#x5668;&#x7EA7;&#x522B;&#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x9700;&#x8981;&#x5C06; set &#x8BED;&#x53E5;&#x653E;&#x5230; vimrc &#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
+<ol>
+<li>
+<p>&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token punctuation">:</span><span class="token keyword keyword-set">set</span> <span class="token builtin">fileencoding</span> <span class="token comment">&quot; &#x663E;&#x793A;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x7F16;&#x7801;&#x683C;&#x5F0F;</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-set">set</span> <span class="token builtin">encoding</span><span class="token operator">=</span>utf<span class="token operator">-</span><span class="token number">8</span> <span class="token builtin">fileencodings</span><span class="token operator">=</span>ucs<span class="token operator">-</span>bom<span class="token punctuation">,</span>utf<span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span>cp936 <span class="token comment">&quot; &#x8BBE;&#x7F6E;&#x683C;&#x5F0F;</span>
+</pre></li>
+<li>
+<p>&#x4FEE;&#x6539;&#x9884;&#x89C8;&#x683C;&#x5F0F;</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token keyword keyword-set">set</span> <span class="token keyword keyword-number">number</span> <span class="token comment">&quot; &#x663E;&#x793A;&#x884C;&#x53F7;</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">nonumber</span> <span class="token comment">&quot; &#x4E0D;&#x663E;&#x793A;&#x884C;&#x53F7;</span>
+<span class="token keyword keyword-set">set</span> <span class="token keyword keyword-list">list</span> <span class="token comment">&quot; &#x663E;&#x793A;&#x975E;&#x7A7A;&#x683C;&#x7684;&#x7A7A;&#x767D;&#x7B26;&#xFF0C;&#x6BD4;&#x5982;&#x884C;&#x5C3E;&#x7B26;$&#xFF0C;tab ^I</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">nolist</span> <span class="token comment">&quot; &#x4E0D;&#x663E;&#x793A;</span>
+</pre></li>
+<li>
+<p>&#x63D0;&#x793A; 80 &#x5B57;&#x7B26;&#x7684;&#x957F;&#x5EA6;&#x9650;&#x5236;&#xFF1A;&#x5728;&#x53F3;&#x4FA7;&#x663E;&#x793A;&#x4E00;&#x6761;&#x9650;&#x5236;&#x7EBF;&#xFF0C;&#x7528;&#x4E8E;&#x63D0;&#x9192;&#x6211;&#x4EEC;&#x4E0D;&#x8981;&#x5199;&#x5F97;&#x592A;&#x957F;&#x3002;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x4ECE; 7.3 &#x7248;&#x672C;&#x5F00;&#x59CB;&#x5F15;&#x5165;&#xFF0C;&#x5177;&#x4F53;&#x53EF;<code>:help colorcolumn</code>&#x3002;</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token keyword keyword-set">set</span> colorcolumn<span class="token operator">=</span><span class="token number">81</span>
+</pre></li>
+<li>
+<p>&#x67E5;&#x627E;&#x65F6;&#xFF0C;&#x5927;&#x5C0F;&#x5199;&#x5FFD;&#x7565;&#xFF0C;&#x9000;&#x51FA;&#x540E;&#x8BBE;&#x7F6E;&#x5931;&#x6548;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token keyword keyword-set">set</span> <span class="token builtin">ic</span> <span class="token comment">&quot; &#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;(ignore case)</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">noic</span> <span class="token comment">&quot;&#x4E0D;&#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;</span>
+</pre></li>
+</ol>
+<pre data-role="codeBlock" data-info="vim" class="language-vim"><span class="token comment">&quot; &#x663E;&#x793A;&#x6587;&#x4EF6;&#x540D;</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">statusline</span><span class="token operator">+=</span><span class="token operator">%</span>F
+<span class="token keyword keyword-set">set</span> <span class="token builtin">laststatus</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token comment">&quot; &#x81EA;&#x52A8;&#x6392;&#x7248;&#xFF0C;&#x6309;==&#x5373;&#x53EF;&#x5BF9;&#x5F53;&#x524D;&#x884C;&#x6392;&#x7248;</span>
+<span class="token keyword keyword-filetype">filetype</span> plugin indent <span class="token keyword keyword-on">on</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">cindent</span> <span class="token builtin">shiftwidth</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token comment">&quot; &#x663E;&#x793A;&#x884C;&#x53F7;</span>
+<span class="token keyword keyword-set">set</span> <span class="token keyword keyword-number">number</span>
+<span class="token comment">&quot; Tab &#x5BBD;&#x5EA6;</span>
+<span class="token keyword keyword-set">set</span> <span class="token keyword keyword-ts">ts</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token comment">&quot; &#x81EA;&#x52A8;&#x7F29;&#x8FDB;</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">autoindent</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">sw</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">fdm</span><span class="token operator">=</span>indent # &#x4EE3;&#x7801;&#x6298;&#x53E0; zo &#x6253;&#x5F00;&#x5F53;&#x524D; zc &#x6298;&#x53E0;&#x5F53;&#x524D; zM&#x6298;&#x53E0;&#x5168;&#x90E8; zR &#x6253;&#x5F00;&#x5168;&#x90E8;
+<span class="token keyword keyword-set">set</span> <span class="token builtin">ff</span><span class="token operator">=</span>unix    # &#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x4E3A;unix
+</pre><h2 class="mume-header" id="%E4%BB%A3%E7%A0%81%E5%B7%A5%E5%85%B7ctags-%E5%92%8C-cscope">&#x4EE3;&#x7801;&#x5DE5;&#x5177;&#xFF1A;ctags &#x548C; cscope</h2>
+
+<h4 class="mume-header" id="ctags">ctags</h4>
+
+<p><code>ctags -R</code>&#x9012;&#x5F52;&#x751F;&#x6210;&#x7D22;&#x5F15;&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x4E8E;&#x8DF3;&#x8F6C;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x884C;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x6587;&#x4EF6;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#xFF0C;&#x53EF;&#x80FD;&#x548C;&#x4EE5;&#x524D;&#x4E0D;&#x4E00;&#x6837;&#x4E86;&#xFF0C;vimrc &#x8BBE;&#x7F6E;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt">set tags+=~/.vim/systags
+set tags=tags;
+set autochdir
+</pre><p>&#x6307;&#x4EE4;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim">ctrl<span class="token operator">+</span><span class="token punctuation">]</span> <span class="token comment">&quot; &#x8DF3;&#x8F6C;&#x5230;&#x5B9A;&#x4E49;&#x8FC7;&#x7684;&#x5730;&#x65B9;</span>
+ctrl<span class="token operator">+</span><span class="token keyword keyword-o">o</span> <span class="token comment">&quot; &#x6309;&#x8D70;&#x8FC7;&#x7684;&#x5730;&#x65B9;&#x56DE;&#x53BB;</span>
+<span class="token keyword keyword-vi">vi</span> &#x2013;<span class="token keyword keyword-t">t</span> name  <span class="token comment">&quot; &#x628A; name &#x66FF;&#x6362;&#x4E3A;&#x6B32;&#x67E5;&#x627E;&#x7684;&#x53D8;&#x91CF;&#x6216;&#x51FD;&#x6570;&#x540D;</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-ts">ts</span> <span class="token comment">&quot; ts &#x52A9;&#x8BB0;&#x5B57;&#xFF1A;tags list</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-tp">tp</span> <span class="token comment">&quot; tp &#x52A9;&#x8BB0;&#x5B57;&#xFF1A;tags preview &#x6B64;&#x547D;&#x4EE4;&#x4E0D;&#x5E38;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x8BB0;</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-tn">tn</span> <span class="token comment">&quot; tn &#x52A9;&#x8BB0;&#x5B57;&#xFF1A;tags next &#x6B64;&#x547D;&#x4EE4;&#x4E0D;&#x5E38;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x8BB0;</span>
+</pre><h4 class="mume-header" id="cscope">cscope</h4>
+
+<p><code>cscope -Rb</code> &#x65B9;&#x6CD5;&#x751F;&#x6210; cscope.out &#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x6587;&#x4EF6;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; ctags &#x751F;&#x6210;&#x7684; tags &#x7D22;&#x5F15;&#x6587;&#x4EF6;&#xFF1B;&#x5728;&#x6E90;&#x4EE3;&#x7801;&#x76EE;&#x5F55;&#x4E0B;&#x6253;&#x5F00; vim&#x3002;&#x7528;&#x4E8E;&#x67E5;&#x770B;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x6BB5;&#x51FD;&#x6570;&#x88AB;&#x54EA;&#x91CC;&#x8C03;&#x7528;&#x8FC7;&#x3002;&#x8981;&#x4F7F;&#x7528; cscope &#x67E5;&#x627E;&#x5C31;&#x5FC5;&#x987B;&#x52A0;&#x8F7D; cscope.out &#x6587;&#x4EF6;.&#x5728; vim &#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x6267;&#x884C;&#xFF1A;<code>:cs add cscope.out</code>&#x3002;&#x5982;&#x679C;&#x9012;&#x5F52;&#x6CA1;&#x6709;&#x6210;&#x529F;&#xFF0C;&#x5C1D;&#x8BD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell"><span class="token function">find</span> <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span> -name <span class="token string">&quot;*.[ch]&quot;</span> -o -name <span class="token string">&quot;_.cpp&quot;</span> <span class="token operator">&gt;</span> cscope.files
+cscope -bR -i cscope.files
+</pre><p>vim &#x4E2D;&#xFF0C;&#x6307;&#x4EE4;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt">:cs help
+:cs find c calling this function # do*cycle()
+         e grep
+         s C Symbol
+         t in text
+</pre><h2 class="mume-header" id="%E9%97%AE%E9%A2%98">&#x95EE;&#x9898;</h2>
+
+<h3 class="mume-header" id="%E6%8F%92%E4%BB%B6">&#x63D2;&#x4EF6;</h3>
+
+<h4 class="mume-header" id="vundleycm-%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98">Vundle+YCM &#x5B89;&#x88C5;&#x95EE;&#x9898;</h4>
+
+<p>YCM&#xFF08;YouCompleteMe&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x7CBE;&#x826F;&#x7684;&#x8865;&#x5168;&#x5DE5;&#x5177;&#x3002;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x6709;&#x65F6;&#x5019;&#x4F1A;&#x6709;&#x4E9B;&#x95EE;&#x9898;</p>
+<ol>
+<li><code>YouCompleteMe unavailable no module named builtins</code>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x7F51;&#x7EDC;&#x5F88;&#x6162;&#xFF0C;&#x5BFC;&#x81F4;&#x8981;&#x4F9D;&#x8D56;&#x7684;&#x6587;&#x4EF6;&#x8FD8;&#x6CA1;&#x6709;&#x4E0B;&#x8F7D;&#x5168;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5148;&#x628A;&#x6587;&#x4EF6;&#x4E0B;&#x8F7D;&#x4E86;
+<ol>
+<li><code>cd /home/yourusername/.vim/bundle/YouCompleteMe</code></li>
+<li>&#x6267;&#x884C;<code>git submodule update --init --recursive</code>&#x3002;</li>
+</ol>
+</li>
+<li>Python &#x7248;&#x672C;&#x4E0D;&#x5BF9;&#xFF0C;&#x91CD;&#x65B0;&#x6307;&#x5B9A; Python3 &#x7F16;&#x8BD1;&#x5373;&#x53EF;&#x3002;</li>
+</ol>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">git</span> clone https://github.com/vim/vim.git
+<span class="token builtin class-name">cd</span> vim/src
+<span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
+./configure <span class="token punctuation">\</span>
+  --disable-nls <span class="token punctuation">\</span>
+  --enable-cscope <span class="token punctuation">\</span>
+  --enable-gui<span class="token operator">=</span>no <span class="token punctuation">\</span>
+  --enable-multibyte  <span class="token punctuation">\</span>
+  --enable-pythoninterp <span class="token punctuation">\</span>
+  --enable-rubyinterp <span class="token punctuation">\</span>
+  --prefix<span class="token operator">=</span>/home/lixuefei05/.vim <span class="token punctuation">\</span>
+  --with-features<span class="token operator">=</span>huge  <span class="token punctuation">\</span>
+  --with-python-config-dir<span class="token operator">=</span>/usr/local/lib/python3.8/ <span class="token punctuation">\</span>
+  --with-tlib<span class="token operator">=</span>ncurses <span class="token punctuation">\</span>
+  --without-x
+</pre><h4 class="mume-header" id="not-an-editor-command-nerdtreetoggle">Not an editor command: NERDTreeToggle</h4>
+
+<p>&#x5728; NERDTreeToggle &#x63D2;&#x4EF6;&#x4F7F;&#x7528;&#x65F6;&#x53D1;&#x73B0;&#x3002;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5C31;&#x5C31;&#x662F;&#x589E;&#x52A0;&#x8DEF;&#x5F84;&#x3002;</p>
+<h3 class="mume-header" id="%E7%BC%96%E8%BE%91%E5%92%8C%E6%A0%BC%E5%BC%8F%E7%9B%B8%E5%85%B3">&#x7F16;&#x8F91;&#x548C;&#x683C;&#x5F0F;&#x76F8;&#x5173;</h3>
+
+<h4 class="mume-header" id="no-newline-at-end-of-file">No newline at end of file</h4>
+
+<p>&#x8FD9;&#x4E2A;&#x662F;&#x5728;&#x7F16;&#x8F91;&#x5B8C;&#x6587;&#x4EF6;&#xFF0C;&#x63D0;&#x4EA4;&#x5230; git &#x65F6;&#x51FA;&#x73B0;&#x7684;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x6362;&#x884C;&#x7B26;&#x4E0D;&#x4E00;&#x81F4;&#x3002;<br>
+&#x53EF;&#x4EE5;<code>:set binary noeol</code></p>
+<p>&#x5982;&#x679C;&#x662F;&#x5728; win &#x4E0B;&#x9762;&#xFF0C;&#x5E76;&#x4E14;&#x662F; LF &#x548C; CRLF &#x6DF7;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5EFA;&#x8BAE;&#x8FD8;&#x662F;&#x7528;&#x4E4B;&#x524D;&#x7684;&#x7F16;&#x8F91;&#x5668;&#x5427;&#x3002;</p>
+<h4 class="mume-header" id="%E7%9C%8B%E5%88%B0m">&#x770B;&#x5230;<code>^M</code></h4>
+
+<p>&#x56E0;&#x4E3A; linux/unix &#x4E0B;&#x7684;&#x56DE;&#x8F66;&#x7B26;&#x662F;<code>0d</code>,&#x800C;&#x5728; windows &#x4E0B;&#x4FA7;&#x662F;<code>0d0a</code><br>
+<code>^M</code> &#x53EF;&#x4EE5;&#x7528; dos2unix &#x547D;&#x4EE4;&#x53BB;&#x9664;&#xFF1A;<br>
+<code>dos2unix filename</code> or <code>sed -e &quot;s/\r//g&quot; file &gt; newfile</code> or <code>vi [in ESC mode] type: :%s/^M$//</code></p>
+<p>&#x6216;&#x8005;&#x5728; vim &#x4E2D; <code>:set fileformat=unix</code></p>
+<h3 class="mume-header" id="ctags-error">ctags error</h3>
+
+<h4 class="mume-header" id="ctags-error-format-error-in-tags-file">ctags error &#x201C;format error in tags file&#x201D;</h4>
+
+<p>TLDR; add export CSCOPE_EDITOR=vim to ~/.bashrc and close your terminal window.</p>
+<p>In my case, setting vim as the default editor for cscope fixed the issue:</p>
+<p>echo &quot;export CSCOPE_EDITOR=vim&quot; &gt;&gt; ~/.bashrc # Append to .bashrc<br>
+source ~/.bashrc # Load .bashrc into the current shell<br>
+After this, you may also use the following commands in your project directory for a quick reconfiguration of cscope and ctags:</p>
+<p>ctags -R<br>
+cscope -R</p>
+<h4 class="mume-header" id="ctags-tag-not-found">ctags: tag not found</h4>
+
+<p>Yes, you should tell Vim where to find your tags file with something like:</p>
+<p><code>:set tags=/path/to/tags</code><br>
+This is not very optimal, though. This line in your ~/.vimrc should help:</p>
+<p><code>set tags=./tags,tags;$HOME</code><br>
+It tells Vim to look for a tags file in the directory of the current file, in the current directory and up and up until your $HOME (that&apos;s the meaning of the semicolon), stopping on the first hit.</p>
+<h5 class="mume-header" id="format-error-in-tags-file-tags">Format error in tags file &quot;tags&quot;</h5>
+
+<p><code>ctags -R --languages=C</code></p>
+<h3 class="mume-header" id="cscope-1">cscope</h3>
+
+<p><code>no connection</code> error: <code>cs add \$CSCOPE_DB</code> to my <code>.vimrc</code></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
