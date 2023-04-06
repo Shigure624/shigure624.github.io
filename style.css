@@ -1,0 +1,32 @@
+.line {
+  font-family: Arial;
+  color: rgba(93, 9, 9, 0.943);
+  font-size: 20px;
+  line-height: 36px;
+}
+.newest_line {
+  text-indent: 40px;
+  font-family: Arial;
+  color: rgba(93, 9, 9, 0.943);
+  font-size: 20px;
+  line-height: 36px;
+}
+.theme {
+  list-style-type: circle;
+  font-family: Arial;
+  color: rgba(93, 9, 9, 0.943);
+  font-size: 26px;
+  line-height: 50px;
+}
+.content {
+  text-align: left;
+  position: absolute;
+  width: 600px;
+  height: 1000px;
+}
+.text {
+  font-size: 16px;
+  margin-top: -12px;
+  margin-bottom: -12px;
+  color: black;
+}

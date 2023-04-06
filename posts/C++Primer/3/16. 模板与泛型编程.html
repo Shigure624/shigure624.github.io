@@ -1,0 +1,906 @@
+<!DOCTYPE html><html><head>
+      <title>16. &#x6A21;&#x677F;&#x4E0E;&#x6CDB;&#x578B;&#x7F16;&#x7A0B;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#-&#x6A21;&#x677F;" class="md-toc-link"><p>&#x6A21;&#x677F;</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#-typename-&#x5173;&#x952E;&#x5B57;" class="md-toc-link"><p>typename &#x5173;&#x952E;&#x5B57;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-typename-vs-class" class="md-toc-link">
+            <p>typename vs class</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-why-use-typename" class="md-toc-link">
+            <p>why use typename</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x540D;&#x79F0;&#x5728;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x7C7B;&#x578B;" class="md-toc-link">
+            <p>&#x540D;&#x79F0;&#x5728;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x7C7B;&#x578B;&#xFF1F;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-typename-usage" class="md-toc-link">
+            <p>Typename Usage</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-egs" class="md-toc-link">
+            <p>egs</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#-&#x6A21;&#x677F;&#x51FD;&#x6570;" class="md-toc-link"><p>&#x6A21;&#x677F;&#x51FD;&#x6570;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x5B9A;&#x4E49;&#x548C;&#x5B9E;&#x73B0;" class="md-toc-link">
+            <p>&#x5B9A;&#x4E49;&#x548C;&#x5B9E;&#x73B0;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x91CD;&#x8F7D;" class="md-toc-link">
+            <p>&#x91CD;&#x8F7D;</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-template-argument-deduction" class="md-toc-link">
+            <p>template argument deduction</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#-&#x7C7B;&#x4E0E;&#x6A21;&#x677F;" class="md-toc-link"><p>&#x7C7B;&#x4E0E;&#x6A21;&#x677F;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x6A21;&#x677F;&#x51FD;&#x6570;&#x548C;&#x540C;&#x540D;&#x51FD;&#x6570;" class="md-toc-link">
+            <p>&#x6A21;&#x677F;&#x51FD;&#x6570;&#x548C;&#x540C;&#x540D;&#x51FD;&#x6570;</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#-&#x4E0D;&#x652F;&#x6301;&#x5206;&#x79BB;&#x5F0F;&#x7F16;&#x8BD1;" class="md-toc-link"><p>&#x4E0D;&#x652F;&#x6301;&#x5206;&#x79BB;&#x5F0F;&#x7F16;&#x8BD1;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x4F8B;&#x5B50;" class="md-toc-link">
+            <p>&#x4F8B;&#x5B50;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x539F;&#x56E0;" class="md-toc-link">
+            <p>&#x539F;&#x56E0;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-solution" class="md-toc-link">
+            <p>solution</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-another-solution" class="md-toc-link">
+            <p>Another solution</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-extern-template-c11" class="md-toc-link">
+            <p>extern template (C11)</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#-&#x6A21;&#x677F;&#x7C7B;" class="md-toc-link"><p>&#x6A21;&#x677F;&#x7C7B;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x6A21;&#x677F;&#x7C7B;&#x7684;&#x7EE7;&#x627F;" class="md-toc-link">
+            <p>&#x6A21;&#x677F;&#x7C7B;&#x7684;&#x7EE7;&#x627F;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x6A21;&#x677F;&#x7C7B;&#x4E0E;&#x865A;&#x51FD;&#x6570;" class="md-toc-link">
+            <p>&#x6A21;&#x677F;&#x7C7B;&#x4E0E;&#x865A;&#x51FD;&#x6570;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-&#x6A21;&#x677F;&#x7C7B;&#x548C;&#x7F3A;&#x7701;&#x53C2;&#x6570;" class="md-toc-link">
+            <p>&#x6A21;&#x677F;&#x7C7B;&#x548C;&#x7F3A;&#x7701;&#x53C2;&#x6570;</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-ref" class="md-toc-link">
+            <p>ref</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+<h1 class="mume-header" id="-%E6%A8%A1%E6%9D%BF">&#x6A21;&#x677F;</h1>
+
+<pre data-role="codeBlock" data-info="c" class="language-c">Usage
+In a template declaration<span class="token punctuation">,</span> typename can be used as an alternative to class to declare type template parameters and template template <span class="token function">parameters</span> <span class="token punctuation">(</span>since C<span class="token operator">++</span><span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+Inside a declaration or a definition of a template<span class="token punctuation">,</span> typename can be used to declare that a dependent qualified name is a type<span class="token punctuation">.</span>
+Inside a declaration or a definition of a template<span class="token punctuation">,</span> <span class="token punctuation">(</span>until C<span class="token operator">++</span><span class="token number">11</span><span class="token punctuation">)</span> typename can be used before a non<span class="token operator">-</span>dependent qualified type name<span class="token punctuation">.</span> It has no effect in this <span class="token keyword keyword-case">case</span><span class="token punctuation">.</span>
+Inside a requirements <span class="token keyword keyword-for">for</span> type <span class="token function">requirements</span> <span class="token punctuation">(</span>since C<span class="token operator">++</span><span class="token number">20</span><span class="token punctuation">)</span>
+&#x6307;&#x4EE3;&#x7C7B;
+</pre><h2 class="mume-header" id="-typename-%E5%85%B3%E9%94%AE%E5%AD%97">typename &#x5173;&#x952E;&#x5B57;</h2>
+
+<h3 class="mume-header" id="-typename-vs-class">typename vs class</h3>
+
+<p>&#x5BF9;&#x5F88;&#x591A;&#x4EBA;&#x6765;&#x8BF4;&#xFF0C;&#x603B;&#x662F;&#x4E0D;&#x4E60;&#x60EF; class&#xFF0C;&#x56E0;&#x4E3A;&#x4ECE;&#x5176;&#x672C;&#x6765;&#x5B58;&#x5728;&#x7684;&#x76EE;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x533A;&#x522B;&#x4E8E;&#x8BED;&#x8A00;&#x7684;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#xFF0C;&#x7528;&#x4E8E;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x3002;&#x90A3;&#x4E48;&#x5BF9;&#x4E8E;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#xFF08;&#x76F8;&#x5BF9;&#x4E8E;&#x4E0A;&#x4F8B;&#xFF0C;&#x4EC5;&#x5C06; typename &#x6362;&#x6210;&#x4E86; class&#xFF09;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> T <span class="token operator">&amp;</span>v1<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> T <span class="token operator">&amp;</span>v2<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>v1 <span class="token operator">&lt;</span> v2<span class="token punctuation">)</span> <span class="token keyword keyword-return">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>v2 <span class="token operator">&lt;</span> v1<span class="token punctuation">)</span> <span class="token keyword keyword-return">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4ECE;&#x8868;&#x9762;&#x4E0A;&#x770B;&#x8D77;&#x6765;&#x5C31;&#x597D;&#x50CF;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x7684;&#x53C2;&#x6570;&#x5E94;&#x8BE5;&#x53EA;&#x652F;&#x6301;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x8BED;&#x8A00;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#x6216;&#x8005;&#x6307;&#x9488;&#x6765;&#x8C03;&#x7528;&#x8BE5;&#x6A21;&#x677F;&#x51FD;&#x6570;&#x65F6;&#x603B;&#x4F1A;&#x89C9;&#x5F97;&#x6709;&#x4E00;&#x4E1D;&#x5947;&#x602A;&#xFF08;&#x867D;&#x7136;&#x5E76;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#xFF09;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-int">int</span> v1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> v2 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span> ret <span class="token operator">=</span> <span class="token function">compare</span><span class="token punctuation">(</span>v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-int">int</span> <span class="token operator">*</span>pv1 <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token operator">*</span>pv2 <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+ret <span class="token operator">=</span> <span class="token function">compare</span><span class="token punctuation">(</span>pv1<span class="token punctuation">,</span> pv2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x4EE4;&#x4EBA;&#x611F;&#x5230;&#x5947;&#x602A;&#x7684;&#x539F;&#x56E0;&#x662F;&#xFF0C;class &#x5728;&#x7C7B;&#x548C;&#x6A21;&#x677F;&#x4E2D;&#x8868;&#x73B0;&#x7684;&#x610F;&#x4E49;&#x770B;&#x8D77;&#x6765;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x524D;&#x8005;&#x9488;&#x5BF9;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#xFF0C;&#x800C;&#x540E;&#x8005;&#x5305;&#x542B;&#x4E86;&#x8BED;&#x8A00;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#x548C;&#x6307;&#x9488;&#x3002;&#x4E5F;&#x6B63;&#x56E0;&#x4E3A;&#x5982;&#x6B64;&#xFF0C;&#x4EBA;&#x4EEC;&#x4F3C;&#x4E4E;&#x89C9;&#x5F97;&#x5F53;&#x65F6;&#x6CA1;&#x6709;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5173;&#x952E;&#x5B57;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;</p>
+<h3 class="mume-header" id="-why-use-typename">why use typename</h3>
+
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    T<span class="token double-colon punctuation">::</span>iterator <span class="token operator">*</span> iter<span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+
+<span class="token punctuation">}</span>
+</pre><p>&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;<code>iterator</code>&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x53EA;&#x662F;&#x4E2A;&#x6210;&#x5458;&#x7684;&#x503C;&#x3002;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-struct">struct</span> <span class="token class-name">ContainsAType</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-struct">struct</span> <span class="token class-name">iterator</span> <span class="token punctuation">{</span> <span class="token comment">/*...*/</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-struct">struct</span> <span class="token class-name">ContainsAnotherType</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token keyword keyword-int">int</span> iterator<span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><p>&#x5982;&#x679C; iter &#x662F;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x884C;&#x4EE3;&#x7801;&#x5C06;&#x5B8C;&#x5168;&#x6B63;&#x786E;&#xFF0C;&#x5B83;&#x662F;&#x8868;&#x793A;&#x8BA1;&#x7B97;&#x4E24;&#x6570;&#x76F8;&#x4E58;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-static">static</span> <span class="token keyword keyword-int">int</span> iter <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    T<span class="token double-colon punctuation">::</span>iterator <span class="token operator">*</span> iter<span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="-%E5%90%8D%E7%A7%B0%E5%9C%A8%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E6%98%AF%E7%B1%BB%E5%9E%8B">&#x540D;&#x79F0;&#x5728;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x7C7B;&#x578B;&#xFF1F;</h3>
+
+<p>&#x5BF9;&#x4E8E;&#x7528;&#x6A21;&#x677F;&#x5B9A;&#x4E49;&#x7684;&#x3001;&#x4F9D;&#x8D56;&#x4E8E;&#x6A21;&#x677F;&#x53C2;&#x6570;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;&#x65F6;&#xFF0C;&#x540D;&#x79F0;&#x88AB;&#x89C6;&#x4E3A;&#x7C7B;&#x578B;&#xFF1A;</p>
+<ol>
+<li>&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x53C2;&#x6570;&#x4E2D;&#xFF0C;&#x5B58;&#x5728;&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x540D;</li>
+<li>&#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x524D;&#xFF0C;&#x4F7F;&#x7528; typename &#x5173;&#x952E;&#x5B57;&#x4FEE;&#x9970;</li>
+</ol>
+<p>&#x5982;&#x679C;&#x60F3;&#x76F4;&#x63A5;&#x544A;&#x8BC9;&#x7F16;&#x8BD1;&#x5668; T::iterator &#x662F;&#x7C7B;&#x578B;&#x800C;&#x4E0D;&#x662F;&#x53D8;&#x91CF;&#xFF0C;&#x53EA;&#x9700;&#x7528; typename &#x4FEE;&#x9970;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token double-colon punctuation">::</span>iterator <span class="token operator">*</span> iter<span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x786E;&#x5B9A; T::iterator &#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x800C;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x7B49;&#x5230;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x671F;&#x624D;&#x80FD;&#x786E;&#x5B9A;&#xFF0C;&#x56E0;&#x6B64;&#x6D88;&#x9664;&#x4E86;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;&#x6B67;&#x4E49;&#x3002;</p>
+<h3 class="mume-header" id="-typename-usage">Typename Usage</h3>
+
+<ol>
+<li>typename &#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x6A21;&#x677F;&#x7684;&#x5B9A;&#x4E49;&#x4E2D;</li>
+<li>typename &#x53EF;&#x7528;&#x4E8E;&#x975E;&#x9650;&#x5B9A;&#x7C7B;&#x578B;&#xFF0C;&#x6BD4;&#x5982;&#x524D;&#x9762;&#x4ECB;&#x7ECD;&#x8FC7;&#x7684; int&#xFF0C;vector<int>&#x4E4B;&#x7C7B;</int></li>
+<li>&#x57FA;&#x7C7B;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x6BD4;&#x5982;<code>template &lt;class T&gt; class C1 : T::InnerType</code>&#x4E0D;&#x80FD;&#x5728;<code>T::InnerType</code>&#x524D;&#x9762;&#x52A0; typename</li>
+<li>&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x521D;&#x59CB;&#x5316;&#x5217;&#x8868;&#x4E2D;</li>
+</ol>
+<p>&#x5982;&#x679C;&#x7C7B;&#x578B;&#x662F;&#x4F9D;&#x8D56;&#x4E8E;&#x6A21;&#x677F;&#x53C2;&#x6570;&#x7684;&#x9650;&#x5B9A;&#x540D;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x5B83;&#x4E4B;&#x524D;&#x5FC5;&#x987B;&#x52A0; typename(&#x9664;&#x975E;&#x662F;&#x57FA;&#x7C7B;&#x5217;&#x8868;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x7C7B;&#x7684;&#x521D;&#x59CB;&#x5316;&#x6210;&#x5458;&#x5217;&#x8868;&#x4E2D;)</p>
+<p>&#x5176;&#x5B83;&#x60C5;&#x51B5;&#x4E0B; typename &#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x4E0D;&#x662F;&#x4F9D;&#x8D56;&#x540D;&#x7684;&#x9650;&#x5B9A;&#x540D;&#xFF0C;&#x8BE5;&#x540D;&#x79F0;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4F8B;&#x5982; vector<int> vi;</int></p>
+<h3 class="mume-header" id="-egs">egs</h3>
+
+<p><code>typedef typename T::iterator iterator_type;</code></p>
+<p><code>typedef typename __type_traits&lt;T&gt;::has_trivial_destructor trivial_destructor;</code></p>
+<p>&#x5B83;&#x662F;&#x5C06;__type_traits<t> &#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x7C7B;&#x4E2D;&#x7684; has_trivial_destructor &#x5D4C;&#x5957;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x53EB;&#x505A; trivial_destructor &#x7684;&#x522B;&#x540D;&#xFF0C;&#x6E05;&#x6670;&#x660E;&#x4E86;&#x3002;</t></p>
+<p>&#x65E2;&#x7136; typename &#x5173;&#x952E;&#x5B57;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x6307;&#x5B9A;&#x6A21;&#x677F;&#x53C2;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x5E9F;&#x9664; class &#x8FD9;&#x4E00;&#x7528;&#x6CD5;&#x5462;&#xFF1F;&#x7B54;&#x6848;&#x5176;&#x5B9E;&#x4E5F;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x6700;&#x7EC8;&#x7684;&#x6807;&#x51C6;&#x51FA;&#x6765;&#x4E4B;&#x524D;&#xFF0C;&#x6240;&#x6709;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x4E66;&#x3001;&#x6587;&#x7AE0;&#x3001;&#x6559;&#x5B66;&#x3001;&#x4EE3;&#x7801;&#x4E2D;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x7684;&#x662F; class&#xFF0C;&#x53EF;&#x4EE5;&#x60F3;&#x50CF;&#xFF0C;&#x5982;&#x679C;&#x6807;&#x51C6;&#x4E0D;&#x518D;&#x652F;&#x6301; class&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x3002;</p>
+<h2 class="mume-header" id="-%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0">&#x6A21;&#x677F;&#x51FD;&#x6570;</h2>
+
+<h3 class="mume-header" id="-%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0">&#x5B9A;&#x4E49;&#x548C;&#x5B9E;&#x73B0;</h3>
+
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span> parameter<span class="token operator">-</span>list <span class="token operator">&gt;</span> function<span class="token operator">-</span>declaration
+<span class="token keyword keyword-export">export</span> <span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span> parameter<span class="token operator">-</span>list <span class="token operator">&gt;</span> function<span class="token operator">-</span><span class="token function">declaration</span>	<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>	<span class="token punctuation">(</span>until C<span class="token operator">++</span><span class="token number">11</span><span class="token punctuation">)</span>
+</pre><pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">f</span><span class="token punctuation">(</span>T s<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> <span class="token string">&apos;\n&apos;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token generic-function"><span class="token function">f</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-double">double</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// instantiates and calls f&lt;double&gt;(double)</span>
+    <span class="token generic-function"><span class="token function">f</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// instantiates and calls f&lt;char&gt;(char)</span>
+    <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// instantiates and calls f&lt;int&gt;(int)</span>
+    <span class="token keyword keyword-void">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>ptr<span class="token punctuation">)</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string<span class="token punctuation">)</span> <span class="token operator">=</span> f<span class="token punctuation">;</span> <span class="token comment">// instantiates f&lt;string&gt;(string)</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="-%E9%87%8D%E8%BD%BD">&#x91CD;&#x8F7D;</h3>
+
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">// &#x6A21;&#x677F;&#x51FD;&#x6570; 1</span>
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T1</span><span class="token punctuation">,</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">T2</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">print</span><span class="token punctuation">(</span>T1 arg1<span class="token punctuation">,</span> T2 arg2<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span> arg1 <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span><span class="token operator">&lt;&lt;</span> arg2<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// &#x6A21;&#x677F;&#x51FD;&#x6570; 2</span>
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">print</span><span class="token punctuation">(</span>T arg1<span class="token punctuation">,</span> T arg2<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span> arg1 <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span><span class="token operator">&lt;&lt;</span> arg2<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// &#x6A21;&#x677F;&#x51FD;&#x6570; 3</span>
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T</span><span class="token punctuation">,</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T2</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">print</span><span class="token punctuation">(</span>T arg1<span class="token punctuation">,</span> T arg2<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span> arg1 <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span><span class="token operator">&lt;&lt;</span> arg2<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="-template-argument-deduction">template argument deduction</h2>
+
+<p>TODO</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span> <span class="token keyword keyword-void">void</span> <span class="token function">f</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>initializer_list<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// P = std::initializer_list&lt;T&gt;, A = {1, 2, 3}</span>
+               <span class="token comment">// P&apos;1 = T, A&apos;1 = 1: deduced T = int</span>
+               <span class="token comment">// P&apos;2 = T, A&apos;2 = 2: deduced T = int</span>
+               <span class="token comment">// P&apos;3 = T, A&apos;3 = 3: deduced T = int</span>
+               <span class="token comment">// OK: deduced T = int</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&quot;abc&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// P = std::initializer_list&lt;T&gt;, A = {1, &quot;abc&quot;}</span>
+               <span class="token comment">// P&apos;1 = T, A&apos;1 = 1: deduced T = int</span>
+               <span class="token comment">// P&apos;2 = T, A&apos;2 = &quot;abc&quot;: deduced T = const char*</span>
+               <span class="token comment">// error: deduction fails, T is ambiguous</span>
+</pre><h2 class="mume-header" id="-%E7%B1%BB%E4%B8%8E%E6%A8%A1%E6%9D%BF">&#x7C7B;&#x4E0E;&#x6A21;&#x677F;</h2>
+
+<ol>
+<li>
+<p>&#x7C7B;&#x7684;&#x6210;&#x5458;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6A21;&#x677F;&#x51FD;&#x6570;&#xFF1A;&#x6210;&#x5458;&#x6A21;&#x677F;&#x51FD;&#x6570;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+        <span class="token function">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+        <span class="token keyword keyword-bool">bool</span> <span class="token function">greater</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword keyword-return">return</span> a <span class="token operator">&gt;</span> b<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Base b<span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> b<span class="token punctuation">.</span><span class="token function">greater</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span> <span class="token comment">// ok why? template argument deduction</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> b<span class="token punctuation">.</span><span class="token generic-function"><span class="token function">greater</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre></li>
+<li>
+<p>&#x7C7B;&#xFF1A;&#x6210;&#x5458;&#x6A21;&#x677F;&#x51FD;&#x6570;&#xFF0C;&#x4E0D;&#x80FD;&#x7EE7;&#x627F;&#x865A;&#x51FD;&#x6570;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+        <span class="token function">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+        <span class="token keyword keyword-virtual">virtual</span> <span class="token keyword keyword-bool">bool</span> <span class="token function">greater</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword keyword-public">public</span> <span class="token class-name">Base</span></span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+        <span class="token function">Derived</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword keyword-virtual">virtual</span> <span class="token keyword keyword-bool">bool</span> <span class="token function">greater</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span> <span class="token keyword keyword-override">override</span> <span class="token punctuation">{</span>
+            <span class="token keyword keyword-return">return</span> a <span class="token operator">&gt;</span> b<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Derived d<span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> d<span class="token punctuation">.</span><span class="token generic-function"><span class="token function">greater</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// error: &apos;virtual&apos; cannot be specified on member function templates</span>
+</pre><p>&#x539F;&#x56E0;&#xFF1A;<br>
+&#x7F16;&#x8BD1;&#x5668;&#x5728;&#x7F16;&#x8BD1;&#x4E00;&#x4E2A;&#x7C7B;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x786E;&#x5B9A;&#x7C7B;&#x7684;&#x865A;&#x51FD;&#x6570;&#x8868;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7C7B;&#x6709; N &#x4E2A;&#x865A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x7684;&#x865A;&#x51FD;&#x6570;&#x8868;&#x7684;&#x5927;&#x5C0F;&#x5C31;&#x662F; N&#xFF0C;&#x5982;&#x679C;&#x6309;&#x5B57;&#x8282;&#x7B97;&#x7684;&#x8BDD;&#x90A3;&#x4E48;&#x5C31;&#x662F; 4*N&#x3002;<br>
+&#x5982;&#x679C;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x6A21;&#x677F;&#x51FD;&#x6570;&#x4E3A;&#x865A;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4E3A;&#x8BE5;&#x6210;&#x5458;&#x6A21;&#x677F;&#x51FD;&#x6570;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x51FA;&#x5F88;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x7248;&#x672C;&#x7684;&#x865A;&#x51FD;&#x6570;&#x3002;&#x7F16;&#x8BD1;&#x5668;&#x4E3A;&#x4E86;&#x786E;&#x5B9A;&#x7C7B;&#x7684;&#x865A;&#x51FD;&#x6570;&#x8868;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x77E5;&#x9053;&#x4E00;&#x5171;&#x4E3A;&#x8BE5;&#x6210;&#x5458;&#x6A21;&#x677F;&#x51FD;&#x6570;&#x5B9E;&#x4F8B;&#x5316;&#x4E86;&#x591A;&#x5C11;&#x4E2A;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684;&#x865A;&#x51FD;&#x6570;&#x3002;<br>
+&#x663E;&#x7136;&#x7F16;&#x8BD1;&#x5668;&#x9700;&#x8981;&#x67E5;&#x627E;&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#xFF0C;&#x624D;&#x80FD;&#x591F;&#x77E5;&#x9053;&#x5230;&#x5E95;&#x6709;&#x51E0;&#x4E2A;&#x865A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x591A;&#x6587;&#x4EF6;&#x7684;&#x9879;&#x76EE;&#x6765;&#x8BF4;&#xFF0C;&#x4EE3;&#x4EF7;&#x662F;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x624D;&#x89C4;&#x5B9A;&#x6210;&#x5458;&#x6A21;&#x677F;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x591F;&#x4E3A;&#x865A;&#x51FD;&#x6570;&#x3002;</p>
+</li>
+<li>
+<p>&#x7C7B;&#xFF1A;&#x6210;&#x5458;&#x6A21;&#x677F;&#x51FD;&#x6570;&#xFF0C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</p>
+<p>&#x7B2C;&#x4E00;&#x79CD;&#xFF1A;&#x51FD;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x3002;&#x6210;&#x5458;&#x6A21;&#x677F;&#x51FD;&#x6570;&#x548C;&#x666E;&#x901A;&#x51FD;&#x6570;&#x4E00;&#x6837;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x51FD;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;<br>
+&#x7B2C;&#x4E8C;&#x79CD;&#xFF1A;&#x51FD;&#x6570;&#x6A21;&#x677F;&#x7684;&#x9ED8;&#x8BA4;&#x6A21;&#x677F;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x53EF;&#x4EE5;&#x3002;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">//&#x7B2C;&#x4E00;&#x79CD;&#x7684;&#x60C5;&#x51B5;&#xFF1A;</span>
+<span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+T <span class="token function">sum</span><span class="token punctuation">(</span>T<span class="token operator">*</span> b<span class="token punctuation">,</span>T<span class="token operator">*</span> e<span class="token punctuation">,</span>T result <span class="token operator">=</span> <span class="token function">T</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//&#x8FD9;&#x91CC;&#x7684;result&#x5C31;&#x662F;&#x51FD;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#xFF0C;&#x5141;&#x8BB8;</span>
+<span class="token punctuation">{</span>
+<span class="token keyword keyword-while">while</span><span class="token punctuation">(</span>b<span class="token operator">!=</span>e<span class="token punctuation">)</span>
+result <span class="token operator">+=</span> <span class="token operator">*</span>b<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-return">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">//&#x7B2C;&#x4E8C;&#x79CD;&#x7684;&#x60C5;&#x51B5;&#xFF1A;</span>
+<span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span> <span class="token operator">=</span> <span class="token keyword keyword-char">char</span><span class="token operator">&gt;</span> <span class="token comment">// &#x8FD9;&#x91CC;&#x7684;char&#x4E3A;&#x9ED8;&#x8BA4;&#x6A21;&#x677F;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x3002;&#x5728;C11&#x88AB;&#x5141;&#x8BB8;</span>
+T <span class="token function">f</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token keyword keyword-return">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// warning: default template arguments for a function template are a C++11 extension [-Wc++11-extensions]</span>
+</pre><p>&#x51FD;&#x6570;&#x6A21;&#x677F;&#x7684;&#x6A21;&#x677F;&#x53C2;&#x6570;&#xFF0C;&#x662F;&#x5728;&#x8C03;&#x7528;&#x65F6;&#x3001;&#x7F16;&#x8BD1;&#x5668;&#x6839;&#x636E;&#x5B9E;&#x53C2;&#x7684;&#x7C7B;&#x578B;&#x6765;&#x786E;&#x5B9A;&#x7684;&#x3002;&#x4F8B;&#x5B50; 2 &#x91CC;&#x9762;&#x7684;&#x7F3A;&#x7701;&#x6CA1;&#x5565;&#x5FC5;&#x8981;&#x3002;&#x5728; C11 &#x4E4B;&#x540E;&#xFF0C;&#x8FD9;&#x53D8;&#x6210;&#x4E86;&#x4E00;&#x9879; C++11 extension.</p>
+</li>
+</ol>
+<h3 class="mume-header" id="-%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0%E5%92%8C%E5%90%8C%E5%90%8D%E5%87%BD%E6%95%B0">&#x6A21;&#x677F;&#x51FD;&#x6570;&#x548C;&#x540C;&#x540D;&#x51FD;&#x6570;</h3>
+
+<p>&#x7236;&#x7C7B;&#x7528; function_A&#xFF0C;functionA &#x662F;&#x4E00;&#x4E2A;&#x865A;&#x51FD;&#x6570;&#xFF0C;<br>
+&#x5B50;&#x7C7B;&#x7528;&#x6A21;&#x677F;&#x51FD;&#x6570;&#x4E5F;&#x53EB; function_A&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x662F;&#x5B50;&#x7C7B;&#x7684;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword keyword-virtual">virtual</span> <span class="token keyword keyword-void">void</span> <span class="token function">func_A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Base&quot;</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword keyword-public">public</span> <span class="token class-name">Base</span></span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">Derived</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">func_A</span><span class="token punctuation">(</span>T a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> a <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Derived d<span class="token punctuation">;</span>
+    d<span class="token punctuation">.</span><span class="token generic-function"><span class="token function">func_A</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5176;&#x5B9E;&#xFF0C;&#x5C31;&#x662F;&#x4E24;&#x4E2A;&#x65E0;&#x5173;&#x7684;&#x51FD;&#x6570;&#x3002;&#x4ED6;&#x4EEC;&#x7684;&#x51FD;&#x6570;&#x540D;&#x76F8;&#x540C;&#xFF0C;&#x53C2;&#x6570;&#x4E0D;&#x540C;&#xFF0C;&#x4E14;&#x5B50;&#x7C7B;&#x6CA1;&#x7528;&#x4F7F;&#x7528; virtual &#x51FD;&#x6570;&#xFF0C;&#x57FA;&#x7C7B;&#x51FD;&#x6570;&#x88AB;&#x9690;&#x85CF;&#x3002;</p>
+<h3 class="mume-header" id="-%E4%B8%8D%E6%94%AF%E6%8C%81%E5%88%86%E7%A6%BB%E5%BC%8F%E7%BC%96%E8%AF%91">&#x4E0D;&#x652F;&#x6301;&#x5206;&#x79BB;&#x5F0F;&#x7F16;&#x8BD1;</h3>
+
+<blockquote>
+<p>The only portable way of using templates at the moment is to implement them in header files by using inline functions. [The C++ standard library: a tutorial and handbook]</p>
+</blockquote>
+<p>c++&#x6A21;&#x677F;&#x4E0D;&#x652F;&#x6301;&#x5206;&#x79BB;&#x5F0F;&#x7F16;&#x8BD1;&#xFF0C;&#x628A;&#x6A21;&#x677F;&#x7C7B;&#x7684;&#x58F0;&#x660E;&#x548C;&#x5B9E;&#x73B0;&#x653E;&#x5230;.h &#x6587;&#x4EF6;&#x91CC;&#x9762;&#x3002;</p>
+<h4 class="mume-header" id="-%E4%BE%8B%E5%AD%90">&#x4F8B;&#x5B50;</h4>
+
+<p>test_template_func.h</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">func</span><span class="token punctuation">(</span>T t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>test_template_func.cpp</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;test_template_func.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">func</span><span class="token punctuation">(</span>T t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> t <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>test_template_func_main.cpp</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;test_template_func.h&quot;</span></span>
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-int">int</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token generic-function"><span class="token function">func</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><code>error: void func&lt;int&gt;(int)&quot;, referenced from ... ld symbol(s) not found for architecture x86_64</code></p>
+<h4 class="mume-header" id="-%E5%8E%9F%E5%9B%A0">&#x539F;&#x56E0;</h4>
+
+<p>Compilers process a single .cpp file at a time. Therefore, they are able to instantiate templates in a .cpp file, but only if they&apos;re defined in that same .cpp file.</p>
+<ol>
+<li>A template is not a class or a function. A template is a &#x201C;pattern&#x201D; that the compiler uses to generate a family of classes or functions.</li>
+<li>In order for the compiler to generate the code, it must see both the template definition (not just declaration) and the specific types/whatever used to &#x201C;fill in&#x201D; the template. For example, if you&#x2019;re trying to use a Foo<int>, the compiler must see both the Foo template and the fact that you&#x2019;re trying to make a specific Foo<int>.</int></int></li>
+<li>Your compiler probably doesn&#x2019;t remember the details of one .cpp file while it is compiling another .cpp file. It could, but most do not and if you are reading this FAQ, it almost definitely does not. BTW this is called the &#x201C;separate compilation model.&#x201D;</li>
+</ol>
+<p><a href="https://isocpp.org/wiki/faq/templates#templates-defn-vs-decl">https://isocpp.org/wiki/faq/templates#templates-defn-vs-decl</a></p>
+<blockquote>
+<p>The compiler needs to have access to the implementation of the methods, to instantiate them with the template argument (in this case int). If these implementations were not in the header, they wouldn&apos;t be accessible, and therefore the compiler wouldn&apos;t be able to instantiate the template. When instantiating a template, the compiler creates a new class with the given template argument. For example:</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-struct">struct</span> <span class="token class-name">Foo</span>
+<span class="token punctuation">{</span>
+    T bar<span class="token punctuation">;</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">/* do stuff using T */</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// somewhere in a .cpp</span>
+Foo<span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span> f<span class="token punctuation">;</span>
+</pre><p>When reading this line, the compiler will create a new class (let&apos;s call it FooInt), which is equivalent to the following:</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-struct">struct</span> <span class="token class-name">FooInt</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-int">int</span> bar<span class="token punctuation">;</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> param<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">/* do stuff using int */</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>Consequently, the compiler needs to have access to the implementation of the methods, to instantiate them with the template argument (in this case int). If these implementations were not in the header, they wouldn&apos;t be accessible, and therefore the compiler wouldn&apos;t be able to instantiate the template.</p>
+<h4 class="mume-header" id="-solution">solution</h4>
+
+<p><a href="https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file">https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file</a></p>
+<p>Foo.h</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-struct">struct</span> <span class="token class-name">Foo</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;Foo.tpp&quot;</span> <span class="token comment">// last line</span></span>
+</pre><p>Foo.tpp</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token class-name">Foo</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">doSomething</span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">//implementation</span>
+<span class="token punctuation">}</span>
+</pre><p><a href="https://stackoverflow.com/questions/44774036/why-use-a-tpp-file-when-implementing-templated-functions-and-classes-defined-i">https://stackoverflow.com/questions/44774036/why-use-a-tpp-file-when-implementing-templated-functions-and-classes-defined-i</a></p>
+<blockquote>
+<p>Does it matter if it&apos;s .tpp or any other extension? And why not use a .cpp?</p>
+</blockquote>
+<p>It does not matter what the extension is, but don&apos;t use .cpp because it goes against conventions (it will still work, but don&apos;t do it; .cpp files are generally source files). Other than that it&apos;s a matter of what your codebase uses. For example I (and the Boost codebase) use .ipp for this purpose.</p>
+<blockquote>
+<p>What&apos;s the significance of a .tpp file?</p>
+</blockquote>
+<p>It&apos;s used when you don&apos;t want the file that contains the interface of a module to contain all the gory implementation details. But you cannot write the implementation in a .cpp file because it&apos;s a template. So you do the best you can (not considering explicit instantiations and the like). For example</p>
+<blockquote>
+<p>You don&apos;t compile the .tpp, .ipp, -inl.h, etc files. They are just like header files, except that they are only included by other header files. You only compile source (.cpp, .cc) files.</p>
+</blockquote>
+<h4 class="mume-header" id="-another-solution">Another solution</h4>
+
+<p>C++0x: export was removed. extern (for templates) was added.</p>
+<p>Is to keep the implementation separated, and explicitly instantiate all the template instances you&apos;ll need:</p>
+<p>Foo.h</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">// no implementation</span>
+<span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><p>Foo.cpp</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">// implementation of Foo&apos;s methods</span>
+
+<span class="token comment">// explicit instantiations</span>
+<span class="token keyword keyword-template">template</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Foo</span><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-template">template</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Foo</span><span class="token operator">&lt;</span><span class="token keyword keyword-float">float</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token comment">// You will only be able to use Foo with int or float</span>
+</pre><h3 class="mume-header" id="-extern-template-c11">extern template (C11)</h3>
+
+<p>You should only use extern template to force the compiler to not instantiate a template when you know that it will be instantiated somewhere else. It is used to reduce compile time and object file size.</p>
+<p>For example:</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">// header.h</span>
+
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">ReallyBigFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Body</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// source1.cpp</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;header.h&quot;</span></span>
+<span class="token keyword keyword-void">void</span> <span class="token function">something1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token generic-function"><span class="token function">ReallyBigFunction</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// source2.cpp</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;header.h&quot;</span></span>
+<span class="token keyword keyword-void">void</span> <span class="token function">something2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token generic-function"><span class="token function">ReallyBigFunction</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>This will result in the following object files:</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp">source1<span class="token punctuation">.</span>o
+    <span class="token keyword keyword-void">void</span> <span class="token function">something1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-void">void</span> <span class="token generic-function"><span class="token function">ReallyBigFunction</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">// Compiled first time</span>
+
+source2<span class="token punctuation">.</span>o
+    <span class="token keyword keyword-void">void</span> <span class="token function">something2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-void">void</span> <span class="token generic-function"><span class="token function">ReallyBigFunction</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">// Compiled second time</span>
+</pre><p>If both files are linked together, one void ReallyBigFunction<int>() will be discarded, resulting in wasted compile time and object file size.</int></p>
+<p>To not waste compile time and object file size, there is an extern keyword which makes the compiler not compile a template function. You should use this if and only if you know it is used in the same binary somewhere else.</p>
+<p>Changing source2.cpp to:</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">// source2.cpp</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;header.h&quot;</span></span>
+<span class="token keyword keyword-extern">extern</span> <span class="token keyword keyword-template">template</span> <span class="token keyword keyword-void">void</span> <span class="token generic-function"><span class="token function">ReallyBigFunction</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-void">void</span> <span class="token function">something2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token generic-function"><span class="token function">ReallyBigFunction</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>Will result in the following object files:</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp">source1<span class="token punctuation">.</span>o
+    <span class="token keyword keyword-void">void</span> <span class="token function">something1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-void">void</span> <span class="token generic-function"><span class="token function">ReallyBigFunction</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// compiled just one time</span>
+
+source2<span class="token punctuation">.</span>o
+    <span class="token keyword keyword-void">void</span> <span class="token function">something2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">// No ReallyBigFunction&lt;int&gt; here because of the extern</span>
+</pre><p>When both of these will be linked together, the second object file will just use the symbol from the first object file. No need for discard and no wasted compile time and object file size.</p>
+<p>This should only be used within a project, like in times when you use a template like <code>vector&lt;int&gt;</code>multiple times, you should use extern in all but one source file.</p>
+<p>This also applies to classes and function as one, and even template member functions.</p>
+<h2 class="mume-header" id="-%E6%A8%A1%E6%9D%BF%E7%B1%BB">&#x6A21;&#x677F;&#x7C7B;</h2>
+
+<p>To create a template function that returns the greater one of two objects we could use.</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword keyword-template">template</span> <span class="token operator">&lt;</span><span class="token keyword keyword-class">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">mypair</span> <span class="token punctuation">{</span>
+    T values <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">mypair</span> <span class="token punctuation">(</span>T first<span class="token punctuation">,</span> T second<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>first<span class="token punctuation">;</span> values<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>second<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// Usage</span>
+mypair<span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span> <span class="token function">myobject</span> <span class="token punctuation">(</span><span class="token number">115</span><span class="token punctuation">,</span> <span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mypair<span class="token operator">&lt;</span><span class="token keyword keyword-double">double</span><span class="token operator">&gt;</span> <span class="token function">myfloats</span> <span class="token punctuation">(</span><span class="token number">3.0</span><span class="token punctuation">,</span> <span class="token number">2.18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x7C7B;&#xFF0C;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x578B;&#x5219;&#x662F;&#x4E24;&#x4E2A;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x3002;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token punctuation">,</span> <span class="token keyword keyword-typename">typename</span> <span class="token class-name">U</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">foo</span><span class="token punctuation">(</span>T t<span class="token punctuation">,</span> U u<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        _pairs<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span><span class="token function">make_pair</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    size_t <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> _pairs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    std<span class="token double-colon punctuation">::</span>vector<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>pair<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U<span class="token operator">&gt;</span> <span class="token operator">&gt;</span> _pairs<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Base<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>string<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span> b<span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">&quot;first&quot;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">&quot;second&quot;</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// b.foo(&quot;third&quot;, &quot;third&quot;); // error: cannot initialize a parameter of type &apos;int&apos; with an lvalue of type &apos;const char [6]&apos;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> b<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+
+    Base<span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span> b1<span class="token punctuation">;</span>
+    b1<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>b &#x548C; b1 &#x7684;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#x3002;</p>
+<h3 class="mume-header" id="-%E6%A8%A1%E6%9D%BF%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF">&#x6A21;&#x677F;&#x7C7B;&#x7684;&#x7EE7;&#x627F;</h3>
+
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword keyword-public">public</span> <span class="token class-name">Base</span><span class="token operator">&lt;</span><span class="token class-name">T</span><span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">Derived</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="-%E6%A8%A1%E6%9D%BF%E7%B1%BB%E4%B8%8E%E8%99%9A%E5%87%BD%E6%95%B0">&#x6A21;&#x677F;&#x7C7B;&#x4E0E;&#x865A;&#x51FD;&#x6570;</h3>
+
+<p>&#x6A21;&#x677F;&#x7C7B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x865A;&#x51FD;&#x6570;&#x3002;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword keyword-virtual">virtual</span> <span class="token keyword keyword-bool">bool</span> <span class="token function">greater</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword keyword-public">public</span> <span class="token class-name">Base</span><span class="token operator">&lt;</span><span class="token class-name">T</span><span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">Derived</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword keyword-virtual">virtual</span> <span class="token keyword keyword-bool">bool</span> <span class="token function">greater</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> a <span class="token operator">&gt;</span> b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Derived<span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span> d<span class="token punctuation">;</span>
+    d<span class="token punctuation">.</span><span class="token function">greater</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="-%E6%A8%A1%E6%9D%BF%E7%B1%BB%E5%92%8C%E7%BC%BA%E7%9C%81%E5%8F%82%E6%95%B0">&#x6A21;&#x677F;&#x7C7B;&#x548C;&#x7F3A;&#x7701;&#x53C2;&#x6570;</h3>
+
+<p>&#x5BF9;&#x4E8E;&#x7C7B;&#x6A21;&#x677F;&#x800C;&#x8A00;&#xFF0C;&#x54EA;&#x6015;&#x6240;&#x6709;&#x53C2;&#x6570;&#x90FD;&#x6709;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x4E5F;&#x5FC5;&#x987B;&#x5728;&#x6A21;&#x677F;&#x540D;&#x540E;&#x8DDF;&#x968F;&lt;&gt;&#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword keyword-template">template</span><span class="token operator">&lt;</span><span class="token keyword keyword-typename">typename</span> <span class="token class-name">T</span> <span class="token operator">=</span> <span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+<span class="token keyword keyword-public">public</span><span class="token operator">:</span>
+    <span class="token function">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword keyword-bool">bool</span> <span class="token function">greater</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> a <span class="token operator">&gt;</span> b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Test<span class="token operator">&lt;</span><span class="token keyword keyword-int">int</span><span class="token operator">&gt;</span> t<span class="token punctuation">;</span>
+    t<span class="token punctuation">.</span><span class="token function">greater</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Test t_1<span class="token punctuation">;</span> <span class="token comment">// ERROR: use of class template &apos;Test&apos; requires template arguments</span>
+    t_1<span class="token punctuation">.</span><span class="token function">greater</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="-ref">ref</h2>
+
+<p>(<a href="http://feihu.me/blog/2014/the-origin-and-usage-of-typename/#disqus_thread">http://feihu.me/blog/2014/the-origin-and-usage-of-typename/#disqus_thread</a>)</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
