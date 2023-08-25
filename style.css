@@ -1,21 +1,21 @@
 .line {
   font-family: Arial;
   color: rgba(93, 9, 9, 0.943);
-  font-size: 20px;
-  line-height: 36px;
+  font-size: 16px;
+  line-height: 30px;
 }
 .newest_line {
   text-indent: 40px;
   font-family: Arial;
   color: rgba(93, 9, 9, 0.943);
   font-size: 20px;
-  line-height: 36px;
+  line-height: 30px;
 }
 .theme {
   list-style-type: circle;
   font-family: Arial;
   color: rgba(93, 9, 9, 0.943);
-  font-size: 26px;
+  font-size: 20px;
   line-height: 50px;
 }
 .content {
@@ -25,7 +25,7 @@
   height: 1000px;
 }
 .text {
-  font-size: 16px;
+  font-size: 14px;
   margin-top: -12px;
   margin-bottom: -12px;
   color: black;
