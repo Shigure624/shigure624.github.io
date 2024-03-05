@@ -1,0 +1,763 @@
+<!DOCTYPE html><html><head>
+      <title>vim：从安装到使用</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  background-color: whitesmoke;
+  color: dimgrey;
+  /*Code blocks*/
+  /*Preformatted text*/
+  /*table*/
+}
+.markdown-preview.markdown-preview h1 {
+  color: black;
+}
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3,
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5,
+.markdown-preview.markdown-preview h6 {
+  color: dimgray;
+}
+.markdown-preview.markdown-preview code,
+.markdown-preview.markdown-preview tt {
+  color: cornflowerblue;
+  white-space: nowrap;
+}
+.markdown-preview.markdown-preview pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+.markdown-preview.markdown-preview .highlight pre {
+  background-color: #f8f8f8;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre {
+  background-color: gainsboro;
+  /*font-size:          13px;*/
+  font-size: 0.9em !important;
+  line-height: 1.6em !important;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre code,
+.markdown-preview.markdown-preview pre tt {
+  background-color: transparent;
+  border: none;
+}
+.markdown-preview.markdown-preview table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.markdown-preview.markdown-preview table tr {
+  /* border-top: 1px solid #cccccc; */
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+.markdown-preview.markdown-preview table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.markdown-preview.markdown-preview table tr th {
+  font-weight: bold;
+  /* border: 0.5px solid #cccccc; */
+  /* border-left: 0.5px solid #cccccc;
+        border-right: 0.5px solid #cccccc; */
+  background-color: #eefbff;
+  font-size: 14px;
+  margin: 0;
+  padding: 0.4em 0.35em 0.4em 0.35em;
+}
+.markdown-preview.markdown-preview table tr td {
+  /* border: 1px solid #cccccc; */
+  margin: 0;
+  font-size: 14px;
+  padding: 5px 5px;
+}
+.markdown-preview.markdown-preview table tr th :first-child,
+.markdown-preview.markdown-preview table tr td :first-child {
+  margin-top: 0;
+}
+.markdown-preview.markdown-preview table tr th :last-child,
+.markdown-preview.markdown-preview table tr td :last-child {
+  margin-bottom: 0;
+}
+.md-sidebar-toc.md-sidebar-toc {
+  color: dimgray;
+}
+.md-toc {
+  color: dimgray;
+}
+.md-toc-link {
+  color: dimgray;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#vim从安装到使用" class="md-toc-link"><p>vim：从安装到使用</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#安装和配置" class="md-toc-link"><p>安装和配置</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#手动安装-vim" class="md-toc-link">
+            <p>手动安装 vim</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#编辑器配置vimrc" class="md-toc-link">
+            <p>编辑器配置：vimrc</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#插件管理" class="md-toc-link">
+            <p>插件管理</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#模式" class="md-toc-link">
+            <p>模式</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#文件操作" class="md-toc-link"><p>文件操作</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#打开文件" class="md-toc-link">
+            <p>打开文件</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#文件保存和退出" class="md-toc-link">
+            <p>文件保存和退出</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#指令" class="md-toc-link"><p>指令</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#跳转" class="md-toc-link">
+            <p>跳转</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#选择字符和复制粘贴" class="md-toc-link"><p>选择字符和复制粘贴</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#纵向编辑批量修改代码" class="md-toc-link">
+            <p>纵向编辑，批量修改代码</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#替换" class="md-toc-link">
+            <p>替换</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#折叠" class="md-toc-link">
+            <p>折叠</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#set" class="md-toc-link">
+            <p>set</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#代码工具ctags-和-cscope" class="md-toc-link">
+            <p>代码工具：ctags 和 cscope</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#问题" class="md-toc-link"><p>问题</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#插件" class="md-toc-link"><p>插件</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#vundleycm-安装问题" class="md-toc-link">
+            <p>Vundle+YCM 安装问题</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#not-an-editor-command-nerdtreetoggle" class="md-toc-link">
+            <p>Not an editor command: NERDTreeToggle</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#编辑和格式相关" class="md-toc-link"><p>编辑和格式相关</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#no-newline-at-end-of-file" class="md-toc-link">
+            <p>No newline at end of file</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#看到m" class="md-toc-link">
+            <p>看到<code>^M</code></p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ctags-error" class="md-toc-link"><p>ctags error</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ctags-error-format-error-in-tags-file" class="md-toc-link">
+            <p>ctags error “format error in tags file”</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ctags-tag-not-found" class="md-toc-link"><p>ctags: tag not found</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#format-error-in-tags-file-tags" class="md-toc-link">
+            <p>Format error in tags file "tags"</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cscope-1" class="md-toc-link">
+            <p>cscope</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
+<h1 id="vim从安装到使用">vim：从安装到使用 </h1>
+<p>我用 vim 不是为了装 B，只是因为习惯。</p>
+<h2 id="安装和配置">安装和配置 </h2>
+<h3 id="手动安装-vim">手动安装 vim </h3>
+<p><code>git clone https://github.com/vim/vim.git</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token comment"># 安装EPEL源</span>
+yum <span class="token function">install</span> epel-release <span class="token parameter variable">-y</span>
+<span class="token comment"># 安装python3开发包</span>
+yum <span class="token function">install</span> python34-devel <span class="token parameter variable">-y</span>
+<span class="token builtin class-name">cd</span> vim/src
+<span class="token function">make</span> clean
+<span class="token comment"># 如果需要 python3 支持</span>
+./configure --with-features<span class="token operator">=</span>huge --enable-python3interp --enable-pythoninterp --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-multibyte --enable-cscope <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/usr/local/vim/
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+</code></pre><h3 id="编辑器配置vimrc">编辑器配置：vimrc </h3>
+<p>amix 是一个比较优雅的配置文本：<a href="https://github.com/amix/vimrc">https://github.com/amix/vimrc</a></p>
+<h3 id="插件管理">插件管理 </h3>
+<p>Vundle：功能大而全。<br>
+vim plug：使用感受：简洁友好。</p>
+<ol>
+<li>
+<p>安装 vim plug：clone repo <a href="https://github.com/junegunn/vim-plug">https://github.com/junegunn/vim-plug</a> 之后，将 <code>vim-plug</code> 放在<code>./vim/autoload</code>即可。</p>
+</li>
+<li>
+<p>增加需要的目标插件：将类似下面的语句插入到 vimrc 文件中。</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>call plug<span class="token comment">#begin('~/.vim/plugged')</span>
+Plug <span class="token string">'jayli/vim-easycomplete'</span>
+Plug <span class="token string">'jayli/vim-dictionary'</span>
+" Initialize plugin system
+call plug<span class="token comment">#end()</span>
+</code></pre></li>
+<li>
+<p>安装插件：在 vim 命令模式下输入：<code>PlugInstall</code></p>
+</li>
+</ol>
+<h2 id="模式">模式 </h2>
+<p>模式：显示在左下角，简单来说，就是在不同模式下做不同的事。</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>做什么</th>
+<th>怎么进入</th>
+<th>会显示什么</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令行模式</td>
+<td>输入命令</td>
+<td>输入<code>:</code></td>
+<td><code>:</code></td>
+<td>设置行号<code>:set number</code>，或者替换单词<code>:%s/int/INT/g</code></td>
+</tr>
+<tr>
+<td>输入模式</td>
+<td>输入code、字符</td>
+<td>输入<code>a</code>或<code>i</code>或<code>s</code></td>
+<td><code>-- INSERT --</code></td>
+<td>可直接输入字符</td>
+</tr>
+<tr>
+<td>可视模式</td>
+<td>选择字符们</td>
+<td><code>v</code>进行逐个字符逐行选择，<code>V</code>（ctrl+v）竖列选择</td>
+<td><code>-- VISUAL --</code></td>
+<td>可对选好的内容操作，比如删除或者批量操作</td>
+</tr>
+</tbody>
+</table>
+<p>按 ESC 退出当前模式。</p>
+<h2 id="文件操作">文件操作 </h2>
+<h3 id="打开文件">打开文件 </h3>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token keyword keyword-vim">vim</span> test<span class="token operator">.</span>txt <span class="token comment">" 打开这个文件</span>
+<span class="token keyword keyword-vim">vim</span> test<span class="token operator">.</span>txt <span class="token operator">+</span><span class="token number">100</span> <span class="token comment">" 打开并定位到第 100 行</span>
+<span class="token keyword keyword-vim">vim</span> <span class="token operator">.</span><span class="token operator">/</span> <span class="token comment">" 打开当前目录</span>
+</code></pre><p>二进制方式：</p>
+<ol>
+<li>
+<p>首先以二进制方式编辑这个文件 <code>vi -b test</code></p>
+</li>
+<li>
+<p>使用 xxd 转换为 16 进制<code>:%!xxd</code>，如下:</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>0000000: 1f8b 0808 39d7 173b 0203 7474 002b 4e49 ....9...........
+0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30 K,.`.....b..4^.0
+0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9 7;'1.".....i.59.
+</code></pre></li>
+<li>
+<p>转回去 <code>:%!xxd -r</code></p>
+</li>
+</ol>
+<h3 id="文件保存和退出">文件保存和退出 </h3>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token punctuation">:</span><span class="token keyword keyword-w">w</span> <span class="token comment">" 保存</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-q">q</span> <span class="token comment">" 退出</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-wq">wq</span> <span class="token comment">" 保存并退出</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-q">q</span><span class="token operator">!</span> <span class="token comment">" !表示强行退出</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-qa">qa</span> <span class="token comment">" a表示退出所有</span>
+</code></pre><h2 id="指令">指令 </h2>
+<p>符号：<code>%</code> 用来进行小括号、中括号和大括号的匹配。<br>
+以下指令符号中，用大写表示<code>Ctrl+字符按键</code></p>
+<h3 id="跳转">跳转 </h3>
+<p>在命令行模式下：</p>
+<p><code>b</code> 跳到前一个词<br>
+<code>w</code> 跳到后一个词<br>
+<code>F</code> 下一页 <code>B</code> 上一页<br>
+<code>E</code> 向下滚动一行<br>
+<code>Y</code> 向上滚动一行<br>
+<code>D</code> 向下滚动半屏<br>
+<code>U</code> 向上滚动半屏<br>
+<code>[[</code> <code>gg</code>跳到文件开头<br>
+<code>]]</code> <code>G</code> 跳到文件结尾<br>
+<code>[]</code> 跳到上一个函数结尾<br>
+<code>][</code> 跳到下一个函数结尾<br>
+<code>:5</code> 跳到文件的第 5 行<br>
+<code>0</code> 行首<br>
+<code>$</code> 行尾</p>
+<h3 id="选择字符和复制粘贴">选择字符和复制粘贴 </h3>
+<p><code>v</code>或者<code>V</code>选中之后，按上下左右，或者<code>G</code> <code>0</code> <code>$</code>之类的，调整目标范围。</p>
+<p><code>y</code>复制，<code>p</code>粘贴，多行也可以，竖列操作选中之后，<code>p</code>还可以竖着粘贴。<br>
+<code>yy</code> 复制当前行<br>
+<code>dd</code> 删除当前行<br>
+<code>d</code> 删除选中的内容</p>
+<h4 id="纵向编辑批量修改代码">纵向编辑，批量修改代码 </h4>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>line 1
+line 2
+line 3
+</code></pre><p>编辑成序列：</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>this is line 1
+this is line 2
+this is line 3
+</code></pre><p><code>V</code> 进入纵向编辑模式，竖向（按上下键）选择后，<code>I</code>行首插入模式，然后输入<code>this is </code>，按 ESC，就会得到目标序列结果</p>
+<h3 id="替换">替换 </h3>
+<p>替换为<code>:s///g</code>，需要注意转义字符。</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token punctuation">:</span><span class="token operator">%</span>s<span class="token operator">/</span>old<span class="token operator">/</span><span class="token keyword keyword-new">new</span><span class="token operator">/</span>g <span class="token comment">" 将字符串old替换成new</span>
+<span class="token punctuation">:</span>15s<span class="token operator">/</span>dog<span class="token operator">/</span><span class="token keyword keyword-cat">cat</span><span class="token operator">/</span>g <span class="token comment">" 在15行替换dog为cat</span>
+<span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">,</span>35s<span class="token operator">/</span>int<span class="token operator">/</span>INT<span class="token operator">/</span>g <span class="token comment">" 在28到35行的int替换为INT</span>
+</code></pre><p>s 的其他用法：</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token punctuation">:</span><span class="token operator">%</span>s<span class="token operator">/</span>yes<span class="token operator">/</span><span class="token operator">/</span>gn <span class="token comment">" 查询yes字符串的个数</span>
+<span class="token punctuation">:</span><span class="token operator">%</span>s<span class="token operator">/</span>\s\<span class="token operator">+</span>$<span class="token operator">/</span><span class="token operator">/</span> <span class="token comment">" 删除空格</span>
+</code></pre><h3 id="折叠">折叠 </h3>
+<p>修改 vimrc</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>fdm:foldmethod
+<span class="token builtin class-name">set</span> <span class="token assign-left variable">fdm</span><span class="token operator">=</span>indent
+</code></pre><p><code>no fold found</code></p>
+<p><code>zi</code> 展开所有</p>
+<p><code>zc</code> 折叠一处<br>
+<code>zC</code> 折叠所有<br>
+<code>zo</code> 展开一处<br>
+<code>zO</code> 展开当前所有</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>:set wrap 设置自动折行
+:set nowrap 设置不自动折行
+</code></pre><h3 id="set">set </h3>
+<p>set 仅为临时的设置（文件格式修改之后是永久的修改，但是也仅仅是对当前文件的修改），如果需要进行编辑器级别的设置，需要将 set 语句放到 vimrc 文件中。</p>
+<ol>
+<li>
+<p>修改文件格式</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token punctuation">:</span><span class="token keyword keyword-set">set</span> <span class="token builtin">fileencoding</span> <span class="token comment">" 显示当前文件编码格式</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-set">set</span> <span class="token builtin">encoding</span><span class="token operator">=</span>utf<span class="token operator">-</span><span class="token number">8</span> <span class="token builtin">fileencodings</span><span class="token operator">=</span>ucs<span class="token operator">-</span>bom<span class="token punctuation">,</span>utf<span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span>cp936 <span class="token comment">" 设置格式</span>
+</code></pre></li>
+<li>
+<p>修改预览格式</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token keyword keyword-set">set</span> <span class="token keyword keyword-number">number</span> <span class="token comment">" 显示行号</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">nonumber</span> <span class="token comment">" 不显示行号</span>
+<span class="token keyword keyword-set">set</span> <span class="token keyword keyword-list">list</span> <span class="token comment">" 显示非空格的空白符，比如行尾符$，tab ^I</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">nolist</span> <span class="token comment">" 不显示</span>
+</code></pre></li>
+<li>
+<p>提示 80 字符的长度限制：在右侧显示一条限制线，用于提醒我们不要写得太长。这个特性从 7.3 版本开始引入，具体可<code>:help colorcolumn</code>。</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token keyword keyword-set">set</span> colorcolumn<span class="token operator">=</span><span class="token number">81</span>
+</code></pre></li>
+<li>
+<p>查找时，大小写忽略，退出后设置失效：</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token keyword keyword-set">set</span> <span class="token builtin">ic</span> <span class="token comment">" 忽略大小写(ignore case)</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">noic</span> <span class="token comment">"不忽略大小写</span>
+</code></pre></li>
+</ol>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code><span class="token comment">" 显示文件名</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">statusline</span><span class="token operator">+=</span><span class="token operator">%</span>F
+<span class="token keyword keyword-set">set</span> <span class="token builtin">laststatus</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token comment">" 自动排版，按==即可对当前行排版</span>
+<span class="token keyword keyword-filetype">filetype</span> plugin indent <span class="token keyword keyword-on">on</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">cindent</span> <span class="token builtin">shiftwidth</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token comment">" 显示行号</span>
+<span class="token keyword keyword-set">set</span> <span class="token keyword keyword-number">number</span>
+<span class="token comment">" Tab 宽度</span>
+<span class="token keyword keyword-set">set</span> <span class="token keyword keyword-ts">ts</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token comment">" 自动缩进</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">autoindent</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">sw</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token keyword keyword-set">set</span> <span class="token builtin">fdm</span><span class="token operator">=</span>indent # 代码折叠 zo 打开当前 zc 折叠当前 zM折叠全部 zR 打开全部
+<span class="token keyword keyword-set">set</span> <span class="token builtin">ff</span><span class="token operator">=</span>unix    # 设置文件格式为unix
+</code></pre><h2 id="代码工具ctags-和-cscope">代码工具：ctags 和 cscope </h2>
+<h4 id="ctags">ctags </h4>
+<p><code>ctags -R </code>递归生成索引文件，用于跳转查看文件。如果不行，解决方案：文件在根目录里面，可能和以前不一样了，vimrc 设置：</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>set tags+=~/.vim/systags
+set tags=tags;
+set autochdir
+</code></pre><p>指令：</p>
+<pre data-role="codeBlock" data-info="vim" class="language-vim vim"><code>ctrl<span class="token operator">+</span><span class="token punctuation">]</span> <span class="token comment">" 跳转到定义过的地方</span>
+ctrl<span class="token operator">+</span><span class="token keyword keyword-o">o</span> <span class="token comment">" 按走过的地方回去</span>
+<span class="token keyword keyword-vi">vi</span> –<span class="token keyword keyword-t">t</span> name  <span class="token comment">" 把 name 替换为欲查找的变量或函数名</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-ts">ts</span> <span class="token comment">" ts 助记字：tags list</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-tp">tp</span> <span class="token comment">" tp 助记字：tags preview 此命令不常用，可以不用记</span>
+<span class="token punctuation">:</span><span class="token keyword keyword-tn">tn</span> <span class="token comment">" tn 助记字：tags next 此命令不常用，可以不用记</span>
+</code></pre><h4 id="cscope">cscope </h4>
+<p><code>cscope -Rb</code> 方法生成 cscope.out 文件，这是一个索引文件，类似于 ctags 生成的 tags 索引文件；在源代码目录下打开 vim。用于查看，比如一段函数被哪里调用过。要使用 cscope 查找就必须加载 cscope.out 文件.在 vim 命令行下执行：<code>:cs add cscope.out</code>。如果递归没有成功，尝试：</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">find</span> <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span> <span class="token parameter variable">-name</span> <span class="token string">"*.[ch]"</span> <span class="token parameter variable">-o</span> <span class="token parameter variable">-name</span> <span class="token string">"_.cpp"</span> <span class="token operator">&gt;</span> cscope.files
+cscope <span class="token parameter variable">-bR</span> <span class="token parameter variable">-i</span> cscope.files
+</code></pre><p>vim 中，指令：</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>:cs help
+:cs find c calling this function # do*cycle()
+         e grep
+         s C Symbol
+         t in text
+</code></pre><h2 id="问题">问题 </h2>
+<h3 id="插件">插件 </h3>
+<h4 id="vundleycm-安装问题">Vundle+YCM 安装问题 </h4>
+<p>YCM（YouCompleteMe）是一个非常精良的补全工具。安装过程有时候会有些问题</p>
+<ol>
+<li><code>YouCompleteMe unavailable no module named builtins</code>这是因为网络很慢，导致要依赖的文件还没有下载全，所以可以先把文件下载了
+<ol>
+<li><code>cd /home/yourusername/.vim/bundle/YouCompleteMe</code></li>
+<li>执行<code>git submodule update --init --recursive</code>。</li>
+</ol>
+</li>
+<li>Python 版本不对，重新指定 Python3 编译即可。</li>
+</ol>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> clone https://github.com/vim/vim.git
+<span class="token builtin class-name">cd</span> vim/src
+<span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
+./configure <span class="token punctuation">\</span>
+  --disable-nls <span class="token punctuation">\</span>
+  --enable-cscope <span class="token punctuation">\</span>
+  --enable-gui<span class="token operator">=</span>no <span class="token punctuation">\</span>
+  --enable-multibyte  <span class="token punctuation">\</span>
+  --enable-pythoninterp <span class="token punctuation">\</span>
+  --enable-rubyinterp <span class="token punctuation">\</span>
+  <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/home/lixuefei05/.vim <span class="token punctuation">\</span>
+  --with-features<span class="token operator">=</span>huge  <span class="token punctuation">\</span>
+  --with-python-config-dir<span class="token operator">=</span>/usr/local/lib/python3.8/ <span class="token punctuation">\</span>
+  --with-tlib<span class="token operator">=</span>ncurses <span class="token punctuation">\</span>
+  --without-x
+</code></pre><h4 id="not-an-editor-command-nerdtreetoggle">Not an editor command: NERDTreeToggle </h4>
+<p>在 NERDTreeToggle 插件使用时发现。解决方法就就是增加路径。</p>
+<h3 id="编辑和格式相关">编辑和格式相关 </h3>
+<h4 id="no-newline-at-end-of-file">No newline at end of file </h4>
+<p>这个是在编辑完文件，提交到 git 时出现的，是因为换行符不一致。<br>
+可以<code>:set binary noeol</code></p>
+<p>如果是在 win 下面，并且是 LF 和 CRLF 混用的情况下，建议还是用之前的编辑器吧。</p>
+<h4 id="看到m">看到<code>^M</code> </h4>
+<p>因为 linux/unix 下的回车符是<code>0d</code>,而在 windows 下侧是<code>0d0a</code><br>
+<code>^M</code> 可以用 dos2unix 命令去除：<br>
+<code>dos2unix filename</code> or <code>sed -e "s/\r//g" file &gt; newfile</code> or <code>vi [in ESC mode] type: :%s/^M$//</code></p>
+<p>或者在 vim 中 <code>:set fileformat=unix</code></p>
+<h3 id="ctags-error">ctags error </h3>
+<h4 id="ctags-error-format-error-in-tags-file">ctags error “format error in tags file” </h4>
+<p>TLDR; add export CSCOPE_EDITOR=vim to ~/.bashrc and close your terminal window.</p>
+<p>In my case, setting vim as the default editor for cscope fixed the issue:</p>
+<p>echo "export CSCOPE_EDITOR=vim" &gt;&gt; ~/.bashrc # Append to .bashrc<br>
+source ~/.bashrc # Load .bashrc into the current shell<br>
+After this, you may also use the following commands in your project directory for a quick reconfiguration of cscope and ctags:</p>
+<p>ctags -R<br>
+cscope -R</p>
+<h4 id="ctags-tag-not-found">ctags: tag not found </h4>
+<p>Yes, you should tell Vim where to find your tags file with something like:</p>
+<p><code>:set tags=/path/to/tags</code><br>
+This is not very optimal, though. This line in your ~/.vimrc should help:</p>
+<p><code>set tags=./tags,tags;$HOME</code><br>
+It tells Vim to look for a tags file in the directory of the current file, in the current directory and up and up until your $HOME (that's the meaning of the semicolon), stopping on the first hit.</p>
+<h5 id="format-error-in-tags-file-tags">Format error in tags file "tags" </h5>
+<p><code>ctags -R --languages=C</code></p>
+<h3 id="cscope-1">cscope </h3>
+<p><code>no connection</code> error: <code>cs add \$CSCOPE_DB</code> to my <code>.vimrc</code></p>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#vim从安装到使用" class="md-toc-link"><p>vim：从安装到使用</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#安装和配置" class="md-toc-link"><p>安装和配置</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#手动安装-vim" class="md-toc-link">
+            <p>手动安装 vim</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#编辑器配置vimrc" class="md-toc-link">
+            <p>编辑器配置：vimrc</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#插件管理" class="md-toc-link">
+            <p>插件管理</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#模式" class="md-toc-link">
+            <p>模式</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#文件操作" class="md-toc-link"><p>文件操作</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#打开文件" class="md-toc-link">
+            <p>打开文件</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#文件保存和退出" class="md-toc-link">
+            <p>文件保存和退出</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#指令" class="md-toc-link"><p>指令</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#跳转" class="md-toc-link">
+            <p>跳转</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#选择字符和复制粘贴" class="md-toc-link"><p>选择字符和复制粘贴</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#纵向编辑批量修改代码" class="md-toc-link">
+            <p>纵向编辑，批量修改代码</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#替换" class="md-toc-link">
+            <p>替换</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#折叠" class="md-toc-link">
+            <p>折叠</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#set" class="md-toc-link">
+            <p>set</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#代码工具ctags-和-cscope" class="md-toc-link">
+            <p>代码工具：ctags 和 cscope</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#问题" class="md-toc-link"><p>问题</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#插件" class="md-toc-link"><p>插件</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#vundleycm-安装问题" class="md-toc-link">
+            <p>Vundle+YCM 安装问题</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#not-an-editor-command-nerdtreetoggle" class="md-toc-link">
+            <p>Not an editor command: NERDTreeToggle</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#编辑和格式相关" class="md-toc-link"><p>编辑和格式相关</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#no-newline-at-end-of-file" class="md-toc-link">
+            <p>No newline at end of file</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#看到m" class="md-toc-link">
+            <p>看到<code>^M</code></p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ctags-error" class="md-toc-link"><p>ctags error</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ctags-error-format-error-in-tags-file" class="md-toc-link">
+            <p>ctags error “format error in tags file”</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ctags-tag-not-found" class="md-toc-link"><p>ctags: tag not found</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#format-error-in-tags-file-tags" class="md-toc-link">
+            <p>Format error in tags file "tags"</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cscope-1" class="md-toc-link">
+            <p>cscope</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

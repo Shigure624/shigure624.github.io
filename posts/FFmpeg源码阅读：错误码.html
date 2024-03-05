@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>ffmpeg 错误码</title>
+      <title>FFmpeg 源码阅读：错误码</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -20,7 +20,9 @@
   /*Preformatted text*/
   /*table*/
 }
-.markdown-preview.markdown-preview h1,
+.markdown-preview.markdown-preview h1 {
+  color: black;
+}
 .markdown-preview.markdown-preview h2,
 .markdown-preview.markdown-preview h3,
 .markdown-preview.markdown-preview h4,
@@ -28,12 +30,9 @@
 .markdown-preview.markdown-preview h6 {
   color: dimgray;
 }
-.markdown-preview.markdown-preview .token {
-  color: gray;
-}
 .markdown-preview.markdown-preview code,
 .markdown-preview.markdown-preview tt {
-  color: gray;
+  color: cornflowerblue;
   white-space: nowrap;
 }
 .markdown-preview.markdown-preview pre code {
@@ -127,13 +126,13 @@
 <div class="md-toc">
 <details style="padding:0;;padding-left:0px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#了解-ffmpeg-错误码" class="md-toc-link"><p>了解 ffmpeg 错误码</p>
+          <a href="#ffmpeg源码阅读错误码" class="md-toc-link"><p>FFmpeg源码阅读：错误码</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#averror" class="md-toc-link">
-            <p>AVERROR</p>
+          <a href="#averror宏" class="md-toc-link">
+            <p>AVERROR宏</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
           <a href="#av_strerror" class="md-toc-link">
@@ -144,29 +143,39 @@
             <p>FFmpeg 的错误码</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#例子" class="md-toc-link">
-            <p>例子</p>
+          <a href="#错误码的解析" class="md-toc-link">
+            <p>错误码的解析</p>
 
           </a></div>
         </div>
       </details>
     
 </div>
-<h1 id="了解-ffmpeg-错误码">了解 ffmpeg 错误码 </h1>
-<p>ffmpeg 中包含很多错误码，以 <code>AVERROR_</code>开头，是一个 int 型的负数值。<!-- more --></p>
-<p>例如，如果把错误码打印出来：</p>
+<h1 id="ffmpeg源码阅读错误码">FFmpeg源码阅读：错误码 </h1>
+<p>FFmpeg 的错误码是错误诊断和推测的工具，是一个 int 型的负数值，以 <code>AVERROR_</code>开头，定义在<br>
+<code>libavutil/error.h</code>中。<!-- more --></p>
+<p>例如，如果打印错误码：</p>
 <ol>
 <li><code>AVERROR_EOF</code> 是<code>-541478725</code>。</li>
 <li><code>AVERROR_HTTP_NOT_FOUND</code>是<code>-875574520</code>.</li>
 <li><code>AVERROR_INVALIDDATA</code>是<code>-1094995529</code></li>
 </ol>
-<h2 id="averror">AVERROR </h2>
-<p>位于<code>libavutil/error.h</code>中。FFmpeg 库的错误码是 POSIX 错误码的负值。</p>
-<pre data-role="codeBlock" data-info="C" class="language-c C"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">AVERROR</span><span class="token expression"><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>   </span><span class="token comment">// Returns a negative error code from a POSIX error code, to return from library functions.</span></span>
+<h2 id="averror宏">AVERROR宏 </h2>
+<p>FFmpeg 的错误码是 POSIX 错误码的负值。</p>
+<pre data-role="codeBlock" data-info="C" class="language-c C"><code><span class="token comment">/* error handling */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">EDOM <span class="token operator">&gt;</span> <span class="token number">0</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">AVERROR</span><span class="token expression"><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>   </span><span class="token comment">///&lt; Returns a negative error code from a POSIX error code, to return from library functions.</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">AVUNERROR</span><span class="token expression"><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span> </span><span class="token comment">///&lt; Returns a POSIX error code from a library function error return value.</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
+<span class="token comment">/* Some platforms have E* and errno already negated. */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">AVERROR</span><span class="token expression"><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">AVUNERROR</span><span class="token expression"><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
 </code></pre><h2 id="av_strerror">av_strerror </h2>
 <p>位于<code>libavutil/error.h</code>中。将错误码转换成文字描述信息。</p>
-<p>函数原型：<code>int av_strerror(int errnum, char *errbuf, size_t errbuf_size);</code>其中，<code>errnum</code>是错误码，<code>errbuf</code>是错误信息，<code>errbuf_size</code>是错误信息的长度<br>
+<p>函数原型：</p>
+<pre data-role="codeBlock" data-info="C" class="language-c C"><code><span class="token keyword keyword-int">int</span> <span class="token function">av_strerror</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> errnum<span class="token punctuation">,</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>errbuf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> errbuf_size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>函数参数：<code>errnum</code>是错误码，<code>errbuf</code>是错误信息，<code>errbuf_size</code>是错误信息的长度。<br>
 函数返回值：成功返回 0；失败返回负值。</p>
 <pre data-role="codeBlock" data-info="C" class="language-c C"><code> <span class="token keyword keyword-int">int</span> <span class="token function">av_strerror</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> errnum<span class="token punctuation">,</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>errbuf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> errbuf_size<span class="token punctuation">)</span>
  <span class="token punctuation">{</span>
@@ -193,13 +202,13 @@
 
      <span class="token keyword keyword-return">return</span> ret<span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
-</code></pre><p><code>FF_ARRAY_ELEMS</code>宏用于求数组中元素个数。函数通过依次比较 errnum 和 <code>error_entries</code> 中每个 error_entry 的 num 字段，如果匹配，则获取错误信息， <code>error_entry</code>结构如下。</p>
+</code></pre><p><code>FF_ARRAY_ELEMS</code>宏用于求数组中元素个数。函数通过依次比较 errnum 和 error_entries 中每个 error_entry 的 num 字段，如果匹配，则获取错误信息， error_entry结构如下。</p>
 <pre data-role="codeBlock" data-info="C" class="language-c C"><code> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">error_entry</span> <span class="token punctuation">{</span>
      <span class="token keyword keyword-int">int</span> num<span class="token punctuation">;</span>
      <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>tag<span class="token punctuation">;</span>
      <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>str<span class="token punctuation">;</span>
  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><p><code>error_entries</code> 在 error.c 中，定义为一个静态全局变量。<code>ERROR_TAG</code>宏通过拼接<code>AVERROR_</code>和 tag 名，构成错误码的宏，比如上面的<code>AVERROR_HTTP_NOT_FOUND</code>。</p>
+</code></pre><p>error_entries 在 error.c 中，定义为一个静态全局变量。<code>ERROR_TAG</code>宏通过拼接<code>AVERROR_</code>和 tag 名，构成错误码的宏，比如上面的<code>AVERROR_HTTP_NOT_FOUND</code>。</p>
 <pre data-role="codeBlock" data-info="C" class="language-c C"><code> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">ERROR_TAG</span><span class="token expression"><span class="token punctuation">(</span>tag<span class="token punctuation">)</span> AVERROR_</span><span class="token punctuation">##</span><span class="token expression">tag<span class="token punctuation">,</span> #tag</span></span>
  <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">EERROR_TAG</span><span class="token expression"><span class="token punctuation">(</span>tag<span class="token punctuation">)</span> <span class="token function">AVERROR</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span class="token punctuation">,</span> #tag</span></span>
  <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">AVERROR_INPUT_AND_OUTPUT_CHANGED</span> <span class="token expression"><span class="token punctuation">(</span>AVERROR_INPUT_CHANGED <span class="token operator">|</span> AVERROR_OUTPUT_CHANGED<span class="token punctuation">)</span></span></span>
@@ -238,23 +247,23 @@
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">MKBETAG</span><span class="token expression"><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">,</span>d<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword keyword-unsigned">unsigned</span><span class="token punctuation">)</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span></span>
 </code></pre><p>宏 MKTAG 将 4 个 char 字符通过位移，组成一个 int型的正整数（4字节，32位），FFERRTAG宏再对其结果取负数。MKTAG对字符d做<code>(unsigned)</code>转换，由于ASCII码占用一个字节里的后7位，最前面的一位统一规定为 0，这样只要宏 MKTAG 的最后一个参数是 ASCII 码，就能保证转换后的数字是一个整数。如果需要大端排列，使用MKBETAG。</p>
 <p>FFmpeg 错误码列表如：<a href="http://ffmpeg.org/doxygen/trunk/error_8h_source.html">error.h</a></p>
-<h2 id="例子">例子 </h2>
-<p>当我们遇到这样的错误的时候，一个快速查看这个数字含义的方法就是：将十进制的错误码转换为十六进制，然后对照 ASCII 码看下错误码（如果使用Mac电脑，可以直接用计算器）：</p>
-<p>那么，对于<code>-875574520</code>十六进制表示为<code>-0x343034F8</code>，<code>34</code>是 ASCII 码中 52 的十六进制，也就是<code>4</code>，<code>30</code>是 48 的十六进制，对应<code>0</code>，合在一起就是 404。</p>
-<p>再比如原来你指定的值是:<code>-1094995529</code>， 变为 <code>-0x41444E49</code>，当您查看这些字母时，在 ACSII 中，0x41 = 'A'、0x44 = 'D'、0x4E = 'N 和 0x49 = 'I'。是 AVERROR_INVALIDDATA 定义的 <code>FFERRTAG('I','N','D','A')</code>。</p>
+<h2 id="错误码的解析">错误码的解析 </h2>
+<p>将十进制的错误码转换为十六进制，然后对照 ASCII 码看下错误码（如果使用Mac电脑，可以直接用计算器）：</p>
+<p>例如，<code>-875574520</code>十六进制表示为<code>-0x343034F8</code>。0x34 对应 ASCII 码中 52 ，也就是<code>4</code>，0x30 对应 48 ，也就是<code>0</code>。【34 30 34】合在一起就是 404。</p>
+<p>再比如，<code>-1094995529</code>，十六进制表示为 <code>-0x41444E49</code>，在 ACSII 中，0x41 对应 'A'、0x44 对应 'D'、0x4E 对应 'N ， 0x49 对应 'I'。是 AVERROR_INVALIDDATA 定义的 <code>FFERRTAG('I','N','D','A')</code>。</p>
 
       </div>
       <div class="md-sidebar-toc">
 <div class="md-toc">
 <details style="padding:0;;padding-left:0px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#了解-ffmpeg-错误码" class="md-toc-link"><p>了解 ffmpeg 错误码</p>
+          <a href="#ffmpeg源码阅读错误码" class="md-toc-link"><p>FFmpeg源码阅读：错误码</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#averror" class="md-toc-link">
-            <p>AVERROR</p>
+          <a href="#averror宏" class="md-toc-link">
+            <p>AVERROR宏</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
           <a href="#av_strerror" class="md-toc-link">
@@ -265,8 +274,8 @@
             <p>FFmpeg 的错误码</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#例子" class="md-toc-link">
-            <p>例子</p>
+          <a href="#错误码的解析" class="md-toc-link">
+            <p>错误码的解析</p>
 
           </a></div>
         </div>

@@ -1,0 +1,615 @@
+<!DOCTYPE html><html><head>
+      <title>Git 常用指令记录</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  background-color: whitesmoke;
+  color: dimgrey;
+  /*Code blocks*/
+  /*Preformatted text*/
+  /*table*/
+}
+.markdown-preview.markdown-preview h1 {
+  color: black;
+}
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3,
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5,
+.markdown-preview.markdown-preview h6 {
+  color: dimgray;
+}
+.markdown-preview.markdown-preview code,
+.markdown-preview.markdown-preview tt {
+  color: cornflowerblue;
+  white-space: nowrap;
+}
+.markdown-preview.markdown-preview pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+.markdown-preview.markdown-preview .highlight pre {
+  background-color: #f8f8f8;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre {
+  background-color: gainsboro;
+  /*font-size:          13px;*/
+  font-size: 0.9em !important;
+  line-height: 1.6em !important;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre code,
+.markdown-preview.markdown-preview pre tt {
+  background-color: transparent;
+  border: none;
+}
+.markdown-preview.markdown-preview table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.markdown-preview.markdown-preview table tr {
+  /* border-top: 1px solid #cccccc; */
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+.markdown-preview.markdown-preview table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.markdown-preview.markdown-preview table tr th {
+  font-weight: bold;
+  /* border: 0.5px solid #cccccc; */
+  /* border-left: 0.5px solid #cccccc;
+        border-right: 0.5px solid #cccccc; */
+  background-color: #eefbff;
+  font-size: 14px;
+  margin: 0;
+  padding: 0.4em 0.35em 0.4em 0.35em;
+}
+.markdown-preview.markdown-preview table tr td {
+  /* border: 1px solid #cccccc; */
+  margin: 0;
+  font-size: 14px;
+  padding: 5px 5px;
+}
+.markdown-preview.markdown-preview table tr th :first-child,
+.markdown-preview.markdown-preview table tr td :first-child {
+  margin-top: 0;
+}
+.markdown-preview.markdown-preview table tr th :last-child,
+.markdown-preview.markdown-preview table tr td :last-child {
+  margin-bottom: 0;
+}
+.md-sidebar-toc.md-sidebar-toc {
+  color: dimgray;
+}
+.md-toc {
+  color: dimgray;
+}
+.md-toc-link {
+  color: dimgray;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#git-常用指令记录" class="md-toc-link"><p>Git 常用指令记录</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#创建库-初始化-配置" class="md-toc-link">
+            <p>创建库、初始化、配置</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#文件的本地修改-添加和撤销" class="md-toc-link"><p>文件的本地修改、添加和撤销</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#difftool-用于本地查看-diff" class="md-toc-link">
+            <p>difftool 用于本地查看 diff</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#提交和撤销到分支" class="md-toc-link">
+            <p>提交和撤销到分支</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#分支管理" class="md-toc-link">
+            <p>分支管理</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#冲突解决" class="md-toc-link">
+            <p>冲突解决</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#rebase" class="md-toc-link">
+            <p>rebase</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#撤销-修改" class="md-toc-link"><p>撤销、修改</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#在分支-a-上合并分支-b-的一个-commit" class="md-toc-link">
+            <p>在分支 A 上，合并分支 B 的一个 commit</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#查看文件" class="md-toc-link">
+            <p>查看文件</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#错误" class="md-toc-link"><p>错误</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#mode-change" class="md-toc-link">
+            <p>mode change</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#commit-description" class="md-toc-link">
+            <p>commit description</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#示例" class="md-toc-link"><p>示例</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#去掉中间某次-commit" class="md-toc-link">
+            <p>去掉中间某次 commit</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#撤销-amend" class="md-toc-link">
+            <p>撤销 amend</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#撤销-commit-中单个文件的修改" class="md-toc-link">
+            <p>撤销 commit 中单个文件的修改</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#git-从某个分支的某次提交新建分支拉取代码" class="md-toc-link">
+            <p>Git 从某个分支的某次提交新建分支拉取代码</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#合并多个-commit-为一个" class="md-toc-link">
+            <p>合并多个 commit 为一个</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#git-stash-部分文件" class="md-toc-link">
+            <p>git stash 部分文件</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
+<h1 id="git-常用指令记录">Git 常用指令记录 </h1>
+<p>总结一些常用的指令。</p>
+<h2 id="创建库-初始化-配置">创建库、初始化、配置 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> clone git@xxxxx 或者https://xxxx 把文件clone到本地。
+<span class="token function">git</span> clone <span class="token parameter variable">-b</span> dev1 git@xxxx clone这个文件的dev1分支
+
+<span class="token function">git</span> init  初始化git目录（最好空白文件夹的时候）。
+
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> XXXX  修改一些全局变量
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"Zhang San"</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email zhangsan@example.com
+
+<span class="token function">git</span> remote 显示远程仓库信息
+<span class="token function">git</span> remote <span class="token parameter variable">-v</span>
+<span class="token function">git</span> remote set-url origin http://xx.xx.xx.xx:port/zhang/git_test.git
+
+<span class="token function">git</span> config user.name
+<span class="token function">git</span> config user.email <span class="token comment"># 1.查看用户名和邮箱地址$</span>
+</code></pre><h2 id="文件的本地修改-添加和撤销">文件的本地修改、添加和撤销 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># 查询</span>
+<span class="token function">git</span> status         <span class="token comment"># 查看文件状态</span>
+<span class="token function">git</span> <span class="token function">diff</span> A.txt     <span class="token comment"># 查看A文件有哪些改动</span>
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--cached</span>  <span class="token comment"># 查看已经add过但还没commit的内容</span>
+<span class="token function">git</span> show           <span class="token comment"># 查看最近的commit内容</span>
+
+<span class="token comment"># 添加</span>
+<span class="token function">git</span> <span class="token function">add</span> A.txt <span class="token comment"># 提交A文件（add完以后最好stash或者commit，免得丢了）</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-u</span>    <span class="token comment"># 只提交update文件</span>
+
+<span class="token comment"># 改名</span>
+<span class="token function">git</span> <span class="token function">mv</span> <span class="token operator">&lt;</span>old_file<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>new_file<span class="token operator">&gt;</span>
+
+<span class="token comment"># 移除</span>
+<span class="token function">git</span> <span class="token function">rm</span> A.txt         <span class="token comment"># 把本地和远程文件A都删了</span>
+<span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">-cached</span> A.txt <span class="token comment"># 远程删，本地不删</span>
+
+<span class="token comment"># 删除未在repo中的文件</span>
+<span class="token function">git</span> clean <span class="token parameter variable">-n</span> 查看要删除那些多余文件
+<span class="token function">git</span> clean <span class="token parameter variable">-df</span> 真的删除这些文件
+</code></pre><h3 id="difftool-用于本地查看-diff">difftool 用于本地查看 diff </h3>
+<pre data-role="codeBlock" data-info="git" class="language-git git"><code>git difftool --dir-diff commit1 commit2
+git diff --cached # 查看已经add但是没commit的数据
+</code></pre><h2 id="提交和撤销到分支">提交和撤销到分支 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># 提交</span>
+<span class="token function">git</span> commit         <span class="token comment"># 提交本地修改：说明修改了啥</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span>      <span class="token comment"># 一行描述提交commit</span>
+<span class="token function">git</span> commit <span class="token parameter variable">--am</span>    <span class="token comment"># 在当前commit基础上追加</span>
+<span class="token function">git</span> commit <span class="token parameter variable">--amend</span> <span class="token comment"># 同上，修改提交，比如先add，再amend</span>
+
+<span class="token comment"># 撤销--amend</span>
+如果只 amend 了一次, 那么直接用 <span class="token function">git</span> reset HEAD@<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span> 就可以撤销这次 amend.
+如果 amend 多次, 就参考 <span class="token function">git</span> reflog 进行撤销. 找到最近的需要保留的，然后重新pull一下。
+<span class="token comment"># 撤销</span>
+<span class="token function">git</span> reset <span class="token parameter variable">--hard</span> HEAD      <span class="token comment"># 撤销工作目录中没提交的文件的修改内容</span>
+<span class="token function">git</span> reset <span class="token parameter variable">--soft</span> commit_id <span class="token comment"># 撤销操作，保留文件</span>
+
+<span class="token function">git</span> checkout HEAD <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>   <span class="token comment"># 撤销指定的未提交文件的修改内容</span>
+<span class="token function">git</span> checkout -- filename   <span class="token comment"># 撤销这个文件的修改</span>
+
+<span class="token function">git</span> revert <span class="token operator">&lt;</span>commit<span class="token operator">&gt;</span>        <span class="token comment"># 撤销这个commit</span>
+<span class="token function">git</span> revert <span class="token parameter variable">-m</span> <span class="token number">1</span> start_commit_id^<span class="token punctuation">..</span>end_commit_id <span class="token comment"># -m 用来处理有merge的分支</span>
+<span class="token comment"># 如果我们想把这三个revert不自动生成三个新的commit，而是用一个commit完成，可以这样：</span>
+<span class="token function">git</span> revert <span class="token parameter variable">-n</span> OLDER_COMMIT^<span class="token punctuation">..</span>NEWER_COMMIT
+
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"revert OLDER_COMMIT to NEWER_COMMIT"</span>
+
+<span class="token comment"># 查看提交历史</span>
+<span class="token function">git</span> log     <span class="token comment"># 查看文件修改log</span>
+<span class="token function">git</span> log <span class="token parameter variable">-p</span>  <span class="token comment"># 查看指定文件的提交历史</span>
+<span class="token function">git</span> log <span class="token parameter variable">--grep</span> <span class="token string">"test"</span> <span class="token comment"># 查找包含test字段的提交</span>
+<span class="token function">git</span> blame   <span class="token comment"># 查看列表形式的提交历史</span>
+<span class="token function">git</span> blame file_name
+<span class="token function">git</span> blame <span class="token parameter variable">-L</span> <span class="token number">58,100</span> KeyboardActivity.java
+
+<span class="token function">git</span> reflog  <span class="token comment"># 本地所有的提交历史</span>
+
+<span class="token comment"># git rm的撤销</span>
+<span class="token function">git</span> <span class="token function">rm</span> <span class="token punctuation">(</span>-r<span class="token punctuation">)</span> <span class="token function">file</span>
+<span class="token function">git</span> status <span class="token comment"># 查看</span>
+<span class="token function">git</span> reset -- <span class="token function">file</span>
+<span class="token function">git</span> checkout -- ./file
+</code></pre><h2 id="分支管理">分支管理 </h2>
+<p>分支的创建、改名</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> branch           <span class="token comment"># 显示当前分支和所有分支</span>
+<span class="token function">git</span> branch <span class="token parameter variable">-b</span> new_branch   <span class="token comment"># 新增分支 new_branch</span>
+<span class="token function">git</span> branch <span class="token parameter variable">-m</span> old_branch new_branch <span class="token comment"># 重命名本地分支，从旧的old_branch更新为新的new_branch</span>
+<span class="token function">git</span> branch <span class="token parameter variable">-a</span>        <span class="token comment"># 列举本地和远程的所有branch</span>
+<span class="token function">git</span> checkout <span class="token parameter variable">-b</span> new_branch <span class="token comment"># 从当前分支新增且切换到分支dev1</span>
+</code></pre><p>从远程分支拉代码、合并</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> merge B          <span class="token comment"># 在分支A上，合并分支B，形成新的commit，对B分支没有影响。</span>
+<span class="token function">git</span> fetch            <span class="token comment"># 更新远程分支上最新的commit，记录到.git/FETCH_HEAD</span>
+<span class="token function">git</span> pull             <span class="token comment"># 更新分支，相当于fetch+merge</span>
+<span class="token function">git</span> pull origin master     <span class="token comment"># 下拉 master 分支的代码，合并到当前分支</span>
+<span class="token function">git</span> pull <span class="token parameter variable">--rebase</span> origin master <span class="token comment"># 下拉合并master并且不增加commit</span>
+<span class="token function">git</span> checkout <span class="token parameter variable">-b</span> A origin/B  <span class="token comment"># 以远程分支B为来源，在本地仓库中创建分支A</span>
+</code></pre><p>推代码到远程分支</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> push origin remote_branch        <span class="token comment"># 将代码推到 remote_branch 分支</span>
+<span class="token function">git</span> push origin local_branch:master <span class="token comment"># 将代码从 local_branch 分支推到 master</span>
+<span class="token function">git</span> branch <span class="token parameter variable">-D</span> branch_1 <span class="token comment"># 删除本地分支 branch_1</span>
+<span class="token function">git</span> push origin <span class="token parameter variable">--delete</span> remote_branch <span class="token comment"># 删除远程分支 remote_branch</span>
+<span class="token comment"># 以图表形式查看分支，图上每个点表示一个commit，两个commit之间如果有线连接，那么下面的commit是上面一个commit的parent（父节点）。</span>
+<span class="token function">git</span> log <span class="token parameter variable">--graph</span>
+</code></pre><p>比较本地分支和远程分支的区别</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> branch <span class="token parameter variable">-r</span> <span class="token comment"># 查看所有远程分支名</span>
+<span class="token function">git</span> <span class="token function">diff</span> local_branch remote_branch
+</code></pre><h2 id="冲突解决">冲突解决 </h2>
+<p>冲突形如：<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code><br>
+选择需要保留的code并提交。</p>
+<h2 id="rebase">rebase </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> rebase <span class="token parameter variable">--abort</span> <span class="token comment"># 放弃合并，回到rebase操作之前的状态，之前的提交的不会丢弃；</span>
+<span class="token function">git</span> rebase <span class="token parameter variable">--skip</span> <span class="token comment"># 将引起冲突的commits丢掉（慎用）；</span>
+<span class="token function">git</span> rebase <span class="token parameter variable">--continue</span> <span class="token comment"># 合并冲突，分步进行</span>
+</code></pre><h2 id="撤销-修改">撤销、修改 </h2>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> reset                  <span class="token comment"># 撤销</span>
+<span class="token function">git</span> reset <span class="token parameter variable">--soft</span> commit_id <span class="token comment"># 撤销到commit_id的对应提交，并且保留吃从commit_id到最近的更改。如果commit已经提交过，需要push --force才能重新推到远端</span>
+<span class="token function">git</span> reset <span class="token parameter variable">--hard</span> commit_id <span class="token comment"># 撤销到commit_id的对应提交，强制，所有之后的改动都会消失。如果commit已经提交过，需要push --force才能重新推到远端</span>
+<span class="token function">git</span> revert commit_id       <span class="token comment"># 撤销commit_id对应的提交，并且push时会留下commit_id和对应revert动作的commit记录，也就是所有的行为都会有迹可循。</span>
+<span class="token function">git</span> revert commit_revert <span class="token comment"># 假如提交了commit_1，并且revert commit_1生成了commit_revert，撤销 commit_revert</span>
+<span class="token function">git</span> checkout HEAD        <span class="token comment"># 撤销到HEAD指针处</span>
+<span class="token function">git</span> checkout ./some_file <span class="token comment"># 撤销对某个文件的未提交修改</span>
+<span class="token function">git</span> commit <span class="token parameter variable">--amend</span> <span class="token comment"># 将修改的代码追加到当前的最近一个commit</span>
+
+<span class="token function">git</span> rebase <span class="token parameter variable">-i</span>      <span class="token comment"># 在其中调整 commit 的顺序、删除不想要的提交、以及合并提交</span>
+<span class="token function">git</span> rebase <span class="token parameter variable">-i</span> HEAD~4     <span class="token comment"># 调整HEAD最近的4次commit</span>
+</code></pre><p>cherry-pick：我非常爱的指令。</p>
+<p>cherry-pick就是摘樱桃，与merge相比，merge是合并另一个分支上的所有提交，cherry-pick是用来“挑选”需要的commit</p>
+<h3 id="在分支-a-上合并分支-b-的一个-commit">在分支 A 上，合并分支 B 的一个 commit </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> cherry-pick commit_id <span class="token comment"># commit_id原本属于其他分支，cherry-pick将commit_id 从其他的分支复制到当前的分支的 HEAD 上</span>
+<span class="token function">git</span> cherry-pick commit_1 commit2 <span class="token comment"># cherry-pick多个commit，这些commit可以在时间和分支上都不相关，生成两个新的commit</span>
+<span class="token function">git</span> cherry-pick commit_old^<span class="token punctuation">..</span>commit_new <span class="token comment"># 选择从commit_1到commit_2的所有commit，是闭区间[commit_1, commit_2]</span>
+<span class="token function">git</span> cherry-pick commit_old<span class="token punctuation">..</span>commit_new <span class="token comment"># (commit_1, commit_1] 左开右闭</span>
+</code></pre><pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> checkout A <span class="token comment"># 先切换到A分支</span>
+<span class="token function">git</span> cherry-pick commit_id_from_branchB <span class="token comment"># 将B分支上的commit挑过来</span>
+</code></pre><p>cherry-pick和rebase一样，通过abort、continue决定每个分支的去留</p>
+<h3 id="查看文件">查看文件 </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> log --name-status 每次修改的文件列表, 显示状态
+<span class="token function">git</span> log --name-only 每次修改的文件列表
+<span class="token function">git</span> log <span class="token parameter variable">--stat</span> 每次修改的文件列表, 及文件修改的统计
+
+<span class="token function">git</span> whatchanged 每次修改的文件列表
+<span class="token function">git</span> whatchanged <span class="token parameter variable">--stat</span> 每次修改的文件列表, 及文件修改的统计
+
+<span class="token function">git</span> show 显示最后一次的文件改变的具体内容
+</code></pre><h2 id="错误">错误 </h2>
+<ul>
+<li>Git error - Fatal: Not a git repository</li>
+<li>Permission denied (keyboard-interactive,publickey). fatal: Could not read from remote repository.</li>
+</ul>
+<h3 id="mode-change">mode change </h3>
+<p>git file mode change<br>
+是指用户权限变了，比如 100644-100755 之类的。<br>
+不提交这个的方法：<code>git config core.filemode false</code> <code>git config --global core.filemode false</code></p>
+<h2 id="commit-description">commit description </h2>
+<p>( 1 ) type（必须） : commit 的类别，只允许使用下面几个标识：</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp C++"><code>feat <span class="token operator">:</span> 新功能
+fix <span class="token operator">:</span> 修复bug
+docs <span class="token operator">:</span> 文档改变
+style <span class="token operator">:</span> 代码格式改变
+refactor <span class="token operator">:</span> 某个已有功能重构
+perf <span class="token operator">:</span> 性能优化
+test <span class="token operator">:</span> 增加测试
+build <span class="token operator">:</span> 改变了build工具 如 grunt换成了 npm
+revert <span class="token operator">:</span> 撤销上一次的 commit
+chore <span class="token operator">:</span> 构建过程或辅助工具的变动
+</code></pre><h2 id="示例">示例 </h2>
+<p>在分支 A 上修改文件但是没有提交（commit），切换到分支 B，B 也能看到，状态为 M。<br>
+在分支 A 上修改文件，提交了，切换到分支 B，B 看不到。</p>
+<ul>
+<li>Feat Fix Refactor Test Perf<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> stash <span class="token comment"># 将本地修改的代码放到栈里</span>
+<span class="token function">git</span> stash pop <span class="token comment"># 将提交到栈里的代码 pop 出来</span>
+<span class="token function">git</span> reset HEAD <span class="token comment"># 恢复文件到 HEAD（如果误 add 了一个 A 文件，可以使用）</span>
+<span class="token function">git</span> reset A.txt <span class="token comment"># (恢复一个文件 A)</span>
+</code></pre></li>
+<li>查看简单的 diff 结果，可以加上–stat 参数，执行命令如下：<code>git diff --stat</code><br>
+<code>git diff SHA1 SHA2</code></li>
+<li>比较上次提交 commit 和上上次提交的差别时，执行如下命令：<code>git diff HEAD^ HEAD</code><br>
+<code>git reflog</code></li>
+</ul>
+<h3 id="去掉中间某次-commit">去掉中间某次 commit </h3>
+<ol>
+<li>首先 <code>git log</code> 查看提交记录，找到出错的前一笔提交的 commit_id</li>
+<li>用命令 <code>git rebase -i commit_id</code> ，查找提交记录</li>
+<li>将出错那笔提交的 pick 改为 drop</li>
+</ol>
+<h3 id="撤销-amend">撤销 amend </h3>
+<p>首先使用 git reflog 命令查看操作记录:</p>
+<pre data-role="codeBlock" data-info="log" class="language-log log"><code><span class="token operator">$</span> git reflog
+c1c1b21 HEAD<span class="token operator">@</span><span class="token operator">{</span><span class="token number">0</span><span class="token operator">}</span><span class="token operator">:</span> commit <span class="token operator">(</span>amend<span class="token operator">)</span><span class="token operator">:</span> add blank line to <span class="token domain constant">index.html</span>
+<span class="token number">9ff821d</span> HEAD<span class="token operator">@</span><span class="token operator">{</span><span class="token number">1</span><span class="token operator">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> add blank line to <span class="token domain constant">index.html</span>
+b078331 HEAD<span class="token operator">@</span><span class="token operator">{</span><span class="token number">2</span><span class="token operator">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> no more commit<span class="token operator">!</span>
+b86e902 HEAD<span class="token operator">@</span><span class="token operator">{</span><span class="token number">3</span><span class="token operator">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> so many commit
+<span class="token number">77e6ce9</span> HEAD<span class="token operator">@</span><span class="token operator">{</span><span class="token number">4</span><span class="token operator">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> this is another commit
+ccde039 HEAD<span class="token operator">@</span><span class="token operator">{</span><span class="token number">5</span><span class="token operator">}</span><span class="token operator">:</span> commit<span class="token operator">:</span> this is a commit
+a49dcf4 HEAD<span class="token operator">@</span><span class="token operator">{</span><span class="token number">6</span><span class="token operator">}</span><span class="token operator">:</span> clone<span class="token operator">:</span> from ssh<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>liux<span class="token operator">@</span>xxx<span class="token punctuation">.</span>xx<span class="token punctuation">.</span>xx<span class="token punctuation">.</span>xxx<span class="token operator">:</span><span class="token number">29418</span><span class="token operator">/</span>git_test<span class="token punctuation">.</span>git
+</code></pre><p>看到 amend 操作之前的最后一个操作就是 HEAD@{1}.<br>
+现在可以用 git reset 将当前分支的 HEAD 指向 HEAD@{1}, 即可达到撤销 amend 的目的:</p>
+<pre data-role="codeBlock" data-info="log" class="language-log log"><code><span class="token operator">$</span> git reset <span class="token operator">-</span><span class="token operator">-</span>soft HEAD<span class="token operator">@</span><span class="token operator">{</span><span class="token number">1</span><span class="token operator">}</span>
+<span class="token operator">$</span> git status
+On branch master
+Your branch is ahead of <span class="token string">'origin/master'</span> by <span class="token number">5</span> commits<span class="token punctuation">.</span>
+<span class="token operator">(</span>use <span class="token string">"git push"</span> to publish your local commits<span class="token operator">)</span>
+<span class="token property">Changes not staged for commit:</span>
+<span class="token operator">(</span>use <span class="token string">"git add &lt;file&gt;..."</span> to update what will be committed<span class="token operator">)</span>
+<span class="token operator">(</span>use <span class="token string">"git checkout -- &lt;file&gt;..."</span> to discard changes in working directory<span class="token operator">)</span>
+
+<span class="token property">modified:</span>   <span class="token domain constant">index.html</span>
+</code></pre><p>随即使用 git status 查看状态, 发现 amend 的内容已经被撤销 (到工作区) 了.<br>
+如果想撤销到暂存区, 就用 git reset --soft HEAD@{1} .<br>
+如果想干掉这个修改, 就用 git reset --hard HEAD@{1} .<br>
+这和 git reset 操作 commit 的情形是一样的.</p>
+<p>如果一个 commit 被 amend 了多次, 也可以用这种方法撤销到任意一次 amend 处:</p>
+<h3 id="撤销-commit-中单个文件的修改">撤销 commit 中单个文件的修改 </h3>
+<p>问题背景<br>
+笔者最近在实习发现了这么一个问题，push 了一个提交但是这个提交中误删了两个文件，现在需要撤销错误的删除并重新提交</p>
+<p>解决过程<br>
+首先查询这个文件的 log <code>git log &lt;fileName&gt;</code></p>
+<p>其次查找到这个文件的上次 commit id xxx，并对其进行 reset 操作 <code>git reset &lt;commit-id&gt; &lt;fileName&gt;</code><br>
+再撤销对此文件的修改 <code>git checkout &lt;fileName&gt;</code><br>
+最后 amend 一下，再 push 上去</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> commit <span class="token parameter variable">--amend</span>
+<span class="token function">git</span> push origin <span class="token operator">&lt;</span>remoteBranch<span class="token operator">&gt;</span>
+</code></pre><h3 id="git-从某个分支的某次提交新建分支拉取代码">Git 从某个分支的某次提交新建分支拉取代码 </h3>
+<p><code>git checkout -b w3h5 af161ecbd13eff1630c14f84a7395d46f5d18888</code></p>
+<h3 id="合并多个-commit-为一个">合并多个 commit 为一个 </h3>
+<ol>
+<li>
+<p>查看提交历史，git log</p>
+</li>
+<li>
+<p>假如，想要合并前三条，<code>git rebase -i HEAD~3</code>，将 pick 改为 squash 或者 s,之后保存并关闭文本编辑窗口即可</p>
+</li>
+<li>
+<p>重新提交</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> rebase <span class="token parameter variable">--continue</span>
+</code></pre></li>
+</ol>
+<p>或者 <code>git reset --soft commit-id</code>，git commit --amend，然后重新提交。</p>
+<h3 id="git-stash-部分文件">git stash 部分文件 </h3>
+<p><code>git stash -p</code>是一个交互式命令，我们可以一个文件一个文件的遍历,决定每个文件的操作方式.遇到我们需要 stash 的文件,我们就 y,不需要 stash 需要 commit 的文件,我们就 n,如果接下来没有需要 stash 的文件,则直接 q 退出就行.</p>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#git-常用指令记录" class="md-toc-link"><p>Git 常用指令记录</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#创建库-初始化-配置" class="md-toc-link">
+            <p>创建库、初始化、配置</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#文件的本地修改-添加和撤销" class="md-toc-link"><p>文件的本地修改、添加和撤销</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#difftool-用于本地查看-diff" class="md-toc-link">
+            <p>difftool 用于本地查看 diff</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#提交和撤销到分支" class="md-toc-link">
+            <p>提交和撤销到分支</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#分支管理" class="md-toc-link">
+            <p>分支管理</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#冲突解决" class="md-toc-link">
+            <p>冲突解决</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#rebase" class="md-toc-link">
+            <p>rebase</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#撤销-修改" class="md-toc-link"><p>撤销、修改</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#在分支-a-上合并分支-b-的一个-commit" class="md-toc-link">
+            <p>在分支 A 上，合并分支 B 的一个 commit</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#查看文件" class="md-toc-link">
+            <p>查看文件</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#错误" class="md-toc-link"><p>错误</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#mode-change" class="md-toc-link">
+            <p>mode change</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#commit-description" class="md-toc-link">
+            <p>commit description</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#示例" class="md-toc-link"><p>示例</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#去掉中间某次-commit" class="md-toc-link">
+            <p>去掉中间某次 commit</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#撤销-amend" class="md-toc-link">
+            <p>撤销 amend</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#撤销-commit-中单个文件的修改" class="md-toc-link">
+            <p>撤销 commit 中单个文件的修改</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#git-从某个分支的某次提交新建分支拉取代码" class="md-toc-link">
+            <p>Git 从某个分支的某次提交新建分支拉取代码</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#合并多个-commit-为一个" class="md-toc-link">
+            <p>合并多个 commit 为一个</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#git-stash-部分文件" class="md-toc-link">
+            <p>git stash 部分文件</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

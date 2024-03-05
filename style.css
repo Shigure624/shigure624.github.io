@@ -1,28 +1,35 @@
 .line {
   font-family: Arial;
-  color: rgba(93, 9, 9, 0.943);
+  color: dimgrey;
   font-size: 16px;
   line-height: 30px;
 }
+
+.hidden_line {
+  color:whitesmoke !important;
+}
+
+li::marker {
+  content: '<<  ';
+}
+
 .newest_line {
   text-indent: 40px;
   font-family: Arial;
-  color: rgba(93, 9, 9, 0.943);
+  color:dimgrey;
   font-size: 20px;
   line-height: 30px;
 }
 .theme {
   list-style-type: circle;
   font-family: Arial;
-  color: rgba(93, 9, 9, 0.943);
+  color:dimgrey;
   font-size: 20px;
   line-height: 50px;
 }
 .content {
   text-align: left;
   position: absolute;
-  width: 600px;
-  height: 1000px;
 }
 .text {
   font-size: 14px;

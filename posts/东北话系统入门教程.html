@@ -1,2068 +1,2061 @@
 <!DOCTYPE html><html><head>
-      <title>&#x4E1C;&#x5317;&#x8BDD;&#x7CFB;&#x7EDF;&#x5165;&#x95E8;&#x6559;&#x7A0B;</title>
+      <title>东北话系统入门教程</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
       
       
-      
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.4.0/dist/mermaid.min.js"></script>
-      
-      
-      
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.0/dist/mermaid.min.js"></script>
       
       
       <style>
-      /**
- * prism.js Github theme based on GitHub's theme.
- * @author Sam Clarke
- */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #333;
-  background: none;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.4;
-
-  -moz-tab-size: 8;
-  -o-tab-size: 8;
-  tab-size: 8;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
-
-/* Code blocks */
-pre[class*="language-"] {
-  padding: .8em;
-  overflow: auto;
-  /* border: 1px solid #ddd; */
-  border-radius: 3px;
-  /* background: #fff; */
-  background: #f5f5f5;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: .1em;
-  border-radius: .3em;
-  white-space: normal;
-  background: #f5f5f5;
-}
-
-.token.comment,
-.token.blockquote {
-  color: #969896;
-}
-
-.token.cdata {
-  color: #183691;
-}
-
-.token.doctype,
-.token.punctuation,
-.token.variable,
-.token.macro.property {
-  color: #333;
-}
-
-.token.operator,
-.token.important,
-.token.keyword,
-.token.rule,
-.token.builtin {
-  color: #a71d5d;
-}
-
-.token.string,
-.token.url,
-.token.regex,
-.token.attr-value {
-  color: #183691;
-}
-
-.token.property,
-.token.number,
-.token.boolean,
-.token.entity,
-.token.atrule,
-.token.constant,
-.token.symbol,
-.token.command,
-.token.code {
-  color: #0086b3;
-}
-
-.token.tag,
-.token.selector,
-.token.prolog {
-  color: #63a35c;
-}
-
-.token.function,
-.token.namespace,
-.token.pseudo-element,
-.token.class,
-.token.class-name,
-.token.pseudo-class,
-.token.id,
-.token.url-reference .token.variable,
-.token.attr-name {
-  color: #795da3;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-.token.title,
-.token.title .token.punctuation {
-  font-weight: bold;
-  color: #1d3e81;
-}
-
-.token.list {
-  color: #ed6a43;
-}
-
-.token.inserted {
-  background-color: #eaffea;
-  color: #55a532;
-}
-
-.token.deleted {
-  background-color: #ffecec;
-  color: #bd2c00;
-}
-
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-
-/* JSON */
-.language-json .token.property {
-  color: #183691;
-}
-
-.language-markup .token.tag .token.punctuation {
-  color: #333;
-}
-
-/* CSS */
-code.language-css,
-.language-css .token.function {
-  color: #0086b3;
-}
-
-/* YAML */
-.language-yaml .token.atrule {
-  color: #63a35c;
-}
-
-code.language-yaml {
-  color: #183691;
-}
-
-/* Ruby */
-.language-ruby .token.function {
-  color: #333;
-}
-
-/* Markdown */
-.language-markdown .token.url {
-  color: #795da3;
-}
-
-/* Makefile */
-.language-makefile .token.symbol {
-  color: #795da3;
-}
-
-.language-makefile .token.variable {
-  color: #183691;
-}
-
-.language-makefile .token.builtin {
-  color: #0086b3;
-}
-
-/* Bash */
-.language-bash .token.keyword {
-  color: #0086b3;
-}
-
-/* highlight */
-pre[data-line] {
-  position: relative;
-  padding: 1em 0 1em 3em;
-}
-pre[data-line] .line-highlight-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  display: block;
-  width: 100%;
-}
-
-pre[data-line] .line-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: inherit 0;
-  margin-top: 1em;
-  background: hsla(24, 20%, 50%,.08);
-  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-  pointer-events: none;
-  line-height: inherit;
-  white-space: pre;
-}
-
-pre[data-line] .line-highlight:before, 
-pre[data-line] .line-highlight[data-end]:after {
-  content: attr(data-start);
-  position: absolute;
-  top: .4em;
-  left: .6em;
-  min-width: 1em;
-  padding: 0 .5em;
-  background-color: hsla(24, 20%, 50%,.4);
-  color: hsl(24, 20%, 95%);
-  font: bold 65%/1.5 sans-serif;
-  text-align: center;
-  vertical-align: .3em;
-  border-radius: 999px;
-  text-shadow: none;
-  box-shadow: 0 1px white;
-}
-
-pre[data-line] .line-highlight[data-end]:after {
-  content: attr(data-end);
-  top: auto;
-  bottom: .4em;
-}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  background-color: whitesmoke;
+  color: dimgrey;
+  /*Code blocks*/
+  /*Preformatted text*/
+  /*table*/
+}
+.markdown-preview.markdown-preview h1 {
+  color: black;
+}
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3,
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5,
+.markdown-preview.markdown-preview h6 {
+  color: dimgray;
+}
+.markdown-preview.markdown-preview code,
+.markdown-preview.markdown-preview tt {
+  color: cornflowerblue;
+  white-space: nowrap;
+}
+.markdown-preview.markdown-preview pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+.markdown-preview.markdown-preview .highlight pre {
+  background-color: #f8f8f8;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre {
+  background-color: gainsboro;
+  /*font-size:          13px;*/
+  font-size: 0.9em !important;
+  line-height: 1.6em !important;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre code,
+.markdown-preview.markdown-preview pre tt {
+  background-color: transparent;
+  border: none;
+}
+.markdown-preview.markdown-preview table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.markdown-preview.markdown-preview table tr {
+  /* border-top: 1px solid #cccccc; */
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+.markdown-preview.markdown-preview table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.markdown-preview.markdown-preview table tr th {
+  font-weight: bold;
+  /* border: 0.5px solid #cccccc; */
+  /* border-left: 0.5px solid #cccccc;
+        border-right: 0.5px solid #cccccc; */
+  background-color: #eefbff;
+  font-size: 14px;
+  margin: 0;
+  padding: 0.4em 0.35em 0.4em 0.35em;
+}
+.markdown-preview.markdown-preview table tr td {
+  /* border: 1px solid #cccccc; */
+  margin: 0;
+  font-size: 14px;
+  padding: 5px 5px;
+}
+.markdown-preview.markdown-preview table tr th :first-child,
+.markdown-preview.markdown-preview table tr td :first-child {
+  margin-top: 0;
+}
+.markdown-preview.markdown-preview table tr th :last-child,
+.markdown-preview.markdown-preview table tr td :last-child {
+  margin-bottom: 0;
+}
+.md-sidebar-toc.md-sidebar-toc {
+  color: dimgray;
+}
+.md-toc {
+  color: dimgray;
+}
+.md-toc-link {
+  color: dimgray;
+}
 
       </style>
-    </head>
-    <body for="html-export">
-      <div class="mume markdown-preview  ">
-      <p><a href="https://shigure624.github.io/">Back To Main Page</a></p>
-
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
 <div class="md-toc">
-<details style="padding:0;;padding-left:0px;" open>
+<details style="padding:0;;padding-left:0px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#&#x4E1C;&#x5317;&#x8BDD;&#x7CFB;&#x7EDF;&#x5165;&#x95E8;&#x6559;&#x7A0B;" class="md-toc-link"><p>&#x4E1C;&#x5317;&#x8BDD;&#x7CFB;&#x7EDF;&#x5165;&#x95E8;&#x6559;&#x7A0B;</p>
+          <a href="#东北话系统入门教程" class="md-toc-link"><p>东北话系统入门教程</p>
 </a>
           </summary>
         <div>
-          <details style="padding:0;;padding-left:24px;" open>
+          <details style="padding:0;;padding-left:24px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#&#x7B2C;&#x4E00;&#x7AE0;&#x901A;&#x7528;&#x8BED;&#x97F3;" class="md-toc-link"><p>&#x7B2C;&#x4E00;&#x7AE0;&#xFF1A;&#x901A;&#x7528;&#x8BED;&#x97F3;</p>
+          <a href="#第一章通用语音" class="md-toc-link"><p>第一章：通用语音</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x5E38;&#x7528;&#x8BFB;&#x97F3;" class="md-toc-link">
-            <p>&#x5E38;&#x7528;&#x8BFB;&#x97F3;</p>
+          <a href="#常用读音" class="md-toc-link">
+            <p>常用读音</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x8BED;&#x6C14;&#x8BCD;" class="md-toc-link">
-            <p>&#x8BED;&#x6C14;&#x8BCD;</p>
+          <a href="#语气词" class="md-toc-link">
+            <p>语气词</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x513F;&#x5316;&#x97F3;" class="md-toc-link">
-            <p>&#x513F;&#x5316;&#x97F3;</p>
+          <a href="#儿化音" class="md-toc-link">
+            <p>儿化音</p>
 
           </a></div>
         </div>
       </details>
-    <details style="padding:0;;padding-left:24px;" open>
+    <details style="padding:0;;padding-left:24px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#&#x7B2C;&#x4E8C;&#x7AE0;&#x5E38;&#x7528;&#x8BCD;&#x6C47;" class="md-toc-link"><p>&#x7B2C;&#x4E8C;&#x7AE0;&#xFF1A;&#x5E38;&#x7528;&#x8BCD;&#x6C47;</p>
+          <a href="#第二章常用词汇" class="md-toc-link"><p>第二章：常用词汇</p>
 </a>
           </summary>
         <div>
-          <details style="padding:0;;padding-left:24px;" open>
+          <details style="padding:0;;padding-left:24px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#&#x4EBA;&#x79F0;" class="md-toc-link"><p>&#x4EBA;&#x79F0;</p>
+          <a href="#人称" class="md-toc-link"><p>人称</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x4EB2;&#x621A;&#x53EB;&#x6CD5;" class="md-toc-link">
-            <p>&#x4EB2;&#x621A;&#x53EB;&#x6CD5;</p>
+          <a href="#亲戚叫法" class="md-toc-link">
+            <p>亲戚叫法</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x5176;&#x4ED6;" class="md-toc-link">
-            <p>&#x5176;&#x4ED6;</p>
+          <a href="#其他" class="md-toc-link">
+            <p>其他</p>
 
           </a></div>
         </div>
       </details>
     <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x65F6;&#x95F4;" class="md-toc-link">
-            <p>&#x65F6;&#x95F4;</p>
+          <a href="#时间" class="md-toc-link">
+            <p>时间</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x4F4D;&#x7F6E;" class="md-toc-link">
-            <p>&#x4F4D;&#x7F6E;</p>
+          <a href="#位置" class="md-toc-link">
+            <p>位置</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x52A8;&#x8BCD;" class="md-toc-link">
-            <p>&#x52A8;&#x8BCD;</p>
+          <a href="#动词" class="md-toc-link">
+            <p>动词</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x6570;&#x91CF;&#x8BCD;" class="md-toc-link">
-            <p>&#x6570;&#x91CF;&#x8BCD;</p>
+          <a href="#数量词" class="md-toc-link">
+            <p>数量词</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x5F62;&#x5BB9;&#x8BCD;" class="md-toc-link">
-            <p>&#x5F62;&#x5BB9;&#x8BCD;</p>
+          <a href="#形容词" class="md-toc-link">
+            <p>形容词</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x91CF;&#x8BCD;" class="md-toc-link">
-            <p>&#x91CF;&#x8BCD;</p>
+          <a href="#量词" class="md-toc-link">
+            <p>量词</p>
 
-          </a></div><details style="padding:0;;padding-left:24px;" open>
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#&#x540D;&#x8BCD;" class="md-toc-link"><p>&#x540D;&#x8BCD;</p>
+          <a href="#名词" class="md-toc-link"><p>名词</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x8EAB;&#x4F53;&#x90E8;&#x4F4D;" class="md-toc-link">
-            <p>&#x8EAB;&#x4F53;&#x90E8;&#x4F4D;</p>
+          <a href="#身体部位" class="md-toc-link">
+            <p>身体部位</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x690D;&#x7269;-&#x98DF;&#x7269;" class="md-toc-link">
-            <p>&#x690D;&#x7269;&#x3001;&#x98DF;&#x7269;</p>
+          <a href="#植物-食物" class="md-toc-link">
+            <p>植物、食物</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x52A8;&#x7269;" class="md-toc-link">
-            <p>&#x52A8;&#x7269;</p>
+          <a href="#动物" class="md-toc-link">
+            <p>动物</p>
 
           </a></div>
         </div>
       </details>
     <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x989C;&#x8272;" class="md-toc-link">
-            <p>&#x989C;&#x8272;</p>
+          <a href="#颜色" class="md-toc-link">
+            <p>颜色</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x9EBB;&#x5C06;&#x672F;&#x8BED;" class="md-toc-link">
-            <p>&#x9EBB;&#x5C06;&#x672F;&#x8BED;</p>
+          <a href="#麻将术语" class="md-toc-link">
+            <p>麻将术语</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x5176;&#x4ED6;-1" class="md-toc-link">
-            <p>&#x5176;&#x4ED6;</p>
+          <a href="#其他-1" class="md-toc-link">
+            <p>其他</p>
 
           </a></div>
         </div>
       </details>
     <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x7B2C;&#x4E09;&#x7AE0;&#x5E38;&#x7528;&#x53E5;&#x5F0F;" class="md-toc-link">
-            <p>&#x7B2C;&#x4E09;&#x7AE0;&#xFF1A;&#x5E38;&#x7528;&#x53E5;&#x5F0F;</p>
+          <a href="#第三章常用句式" class="md-toc-link">
+            <p>第三章：常用句式</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#&#x7B2C;&#x56DB;&#x7AE0;&#x5E38;&#x7528;&#x4FD7;&#x8BED;" class="md-toc-link">
-            <p>&#x7B2C;&#x56DB;&#x7AE0;&#xFF1A;&#x5E38;&#x7528;&#x4FD7;&#x8BED;</p>
+          <a href="#第四章常用俗语" class="md-toc-link">
+            <p>第四章：常用俗语</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#ref" class="md-toc-link">
-            <p>ref</p>
+          <a href="#reference" class="md-toc-link">
+            <p>Reference</p>
 
           </a></div>
         </div>
       </details>
     
 </div>
-<h1 class="mume-header" id="%E4%B8%9C%E5%8C%97%E8%AF%9D%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B">&#x4E1C;&#x5317;&#x8BDD;&#x7CFB;&#x7EDF;&#x5165;&#x95E8;&#x6559;&#x7A0B;</h1>
-
-<p>&#x79BB;&#x5BB6;&#x591A;&#x5E74;&#xFF0C;&#x53E3;&#x97F3;&#x6DE1;&#x4E86;&#xFF0C;&#x7528;&#x8BCD;&#x4E5F;&#x751F;&#x758F;&#x4E86;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x8FD9;&#x91CC;&#x505A;&#x4E00;&#x4E2A;&#x6574;&#x7406;&#xFF0C;&#x63D0;&#x9192;&#x81EA;&#x5DF1;&#xFF0C;&#x591A;&#x8BB2;&#x4E1C;&#x5317;&#x8BDD;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x4E5F;&#x5E0C;&#x671B;&#x672C;&#x6587;&#x80FD;&#x5E2E;&#x52A9;&#x5BF9;&#x4E1C;&#x5317;&#x8BDD;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x670B;&#x53CB;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x672C;&#x6587;&#x8FDB;&#x884C;&#x5FEB;&#x901F;&#x7CFB;&#x7EDF;&#x5730;&#x5B66;&#x4E60;&#x3002;&#x6587;&#x4E2D;&#x7D20;&#x6750;&#x5747;&#x641C;&#x96C6;&#x81EA;&#x6211;&#x7684;&#x8001;&#x5BB6;&#x5409;&#x6797;&#x3002;<!--more--></p>
-<p>&#x8BF4;&#x660E;&#xFF1A;</p>
+<h1 id="东北话系统入门教程">东北话系统入门教程 </h1>
+<p>离家多年，口音淡了，用词也生疏了，因此在这里做一个整理，提醒自己，多讲东北话。另外，也希望本文能帮助对东北话感兴趣的朋友。可以通过本文进行快速系统地学习。文中素材均搜集自我的老家吉林。<!--more--></p>
+<p>说明：</p>
 <ol>
-<li>&#x672C;&#x6587;&#x4E1C;&#x5317;&#x8BDD;&#x7684;&#x53E3;&#x97F3;&#x5730;&#x533A;&#xFF1A;&#x5409;&#x6797;&#x7701;&#x897F;&#x90E8;</li>
-<li>&#x6587;&#x4E2D;&#x4E1C;&#x5317;&#x8BDD;&#x7684;&#x8BFB;&#x97F3;&#x6807;&#x6CE8;&#xFF1A;&#x4F7F;&#x7528;&#x62FC;&#x97F3;&#xFF0C;&#x5982;&#x6709;&#x9519;&#x8BEF;&#x8FD8;&#x8BF7;&#x591A;&#x591A;&#x6307;&#x6559;</li>
-<li>&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x4E1C;&#x5317;&#x8BCD;&#x6C47;&#x7684;&#x6C49;&#x5B57;&#xFF1A;&#x4F7F;&#x7528;&#x5F97;&#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x51C6;&#x786E;</li>
+<li>本文东北话的口音地区：吉林省西部</li>
+<li>文中东北话的读音标注：使用拼音，如有错误还请多多指教</li>
+<li>用来描述东北词汇的汉字：使用得可能并不准确</li>
 </ol>
-<h2 class="mume-header" id="%E7%AC%AC%E4%B8%80%E7%AB%A0%E9%80%9A%E7%94%A8%E8%AF%AD%E9%9F%B3">&#x7B2C;&#x4E00;&#x7AE0;&#xFF1A;&#x901A;&#x7528;&#x8BED;&#x97F3;</h2>
-
-<h3 class="mume-header" id="%E5%B8%B8%E7%94%A8%E8%AF%BB%E9%9F%B3">&#x5E38;&#x7528;&#x8BFB;&#x97F3;</h3>
-
-<p>&#x672C;&#x6BB5;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x901A;&#x7528;&#x7684;&#x53D8;&#x97F3;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#x610F;&#xFF1A;&#x5C11;&#x6570;&#x8BCD;&#x53EF;&#x80FD;&#x4E0D;&#x9002;&#x7528;&#x3002;</p>
+<h2 id="第一章通用语音">第一章：通用语音 </h2>
+<h3 id="常用读音">常用读音 </h3>
+<p>本段介绍一些通用的变音方法。注意：少数词可能不适用。</p>
 <ol>
 <li>
-<p>r &#x5FF5; y &#x3002;&#xFF08;&#x6CE8;&#x610F;&#xFF1A;&#x672C;&#x6765;&#x5C31;&#x662F; y &#x7684;&#x97F3;&#x4E0D;&#x7528;&#x52A8;&#xFF0C;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF0C;&#x5982;&#x94F6;&#xFF0C;&#x4ECD;&#x7136;&#x5FF5; y&#xED;n&#xFF09;</p>
+<p>r 念 y 。（注意：本来就是 y 的音不用动，保持不变，如银，仍然念 yín）</p>
 <table>
 <thead>
 <tr>
-<th>&#x5B57;</th>
-<th>&#x4E1C;&#x5317;&#x8BDD;&#x8BFB;&#x97F3;</th>
-<th>&#x5E38;&#x7528;&#x8BCD;</th>
+<th>字</th>
+<th>东北话读音</th>
+<th>常用词</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x7136;</td>
-<td>y&#xE1;n</td>
-<td>&#x7136;&#x540E; y&#xE1;n h&#xF2;u</td>
+<td>然</td>
+<td>yán</td>
+<td>然后 yán hòu</td>
 </tr>
 <tr>
-<td>&#x8BA9;</td>
-<td>y&#xE0;ng</td>
-<td>&#x8C26;&#x8BA9; qi&#x101;n y&#xE0;ng</td>
+<td>让</td>
+<td>yàng</td>
+<td>谦让 qiān yàng</td>
 </tr>
 <tr>
-<td>&#x4EBA;</td>
-<td>y&#xED;n</td>
-<td>&#x4EBA;&#x7FA4; y&#xED;n q&#xFA;n</td>
+<td>人</td>
+<td>yín</td>
+<td>人群 yín qún</td>
 </tr>
 <tr>
-<td>&#x8BA4;</td>
-<td>y&#xEC;n</td>
-<td>&#x8BA4;&#x8D3C;&#x4F5C;&#x7236; y&#xEC;n z&#xE9;i zu&#xF2; f&#xF9;</td>
+<td>认</td>
+<td>yìn</td>
+<td>认贼作父 yìn zéi zuò fù</td>
 </tr>
 <tr>
-<td>&#x67D4;</td>
-<td>y&#xF3;u</td>
-<td>&#x67D4;&#x548C; y&#xF3;u h&#xE9;</td>
+<td>柔</td>
+<td>yóu</td>
+<td>柔和 yóu hé</td>
 </tr>
 <tr>
-<td>&#x8089;</td>
-<td>y&#xF2;u</td>
-<td>&#x5403;&#x8089; ch&#x12B; y&#xF2;u</td>
+<td>肉</td>
+<td>yòu</td>
+<td>吃肉 chī yòu</td>
 </tr>
 </tbody>
 </table>
-<p>&#x4E0D;&#x9002;&#x7528;&#x7684;&#x8BCD;&#x6C47;&#xFF1A;&#x56B7;&#x56B7;(&#x4ECD;&#x7136;&#x8BFB;&#x505A; r&#x101;ng rang)</p>
+<p>不适用的词汇：嚷嚷(仍然读做 rāng rang)</p>
 </li>
 <li>
-<p>o &#x5FF5; e&#x3002;&#x8FD9;&#x4E2A;&#x8BFB;&#x97F3;&#x6709;&#x70B9;&#x96BE;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x820C;&#x5934;&#x4F38;&#x76F4;&#x3002;&#x611F;&#x89C9;&#x6C14;&#x6D41;&#x6A2A;&#x7740;&#x51FA;&#x6765;&#x5C31;&#x5BF9;&#x4E86;&#x3002;</p>
+<p>o 念 e。这个读音有点难，需要把舌头伸直。感觉气流横着出来就对了。</p>
 <table>
 <thead>
 <tr>
-<th>&#x5B57;</th>
-<th>&#x4E1C;&#x5317;&#x8BDD;&#x8BFB;&#x97F3;</th>
-<th>&#x5E38;&#x7528;&#x8BCD;</th>
+<th>字</th>
+<th>东北话读音</th>
+<th>常用词</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x7834;</td>
-<td>p&#xE8;</td>
-<td>&#x7834;&#x70C2;&#x513F; p&#xE8; l&#xE0;n er</td>
+<td>破</td>
+<td>pè</td>
+<td>破烂儿 pè làn er</td>
 </tr>
 <tr>
-<td>&#x5761;</td>
-<td>p&#x113;</td>
-<td>&#x5C71;&#x5761;&#x513F; sh&#x101;n p&#x113; er</td>
+<td>坡</td>
+<td>pē</td>
+<td>山坡儿 shān pē er</td>
 </tr>
 <tr>
-<td>&#x6CFC;</td>
-<td>p&#x113;</td>
-<td>&#x6492;&#x6CFC; s&#x101; p&#x113;</td>
+<td>泼</td>
+<td>pē</td>
+<td>撒泼 sā pē</td>
 </tr>
 <tr>
-<td>&#x8611;</td>
-<td>m&#xE9;</td>
-<td>&#x8611;&#x83C7; m&#xE9; gu&#xFF08;&#x8F7B;&#x58F0;&#xFF09;</td>
+<td>蘑</td>
+<td>mé</td>
+<td>蘑菇 mé gu（轻声）</td>
 </tr>
 <tr>
-<td>&#x78E8;</td>
-<td>m&#xE9;</td>
-<td>&#x78E8;&#x6D0B;&#x5DE5; m&#xE9; y&#xE1;ng g&#x14D;ng&#xFF08;&#x610F;&#x601D;&#xFF1A;&#x62D6;&#x6C93;&#xFF09;</td>
+<td>磨</td>
+<td>mé</td>
+<td>磨洋工 mé yáng gōng（意思：拖沓）</td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>e &#x5FF5; ne</p>
+<p>e 念 ne</p>
 <table>
 <thead>
 <tr>
-<th>&#x5B57;</th>
-<th>&#x4E1C;&#x5317;&#x8BDD;&#x8BFB;&#x97F3;</th>
+<th>字</th>
+<th>东北话读音</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5927;&#x9E45;</td>
-<td>d&#xE0; n&#xE9;</td>
+<td>大鹅</td>
+<td>dà né</td>
 </tr>
 <tr>
-<td>&#x6211;&#x997F;&#x4E86;</td>
-<td>w&#x1D2; n&#xE8; le</td>
+<td>我饿了</td>
+<td>wǒ nè le</td>
 </tr>
 <tr>
-<td>&#x6076;&#x5FC3;</td>
-<td>n&#x11B; xin</td>
+<td>恶心</td>
+<td>ně xin</td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>&#x201C;xx &#x5B50;&#x201D;&#x5FF5;&#x6210;&#x3010;de&#x3011;&#xFF0C;&#x8F7B;&#x58F0;&#x3002;&#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x4E2A;&#x201C;&#x5B50;&#x201D;&#x4E00;&#x822C;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x610F;&#x4E49;&#xFF0C;&#x987A;&#x4FBF;&#x8981;&#x8BB0;&#x5F97;&#x5728;&#x524D;&#x9762;&#x62D6;&#x4E2A;&#x957F;&#x97F3;&#x3002;</p>
+<p>“xx 子”念成【de】，轻声。注意：这个“子”一般没有什么意义，顺便要记得在前面拖个长音。</p>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;&#x6C47;</th>
-<th>&#x4E1C;&#x5317;&#x8BDD;&#x8BFB;&#x97F3;</th>
+<th>词汇</th>
+<th>东北话读音</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5B69;&#x5B50;</td>
-<td>h&#xE1;i de</td>
+<td>孩子</td>
+<td>hái de</td>
 </tr>
 <tr>
-<td>&#x5973;&#x5B69;&#x5B50;</td>
-<td>n&#x1DA; h&#xE1;i de</td>
+<td>女孩子</td>
+<td>nǚ hái de</td>
 </tr>
 <tr>
-<td>&#x7537;&#x5B69;&#x5B50;</td>
-<td>n&#xE1;n h&#xE1;i de</td>
+<td>男孩子</td>
+<td>nán hái de</td>
 </tr>
 <tr>
-<td>&#x7F3A;&#x5FC3;&#x773C;&#x5B50;</td>
-<td>qu&#x113; x&#x12B;n y&#x1CE;n de</td>
+<td>缺心眼子</td>
+<td>quē xīn yǎn de</td>
 </tr>
 <tr>
-<td>&#x9A6C;&#x8DEF;&#x7259;&#x5B50;</td>
-<td>m&#x1CE; l&#xF9; y&#xE1; de</td>
+<td>马路牙子</td>
+<td>mǎ lù yá de</td>
 </tr>
 </tbody>
 </table>
-<p>&#x6CE8;&#x610F;&#xFF1A;&#x201C;&#x74DC;&#x5B50;&#x201D;&#x4E0D;&#x9002;&#x7528;&#xFF0C;&#x4E00;&#x822C;&#x5FF5;&#x3010;gu&#x101; z&#x1D0; er&#x3011;</p>
+<p>注意：“瓜子”不适用，一般念【guā zǐ er】</p>
 </li>
 <li>
-<p>XX &#x7740;&#xFF0C;&#x5FF5;&#x6210; XX&#x3010;de&#x3011;</p>
+<p>XX 着，念成 XX【de】</p>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;&#x6C47;</th>
-<th>&#x4E1C;&#x5317;&#x8BDD;&#x8BFB;&#x97F3;</th>
+<th>词汇</th>
+<th>东北话读音</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x7B49;&#x7740;</td>
-<td>d&#x11B;ng de</td>
+<td>等着</td>
+<td>děng de</td>
 </tr>
 <tr>
-<td>&#x5F85;&#x7740;</td>
-<td>d&#x101;i de</td>
+<td>待着</td>
+<td>dāi de</td>
 </tr>
 <tr>
-<td>&#x7792;&#x7740;</td>
-<td>m&#xE1;n de</td>
+<td>瞒着</td>
+<td>mán de</td>
 </tr>
 </tbody>
 </table>
-<p>&#x6CE8;&#x610F;&#xFF1A;&#x6162;&#x7740;&#x4E0D;&#x9002;&#x7528;</p>
+<p>注意：慢着不适用</p>
 </li>
 <li>
-<p>&#x5F53;&#x201C;&#x7684;/&#x5730;/&#x5F97;&#x201D;&#x5B57;&#x7528;&#x5728;&#x5F62;&#x5BB9;&#x8BCD;/&#x526F;&#x8BCD;&#x4E2D;&#xFF0C;&#x6709;&#x65F6;&#x5FF5;&#x6210; d&#xEC;&#xFF0C;&#x4E2D;&#x95F4;&#x7684;&#x5B57;&#x62D6;&#x957F;&#x97F3;&#x3002;</p>
+<p>当“的/地/得”字用在形容词/副词中，有时念成 dì，中间的字拖长音。</p>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;&#x6C47;</th>
-<th>&#x4E1C;&#x5317;&#x8BDD;&#x8BFB;&#x97F3;</th>
+<th>词汇</th>
+<th>东北话读音</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x6162;&#x6162;&#x5730;</td>
-<td>m&#xE0;n m&#x101;n er d&#xEC;</td>
+<td>慢慢地</td>
+<td>màn mān er dì</td>
 </tr>
 <tr>
-<td>&#x9EBB;&#x6E9C;&#x513F;&#x5730;</td>
-<td>m&#xE1; li&#x16B; d&#xEC;</td>
+<td>麻溜儿地</td>
+<td>má liū dì</td>
 </tr>
 <tr>
-<td>&#x6492;&#x6123;&#x5730;&#xFF08;&#x5FEB;&#x70B9;&#x513F;&#x7684;&#x610F;&#x601D;&#xFF09;</td>
-<td>s&#x101; l&#x113;ng d&#xEC;</td>
+<td>撒愣地（快点儿的意思）</td>
+<td>sā lēng dì</td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p>&#x522B;&#xFF0C;&#x8868;&#x793A;&#x201C;&#x4E0D;&#x201D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FF5; bi&#xE8;&#x3002;</p>
+<p>别，表示“不”的时候，念 biè。</p>
 <ol>
-<li>&#x53E5;&#x5B50;&#xFF1A;&#x4F60;&#x522B;&#xFF08;bi&#xE8;&#xFF09;&#x778E;&#x8BF4;</li>
+<li>句子：你别（biè）瞎说</li>
 </ol>
 </li>
 <li>
-<p>&#x90A3;&#xFF08;n&#xE8;i&#xFF09;</p>
+<p>那（nèi）</p>
 <ol>
-<li>&#x90A3;&#xFF08;n&#xE8;i&#xFF09;&#x8FB9;</li>
-<li>&#x90A3;&#xFF08;n&#xE8;i&#xFF09;&#x91CC;</li>
-<li>&#x90A3;&#xFF08;n&#xE8;i&#xFF09;&#x5757;</li>
+<li>那（nèi）边</li>
+<li>那（nèi）里</li>
+<li>那（nèi）块</li>
 </ol>
 </li>
 <li>
-<p>&#x591A;&#x4E48;&#xFF08;du&#xF3;&#xFF09;&#x7F51;&#x7EDC;&#x7528;&#x8BED;&#xFF1A;&#x593A;</p>
+<p>多么（duó）网络用语：夺</p>
 <ol>
-<li>&#x593A;&#x635F;&#x554A;&#xFF1A;&#x591A;&#x4E48;&#x8BA8;&#x538C;&#x554A;</li>
-<li>&#x593A;&#x70E6;&#x4EBA;&#xFF08;y&#xED;n&#xFF09;&#xFF1A;&#x591A;&#x4E48;&#x8BA8;&#x4EBA;&#x538C;&#x554A;</li>
-<li>&#x593A;&#x5389;&#x5BB3;&#xFF08;li&#xE8; hai&#xFF09;&#xFF1A;&#x771F;&#x5389;&#x5BB3;&#xFF01;</li>
+<li>夺损啊：多么讨厌啊</li>
+<li>夺烦人（yín）：多么讨人厌啊</li>
+<li>夺厉害（liè hai）：真厉害！</li>
 </ol>
 </li>
 <li>
-<p>&#x6CA1;</p>
+<p>没</p>
 <ol>
-<li>&#x8868;&#x793A;&#x201C;&#x4E0D;&#x201D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FF5;&#xFF08;m&#xE8;i&#xFF09;&#xFF1A;&#x6CA1;&#x6709;&#xFF08;m&#xE8;i you&#xFF09;</li>
-<li>&#x8868;&#x793A;&#x201C;&#x4E0D;&#x89C1;&#x4E86;&#x201D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FF5;&#xFF08;m&#xE9;i&#xFF09;</li>
+<li>表示“不”的时候，念（mèi）：没有（mèi you）</li>
+<li>表示“不见了”的时候，念（méi）</li>
 </ol>
 </li>
 </ol>
-<h3 class="mume-header" id="%E8%AF%AD%E6%B0%94%E8%AF%8D">&#x8BED;&#x6C14;&#x8BCD;</h3>
-
+<h3 id="语气词">语气词 </h3>
 <ol>
-<li>&#x55EF;&#x5462;&#xFF08;&#x662F;&#x7684;&#xFF09;</li>
-<li>&#x5565;&#xFF1F;&#xFF08;&#x4EC0;&#x4E48;&#xFF09;</li>
-<li>&#x548B;&#xFF1F;&#xFF08;&#x600E;&#x4E48;&#xFF09;</li>
-<li>&#x73A9;&#x610F;&#x513F;&#xFF0C;&#x5E38;&#x5E38;&#x7528;&#x4E8E;&#x6C14;&#x6124;&#x7684;&#x65F6;&#x5019;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x3010;&#x73A9;&#x610F;&#x513F;&#x3011;&#x8FD8;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x540D;&#x8BCD;&#xFF0C;&#x8868;&#x793A;&#x4E1C;&#x897F;&#x3002;
+<li>嗯呢（是的）</li>
+<li>啥？（什么）</li>
+<li>咋？（怎么）</li>
+<li>玩意儿，常常用于气愤的时候。此外，【玩意儿】还可以作为名词，表示东西。
 <ol>
-<li>&#x8FD9;&#x5565;&#x73A9;&#x610F;&#x513F;</li>
-<li>&#x8FD9;&#x73A9;&#x610F;&#x513F;&#x4E0D;&#x9519;</li>
+<li>这啥玩意儿</li>
+<li>这玩意儿不错</li>
 </ol>
 </li>
-<li>&#x560E;&#x54C8;&#xFF1F;&#xFF08;&#x5E72;&#x4EC0;&#x4E48;&#xFF09;</li>
-<li>&#x59A5;&#x4E86;&#xFF1A;&#x597D;&#x4E86;&#x3001;&#x597D;&#x7684;&#xFF0C;OK &#x4E86;</li>
-<li>&#x4F46;&#x662F;&#xFF1A;&#x5FF5;&#x201C;&#x4F46; e&#x201D;</li>
+<li>嘎哈？（干什么）</li>
+<li>妥了：好了、好的，OK 了</li>
+<li>但是：念“但 e”</li>
 </ol>
-<h3 class="mume-header" id="%E5%84%BF%E5%8C%96%E9%9F%B3">&#x513F;&#x5316;&#x97F3;</h3>
-
-<p>&#x513F;&#x5316;&#x97F3;&#x662F;&#x4E1C;&#x5317;&#x8BDD;&#x7684;&#x7075;&#x9B42;&#xFF0C;&#x76F8;&#x4FE1;&#x81EA;&#x5DF1;&#x4E00;&#x5B9A;&#x80FD;&#x5B66;&#x4F1A;&#xFF01;</p>
-<p>&#x5B66;&#x4E60;&#x513F;&#x5316;&#x97F3;&#xFF0C;&#x6211;&#x8BA4;&#x4E3A;&#x603B;&#x5171;&#x5206;&#x4E09;&#x6B65;&#xFF1A;</p>
+<h3 id="儿化音">儿化音 </h3>
+<p>儿化音是东北话的灵魂，相信自己一定能学会！</p>
+<p>学习儿化音，我认为总共分三步：</p>
 <ol>
-<li>&#x5B66;&#x4F1A;&#x5FF5; er&#xFF1A;&#x7EC3;&#x4E60;&#x5F20;&#x5634;&#xFF0C;&#x4F53;&#x9A8C;&#x4E0B;&#x5DF4;&#x5411;&#x4E0A;&#x7684;&#x611F;&#x89C9;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x820C;&#x5934;&#x7ACB;&#x8D77;&#x6765;&#x3002;</li>
-<li>&#x513F;&#x7684;&#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x5982;&#x679C;&#x662F; n &#x7ED3;&#x5C3E;&#xFF0C;&#x4E0D;&#x5FF5;&#x9F3B;&#x97F3;&#x3002;</li>
-<li>&#x513F;&#x7684;&#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x5982;&#x679C;&#x662F; ng &#x53D1;&#x97F3;&#x7ED3;&#x5C3E;&#xFF0C;&#x8981;&#x5FF5;&#x9F3B;&#x97F3;</li>
+<li>学会念 er：练习张嘴，体验下巴向上的感觉，然后把舌头立起来。</li>
+<li>儿的前一个字如果是 n 结尾，不念鼻音。</li>
+<li>儿的前一个字如果是 ng 发音结尾，要念鼻音</li>
 </ol>
-<p>&#x6BD4;&#x5982;&#xFF1A;</p>
+<p>比如：</p>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x610F;&#x601D;</th>
+<th>词</th>
+<th>读音</th>
+<th>意思</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x4ECA;&#x513F;</td>
-<td>j&#x12B; er</td>
-<td>&#x4ECA;&#x5929;</td>
+<td>今儿</td>
+<td>jī er</td>
+<td>今天</td>
 </tr>
 <tr>
-<td>&#x624B;&#x8155;&#x513F;</td>
-<td>sh&#x1D2;u w&#xE0; er</td>
-<td>&#x624B;&#x8155;</td>
+<td>手腕儿</td>
+<td>shǒu wà er</td>
+<td>手腕</td>
 </tr>
 <tr>
-<td>&#x4E70;&#x623F;&#x513F;</td>
-<td>m&#x1CE;i f&#xE1; er</td>
-<td>&#x4E70;&#x623F;&#x5B50;</td>
+<td>买房儿</td>
+<td>mǎi fá er</td>
+<td>买房子</td>
 </tr>
 <tr>
-<td>&#x82B1;&#x513F;</td>
-<td>hu&#x101; er</td>
-<td>&#x82B1;</td>
+<td>花儿</td>
+<td>huā er</td>
+<td>花</td>
 </tr>
 <tr>
-<td>&#x677F;&#x6B63;&#x513F;</td>
-<td>b&#x1CE;n zh&#x113;ng er</td>
-<td>&#x6574;&#x9F50;</td>
+<td>板正儿</td>
+<td>bǎn zhēng er</td>
+<td>整齐</td>
 </tr>
 </tbody>
 </table>
-<h2 class="mume-header" id="%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%B8%B8%E7%94%A8%E8%AF%8D%E6%B1%87">&#x7B2C;&#x4E8C;&#x7AE0;&#xFF1A;&#x5E38;&#x7528;&#x8BCD;&#x6C47;</h2>
+<h2 id="第二章常用词汇">第二章：常用词汇 </h2>
+<h3 id="人称">人称 </h3>
+<p>我、你、他照常用，“咱”通常用于和对面的人讲话时使用（但是在沈阳，有时候“咱”表示“我”）。</p>
+<ol>
+<li>我的、我们：念 wěn
+<ol>
+<li>我（wěn）班也是，作业一大堆。</li>
+<li>我（wěn）家可暖和了，冬天有地暖。</li>
+<li>我（wěn）单位老好了。</li>
+<li>我（wěn）俩：我们俩。</li>
+<li>我（wěn）仨：我们仨</li>
+</ol>
+</li>
+<li>你的、你们：念 nǐn
+<ol>
+<li>nǐn（你、你们）家真大</li>
+<li>nǐn（你们）啥时候上班啊？</li>
+</ol>
+</li>
+<li>他们：念 tān
+<ol>
+<li>他们（tān）都不知道</li>
+</ol>
+</li>
+<li>咱：你和我
+<ol>
+<li>咱班明天第一节啥课来着？</li>
+<li>咱讲话了（依我看），现在是法治社会，就是给他几个胆，他也不敢胡闹。</li>
+<li>咱就是说，XXX 就应该给 YYY 赔礼道歉</li>
+</ol>
+</li>
+</ol>
+<h4 id="亲戚叫法">亲戚叫法 </h4>
+<ol>
+<li>妈妈的兄弟姐妹：大姨/二舅/（妈妈）/四舅/老姨
+<ol>
+<li>姨的丈夫：姨夫 （yí fu）</li>
+<li>舅的妻子：舅妈 （jiù me）</li>
+</ol>
+</li>
+<li>爸爸的兄弟姐妹：大爷/二大爷/三姑/（爸爸）/四姑/老叔（lǎo shú）
+<ol>
+<li>姑的丈夫：姑父（gú fu）</li>
+<li>叔叔的妻子：婶婶/老婶（老叔的老婆）</li>
+<li>大爷的妻子：大娘</li>
+</ol>
+</li>
+<li>妈妈的妈妈爸爸：姥姥/姥爷</li>
+<li>爸爸的妈妈爸爸：奶奶/爷爷</li>
+<li>姥姥姥爷的爸爸：太姥爷</li>
+<li>爷爷奶奶的爸爸：太爷/太爷爷</li>
+<li>妹妹：小妹儿/老妹儿</li>
+<li>姐姐：大姐/xx 姐</li>
+<li>弟弟：老弟</li>
+<li>哥哥：大哥/xx 哥</li>
+</ol>
+<div class="mermaid">graph LR
+妈妈--妈妈--&gt;姥姥
+妈妈--爸爸--&gt;姥爷
+姥姥--妈妈--&gt;太姥姥
+姥姥--爸爸--&gt;太姥爷
+姥爷--妈妈--&gt;太姥姥
+姥爷--爸爸--&gt;太姥爷
+妈妈--姑姑--&gt;姑姥儿
+姑姥儿--丈夫--&gt;姑姥爷
+妈妈--舅舅--&gt;舅姥爷
+妈妈--姨--&gt;舅姥姥
 
-<h3 class="mume-header" id="%E4%BA%BA%E7%A7%B0">&#x4EBA;&#x79F0;</h3>
+爸爸--妈妈--&gt;奶奶
+爸爸--爸爸--&gt;爷爷
+爸爸--舅舅--&gt;舅爷
+爸爸--姨--&gt;舅奶
+奶奶--妈妈--&gt;太奶奶
+奶奶--爸爸--&gt;太爷爷
+爷爷--妈妈--&gt;太奶奶
+爷爷--爸爸--&gt;太爷爷
 
-<p>&#x6211;&#x3001;&#x4F60;&#x3001;&#x4ED6;&#x7167;&#x5E38;&#x7528;&#xFF0C;&#x201C;&#x54B1;&#x201D;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x548C;&#x5BF9;&#x9762;&#x7684;&#x4EBA;&#x8BB2;&#x8BDD;&#x65F6;&#x4F7F;&#x7528;&#xFF08;&#x4F46;&#x662F;&#x5728;&#x6C88;&#x9633;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x201C;&#x54B1;&#x201D;&#x8868;&#x793A;&#x201C;&#x6211;&#x201D;&#xFF09;&#x3002;</p>
+妈妈--姐妹--&gt;X姨
+X姨--丈夫--&gt;姨夫
+妈妈--哥哥--&gt;X舅
+X舅--妻子--&gt;舅妈
+爸爸--姐妹--&gt;X姑
+X姑--丈夫--&gt;姑夫
+爸爸--弟弟--&gt;X叔
+X叔--妻子--&gt;X婶
+爸爸--哥哥--&gt;X大爷
+X大爷--妻子--&gt;X大娘
+</div><h4 id="其他">其他 </h4>
 <ol>
-<li>&#x6211;&#x7684;&#x3001;&#x6211;&#x4EEC;&#xFF1A;&#x5FF5; w&#x11B;n
-<ol>
-<li>&#x6211;&#xFF08;w&#x11B;n&#xFF09;&#x73ED;&#x4E5F;&#x662F;&#xFF0C;&#x4F5C;&#x4E1A;&#x4E00;&#x5927;&#x5806;&#x3002;</li>
-<li>&#x6211;&#xFF08;w&#x11B;n&#xFF09;&#x5BB6;&#x53EF;&#x6696;&#x548C;&#x4E86;&#xFF0C;&#x51AC;&#x5929;&#x6709;&#x5730;&#x6696;&#x3002;</li>
-<li>&#x6211;&#xFF08;w&#x11B;n&#xFF09;&#x5355;&#x4F4D;&#x8001;&#x597D;&#x4E86;&#x3002;</li>
-<li>&#x6211;&#xFF08;w&#x11B;n&#xFF09;&#x4FE9;&#xFF1A;&#x6211;&#x4EEC;&#x4FE9;&#x3002;</li>
-<li>&#x6211;&#xFF08;w&#x11B;n&#xFF09;&#x4EE8;&#xFF1A;&#x6211;&#x4EEC;&#x4EE8;</li>
+<li>一对儿双子（yí duì er shuàng de）/一对儿双儿 （yí duì er shuàng er）：双胞胎</li>
 </ol>
-</li>
-<li>&#x4F60;&#x7684;&#x3001;&#x4F60;&#x4EEC;&#xFF1A;&#x5FF5; n&#x1D0;n
-<ol>
-<li>n&#x1D0;n&#xFF08;&#x4F60;&#x3001;&#x4F60;&#x4EEC;&#xFF09;&#x5BB6;&#x771F;&#x5927;</li>
-<li>n&#x1D0;n&#xFF08;&#x4F60;&#x4EEC;&#xFF09;&#x5565;&#x65F6;&#x5019;&#x4E0A;&#x73ED;&#x554A;&#xFF1F;</li>
-</ol>
-</li>
-<li>&#x4ED6;&#x4EEC;&#xFF1A;&#x5FF5; t&#x101;n
-<ol>
-<li>&#x4ED6;&#x4EEC;&#xFF08;t&#x101;n&#xFF09;&#x90FD;&#x4E0D;&#x77E5;&#x9053;</li>
-</ol>
-</li>
-<li>&#x54B1;&#xFF1A;&#x4F60;&#x548C;&#x6211;
-<ol>
-<li>&#x54B1;&#x73ED;&#x660E;&#x5929;&#x7B2C;&#x4E00;&#x8282;&#x5565;&#x8BFE;&#x6765;&#x7740;&#xFF1F;</li>
-<li>&#x54B1;&#x8BB2;&#x8BDD;&#x4E86;&#xFF08;&#x4F9D;&#x6211;&#x770B;&#xFF09;&#xFF0C;&#x73B0;&#x5728;&#x662F;&#x6CD5;&#x6CBB;&#x793E;&#x4F1A;&#xFF0C;&#x5C31;&#x662F;&#x7ED9;&#x4ED6;&#x51E0;&#x4E2A;&#x80C6;&#xFF0C;&#x4ED6;&#x4E5F;&#x4E0D;&#x6562;&#x80E1;&#x95F9;&#x3002;</li>
-<li>&#x54B1;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;XXX &#x5C31;&#x5E94;&#x8BE5;&#x7ED9; YYY &#x8D54;&#x793C;&#x9053;&#x6B49;</li>
-</ol>
-</li>
-</ol>
-<h4 class="mume-header" id="%E4%BA%B2%E6%88%9A%E5%8F%AB%E6%B3%95">&#x4EB2;&#x621A;&#x53EB;&#x6CD5;</h4>
-
-<ol>
-<li>&#x5988;&#x5988;&#x7684;&#x5144;&#x5F1F;&#x59D0;&#x59B9;&#xFF1A;&#x5927;&#x59E8;/&#x4E8C;&#x8205;/&#xFF08;&#x5988;&#x5988;&#xFF09;/&#x56DB;&#x8205;/&#x8001;&#x59E8;
-<ol>
-<li>&#x59E8;&#x7684;&#x4E08;&#x592B;&#xFF1A;&#x59E8;&#x592B; &#xFF08;y&#xED; fu&#xFF09;</li>
-<li>&#x8205;&#x7684;&#x59BB;&#x5B50;&#xFF1A;&#x8205;&#x5988; &#xFF08;ji&#xF9; me&#xFF09;</li>
-</ol>
-</li>
-<li>&#x7238;&#x7238;&#x7684;&#x5144;&#x5F1F;&#x59D0;&#x59B9;&#xFF1A;&#x5927;&#x7237;/&#x4E8C;&#x5927;&#x7237;/&#x4E09;&#x59D1;/&#xFF08;&#x7238;&#x7238;&#xFF09;/&#x56DB;&#x59D1;/&#x8001;&#x53D4;&#xFF08;l&#x1CE;o sh&#xFA;&#xFF09;
-<ol>
-<li>&#x59D1;&#x7684;&#x4E08;&#x592B;&#xFF1A;&#x59D1;&#x7236;&#xFF08;g&#xFA; fu&#xFF09;</li>
-<li>&#x53D4;&#x53D4;&#x7684;&#x59BB;&#x5B50;&#xFF1A;&#x5A76;&#x5A76;/&#x8001;&#x5A76;&#xFF08;&#x8001;&#x53D4;&#x7684;&#x8001;&#x5A46;&#xFF09;</li>
-<li>&#x5927;&#x7237;&#x7684;&#x59BB;&#x5B50;&#xFF1A;&#x5927;&#x5A18;</li>
-</ol>
-</li>
-<li>&#x5988;&#x5988;&#x7684;&#x5988;&#x5988;&#x7238;&#x7238;&#xFF1A;&#x59E5;&#x59E5;/&#x59E5;&#x7237;</li>
-<li>&#x7238;&#x7238;&#x7684;&#x5988;&#x5988;&#x7238;&#x7238;&#xFF1A;&#x5976;&#x5976;/&#x7237;&#x7237;</li>
-<li>&#x59E5;&#x59E5;&#x59E5;&#x7237;&#x7684;&#x7238;&#x7238;&#xFF1A;&#x592A;&#x59E5;&#x7237;</li>
-<li>&#x7237;&#x7237;&#x5976;&#x5976;&#x7684;&#x7238;&#x7238;&#xFF1A;&#x592A;&#x7237;/&#x592A;&#x7237;&#x7237;</li>
-<li>&#x59B9;&#x59B9;&#xFF1A;&#x5C0F;&#x59B9;&#x513F;/&#x8001;&#x59B9;&#x513F;</li>
-<li>&#x59D0;&#x59D0;&#xFF1A;&#x5927;&#x59D0;/xx &#x59D0;</li>
-<li>&#x5F1F;&#x5F1F;&#xFF1A;&#x8001;&#x5F1F;</li>
-<li>&#x54E5;&#x54E5;&#xFF1A;&#x5927;&#x54E5;/xx &#x54E5;</li>
-</ol>
-<div class="mermaid" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 353 1318.59375" style="max-width: 353px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1689262880049"><style>#mermaid-1689262880049{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1689262880049 .error-icon{fill:#552222;}#mermaid-1689262880049 .error-text{fill:#552222;stroke:#552222;}#mermaid-1689262880049 .edge-thickness-normal{stroke-width:2px;}#mermaid-1689262880049 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1689262880049 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1689262880049 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1689262880049 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1689262880049 .marker{fill:#333333;stroke:#333333;}#mermaid-1689262880049 .marker.cross{stroke:#333333;}#mermaid-1689262880049 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1689262880049 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1689262880049 .cluster-label text{fill:#333;}#mermaid-1689262880049 .cluster-label span{color:#333;}#mermaid-1689262880049 .label text,#mermaid-1689262880049 span{fill:#333;color:#333;}#mermaid-1689262880049 .node rect,#mermaid-1689262880049 .node circle,#mermaid-1689262880049 .node ellipse,#mermaid-1689262880049 .node polygon,#mermaid-1689262880049 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1689262880049 .node .label{text-align:center;}#mermaid-1689262880049 .node.clickable{cursor:pointer;}#mermaid-1689262880049 .arrowheadPath{fill:#333333;}#mermaid-1689262880049 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1689262880049 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1689262880049 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1689262880049 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1689262880049 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1689262880049 .cluster text{fill:#333;}#mermaid-1689262880049 .cluster span{color:#333;}#mermaid-1689262880049 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1689262880049 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1689262880049 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="10" viewBox="0 0 12 20" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="0" viewBox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-妈妈 LE-姥姥" id="L-妈妈-姥姥-0" d="M27.93967253073336,332.96875L37.949727108944465,287.2057291666667C47.959781687155576,241.44270833333334,67.97989084357779,149.91666666666666,86.15661208845556,104.15364583333333C104.33333333333333,58.390625,120.66666666666667,58.390625,128.83333333333334,58.390625L137,58.390625"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-妈妈 LE-姥爷" id="L-妈妈-姥爷-0" d="M29.90855897200551,332.96875L39.59046581000459,302.3046875C49.272372648003675,271.640625,68.63618632400183,210.3125,86.48475982866758,179.6484375C104.33333333333333,148.984375,120.66666666666667,148.984375,128.83333333333334,148.984375L137,148.984375"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-姥姥 LE-太姥姥" id="L-姥姥-太姥姥-0" d="M184,43.61196120689655L192.16666666666666,38.47611350574713C200.33333333333334,33.3402658045977,216.66666666666666,23.06857040229885,231.66666666666666,20.081393678160918C246.66666666666666,17.094216954022986,260.3333333333333,21.391558908045976,267.1666666666667,23.54022988505747L274,25.688900862068966"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-姥姥 LE-太姥爷" id="L-姥姥-太姥爷-0" d="M182.1102569986232,78.6875L190.591880832186,86.65364583333333C199.0735046657488,94.61979166666667,216.03675233287439,110.55208333333333,231.35170949977055,122.78758979885056C246.66666666666666,135.0230962643678,260.3333333333333,143.56181752873565,267.1666666666667,147.83117816091954L274,152.10053879310345"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-姥爷 LE-太姥姥" id="L-姥爷-太姥姥-0" d="M182.1102569986232,128.6875L190.591880832186,120.72135416666667C199.0735046657488,112.75520833333333,216.03675233287439,96.82291666666667,231.35170949977055,84.58741020114942C246.66666666666666,72.35190373563218,260.3333333333333,63.81318247126436,267.1666666666667,59.54382183908046L274,55.27446120689655"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-姥爷 LE-太姥爷" id="L-姥爷-太姥爷-0" d="M184,163.76303879310345L192.16666666666666,168.89888649425288C200.33333333333334,174.03473419540228,216.66666666666666,184.30642959770114,231.66666666666666,187.29360632183906C246.66666666666666,190.28078304597702,260.3333333333333,185.983441091954,267.1666666666667,183.83477011494253L274,181.68609913793102"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-妈妈 LE-姑姥儿" id="L-妈妈-姑姥儿-0" d="M37.950758882373236,332.96875L46.29229906864436,321.2526041666667C54.63383925491549,309.5364583333333,71.31691962745775,286.1041666666667,86.49179314706221,274.3880208333333C101.66666666666667,262.671875,115.33333333333333,262.671875,122.16666666666667,262.671875L129,262.671875"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-姑姥儿 LE-姑姥爷" id="L-姑姥儿-姑姥爷-0" d="M192,262.671875L198.83333333333334,262.671875C205.66666666666666,262.671875,219.33333333333334,262.671875,233,262.671875C246.66666666666666,262.671875,260.3333333333333,262.671875,267.1666666666667,262.671875L274,262.671875"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-妈妈 LE-舅姥爷" id="L-妈妈-舅姥爷-0" d="M47,353.265625L53.833333333333336,353.265625C60.666666666666664,353.265625,74.33333333333333,353.265625,88,353.265625C101.66666666666667,353.265625,115.33333333333333,353.265625,122.16666666666667,353.265625L129,353.265625"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-妈妈 LE-舅姥姥" id="L-妈妈-舅姥姥-0" d="M37.950758882373236,373.5625L46.29229906864436,385.2786458333333C54.63383925491549,396.9947916666667,71.31691962745775,420.4270833333333,86.49179314706221,432.1432291666667C101.66666666666667,443.859375,115.33333333333333,443.859375,122.16666666666667,443.859375L129,443.859375"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爸爸 LE-奶奶" id="L-爸爸-奶奶-0" d="M37.950758882373236,967.125L46.29229906864436,955.4088541666666C54.63383925491549,943.6927083333334,71.31691962745775,920.2604166666666,87.82512648039555,908.5442708333334C104.33333333333333,896.828125,120.66666666666667,896.828125,128.83333333333334,896.828125L137,896.828125"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爸爸 LE-爷爷" id="L-爸爸-爷爷-0" d="M47,987.421875L53.833333333333336,987.421875C60.666666666666664,987.421875,74.33333333333333,987.421875,89.33333333333333,987.421875C104.33333333333333,987.421875,120.66666666666667,987.421875,128.83333333333334,987.421875L137,987.421875"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爸爸 LE-舅爷" id="L-爸爸-舅爷-0" d="M28.316919627457743,967.125L38.26409968954812,925.2109375C48.21127975163849,883.296875,68.10563987581925,799.46875,86.21948660457629,757.5546875C104.33333333333333,715.640625,120.66666666666667,715.640625,128.83333333333334,715.640625L137,715.640625"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爸爸 LE-舅奶" id="L-爸爸-舅奶-0" d="M30.725379441186618,967.125L40.271149534322184,940.3098958333334C49.81691962745774,913.4947916666666,68.90845981372887,859.8645833333334,86.62089657353111,833.0494791666666C104.33333333333333,806.234375,120.66666666666667,806.234375,128.83333333333334,806.234375L137,806.234375"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-奶奶 LE-太奶奶" id="L-奶奶-太奶奶-0" d="M173.5115363360044,876.53125L183.42628028000368,861.0651041666666C193.34102422400292,845.5989583333334,213.17051211200146,814.6666666666666,229.91858938933407,801.3491918103449C246.66666666666666,788.0317169540231,260.3333333333333,792.329058908046,267.1666666666667,794.4777298850576L274,796.626400862069"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-奶奶 LE-太爷爷" id="L-奶奶-太爷爷-0" d="M182.1102569986232,917.125L190.591880832186,925.0911458333334C199.0735046657488,933.0572916666666,216.03675233287439,948.9895833333334,231.35170949977055,961.2250897988506C246.66666666666666,973.4605962643678,260.3333333333333,981.9993175287356,267.1666666666667,986.2686781609195L274,990.5380387931034"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爷爷 LE-太奶奶" id="L-爷爷-太奶奶-0" d="M171.3524429592072,967.125L181.62703579933932,947.9088541666666C191.90162863947148,928.6927083333334,212.45081431973574,890.2604166666666,229.55874049320119,866.7749102011494C246.66666666666666,843.2894037356322,260.3333333333333,834.7506824712644,267.1666666666667,830.4813218390805L274,826.2119612068966"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爷爷 LE-太爷爷" id="L-爷爷-太爷爷-0" d="M184,1002.2005387931034L192.16666666666666,1007.3363864942529C200.33333333333334,1012.4722341954024,216.66666666666666,1022.7439295977011,231.66666666666666,1025.731106321839C246.66666666666666,1028.718283045977,260.3333333333333,1024.420941091954,267.1666666666667,1022.2722701149424L274,1020.123599137931"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-妈妈 LE-X姨" id="L-妈妈-X姨-0" d="M30.725379441186618,373.5625L40.271149534322184,400.3776041666667C49.81691962745774,427.1927083333333,68.90845981372887,480.8229166666667,87.21204240686444,507.6380208333333C105.515625,534.453125,123.03125,534.453125,131.7890625,534.453125L140.546875,534.453125"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-X姨 LE-姨夫" id="L-X姨-姨夫-0" d="M180.453125,534.453125L189.2109375,534.453125C197.96875,534.453125,215.484375,534.453125,232.40885416666666,534.453125C249.33333333333334,534.453125,265.6666666666667,534.453125,273.8333333333333,534.453125L282,534.453125"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-妈妈 LE-X舅" id="L-妈妈-X舅-0" d="M28.316919627457743,373.5625L38.26409968954812,415.4765625C48.21127975163849,457.390625,68.10563987581925,541.21875,86.81063243790963,583.1328125C105.515625,625.046875,123.03125,625.046875,131.7890625,625.046875L140.546875,625.046875"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-X舅 LE-舅妈" id="L-X舅-舅妈-0" d="M180.453125,625.046875L189.2109375,625.046875C197.96875,625.046875,215.484375,625.046875,232.40885416666666,625.046875C249.33333333333334,625.046875,265.6666666666667,625.046875,273.8333333333333,625.046875L282,625.046875"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爸爸 LE-X姑" id="L-爸爸-X姑-0" d="M35.01532435404068,1007.71875L43.846103628367224,1023.2838541666666C52.676882902693784,1038.8489583333333,70.3384414513469,1069.9791666666667,87.92703322567344,1085.5442708333333C105.515625,1101.109375,123.03125,1101.109375,131.7890625,1101.109375L140.546875,1101.109375"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-X姑 LE-姑夫" id="L-X姑-姑夫-0" d="M180.453125,1101.109375L189.2109375,1101.109375C197.96875,1101.109375,215.484375,1101.109375,232.40885416666666,1101.109375C249.33333333333334,1101.109375,265.6666666666667,1101.109375,273.8333333333333,1101.109375L282,1101.109375"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爸爸 LE-X叔" id="L-爸爸-X叔-0" d="M29.90855897200551,1007.71875L39.59046581000459,1038.3828125C49.272372648003675,1069.046875,68.63618632400183,1130.375,87.07590566200092,1161.0390625C105.515625,1191.703125,123.03125,1191.703125,131.7890625,1191.703125L140.546875,1191.703125"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-X叔 LE-X婶" id="L-X叔-X婶-0" d="M180.453125,1191.703125L189.2109375,1191.703125C197.96875,1191.703125,215.484375,1191.703125,233,1191.703125C250.515625,1191.703125,268.03125,1191.703125,276.7890625,1191.703125L285.546875,1191.703125"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-爸爸 LE-X大爷" id="L-爸爸-X大爷-0" d="M27.93967253073336,1007.71875L37.949727108944465,1053.4817708333333C47.959781687155576,1099.2447916666667,67.97989084357779,1190.7708333333333,85.41442458845556,1236.5338541666667C102.84895833333333,1282.296875,117.69791666666667,1282.296875,125.12239583333333,1282.296875L132.546875,1282.296875"></path><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-X大爷 LE-X大娘" id="L-X大爷-X大娘-0" d="M188.453125,1282.296875L195.87760416666666,1282.296875C203.30208333333334,1282.296875,218.15104166666666,1282.296875,233,1282.296875C247.84895833333334,1282.296875,262.6979166666667,1282.296875,270.1223958333333,1282.296875L277.546875,1282.296875"></path></g><g class="edgeLabels"><g transform="translate(88, 58.390625)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妈妈</span></div></foreignObject></g></g><g transform="translate(88, 148.984375)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">爸爸</span></div></foreignObject></g></g><g transform="translate(233, 12.796875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妈妈</span></div></foreignObject></g></g><g transform="translate(233, 126.484375)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">爸爸</span></div></foreignObject></g></g><g transform="translate(233, 80.890625)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妈妈</span></div></foreignObject></g></g><g transform="translate(233, 194.578125)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">爸爸</span></div></foreignObject></g></g><g transform="translate(88, 262.671875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">姑姑</span></div></foreignObject></g></g><g transform="translate(233, 262.671875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">丈夫</span></div></foreignObject></g></g><g transform="translate(88, 353.265625)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">舅舅</span></div></foreignObject></g></g><g transform="translate(88, 443.859375)" class="edgeLabel"><g transform="translate(-8, -12.796875)" class="label"><foreignObject height="25.59375" width="16"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">姨</span></div></foreignObject></g></g><g transform="translate(88, 896.828125)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妈妈</span></div></foreignObject></g></g><g transform="translate(88, 987.421875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">爸爸</span></div></foreignObject></g></g><g transform="translate(88, 715.640625)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">舅舅</span></div></foreignObject></g></g><g transform="translate(88, 806.234375)" class="edgeLabel"><g transform="translate(-8, -12.796875)" class="label"><foreignObject height="25.59375" width="16"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">姨</span></div></foreignObject></g></g><g transform="translate(233, 783.734375)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妈妈</span></div></foreignObject></g></g><g transform="translate(233, 964.921875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">爸爸</span></div></foreignObject></g></g><g transform="translate(233, 851.828125)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妈妈</span></div></foreignObject></g></g><g transform="translate(233, 1033.015625)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">爸爸</span></div></foreignObject></g></g><g transform="translate(88, 534.453125)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">姐妹</span></div></foreignObject></g></g><g transform="translate(233, 534.453125)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">丈夫</span></div></foreignObject></g></g><g transform="translate(88, 625.046875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">哥哥</span></div></foreignObject></g></g><g transform="translate(233, 625.046875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妻子</span></div></foreignObject></g></g><g transform="translate(88, 1101.109375)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">姐妹</span></div></foreignObject></g></g><g transform="translate(233, 1101.109375)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">丈夫</span></div></foreignObject></g></g><g transform="translate(88, 1191.703125)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">弟弟</span></div></foreignObject></g></g><g transform="translate(233, 1191.703125)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妻子</span></div></foreignObject></g></g><g transform="translate(88, 1282.296875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">哥哥</span></div></foreignObject></g></g><g transform="translate(233, 1282.296875)" class="edgeLabel"><g transform="translate(-16, -12.796875)" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">妻子</span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(23.5, 353.265625)" id="flowchart-妈妈-112" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">妈妈</span></div></foreignObject></g></g><g transform="translate(160.5, 58.390625)" id="flowchart-姥姥-113" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">姥姥</span></div></foreignObject></g></g><g transform="translate(160.5, 148.984375)" id="flowchart-姥爷-115" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">姥爷</span></div></foreignObject></g></g><g transform="translate(305.5, 35.59375)" id="flowchart-太姥姥-117" class="node default default"><rect height="40.59375" width="63" y="-20.296875" x="-31.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-24, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">太姥姥</span></div></foreignObject></g></g><g transform="translate(305.5, 171.78125)" id="flowchart-太姥爷-119" class="node default default"><rect height="40.59375" width="63" y="-20.296875" x="-31.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-24, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">太姥爷</span></div></foreignObject></g></g><g transform="translate(160.5, 262.671875)" id="flowchart-姑姥儿-125" class="node default"><rect height="40.59375" width="63" y="-20.296875" x="-31.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-24, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">姑姥儿</span></div></foreignObject></g></g><g transform="translate(305.5, 262.671875)" id="flowchart-姑姥爷-127" class="node default"><rect height="40.59375" width="63" y="-20.296875" x="-31.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-24, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">姑姥爷</span></div></foreignObject></g></g><g transform="translate(160.5, 353.265625)" id="flowchart-舅姥爷-129" class="node default default"><rect height="40.59375" width="63" y="-20.296875" x="-31.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-24, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">舅姥爷</span></div></foreignObject></g></g><g transform="translate(160.5, 443.859375)" id="flowchart-舅姥姥-131" class="node default default"><rect height="40.59375" width="63" y="-20.296875" x="-31.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-24, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">舅姥姥</span></div></foreignObject></g></g><g transform="translate(23.5, 987.421875)" id="flowchart-爸爸-132" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">爸爸</span></div></foreignObject></g></g><g transform="translate(160.5, 896.828125)" id="flowchart-奶奶-133" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">奶奶</span></div></foreignObject></g></g><g transform="translate(160.5, 987.421875)" id="flowchart-爷爷-135" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">爷爷</span></div></foreignObject></g></g><g transform="translate(160.5, 715.640625)" id="flowchart-舅爷-137" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">舅爷</span></div></foreignObject></g></g><g transform="translate(160.5, 806.234375)" id="flowchart-舅奶-139" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">舅奶</span></div></foreignObject></g></g><g transform="translate(305.5, 806.53125)" id="flowchart-太奶奶-141" class="node default default"><rect height="40.59375" width="63" y="-20.296875" x="-31.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-24, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">太奶奶</span></div></foreignObject></g></g><g transform="translate(305.5, 1010.21875)" id="flowchart-太爷爷-143" class="node default default"><rect height="40.59375" width="63" y="-20.296875" x="-31.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-24, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">太爷爷</span></div></foreignObject></g></g><g transform="translate(160.5, 534.453125)" id="flowchart-X姨-149" class="node default default"><rect height="40.59375" width="39.90625" y="-20.296875" x="-19.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-12.453125, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="24.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">X姨</span></div></foreignObject></g></g><g transform="translate(305.5, 534.453125)" id="flowchart-姨夫-151" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">姨夫</span></div></foreignObject></g></g><g transform="translate(160.5, 625.046875)" id="flowchart-X舅-153" class="node default default"><rect height="40.59375" width="39.90625" y="-20.296875" x="-19.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-12.453125, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="24.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">X舅</span></div></foreignObject></g></g><g transform="translate(305.5, 625.046875)" id="flowchart-舅妈-155" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">舅妈</span></div></foreignObject></g></g><g transform="translate(160.5, 1101.109375)" id="flowchart-X姑-157" class="node default default"><rect height="40.59375" width="39.90625" y="-20.296875" x="-19.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-12.453125, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="24.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">X姑</span></div></foreignObject></g></g><g transform="translate(305.5, 1101.109375)" id="flowchart-姑夫-159" class="node default default"><rect height="40.59375" width="47" y="-20.296875" x="-23.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-16, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">姑夫</span></div></foreignObject></g></g><g transform="translate(160.5, 1191.703125)" id="flowchart-X叔-161" class="node default default"><rect height="40.59375" width="39.90625" y="-20.296875" x="-19.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-12.453125, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="24.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">X叔</span></div></foreignObject></g></g><g transform="translate(305.5, 1191.703125)" id="flowchart-X婶-163" class="node default default"><rect height="40.59375" width="39.90625" y="-20.296875" x="-19.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-12.453125, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="24.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">X婶</span></div></foreignObject></g></g><g transform="translate(160.5, 1282.296875)" id="flowchart-X大爷-165" class="node default default"><rect height="40.59375" width="55.90625" y="-20.296875" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="40.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">X大爷</span></div></foreignObject></g></g><g transform="translate(305.5, 1282.296875)" id="flowchart-X大娘-167" class="node default default"><rect height="40.59375" width="55.90625" y="-20.296875" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -12.796875)" style="" class="label"><foreignObject height="25.59375" width="40.90625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">X大娘</span></div></foreignObject></g></g></g></g></g></svg></div>
-
-<ol>
-<li>&#x4E00;&#x5BF9;&#x513F;&#x53CC;&#x5B50;&#xFF08;y&#xED; du&#xEC; er shu&#xE0;ng de&#xFF09;/&#x4E00;&#x5BF9;&#x513F;&#x53CC;&#x513F; &#xFF08;y&#xED; du&#xEC; er shu&#xE0;ng er&#xFF09;&#xFF1A;&#x53CC;&#x80DE;&#x80CE;</li>
-</ol>
-<h3 class="mume-header" id="%E6%97%B6%E9%97%B4">&#x65F6;&#x95F4;</h3>
-
+<h3 id="时间">时间 </h3>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x4F8B;&#x53E5;</th>
-<th>&#x8BF4;&#x660E;</th>
+<th>词</th>
+<th>读音</th>
+<th>例句</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x4E00;&#x5927;&#x65E9;&#x513F;</td>
-<td>y&#xED; d&#xE0; z&#x1CE;o er</td>
-<td>&#x6211;&#x7238;&#x8001;&#x597D;&#x4E86;&#xFF0C;&#x4E00;&#x5927;&#x65E9;&#x513F;&#x5C31;&#x8D77;&#xFF08;qi&#x11B;&#xFF09;&#x6765;&#x7ED9;&#x6211;&#x505A;&#x996D;</td>
-<td>&#x65E9;&#x4E0A;&#x5F88;&#x65E9;&#x7684;&#x65F6;&#x5019;</td>
+<td>一大早儿</td>
+<td>yí dà zǎo er</td>
+<td>我爸老好了，一大早儿就起（qiě）来给我做饭</td>
+<td>早上很早的时候</td>
 </tr>
 <tr>
-<td>&#x6628;&#x513F;&#x4E0B;&#x665A;&#x513F;</td>
-<td>zu&#xF3; er xi&#xE0; w&#x1CE; er</td>
-<td>&#x7565;</td>
-<td>&#x6628;&#x5929;&#x665A;&#x4E0A;</td>
+<td>昨儿下晚儿</td>
+<td>zuó er xià wǎ er</td>
+<td>略</td>
+<td>昨天晚上</td>
 </tr>
 <tr>
-<td>&#x4E0B;&#x665A;&#x513F;&#x9ED1;&#x513F;</td>
-<td>xi&#xE0; w&#x1CE; er h&#x113; er</td>
-<td>&#x7565;</td>
-<td>&#x665A;&#x4E0A;</td>
+<td>下晚儿黑儿</td>
+<td>xià wǎ er hē er</td>
+<td>略</td>
+<td>晚上</td>
 </tr>
 <tr>
-<td>&#x665A;&#x4E0A;</td>
-<td>w&#x1CE;n rang</td>
-<td>&#x4F60;&#x665A;&#x4E0A;&#x6211;&#xFF08;w&#x11B;n&#xFF09;&#x5BB6;&#x6765;&#x5457;</td>
-<td>&#x665A;&#x4E0A;</td>
+<td>晚上</td>
+<td>wǎn rang</td>
+<td>你晚上我（wěn）家来呗</td>
+<td>晚上</td>
 </tr>
 <tr>
-<td>&#x524D;&#x513F;&#x4E2A;</td>
-<td>qi&#xE1; er g&#xE8;</td>
-<td>&#x7565;</td>
-<td>&#x524D;&#x9635;&#x5B50;</td>
+<td>前儿个</td>
+<td>qiá er gè</td>
+<td>略</td>
+<td>前阵子</td>
 </tr>
 <tr>
-<td>&#x4E00;&#x5BBF;</td>
-<td>y&#xEC; xi&#x1D4;</td>
-<td>&#x5B69;&#x5B50;&#xFF08;h&#xE1;i de&#xFF09;&#x9AD8;&#x8003;&#x53EF;&#x628A;&#x6211;&#x7D27;&#x5F20;&#x574F;&#x4E86;&#xFF0C;&#x4E00;&#x5BBF;&#xFF08;y&#x1D0; xi&#x1D4;&#xFF09;&#x6CA1;&#x7761;&#x7740;</td>
-<td>&#x4E00;&#x6574;&#x665A;</td>
+<td>一宿</td>
+<td>yì xiǔ</td>
+<td>孩子（hái de）高考可把我紧张坏了，一宿（yǐ xiǔ）没睡着</td>
+<td>一整晚</td>
 </tr>
 <tr>
-<td>&#x8D76;&#x660E;&#x513F;</td>
-<td>g&#x1CE;n m&#xED; er</td>
-<td>&#x8D76;&#x660E;&#x513F;&#x54B1;&#x4EEC;&#x6512;&#x591F;&#x4E86;&#x94B1;&#xFF0C;&#x51FA;&#x53BB;&#x65C5;&#x6E38;</td>
-<td>&#x672A;&#x6765;&#x3001;&#x5C06;&#x6765;</td>
+<td>赶明儿</td>
+<td>gǎn mí er</td>
+<td>赶明儿咱们攒够了钱，出去旅游</td>
+<td>未来、将来</td>
 </tr>
 <tr>
-<td>&#x5C06;&#x6765;</td>
-<td>ji&#x1CE;ng l&#xE1;i</td>
-<td>&#x5C06;&#x6765;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x5389;&#x5BB3;&#x7684;&#x5927;&#x4EBA; &#x672A;&#x6765;</td>
-<td>&#x7565;</td>
+<td>将来</td>
+<td>jiǎng lái</td>
+<td>将来成为一个厉害的大人 未来</td>
+<td>略</td>
 </tr>
 </tbody>
 </table>
-<h3 class="mume-header" id="%E4%BD%8D%E7%BD%AE">&#x4F4D;&#x7F6E;</h3>
-
+<h3 id="位置">位置 </h3>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x4F8B;&#x53E5;</th>
-<th>&#x8BF4;&#x660E;</th>
+<th>词</th>
+<th>读音</th>
+<th>例句</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x62D0;&#x5DF4;&#x5B50;</td>
-<td>gu&#x1CE;i b&#xE0; zi</td>
-<td>&#x6211;&#x4EEC;&#xFF08;w&#x11B;n&#xFF09;&#x73ED;&#x5728;&#x62D0;&#x5DF4;&#x5B50;&#x91CC;.</td>
-<td>&#x5F62;&#x5BB9;&#x4E0B;&#x4E00;&#x4E2A;&#x66F2;&#x6298;&#x7684;&#x8D70;&#x5ECA;&#x3001;&#x8FC7;&#x9053;&#x3001;&#x4F4D;&#x7F6E;&#x3002;</td>
+<td>拐巴子</td>
+<td>guǎi bà zi</td>
+<td>我们（wěn）班在拐巴子里.</td>
+<td>形容下一个曲折的走廊、过道、位置。</td>
 </tr>
 <tr>
-<td>&#x5BF9;&#x9762;&#x513F;&#x5C4B;</td>
-<td>du&#xEC; mi er w&#x16B;</td>
-<td>&#x6211;&#x4EEC;&#x5BF9;&#x9762;&#x513F;&#x5C4B;&#x662F;&#x4E2A;&#x597D;&#x4EBA;&#x3002;</td>
-<td>&#x6307;&#x5BF9;&#x9762;&#x90BB;&#x5C45;&#xFF0C;&#x6216;&#x662F;&#x5BF9;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x623F;&#x95F4;</td>
+<td>对面儿屋</td>
+<td>duì mi er wū</td>
+<td>我们对面儿屋是个好人。</td>
+<td>指对面邻居，或是对面可以看到的房间</td>
 </tr>
 <tr>
-<td>&#x8FB9;&#x513F;&#x62C9;</td>
-<td>bi&#x101; er l&#x1CE;</td>
-<td><br>1. &#x6211;&#x6B63;&#x95F9;&#x5FC3;&#x5462;&#xFF0C;&#x8FB9;&#x513F;&#x62C9;&#x5F85;&#x7740;&#x53BB;&#xFF08;qie&#xFF09;&#x3002;<br> 2. &#x522B;&#x6765;&#x70E6;&#x6211;&#xFF0C;&#x4E0A;&#x8FB9;&#x513F;&#x62C9;&#x5F85;&#x7740;&#x53BB;&#x3002;</td>
-<td>&#x65C1;&#x8FB9;</td>
+<td>边儿拉</td>
+<td>biā er lǎ</td>
+<td><br>1. 我正闹心呢，边儿拉待着去（qie）。<br> 2. 别来烦我，上边儿拉待着去。</td>
+<td>旁边</td>
 </tr>
 <tr>
-<td>&#x5676;&#x54D2;</td>
-<td>g&#x101; da</td>
-<td>&#x8FD9;&#x5676;&#x54D2;&#xFF0C;&#x90A3;&#x5676;&#x54D2;&#xFF0C;&#x778E;&#x8E66;&#x8DF6;&#x5565;&#x554A;&#xFF08;&#x5F62;&#x5BB9;&#x4E00;&#x4E2A;&#x4EBA;&#x559C;&#x6B22;&#x4E71;&#x901B;&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x6279;&#x8BC4;&#x5B69;&#x5B50;&#xFF09;</td>
-<td>&#x5730;&#x65B9;</td>
+<td>噶哒</td>
+<td>gā da</td>
+<td>这噶哒，那噶哒，瞎蹦跶啥啊（形容一个人喜欢乱逛，通常用于批评孩子）</td>
+<td>地方</td>
 </tr>
 <tr>
-<td>&#x6401;</td>
-<td>g&#x113; /g&#x11B;/g&#x11B;i</td>
-<td><br> 1. &#x4F60;&#x6401;&#xFF08;g&#x11B;&#xFF09;&#x54EA;&#x5462;&#xFF1F;<br> 2. &#x6765;&#x90FD;&#x6765;&#x4E86;&#xFF0C;&#x9001;&#x5565;&#x4E1C;&#x897F;&#x5462;&#xFF0C;&#x6401;&#xFF08;g&#x113;&#xFF09;&#x8FB9;&#x513F;&#x62C9;&#xFF08;bi&#x101;n er l&#x1CE;&#xFF09;&#x5427;&#x3002;</td>
-<td>&#x653E;&#x3001;&#x5728;</td>
+<td>搁</td>
+<td>gē /gě/gěi</td>
+<td><br> 1. 你搁（gě）哪呢？<br> 2. 来都来了，送啥东西呢，搁（gē）边儿拉（biān er lǎ）吧。</td>
+<td>放、在</td>
 </tr>
 <tr>
-<td>&#x5C0F;&#x6252;&#x6252;&#x623F;&#x513F;</td>
-<td>xi&#x1CE;o p&#x1CE; pa f&#xE1;ng er</td>
-<td>&#x90A3;&#xFF08;n&#xE8;i&#xFF09;&#x5BB6;&#x5C0F;&#x6252;&#x6252;&#x623F;&#x513F;&#x7684;&#x70E4;&#x8089;&#x8D3C;&#x62C9;&#x597D;&#x5403;</td>
-<td>&#x4F4E;&#x77EE;&#x5E73;&#x623F;&#xFF0C;&#x68DA;&#x6237;&#x533A;</td>
+<td>小扒扒房儿</td>
+<td>xiǎo pǎ pa fáng er</td>
+<td>那（nèi）家小扒扒房儿的烤肉贼拉好吃</td>
+<td>低矮平房，棚户区</td>
 </tr>
 <tr>
-<td>&#x54B1;&#x8FD9;&#x9762;&#x513F;</td>
-<td>z&#xE1;n zh&#xE8; mia er</td>
-<td>&#x54B1;&#x8FD9;&#x9762;&#x513F;&#x4E0D;&#x9519;</td>
-<td>&#x6211;&#x4EEC;&#x8FD9;&#x91CC;</td>
+<td>咱这面儿</td>
+<td>zán zhè mia er</td>
+<td>咱这面儿不错</td>
+<td>我们这里</td>
 </tr>
 </tbody>
 </table>
-<h3 class="mume-header" id="%E5%8A%A8%E8%AF%8D">&#x52A8;&#x8BCD;</h3>
-
+<h3 id="动词">动词 </h3>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x4F8B;&#x53E5;</th>
-<th>&#x8BF4; &#x660E;</th>
+<th>词</th>
+<th>读音</th>
+<th>例句</th>
+<th>说 明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x63B0;</td>
-<td>b&#x101;i</td>
-<td><br>1. &#x63B0;&#x82DE;&#x7C73;<br> 2. &#x6211;&#xFF08;w&#x11B;n&#xFF09;&#x4FE9;&#x63B0;&#x4E86;&#x3002;&#xFF08;&#x7EDD;&#x4EA4;&#x3001;&#x5206;&#x624B;&#xFF09;</td>
-<td>&#x5C06;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF08;&#x901A;&#x5E38;&#x4E3A;&#x957F;&#x6761;&#xFF09;&#x5411;&#x4E24;&#x4FA7;&#x7528;&#x529B;&#x6309;&#x538B;</td>
+<td>掰</td>
+<td>bāi</td>
+<td><br>1. 掰苞米<br> 2. 我（wěn）俩掰了。（绝交、分手）</td>
+<td>将一个东西（通常为长条）向两侧用力按压</td>
 </tr>
 <tr>
-<td>&#x5361;</td>
-<td>k&#x1CE;</td>
-<td>&#x4ECA;&#x5929;&#x4E0D;&#x5C0F;&#x5FC3;&#x5361;&#x9A6C;&#x8DEF;&#x7259;&#x5B50;&#x4E0A;&#x4E86; &#x5012;</td>
-<td>&#x78D5;&#x3001;&#x78B0;&#x3001;&#x6454;</td>
+<td>卡</td>
+<td>kǎ</td>
+<td>今天不小心卡马路牙子上了 倒</td>
+<td>磕、碰、摔</td>
 </tr>
 <tr>
-<td>&#x603C;</td>
-<td>du&#x1D0;</td>
-<td>&#x7565;</td>
-<td>&#x8D34;&#x7740;&#x4F7F;&#x51FA;&#x529B;&#x6C14;&#x7684;&#x52A8;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x7ED9;&#x4EBA;&#x4E00;&#x62F3;&#x5934;</td>
+<td>怼</td>
+<td>duǐ</td>
+<td>略</td>
+<td>贴着使出力气的动作，比如给人一拳头</td>
 </tr>
 <tr>
-<td>&#x6454;</td>
-<td>zhu&#x101;i</td>
-<td>&#x4ED6;&#x665A;&#x4E0A;&#x7761;&#x89C9;&#xFF0C;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x548B;&#x56DE;&#x4E8B;&#xFF0C;&#x4E00;&#x4E0B;&#x6454;&#xFF08;zhu&#x101;i&#xFF09;&#x5730;&#x4E0A;&#x4E86;&#x3002;</td>
-<td>&#x6454;&#x5012;</td>
+<td>摔</td>
+<td>zhuāi</td>
+<td>他晚上睡觉，也不知道咋回事，一下摔（zhuāi）地上了。</td>
+<td>摔倒</td>
 </tr>
 <tr>
-<td>&#x649E;</td>
-<td>chu&#xE0;ng</td>
-<td>&#x8111;&#x888B;&#x649E;&#x95E8;&#x4E0A;&#x4E86;</td>
-<td>&#x649E;&#x5230;</td>
+<td>撞</td>
+<td>chuàng</td>
+<td>脑袋撞门上了</td>
+<td>撞到</td>
 </tr>
 <tr>
-<td>&#x4E32;</td>
-<td>chu&#xE0;n/cu&#xE0;n</td>
-<td>&#x516C;&#x4EA4;&#x8F66;&#x592A;&#x6324;&#x4E86;&#xFF0C;&#x91CC;&#x9762;&#x7684;&#x4EBA;&#x5F80;&#x91CC;&#x4E32;&#x4E32;</td>
-<td>&#x79FB;&#x52A8;</td>
+<td>串</td>
+<td>chuàn/cuàn</td>
+<td>公交车太挤了，里面的人往里串串</td>
+<td>移动</td>
 </tr>
 <tr>
-<td>&#x821E;&#x821E;&#x55B3;&#x55B3;</td>
-<td>w&#x1D4; w&#x1D4; zh&#x101; zh&#x101;</td>
-<td><br>1. &#x4F60;&#x770B;&#x90A3;&#x4E2A;&#x4EBA;&#xFF0C;&#x6401;&#x90A3;&#x513F;&#xFF08;g&#x11B; n&#xE0; er&#xFF09;&#x821E;&#x821E;&#x55B3;&#x55B3;&#x7684;<br><br>2. &#x6D88;&#x505C;&#x70B9;&#x5427;&#xFF0C;&#x522B;&#x821E;&#x821E;&#x55B3;&#x55B3;&#x7684;&#x4E86;&#x3002;<br><br>3. &#x4F60;&#x770B;&#x770B;&#x5BF9;&#x9762;&#x5C4B;&#x90A3;&#x8C01;&#x5BB6;&#xFF0C;&#x6709;&#x4E2A;&#x4EBA;&#x5728;&#x90A3;&#x821E;&#x821E;&#x55B3;&#x55B3;&#x7684;<br></td>
-<td>&#x5F62;&#x5BB9;&#x4EBA;&#x7684;&#x52A8;&#x4F5C;&#x5927;&#x3001;&#x6BD4;&#x6BD4;&#x5212;&#x5212;</td>
+<td>舞舞喳喳</td>
+<td>wǔ wǔ zhā zhā</td>
+<td><br>1. 你看那个人，搁那儿（gě nà er）舞舞喳喳的<br><br>2. 消停点吧，别舞舞喳喳的了。<br><br>3. 你看看对面屋那谁家，有个人在那舞舞喳喳的<br></td>
+<td>形容人的动作大、比比划划</td>
 </tr>
 <tr>
-<td>&#x6574;</td>
+<td>整</td>
 <td></td>
-<td><br>1. &#x665A;&#x4E0A;&#x6574;&#x4E2A;&#x8304;&#x5B50;&#x70C0;&#xFF08;h&#x16B;&#xFF09;&#x571F;&#x8C46;&#x5457;&#x3002;<br><br>2. &#x628A;&#x4F60;&#x90A3;&#x4F5C;&#x4E1A;&#x597D;&#x597D;&#x6574;&#x6574;&#xFF0C;&#x8DDF;&#x7C91;&#x7C91;&#x88D3;&#x5B50;&#xFF08;&#x5C3F;&#x5E03;&#xFF09;&#x4F3C;&#x7684;&#x3002;<br><br>3. &#x6211;&#x7238;&#x6211;&#x5988;&#x6765;&#x4E86;&#xFF0C;&#x6211;&#x8981;&#x7ED9;&#x4ED6;&#x4EEC;&#x6574;&#x4E00;&#x684C;&#x597D;&#x996D;&#x3002;<br></td>
-<td>&#x505A;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x66FF;&#x4EE3;&#x5404;&#x79CD;&#x52A8;&#x8BCD;&#xFF08;&#x96C5;&#x601D;&#x7EDD;&#x62DB;&#xFF09;</td>
+<td><br>1. 晚上整个茄子烀（hū）土豆呗。<br><br>2. 把你那作业好好整整，跟粑粑裓子（尿布）似的。<br><br>3. 我爸我妈来了，我要给他们整一桌好饭。<br></td>
+<td>做，可以用来替代各种动词（雅思绝招）</td>
 </tr>
 <tr>
-<td>&#x5520;&#x55D1;&#x513F;</td>
-<td>l&#xE0;o k&#x113; er</td>
-<td>&#x7565;</td>
-<td>&#x8BF4;&#x8BDD;</td>
+<td>唠嗑儿</td>
+<td>lào kē er</td>
+<td>略</td>
+<td>说话</td>
 </tr>
 <tr>
-<td>&#x626F;&#x95F2;&#x6DE1;</td>
-<td>ch&#x11B; xi&#xE1;n d&#xE0;n</td>
-<td>&#x7565;</td>
-<td>&#x95F2;&#x804A;</td>
+<td>扯闲淡</td>
+<td>chě xián dàn</td>
+<td>略</td>
+<td>闲聊</td>
 </tr>
 <tr>
-<td>&#x52D2;</td>
-<td>l&#x113;i</td>
-<td><br>1. &#x4ED6;&#x72AF;&#x9519;&#x4E86;&#xFF0C;&#x4F60;&#x522B;&#x52D2;&#x4ED6;&#x3002;<br><br>2. &#x4ED6;&#x5C31;&#x662F;&#x90A3;&#x6837;&#x513F;&#x4EBA;&#xFF0C;&#x4F60;&#x52D2;&#x4ED6;&#x5E72;&#x5565;<br></td>
-<td>&#x642D;&#x7406;</td>
+<td>勒</td>
+<td>lēi</td>
+<td><br>1. 他犯错了，你别勒他。<br><br>2. 他就是那样儿人，你勒他干啥<br></td>
+<td>搭理</td>
 </tr>
 <tr>
-<td>&#x544A;&#x54C4;</td>
-<td>g&#xE0;o hong</td>
-<td><br>1. &#x6211;&#x544A;&#x54C4;&#x4F60;&#x600E;&#x4E48;&#x8D70;<br><br>2. &#x4F60;&#x518D;&#x6B3A;&#x8D1F;&#x5973;&#x540C;&#x5B66;&#xFF0C;&#x6211;&#x5C31;&#x544A;&#x54C4;&#x8001;&#x5E08;<br></td>
-<td>&#x544A;&#x8BC9;&#x3001;&#x6253;&#x5C0F;&#x62A5;&#x544A;</td>
+<td>告哄</td>
+<td>gào hong</td>
+<td><br>1. 我告哄你怎么走<br><br>2. 你再欺负女同学，我就告哄老师<br></td>
+<td>告诉、打小报告</td>
 </tr>
 <tr>
-<td>&#x5F97;&#x745F;</td>
-<td>d&#xE8; se</td>
-<td>&#x4F60;&#x770B;&#x4ED6;&#xFF0C;&#x4E00;&#x5929;&#x51C0;&#x778E;&#x5F97;&#x745F;</td>
-<td>&#x70AB;&#x8000;</td>
+<td>得瑟</td>
+<td>dè se</td>
+<td>你看他，一天净瞎得瑟</td>
+<td>炫耀</td>
 </tr>
 <tr>
-<td>&#x970D;&#x970D;</td>
-<td>hu&#xF2; huo</td>
-<td><br>&#x4F60;&#x770B;&#x8FD9;&#x5BB6;&#xFF0C;&#x88AB;&#x4F60;&#x970D;&#x970D;&#x5F97;&#xFF0C;&#x591A;&#x57CB;&#x6C70;&#xFF08;m&#xE1;i tai&#xFF09;<br>&#x4ED6;&#x628A;&#x4ED6;&#x5BB6;&#x90FD;&#x970D;&#x970D;&#x5B8C;&#x4E86;&#x3002;(&#x5F62;&#x5BB9;&#x8D25;&#x5BB6;&#x5B50;)</td>
-<td>&#x7CDF;&#x8E4B;</td>
+<td>霍霍</td>
+<td>huò huo</td>
+<td><br>你看这家，被你霍霍得，多埋汰（mái tai）<br>他把他家都霍霍完了。(形容败家子)</td>
+<td>糟蹋</td>
 </tr>
 <tr>
-<td>&#x7F6E;&#x80FD;</td>
-<td>zh&#xEC; neng</td>
-<td>&#x4ED6;&#x4E00;&#x5929;&#x51C0;&#x80FD;&#x7F6E;&#x80FD;&#x4EBA;&#x3002;</td>
+<td>置能</td>
+<td>zhì neng</td>
+<td>他一天净能置能人。</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x6413;&#x6478;</td>
-<td>cu&#xF3; mo</td>
-<td>&#x4F60;&#x522B;&#x6413;&#x6478;&#x6211;&#x4E86;&#x3002;</td>
-<td>&#x6B3A;&#x8D1F;</td>
+<td>搓摸</td>
+<td>cuó mo</td>
+<td>你别搓摸我了。</td>
+<td>欺负</td>
 </tr>
 <tr>
-<td>&#x6307;&#x4F7F;</td>
-<td>zh&#x12B; shi</td>
-<td>&#x6211;&#x7D2F;&#x6B7B;&#x4E86;&#xFF0C;&#x522B;&#x6307;&#x4F7F;&#x6211;&#x3002;</td>
-<td>&#x6307;&#x6325;</td>
+<td>指使</td>
+<td>zhī shi</td>
+<td>我累死了，别指使我。</td>
+<td>指挥</td>
 </tr>
 <tr>
-<td>&#x8D77;&#x6765;</td>
-<td>qi&#x11B; lai</td>
-<td>&#x522B;&#x7761;&#x4E86;&#xFF01;&#x7ED9;&#x6211;&#x4E14;&#x6765;&#xFF01;</td>
-<td>&#x8D77;&#x5E8A;&#x3001;&#x8D77;&#x5F00;</td>
+<td>起来</td>
+<td>qiě lai</td>
+<td>别睡了！给我且来！</td>
+<td>起床、起开</td>
 </tr>
 <tr>
-<td>&#x76F8;&#x4E2D;</td>
-<td>&#x7565;</td>
-<td>&#x6211;&#x4E00;&#x770B;&#x8FD9;&#x5973;&#x5B69;&#xFF0C;&#x6211;&#x5C31;&#x76F8;&#x4E2D;&#x5979;&#x4E86;&#x3002;</td>
-<td>&#x559C;&#x6B22;&#x4E0A;&#x3001;&#x7231;&#x4E0A;</td>
+<td>相中</td>
+<td>略</td>
+<td>我一看这女孩，我就相中她了。</td>
+<td>喜欢上、爱上</td>
 </tr>
 <tr>
-<td>&#x79C3;&#x9732;&#x53CD;&#x5E10;</td>
-<td>t&#x16B; lu f&#x1CE;n zh&#xE0;ng</td>
-<td>&#x522B;&#x4E00;&#x5929;&#x8001;&#x5E72;&#x90A3;&#x79C3;&#x9732;&#x53CD;&#x5E10;&#x7684;&#x4E8B;&#x513F;&#x3002;</td>
-<td>&#x53CD;&#x6094;&#x3001;&#x6709;&#x59CB;&#x65E0;&#x7EC8;</td>
+<td>秃露反帐</td>
+<td>tū lu fǎn zhàng</td>
+<td>别一天老干那秃露反帐的事儿。</td>
+<td>反悔、有始无终</td>
 </tr>
 <tr>
-<td>&#x5F7B;</td>
-<td>ch&#xE8;</td>
-<td>&#x5B69;&#x5B50;&#x4E0D;&#x542C;&#x8BDD;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x5F7B;&#x5634;&#x5DF4;&#x5B50;&#x554A;</td>
-<td>&#x6247;&#x8033;&#x5149;</td>
+<td>彻</td>
+<td>chè</td>
+<td>孩子不听话，也不能彻嘴巴子啊</td>
+<td>扇耳光</td>
 </tr>
 <tr>
-<td>&#x6345;&#x5495;</td>
-<td>t&#x1D2;ng gu</td>
-<td>&#x6211;&#x6401;&#x8FD9;&#x7761;&#x89C9;&#x5462;&#xFF0C;&#x522B;&#x6345;&#x5495;&#x6211;</td>
-<td>&#x6233;&#x3001;&#x6253;&#x6270;</td>
+<td>捅咕</td>
+<td>tǒng gu</td>
+<td>我搁这睡觉呢，别捅咕我</td>
+<td>戳、打扰</td>
 </tr>
 <tr>
-<td>&#x70C0;</td>
-<td>h&#x16B;</td>
-<td>&#x70C0;&#x732A;&#x8098;&#x5B50;&#x3001;&#x70C0;&#x571F;&#x8C46;&#x3001;&#x70C0;&#x82DE;&#x7C73;&#x3001;&#x70C0;&#x8304;&#x5B50;</td>
-<td>&#x84B8;</td>
+<td>烀</td>
+<td>hū</td>
+<td>烀猪肘子、烀土豆、烀苞米、烀茄子</td>
+<td>蒸</td>
 </tr>
 <tr>
-<td>&#x643D;</td>
-<td>ch&#x101;</td>
-<td>&#x665A;&#x4E0A;&#x5565;&#x4E5F;&#x4E0D;&#x5403;&#x4E86;&#xFF0C;&#x5C31;&#x643D;&#x70B9;&#x5C0F;&#x7C73;&#x7CA5;</td>
-<td>&#x716E;&#x7CA5;</td>
+<td>搽</td>
+<td>chā</td>
+<td>晚上啥也不吃了，就搽点小米粥</td>
+<td>煮粥</td>
 </tr>
 <tr>
-<td>&#x6025;&#x773C;</td>
-<td>j&#xED; y&#x1CE;n</td>
-<td>&#x751F;&#x6C14;</td>
-<td>&#x7565;</td>
+<td>急眼</td>
+<td>jí yǎn</td>
+<td>生气</td>
+<td>略</td>
 </tr>
 <tr>
-<td>&#x7096;</td>
-<td>d&#xF9;n</td>
-<td>&#x5C0F;&#x9E21;&#x7096;&#x8611;&#x83C7;/&#x571F;&#x8C46;&#x7096;&#x5C0F;&#x9E21;/&#x5C0F;&#x9E21;&#x7096;&#x7C89;&#x6761;/&#x6392;&#x9AA8;&#x7096;&#x5C71;&#x836F;</td>
-<td>&#x901A;&#x5E38;&#x662F;&#x81F3;&#x5C11;&#x4E00;&#x6837;&#x852C;&#x83DC;&#x548C;&#x4E00;&#x6837;&#x8089;&#x7C7B;&#xFF0C;&#x4E00;&#x8D77;&#x653E;&#x5728;&#x9505;&#x4E2D;&#xFF0C;&#x653E;&#x5C11;&#x91CF;&#x6C34;&#x716E;&#x7684;&#x4E00;&#x79CD;&#x70F9;&#x996A;&#x65B9;&#x6CD5;&#x3002;</td>
+<td>炖</td>
+<td>dùn</td>
+<td>小鸡炖蘑菇/土豆炖小鸡/小鸡炖粉条/排骨炖山药</td>
+<td>通常是至少一样蔬菜和一样肉类，一起放在锅中，放少量水煮的一种烹饪方法。</td>
 </tr>
 <tr>
-<td>&#x62E8;</td>
+<td>拨</td>
 <td>be</td>
-<td>&#x6211;&#x4E0D;&#x7231;&#x770B;&#x8FD9;&#x4E2A;&#xFF0C;&#x5FEB;&#x62E8;</td>
-<td>&#x8C03;&#x53F0;</td>
+<td>我不爱看这个，快拨</td>
+<td>调台</td>
 </tr>
 <tr>
-<td>&#x4E70;&#x4E2A;&#x697C;</td>
-<td>&#x7565;</td>
-<td><br>1. &#x5728;&#x4E0A;&#x6D77;&#x4E70;&#x4E2A;&#x697C;&#x4E5F;&#x592A;&#x8D35;&#x4E86;<br>2. &#x6211;&#x8981;&#x6362;&#x623F;&#x5B50;&#xFF0C;&#x628A;&#x8FD9;&#x4E2A;&#x697C;&#x5356;&#x4E86;&#x3002;</td>
-<td>&#x4E70;&#x4E00;&#x4E2A;&#x623F;&#x5B50;&#xFF0C;&#x5356;&#x697C;&#x540C;&#x7406;</td>
+<td>买个楼</td>
+<td>略</td>
+<td><br>1. 在上海买个楼也太贵了<br>2. 我要换房子，把这个楼卖了。</td>
+<td>买一个房子，卖楼同理</td>
 </tr>
 <tr>
-<td>&#x95F9;&#x5FC3;</td>
+<td>闹心</td>
 <td></td>
-<td>&#x7565;</td>
-<td>&#x5FC3;&#x70E6;&#x610F;&#x4E71;</td>
+<td>略</td>
+<td>心烦意乱</td>
 </tr>
 <tr>
-<td>&#x8188;&#x5E94;</td>
-<td>g&#xE8; ying</td>
-<td>&#x4F60;&#x771F;&#x8188;&#x5E94;&#x4EBA;&#x3002;</td>
-<td>&#x4EE4;&#x4EBA;&#x611F;&#x5230;&#x8BA8;&#x538C;&#xFF0C;&#x4EE4;&#x4EBA;&#x53CD;&#x611F;</td>
+<td>膈应</td>
+<td>gè ying</td>
+<td>你真膈应人。</td>
+<td>令人感到讨厌，令人反感</td>
 </tr>
 <tr>
-<td>&#x54ED;&#x9E21;&#x5C3F;&#x568E;</td>
-<td>&#x7565;</td>
-<td>&#x4E0D;&#x5C31;&#x662F;&#x6CA1;&#x8003;&#x597D;&#x5417;&#xFF0C;&#x522B;&#x54ED;&#x9E21;&#x9E1F;&#x568E;&#x7684;&#x3002;</td>
-<td>&#x54C0;&#x568E;</td>
+<td>哭鸡尿嚎</td>
+<td>略</td>
+<td>不就是没考好吗，别哭鸡鸟嚎的。</td>
+<td>哀嚎</td>
 </tr>
 <tr>
-<td>&#x80E1;&#x52D2;&#x52D2;</td>
-<td>h&#xFA; l&#x113;i l&#x113;i</td>
-<td>&#x7565;</td>
-<td>&#x80E1;&#x54A7;&#x54A7;&#xFF1A;&#x778E;&#x8BF4;&#x516B;&#x9053;</td>
+<td>胡勒勒</td>
+<td>hú lēi lēi</td>
+<td>略</td>
+<td>胡咧咧：瞎说八道</td>
 </tr>
 <tr>
-<td>&#x8BF7;&#x5BA2;</td>
-<td>q&#x1D0;ng qi&#x11B;</td>
-<td>&#x7565;</td>
-<td>&#x62DB;&#x5F85;&#x5BA2;&#x4EBA;</td>
+<td>请客</td>
+<td>qǐng qiě</td>
+<td>略</td>
+<td>招待客人</td>
 </tr>
 <tr>
-<td>&#x6765;&#x5BA2;&#x4E86;</td>
-<td>l&#xE1;i qi&#x11B; le</td>
-<td>&#x7565;</td>
-<td>&#x5BA2;&#x4EBA;&#x6765;&#x4E86;</td>
+<td>来客了</td>
+<td>lái qiě le</td>
+<td>略</td>
+<td>客人来了</td>
 </tr>
 <tr>
-<td>&#x9020;&#x3001;&#x65CB;</td>
-<td>xu&#xE0;n</td>
-<td>&#x8FD9;&#x5C0F;&#x732B;&#x771F;&#x80FD;&#x9020;&#x3002;</td>
-<td>&#x8FD9;&#x4E24;&#x4E2A;&#x5B57;&#x90FD;&#x662F;&#x731B;&#x5403;&#x7684;&#x610F;&#x601D;</td>
+<td>造、旋</td>
+<td>xuàn</td>
+<td>这小猫真能造。</td>
+<td>这两个字都是猛吃的意思</td>
 </tr>
 <tr>
-<td>&#x5F04;</td>
-<td>n&#xE8;ng</td>
-<td>&#x5F04;&#x4E22;&#x4E86;&#xFF08;n&#xE8;ng di&#x16B; le&#xFF09;</td>
-<td>&#x7565;</td>
+<td>弄</td>
+<td>nèng</td>
+<td>弄丢了（nèng diū le）</td>
+<td>略</td>
 </tr>
 <tr>
-<td>&#x6295;</td>
-<td>t&#xF3;u</td>
-<td>&#x6295;&#x6BDB;&#x5DFE;</td>
-<td>t&#xF3;u m&#xE1;o jin</td>
+<td>投</td>
+<td>tóu</td>
+<td>投毛巾</td>
+<td>tóu máo jin</td>
 </tr>
 <tr>
-<td>&#x6254;</td>
-<td>l&#x113;ng</td>
-<td>&#x6254;/&#x4E22;</td>
-<td>&#x7565;</td>
+<td>扔</td>
+<td>lēng</td>
+<td>扔/丢</td>
+<td>略</td>
 </tr>
 <tr>
-<td>&#x6402;</td>
-<td>l&#x14D;u</td>
-<td><br>&#x8FD9;&#x4E2A;&#x4EBA;&#x771F;&#x80FD;&#x6402;&#x3002;<br>&#x660E;&#x5929;&#x53BB;&#x6402;&#x5E2D;</td>
-<td>&#x8D2A;&#x6C61;&#x3001;&#x5403;&#x5E2D;</td>
+<td>搂</td>
+<td>lōu</td>
+<td><br>这个人真能搂。<br>明天去搂席</td>
+<td>贪污、吃席</td>
 </tr>
 <tr>
-<td>&#x67E5;&#x6570;&#x513F;</td>
-<td>ch&#xE1; sh&#xF9; er</td>
-<td>&#x7565;</td>
-<td>&#x6570;&#x6570;</td>
+<td>查数儿</td>
+<td>chá shù er</td>
+<td>略</td>
+<td>数数</td>
 </tr>
 <tr>
-<td>&#x63E3;&#x5495;</td>
-<td>chu&#x101;i gu</td>
-<td>&#x7565;</td>
-<td>&#x6405;&#x62CC;</td>
+<td>揣咕</td>
+<td>chuāi gu</td>
+<td>略</td>
+<td>搅拌</td>
 </tr>
 <tr>
-<td>&#x5BFB;&#x601D;</td>
-<td>x&#xED;n si</td>
-<td>&#x7565;</td>
-<td>&#x601D;&#x8003;&#x3001;&#x63E3;&#x6469;</td>
+<td>寻思</td>
+<td>xín si</td>
+<td>略</td>
+<td>思考、揣摩</td>
 </tr>
 <tr>
-<td>&#x6E9C;&#x8FBE;</td>
-<td>li&#x16B; da</td>
-<td>&#x7565;</td>
-<td>&#x6563;&#x6B65;</td>
+<td>溜达</td>
+<td>liū da</td>
+<td>略</td>
+<td>散步</td>
 </tr>
 <tr>
-<td>&#x903C;&#x903C;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
-<td>&#x8BF4;&#x8BDD;&#xFF08;&#x8D2C;&#x4E49;&#xFF0C;&#x5F88;&#x4E0D;&#x793C;&#x8C8C;&#xFF09;</td>
+<td>逼逼</td>
+<td>略</td>
+<td>略</td>
+<td>说话（贬义，很不礼貌）</td>
 </tr>
 <tr>
-<td>&#x58A8;&#x8FF9;</td>
-<td>m&#xE8; ji</td>
-<td>&#x53CD;&#x590D;&#x8BF4;&#xFF0C;&#x8FD8;&#x6709;&#x4F5C;&#x4E3A;&#x5F62;&#x5BB9;&#x8BCD;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x5F62;&#x5BB9;&#x62D6;&#x6C93;</td>
-<td>&#x7565;</td>
+<td>墨迹</td>
+<td>mè ji</td>
+<td>反复说，还有作为形容词的用法，形容拖沓</td>
+<td>略</td>
 </tr>
 <tr>
-<td>&#x77E5;&#x9053;</td>
-<td>zh&#xED; dao</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
+<td>知道</td>
+<td>zhí dao</td>
+<td>略</td>
+<td>略</td>
 </tr>
 <tr>
-<td>&#x4E0D;&#x9053;&#x554A;</td>
-<td>b&#xFA; d&#xE0;o a</td>
-<td>&#x7565;</td>
-<td>&#x4E0D;&#x77E5;&#x9053;</td>
+<td>不道啊</td>
+<td>bú dào a</td>
+<td>略</td>
+<td>不知道</td>
 </tr>
 <tr>
-<td>&#x6401;&#x4E86;&#x6401;&#x4E86;</td>
-<td>g&#x113; le g&#x113; le</td>
-<td>&#x7565;</td>
-<td>&#x6405;&#x62CC;</td>
+<td>搁了搁了</td>
+<td>gē le gē le</td>
+<td>略</td>
+<td>搅拌</td>
 </tr>
 <tr>
-<td>&#x51FA;&#x6E9C;&#x513F;</td>
-<td>ch&#x16B; liu er</td>
-<td>&#x7565;</td>
-<td>&#x6ED1;</td>
+<td>出溜儿</td>
+<td>chū liu er</td>
+<td>略</td>
+<td>滑</td>
 </tr>
 <tr>
-<td>&#x5B66;&#x4E60;</td>
-<td>xi&#xE1;o x&#xED;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
+<td>学习</td>
+<td>xiáo xí</td>
+<td>略</td>
+<td>略</td>
 </tr>
 <tr>
-<td>&#x8282;&#x7EA6;</td>
-<td>ji&#x11B; y&#x101;o</td>
-<td>&#x7565;</td>
-<td>&#x62A0;&#x95E8;</td>
+<td>节约</td>
+<td>jiě yāo</td>
+<td>略</td>
+<td>抠门</td>
 </tr>
 <tr>
-<td>&#x585E;</td>
-<td>s&#x113;i</td>
-<td>&#x7565;</td>
-<td>&#x585E;&#x4E1C;&#x897F;</td>
+<td>塞</td>
+<td>sēi</td>
+<td>略</td>
+<td>塞东西</td>
 </tr>
 <tr>
-<td>&#x5431;&#x58F0;&#x513F;</td>
-<td>&#x7565;</td>
-<td><br>&#x8FD9;&#x5B69;&#x5B50;&#x4E0D;&#x548B;&#x7231;&#x5431;&#x58F0;&#x513F;&#x3002;&#xFF08;&#x5E2E;&#x5185;&#x5411;&#x7684;&#x5B69;&#x5B50;&#x89E3;&#x56F4;&#xFF09;<br></td>
-<td>&#x8BF4;&#x8BDD;/&#x63D0;&#x9192;/&#x6253;&#x62DB;&#x547C;</td>
+<td>吱声儿</td>
+<td>略</td>
+<td><br>这孩子不咋爱吱声儿。（帮内向的孩子解围）<br></td>
+<td>说话/提醒/打招呼</td>
 </tr>
 <tr>
-<td>&#x5272;</td>
-<td>g&#x1CE;</td>
-<td>&#x5272;&#x97ED;&#x83DC;</td>
-<td>&#x5207;&#x5272;</td>
+<td>割</td>
+<td>gǎ</td>
+<td>割韭菜</td>
+<td>切割</td>
 </tr>
 <tr>
-<td>&#x53EB;&#x5524;</td>
-<td>ji&#xE0;o huan</td>
-<td>&#x522B;&#x53EB;&#x5524;&#x4E86;&#xFF0C;&#x5BF9;&#x9762;&#x513F;&#x5C4B;&#x7684;&#x72D7;&#x90FD;&#x88AB;&#x4F60;&#x5435;&#x9192;&#x4E86;&#x3002;</td>
-<td>&#x5927;&#x58F0;&#x558A;</td>
+<td>叫唤</td>
+<td>jiào huan</td>
+<td>别叫唤了，对面儿屋的狗都被你吵醒了。</td>
+<td>大声喊</td>
 </tr>
 <tr>
-<td>&#x6253;&#x8FDE;&#x8FDE;</td>
-<td>d&#x1CE; li&#x101;n lian</td>
-<td>&#x7565;</td>
-<td>&#x7ED3;&#x4EA4;&#x72D0;&#x670B;&#x72D7;&#x53CB;&#x3001;&#x604B;&#x7231;&#x8111;</td>
+<td>打连连</td>
+<td>dǎ liān lian</td>
+<td>略</td>
+<td>结交狐朋狗友、恋爱脑</td>
 </tr>
 </tbody>
 </table>
-<h3 class="mume-header" id="%E6%95%B0%E9%87%8F%E8%AF%8D">&#x6570;&#x91CF;&#x8BCD;</h3>
-
+<h3 id="数量词">数量词 </h3>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
+<th>词</th>
+<th>读音</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x4FE9;</td>
-<td>li&#x1CE;</td>
+<td>俩</td>
+<td>liǎ</td>
 </tr>
 <tr>
-<td>&#x4EE8;</td>
-<td>s&#x101;</td>
+<td>仨</td>
+<td>sā</td>
 </tr>
 <tr>
-<td>&#x4E03;</td>
-<td>q&#xED;</td>
+<td>七</td>
+<td>qí</td>
 </tr>
 <tr>
-<td>&#x5341;&#x591A;&#x4E2A;</td>
-<td>&#x5341;&#x6765;&#x4E2A;&#x513F;&#x3001;&#x5341;&#x4E86;&#x591A;&#x4E2A;</td>
+<td>十多个</td>
+<td>十来个儿、十了多个</td>
 </tr>
 </tbody>
 </table>
-<h3 class="mume-header" id="%E5%BD%A2%E5%AE%B9%E8%AF%8D">&#x5F62;&#x5BB9;&#x8BCD;</h3>
-
+<h3 id="形容词">形容词 </h3>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x4F8B;&#x53E5;</th>
-<th>&#x8BF4;&#x660E;</th>
+<th>词</th>
+<th>读音</th>
+<th>例句</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x6D88;&#x505C;&#x513F;&#x7684;</td>
-<td>xi&#x101;o t&#x12B;ng di</td>
-<td>&#x4F60;&#x7ED9;&#x6211;&#x6D88;&#x505C;&#x513F;&#x7684;&#x3002;</td>
-<td>&#x4E25;&#x5389;&#x5730;&#x547D;&#x4EE4;&#xFF0C;&#x4F7F;&#x5176;&#x5B89;&#x9759;&#x3002;</td>
+<td>消停儿的</td>
+<td>xiāo tīng di</td>
+<td>你给我消停儿的。</td>
+<td>严厉地命令，使其安静。</td>
 </tr>
 <tr>
-<td>&#x9EBB;&#x6E9C;&#x513F;&#x7684;</td>
-<td>m&#xE1; li&#x16B; er di</td>
-<td>&#x6211;&#x5EFA;&#x8BAE;&#x4F60;&#x9EBB;&#x6E9C;&#x513F;&#x6EDA;&#x8FC7;&#x6765;&#x3002;</td>
-<td>&#x5FEB;&#x70B9;</td>
+<td>麻溜儿的</td>
+<td>má liū er di</td>
+<td>我建议你麻溜儿滚过来。</td>
+<td>快点</td>
 </tr>
 <tr>
-<td>&#x8001;&#x5B9E;&#x513F;&#x7684;</td>
+<td>老实儿的</td>
 <td></td>
-<td>&#x4ED6;&#x4EEC;&#x5BB6;&#x90A3;&#x5C0F;&#x732B;&#x8001;&#x5B9E;&#x513F;&#x7684;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x4EBA;&#x5B89;&#x9759;&#x3001;&#x4E0D;&#x52A8;</td>
+<td>他们家那小猫老实儿的。</td>
+<td>形容人安静、不动</td>
 </tr>
 <tr>
-<td>&#x6084;&#x4E48;&#x9E21;&#x513F;&#x7684;&#x3001;&#x9E1F;&#x6084;&#x513F;&#x7684;</td>
-<td>qi&#x101;o m&#xE8; j&#x12B; er di &#x3001;ni&#x101;o qi&#x101;o de</td>
-<td>&#x6628;&#x5929;&#x6084;&#x4E48;&#x9E21;&#x513F;&#x7684;&#x8FDB;&#x6765;&#x4E00;&#x4E2A;&#x8D3C;&#x3002;</td>
-<td>&#x6084;&#x6084;&#x5730;</td>
+<td>悄么鸡儿的、鸟悄儿的</td>
+<td>qiāo mè jī er di 、niāo qiāo de</td>
+<td>昨天悄么鸡儿的进来一个贼。</td>
+<td>悄悄地</td>
 </tr>
 <tr>
-<td>&#x4E0D;&#x7981;&#x4E0D;&#x4E34;&#x513F;</td>
-<td>b&#xF9; j&#x12B;n b&#xF9; l&#xED;n er</td>
-<td>&#x4E0D;&#x7981;&#x4E0D;&#x4E34;&#x513F;&#x5F97;&#x4E86;&#x3002;</td>
-<td>&#x5DEE;&#x4E0D;&#x591A;</td>
+<td>不禁不临儿</td>
+<td>bù jīn bù lín er</td>
+<td>不禁不临儿得了。</td>
+<td>差不多</td>
 </tr>
 <tr>
-<td>&#x6E9C;&#x513F;&#x76F4;&#x513F;</td>
-<td>&#x7565;</td>
-<td>&#x6807;&#x6807;&#x6E9C;&#x513F;&#x76F4;&#x513F;</td>
-<td>&#x633A;&#x62D4;</td>
+<td>溜儿直儿</td>
+<td>略</td>
+<td>标标溜儿直儿</td>
+<td>挺拔</td>
 </tr>
 <tr>
-<td>&#x8001;&#x4E48;&#x5494;&#x74F7;&#x773C;</td>
-<td>l&#x1CE;o me k&#x101; ci y&#x1CE;n</td>
-<td>&#x7565;</td>
-<td>&#x5F62;&#x5BB9;&#x8870;&#x8001;&#xFF0C;&#x662F;&#x5F88;&#x4E0D;&#x793C;&#x8C8C;&#x7684;&#x8BF4;&#x6CD5;</td>
+<td>老么咔瓷眼</td>
+<td>lǎo me kā ci yǎn</td>
+<td>略</td>
+<td>形容衰老，是很不礼貌的说法</td>
 </tr>
 <tr>
-<td>&#x7A00;&#x9165;&#x513F;</td>
-<td>x&#xED; s&#x16B; er</td>
-<td>&#x8FD9;&#x9165;&#x997C;&#x7A00;&#x9165;&#x513F; &#x3002;</td>
-<td>&#x9165;&#x8106;</td>
+<td>稀酥儿</td>
+<td>xí sū er</td>
+<td>这酥饼稀酥儿 。</td>
+<td>酥脆</td>
 </tr>
 <tr>
-<td>&#x7A00;&#x70C2;</td>
-<td>x&#xED; l&#xE0;n</td>
-<td>&#x8FD9;&#x8D26;&#x7B97;&#x5F97;&#x7A00;&#x70C2;&#x3002;</td>
-<td>&#x7CDF;&#x7CD5;</td>
+<td>稀烂</td>
+<td>xí làn</td>
+<td>这账算得稀烂。</td>
+<td>糟糕</td>
 </tr>
 <tr>
-<td>&#x7A00;&#x80FD;</td>
-<td>x&#xED; n&#xE8;ng</td>
-<td>&#x8FD9;&#x5DE5;&#x4F5C;&#x8BA9;&#x4ED6;&#x5E72;&#x5F97;&#x7A00;&#x80FD;&#x3002;</td>
-<td>&#x8F6F;&#x70C2;/&#x505A;&#x4E8B;&#x60C5;&#x505A;&#x5F97;&#x5DEE;</td>
+<td>稀能</td>
+<td>xí nèng</td>
+<td>这工作让他干得稀能。</td>
+<td>软烂/做事情做得差</td>
 </tr>
 <tr>
-<td>&#x5C3F;&#x6027;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
-<td>&#x5389;&#x5BB3;</td>
+<td>尿性</td>
+<td>略</td>
+<td>略</td>
+<td>厉害</td>
 </tr>
 <tr>
-<td>&#x6E9C;&#x5706;&#x513F;</td>
-<td>&#x7565;</td>
-<td>&#x6211;&#x5BB6;&#x732B;&#xFF0C;&#x8111;&#x74DC;&#x513F;&#x6E9C;&#x5706;&#x513F;</td>
-<td>&#x975E;&#x5E38;&#x5706;</td>
+<td>溜圆儿</td>
+<td>略</td>
+<td>我家猫，脑瓜儿溜圆儿</td>
+<td>非常圆</td>
 </tr>
 <tr>
-<td>&#x6B7B;&#x8111;&#x74DC;&#x9AA8;</td>
-<td>&#x7565;</td>
-<td>&#x8FD9;&#x5B69;&#x5B50;&#x548B;&#x6B7B;&#x8111;&#x74DC;&#x9AA8;&#x7684;&#x3002;</td>
-<td>&#x8111;&#x7B4B;&#x4E0D;&#x7075;&#x6D3B;&#x3001;&#x94BB;&#x725B;&#x89D2;&#x5C16;&#x513F;&#x3001;&#x4E0D;&#x61C2;&#x53D8;&#x901A;</td>
+<td>死脑瓜骨</td>
+<td>略</td>
+<td>这孩子咋死脑瓜骨的。</td>
+<td>脑筋不灵活、钻牛角尖儿、不懂变通</td>
 </tr>
 <tr>
-<td>&#x6B7B;&#x4E2A;&#x4E01;&#x7684;</td>
-<td>&#x7565;</td>
-<td>&#x90A3;&#x4E2A;&#x996D;&#x5E97;&#x7684;&#x8089;&#x83DC;&#x5168;&#x90FD;&#x6B7B;&#x4E2A;&#x4E01;&#x7684;</td>
-<td>&#x786C;&#xFF0C;&#x4E0D;&#x7075;&#x6D3B;&#x3001;&#x4E0D;&#x61C2;&#x53D8;&#x901A;</td>
+<td>死个丁的</td>
+<td>略</td>
+<td>那个饭店的肉菜全都死个丁的</td>
+<td>硬，不灵活、不懂变通</td>
 </tr>
 <tr>
-<td>&#x6C34;&#x5C3F;&#x5DF4;&#x6C64;</td>
-<td>&#x7565;</td>
-<td>&#x6401;&#x534A;&#x52FA;&#x6C34;&#x5C31;&#x884C;&#xFF0C;&#x522B;&#x6574;&#x5F97;&#x6C34;&#x5C3F;&#x5DF4;&#x6C64;&#x7684;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x505A;&#x83DC;&#x65F6;&#xFF0C;&#x6C34;&#x653E;&#x591A;&#x4E86;</td>
+<td>水尿巴汤</td>
+<td>略</td>
+<td>搁半勺水就行，别整得水尿巴汤的。</td>
+<td>形容做菜时，水放多了</td>
 </tr>
 <tr>
-<td>&#x5F97;&#x4E2A;&#x5C41;&#x56BC;&#x4E0D;&#x70C2;</td>
-<td>d&#x11B;i g&#xE8; p&#xEC; ji&#xE1;o b&#xFA; l&#xE0;n</td>
-<td>&#x4F60;&#x95ED;&#x5634;&#x5427;&#xFF0C;&#x522B;&#x5F97;&#x4E2A;&#x5C41;&#x56BC;&#x4E0D;&#x70C2;&#x4E86;&#x3002;</td>
-<td>&#x6293;&#x4F4F;&#x4E00;&#x4E2A;&#x4EE4;&#x4EBA;&#x8BA8;&#x538C;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x53CD;&#x590D;&#x5728;&#x5176;&#x9762;&#x524D;&#x8BF4;&#xFF08;KY&#xFF09;</td>
+<td>得个屁嚼不烂</td>
+<td>děi gè pì jiáo bú làn</td>
+<td>你闭嘴吧，别得个屁嚼不烂了。</td>
+<td>抓住一个令人讨厌的事情，反复在其面前说（KY）</td>
 </tr>
 <tr>
-<td>&#x8001;</td>
-<td>&#x7565;</td>
-<td>&#x8001;&#x7D2F;&#x4E86;/ &#x8001;&#x5F00;&#x5FC3;&#x4E86;/&#x8001;&#x60F3;&#x5BB6;&#x4E86;<br> &#x8001;&#x59E8;/&#x8001;&#x53D4;/&#x8001;&#x5F1F;/&#x8001;&#x59B9;&#x513F;</td>
-<td>a. &#x8868;&#x793A;&#x975E;&#x5E38;&#x3001;&#x7279;&#x522B;<br>b. &#x8868;&#x793A;&#x5E74;&#x7EA7;&#x6700;&#x5C0F;&#x7684;</td>
+<td>老</td>
+<td>略</td>
+<td>老累了/ 老开心了/老想家了<br> 老姨/老叔/老弟/老妹儿</td>
+<td>a. 表示非常、特别<br>b. 表示年级最小的</td>
 </tr>
 <tr>
-<td>&#x6CB9;&#x8FF9;&#x6401;&#x4E43;</td>
-<td>y&#xF3;u j&#xEC; g&#x113; n&#x101;i</td>
-<td>&#x6211;&#x8FD9;&#x5934;&#x53D1;&#xFF0C;&#x4E00;&#x5929;&#x4E0D;&#x6D17;&#x5C31;&#x6CB9;&#x8FF9;&#x6401;&#x4E43;&#x7684;</td>
-<td>&#x6CB9;&#x817B;</td>
+<td>油迹搁乃</td>
+<td>yóu jì gē nāi</td>
+<td>我这头发，一天不洗就油迹搁乃的</td>
+<td>油腻</td>
 </tr>
 <tr>
-<td>&#x6CB9;&#x5F97;&#x6C6A;&#x513F;&#x7684;</td>
-<td>&#x7565;</td>
-<td>&#x90A3;&#x7EA2;&#x70E7;&#x8089;&#x6CB9;&#x6C6A;&#x513F;&#x7684;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x505A;&#x83DC;&#x6709;&#x6CB9;&#x5149;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x9999;&#x7684;&#x6837;&#x5B50;</td>
+<td>油得汪儿的</td>
+<td>略</td>
+<td>那红烧肉油汪儿的。</td>
+<td>形容做菜有油光，看起来很香的样子</td>
 </tr>
 <tr>
-<td>&#x8BB7;</td>
-<td>n&#x113;</td>
-<td>&#x5979;&#x5B66;&#x4E60;&#x8001;&#x8BB7;&#x4E86;&#x3002;</td>
-<td>&#x5389;&#x5BB3;</td>
+<td>讷</td>
+<td>nē</td>
+<td>她学习老讷了。</td>
+<td>厉害</td>
 </tr>
 <tr>
-<td>&#x57CB;&#x4E86;&#x5495;&#x6C70;/&#x57CB;&#x6C70;</td>
-<td>m&#xE1;i tai</td>
-<td>&#x6211;&#x90A3;&#x5C4B;&#x57CB;&#x4E86;&#x5495;&#x6C70;&#x7684;&#x3002;</td>
-<td>&#x810F;&#x4E71;</td>
+<td>埋了咕汰/埋汰</td>
+<td>mái tai</td>
+<td>我那屋埋了咕汰的。</td>
+<td>脏乱</td>
 </tr>
 <tr>
-<td>&#x7D2F;&#x633A;</td>
-<td>l&#xE8;i ting</td>
-<td>&#x867D;&#x7136;&#x7279;&#x79CD;&#x5175;&#x65C5;&#x6E38;&#x5F88;&#x7D2F;&#x633A;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x8001;&#x5F00;&#x5FC3;&#x4E86;&#x3002;</td>
-<td>&#x75B2;&#x60EB;</td>
+<td>累挺</td>
+<td>lèi ting</td>
+<td>虽然特种兵旅游很累挺，但是我老开心了。</td>
+<td>疲惫</td>
 </tr>
 <tr>
-<td>&#x6491;&#x633A;</td>
-<td>ch&#x113;ng ting</td>
-<td>&#x4ECA;&#x5929;&#x4E0D;&#x53BB;&#x559D;&#x5976;&#x8336;&#x4E86;&#xFF0C;&#x665A;&#x996D;&#x5403;&#x6491;&#x633A;&#x4E86;&#x3002;</td>
-<td>&#x5403;&#x592A;&#x9971;</td>
+<td>撑挺</td>
+<td>chēng ting</td>
+<td>今天不去喝奶茶了，晚饭吃撑挺了。</td>
+<td>吃太饱</td>
 </tr>
 <tr>
-<td>&#x4E0D;&#x7684;</td>
-<td>b&#xFA; di</td>
-<td>&#x7238;&#x7238;&#xFF1A;&#x201C;&#x4ECA;&#x5929;&#x4F60;&#x5237;&#x7897;&#x201D;&#x3002;&#x6211;&#xFF1A;&#x201C;&#x4E0D;&#x7684;&#x201D;</td>
-<td>&#x62D2;&#x7EDD;</td>
+<td>不的</td>
+<td>bú di</td>
+<td>爸爸：“今天你刷碗”。我：“不的”</td>
+<td>拒绝</td>
 </tr>
 <tr>
-<td>&#x80CE;&#x5475;&#x7684;</td>
-<td>t&#x101;i h&#x113; er de</td>
-<td>&#x4F60;&#x770B;&#x54B1;&#x5BB6;&#x732B;&#xFF0C;&#x6401;&#x90A3;&#x513F;&#x80CE;&#x5475;&#x7684;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x4EBA;&#x6216;&#x5C0F;&#x52A8;&#x7269;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x8212;&#x670D;&#x7684;&#x72B6;&#x6001;</td>
+<td>胎呵的</td>
+<td>tāi hē er de</td>
+<td>你看咱家猫，搁那儿胎呵的。</td>
+<td>形容人或小动物，看起来很舒服的状态</td>
 </tr>
 <tr>
-<td>&#x6025;&#x4E86;&#x8D76;&#x86CB;</td>
-<td>&#x7565;</td>
-<td>&#x9A6C;&#x4E0A;&#x8981;&#x8003;&#x8BD5;&#x4E86;&#xFF0C;&#x8C01;&#x8BA9;&#x4F60;&#x6628;&#x5929;&#x4E0D;&#x628A;&#x4E66;&#x5305;&#x6536;&#x62FE;&#x597D;&#xFF0C;&#x6401;&#x8FD9;&#x513F;&#x6025;&#x4E86;&#x8D76;&#x86CB;&#x7684;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x4EBA;&#x614C;&#x5F20;&#xFF0C;&#x7740;&#x6025;&#xFF0C;&#x6BDB;&#x624B;&#x6BDB;&#x811A;</td>
+<td>急了赶蛋</td>
+<td>略</td>
+<td>马上要考试了，谁让你昨天不把书包收拾好，搁这儿急了赶蛋的。</td>
+<td>形容人慌张，着急，毛手毛脚</td>
 </tr>
 <tr>
-<td>&#x7834;&#x9A6C;&#x5F20;&#x98DE;</td>
-<td>&#x7565;</td>
-<td>&#x4F60;&#x770B;&#x4F60;&#x7238;&#xFF0C;&#x7740;&#x6025;&#x5FD9;&#x614C;&#x3001;&#x7834;&#x9A6C;&#x5F20;&#x98DE;&#x7684;&#x3002;</td>
-<td>&#x7740;&#x6025;</td>
+<td>破马张飞</td>
+<td>略</td>
+<td>你看你爸，着急忙慌、破马张飞的。</td>
+<td>着急</td>
 </tr>
 <tr>
-<td>&#x66B4;&#x571F;&#x7F8A;&#x80A0;</td>
-<td>&#x7565;</td>
-<td>&#x539F;&#x6765;&#x90A3;&#x8DEF;&#x90FD;&#x66B4;&#x571F;&#x7F8A;&#x80A0;&#x7684;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x5C0F;&#x8DEF;&#xFF0C;&#x571F;&#x6E23;&#x548C;&#x7070;&#x5C18;&#x591A;</td>
+<td>暴土羊肠</td>
+<td>略</td>
+<td>原来那路都暴土羊肠的。</td>
+<td>形容小路，土渣和灰尘多</td>
 </tr>
 <tr>
-<td>&#x8D76;&#x8D9F;&#x513F;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
-<td>&#x6765;&#x5F97;&#x53CA;</td>
+<td>赶趟儿</td>
+<td>略</td>
+<td>略</td>
+<td>来得及</td>
 </tr>
 <tr>
-<td>&#x5F97;&#x52B2;&#x513F;</td>
-<td>d&#x11B;i j&#xEC;n er</td>
-<td>&#x7565;</td>
-<td>&#x8212;&#x670D;</td>
+<td>得劲儿</td>
+<td>děi jìn er</td>
+<td>略</td>
+<td>舒服</td>
 </tr>
 <tr>
-<td>&#x6025;&#x5934;&#x767D;&#x8138;</td>
-<td>&#x7565;</td>
-<td>&#x6025;&#x5934;&#x767D;&#x8138;&#x5403;&#x4E00;&#x987F;&#xFF0C;&#x591A;&#x5C11;&#x94B1;&#xFF1F;</td>
-<td>&#x7740;&#x6025;</td>
+<td>急头白脸</td>
+<td>略</td>
+<td>急头白脸吃一顿，多少钱？</td>
+<td>着急</td>
 </tr>
 <tr>
-<td>&#x62DB;&#x4EBA;&#x513F;&#x70E6;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
-<td>&#x60F9;&#x4EBA;&#x538C;&#xFF0C;&#x5E38;&#x5E38;&#x5FEB;&#x8BFB;&#x6210;&#x201D;&#x62DB;&#x513F;&#x70E6;&#x201C;</td>
+<td>招人儿烦</td>
+<td>略</td>
+<td>略</td>
+<td>惹人厌，常常快读成”招儿烦“</td>
 </tr>
 <tr>
-<td>&#x6B7B;&#x51FA;&#x513F;&#x3001;&#x718A;&#x8272;&#xFF08;s&#x1CE;i&#xFF09;&#x3001;&#x635F;&#x8272;&#xFF08;s&#x1CE;i&#xFF09;</td>
-<td>&#x7565;</td>
-<td>&#x7785;&#x4F60;&#x90A3;&#x635F;&#x8272;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x4E00;&#x4E2A;&#x4EBA;&#x7684;&#x5916;&#x5728;&#x5F62;&#x8C61;&#x4E0D;&#x597D;&#xFF0C;&#x6216;&#x8005;&#x62DB;&#x4EBA;&#x8BA8;&#x538C;&#xFF0C;&#x6216;&#x8005;&#x5C31;&#x662F;&#x60F3;&#x6B3A;&#x8D1F;&#x4ED6;&#x3001;&#x5F00;&#x73A9;&#x7B11;&#x3002;&#x8272;&#x5E38;&#x5FF5;&#x6210;&#x201C;s&#x1CE;i&#x201D;&#xFF0C;&#x6BD4;&#x5982;&#x8461;&#x8404;&#x9152;&#xFF0C;&#x53EB;&#x201C;&#x8272;&#x9152;&#x201D;&#x3002;</td>
+<td>死出儿、熊色（sǎi）、损色（sǎi）</td>
+<td>略</td>
+<td>瞅你那损色。</td>
+<td>形容一个人的外在形象不好，或者招人讨厌，或者就是想欺负他、开玩笑。色常念成“sǎi”，比如葡萄酒，叫“色酒”。</td>
 </tr>
 <tr>
-<td>&#x79C3;&#x9732;&#x76AE;&#x513F;</td>
-<td>t&#x16B; l&#xF9; p&#xED;</td>
-<td>&#x5361;&#x79C3;&#x565C;&#x76AE;&#x513F;&#x4E86;&#x3002;</td>
-<td>&#x76AE;&#x80A4;&#x7834;&#x635F;</td>
+<td>秃露皮儿</td>
+<td>tū lù pí</td>
+<td>卡秃噜皮儿了。</td>
+<td>皮肤破损</td>
 </tr>
 <tr>
-<td>&#x900F;&#x9732;&#x8D1D;&#x513F;</td>
-<td>t&#xF2;u l&#xF2;u b&#x113; er</td>
-<td>&#x5979;&#x90A3;&#x76AE;&#x80A4;&#x900F;&#x9732;&#x8D1D;&#x513F;&#x7684;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x76AE;&#x80A4;&#x767D;&#x91CC;&#x900F;&#x7EA2;</td>
+<td>透露贝儿</td>
+<td>tòu lòu bē er</td>
+<td>她那皮肤透露贝儿的。</td>
+<td>形容皮肤白里透红</td>
 </tr>
 <tr>
-<td>&#x7EC6;&#x53D1;&#x513F;&#x7684;</td>
-<td>x&#xEC; f&#x16B; er</td>
-<td>&#x5979;&#x90A3;&#x76AE;&#x80A4;&#x771F;&#x7EC6;&#x53D1;&#x513F;&#x3002;</td>
-<td>&#x5F62;&#x5BB9;&#x76AE;&#x80A4;&#x7EC6;&#x817B;</td>
+<td>细发儿的</td>
+<td>xì fū er</td>
+<td>她那皮肤真细发儿。</td>
+<td>形容皮肤细腻</td>
 </tr>
 <tr>
-<td>&#x677F;&#x6B63;&#x513F;&#x7684;</td>
-<td>b&#x1CE;n zh&#x113;ng er di</td>
-<td>&#x5979;&#x90A3;&#x5E8A;&#x603B;&#x662F;&#x94FA;&#x5F97;&#x677F;&#x6B63;&#x513F;&#x7684;&#x3002;</td>
-<td>&#x6574;&#x9F50;</td>
+<td>板正儿的</td>
+<td>bǎn zhēng er di</td>
+<td>她那床总是铺得板正儿的。</td>
+<td>整齐</td>
 </tr>
 <tr>
-<td>&#x7C91;&#x7C91;&#x88D3;&#x5B50;</td>
-<td>b&#x1CE; ba ji&#xE8; zi</td>
-<td>&#x4F60;&#x7785;&#x4F60;&#x8FD9;&#x4F5C;&#x4E1A;&#x672C;&#xFF0C;&#x8DDF;&#x7C91;&#x7C91;&#x88D3;&#x5B50;&#x4F3C;&#x5F97;&#x3002;</td>
-<td>&#x76B1;&#x7F29;&#x3001;&#x810F;&#x4E71;&#xFF0C;&#x7C91;&#x7C91;&#x88D3;&#x5B50;&#x662F;&#x4EE5;&#x524D;&#x7684;&#x5A74;&#x513F;&#x5C3F;&#x5E03;&#x3002;</td>
+<td>粑粑裓子</td>
+<td>bǎ ba jiè zi</td>
+<td>你瞅你这作业本，跟粑粑裓子似得。</td>
+<td>皱缩、脏乱，粑粑裓子是以前的婴儿尿布。</td>
 </tr>
 <tr>
-<td>&#x65E0;&#x810A;&#x516D;&#x517D;</td>
-<td>w&#xFA; j&#x12B; li&#xF9; sh&#xF2;u</td>
-<td>&#x6210;&#x5929;&#x6401;&#x5BB6;&#x5446;&#x5F97;&#xFF0C;&#x65E0;&#x810A;&#x516D;&#x517D;&#x7684;&#x3002;</td>
-<td>&#x65E0;&#x804A;</td>
+<td>无脊六兽</td>
+<td>wú jī liù shòu</td>
+<td>成天搁家呆得，无脊六兽的。</td>
+<td>无聊</td>
 </tr>
 <tr>
-<td>&#x53C8;&#x5077;&#x513F;</td>
-<td>y&#xF2;u tou er</td>
+<td>又偷儿</td>
+<td>yòu tou er</td>
 <td></td>
-<td>&#x6709;&#x5F39;&#x6027;</td>
+<td>有弹性</td>
 </tr>
 <tr>
-<td>&#x5978;/&#x8D3C;</td>
-<td>&#x7565;</td>
-<td>&#x5979;&#x8001;&#x5978;&#x4E86;&#xFF0C;&#x8D3C;&#x4F1A;&#x6765;&#x4E8B;&#x513F;&#x3002;</td>
-<td>&#x901A;&#x5E38;&#x5F62;&#x5BB9;&#x4E00;&#x4E2A;&#x4EBA;&#x6781;&#x5EA6;&#x806A;&#x660E;&#x3001;&#x673A;&#x7075;</td>
+<td>奸/贼</td>
+<td>略</td>
+<td>她老奸了，贼会来事儿。</td>
+<td>通常形容一个人极度聪明、机灵</td>
 </tr>
 <tr>
-<td>&#x5E26;&#x52B2;</td>
-<td>d&#xE0;i j&#xEC;n</td>
-<td>&#x5979;&#x5988;&#x6210;&#x5E26;&#x52B2;&#x4E86;&#x3002;</td>
-<td>&#x4FCA;&#x7F8E;</td>
+<td>带劲</td>
+<td>dài jìn</td>
+<td>她妈成带劲了。</td>
+<td>俊美</td>
 </tr>
 <tr>
-<td>&#x7CBE;&#x795E;</td>
-<td>&#x7565;</td>
-<td>&#x90A3;&#x5C0F;&#x4F19;&#x513F;&#x8001;&#x7CBE;&#x795E;&#x4E86;&#x3002;</td>
-<td>&#x6F02;&#x4EAE;</td>
+<td>精神</td>
+<td>略</td>
+<td>那小伙儿老精神了。</td>
+<td>漂亮</td>
 </tr>
 <tr>
-<td>&#x78D5;&#x789C;</td>
-<td>k&#x113; chen</td>
-<td>&#x4ED6;&#x529E;&#x4E8B;&#x513F;&#x771F;&#x78D5;&#x789C;&#xFF08;&#x60C5;&#x5546;&#x4F4E;&#xFF09;&#x3002;</td>
-<td>&#x4E11;&#x964B;&#x3001;&#x96BE;&#x4E3A;&#x60C5;</td>
+<td>磕碜</td>
+<td>kē chen</td>
+<td>他办事儿真磕碜（情商低）。</td>
+<td>丑陋、难为情</td>
 </tr>
 <tr>
-<td>&#x80A5;&#x7C97;&#x4E8C;&#x80D6;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
-<td>&#x80A5;&#x80D6;&#xFF0C;&#x662F;&#x4E0D;&#x793C;&#x8C8C;&#x7684;&#x8BF4;&#x6CD5;</td>
+<td>肥粗二胖</td>
+<td>略</td>
+<td>略</td>
+<td>肥胖，是不礼貌的说法</td>
 </tr>
 <tr>
-<td>&#x7626;&#x7334;&#x5B50;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
-<td>&#x5F62;&#x5BB9;&#x4EBA;&#x5F88;&#x7626;&#xFF0C;&#x7565;&#x4E0D;&#x793C;&#x8C8C;</td>
+<td>瘦猴子</td>
+<td>略</td>
+<td>略</td>
+<td>形容人很瘦，略不礼貌</td>
 </tr>
 <tr>
-<td>&#x6CA1;&#x548B;&#x5730;</td>
-<td>m&#xE8;i z&#x1CE; d&#xEC;</td>
-<td>&#x4E00;&#x573A;&#x5927;&#x96E8;&#x6CA1;&#x548B;&#x5730;</td>
-<td>&#x6CA1;&#x4EC0;&#x4E48;&#x4E8B;&#x513F;</td>
+<td>没咋地</td>
+<td>mèi zǎ dì</td>
+<td>一场大雨没咋地</td>
+<td>没什么事儿</td>
 </tr>
 <tr>
-<td>&#x864E;</td>
-<td>&#x7565;</td>
-<td>&#x864E;&#x8F66;&#x8F66;/&#x864E;&#x6284;&#x6284;</td>
-<td>&#x50BB;</td>
+<td>虎</td>
+<td>略</td>
+<td>虎车车/虎抄抄</td>
+<td>傻</td>
 </tr>
 </tbody>
 </table>
-<h3 class="mume-header" id="%E9%87%8F%E8%AF%8D">&#x91CF;&#x8BCD;</h3>
-
+<h3 id="量词">量词 </h3>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x4F8B;&#x53E5;</th>
-<th>&#x8BF4;&#x660E;</th>
+<th>词</th>
+<th>读音</th>
+<th>例句</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x534A;&#x513F;&#x62C9;</td>
-<td>b&#xE0;n er l&#x1CE;</td>
-<td>&#x4E00;&#x534A;</td>
+<td>半儿拉</td>
+<td>bàn er lǎ</td>
+<td>一半</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x591A;&#x534A;&#x513F;&#x662F;</td>
-<td>&#x7565;</td>
-<td>&#x4ED6;&#x8001;&#x7761;&#x4E0D;&#x597D;&#xFF0C;&#x591A;&#x534A;&#x513F;&#x662F;&#x4E0A;&#x73ED;&#x7D2F;&#x5F97;&#x3002;</td>
-<td>&#x8868;&#x793A;&#x201C;&#x5E94;&#x8BE5;&#x201D;&#x3002;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x63A8;&#x6D4B;</td>
+<td>多半儿是</td>
+<td>略</td>
+<td>他老睡不好，多半儿是上班累得。</td>
+<td>表示“应该”。通常用于推测</td>
 </tr>
 <tr>
-<td>&#x4E0D;&#x4E01;&#x70B9;&#x513F;</td>
-<td>&#x7565;</td>
-<td>&#x4ED6;&#x5BB6;&#x5B69;&#x5B50;&#x624D;&#x4E0D;&#x4E01;&#x70B9;&#x513F;&#x3002;</td>
-<td>&#x5F88;&#x5C11;</td>
+<td>不丁点儿</td>
+<td>略</td>
+<td>他家孩子才不丁点儿。</td>
+<td>很少</td>
 </tr>
 <tr>
-<td>&#x4E00;&#x7B77;&#x5934;&#x7684;</td>
-<td>y&#xED; ku&#xE0;i t&#xF3;u de</td>
-<td>&#x6211;&#x5939;&#x4E86;&#x4E00;&#x7B77;&#x8089;&#x7684;&#x8089;&#x3002;</td>
-<td>&#x7B77;&#x5B50;&#x80FD;&#x591F;&#x5939;&#x8D77;&#x6765;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x6307;&#x4E00;&#x5927;&#x53E3;</td>
+<td>一筷头的</td>
+<td>yí kuài tóu de</td>
+<td>我夹了一筷肉的肉。</td>
+<td>筷子能够夹起来的大小，通常是指一大口</td>
 </tr>
 <tr>
-<td>&#x4E00;&#x560E;&#x54D2;</td>
-<td>y&#xEC; g&#x101; da/y&#xEC; g&#x101; d&#xE1;</td>
-<td>&#x4ED6;&#x4E3A;&#x4E86;&#x51CF;&#x80A5;&#xFF0C;&#x4E00;&#x987F;&#x5C31;&#x53EA;&#x5403;&#x4E00;&#x5C0F;&#x5676;&#x54D2;&#x513F;&#x8089;</td>
-<td>&#x5F88;&#x5C0F;&#x7684;&#x4E00;&#x5757;</td>
+<td>一嘎哒</td>
+<td>yì gā da/yì gā dá</td>
+<td>他为了减肥，一顿就只吃一小噶哒儿肉</td>
+<td>很小的一块</td>
 </tr>
 <tr>
-<td>&#x4E00;&#x5E7F;&#x9539;</td>
-<td>y&#xEC; gu&#x1CE;ng qi&#x101;o</td>
-<td>&#x8FD9;&#x6B21;&#x94F2;&#x96EA;&#xFF0C;&#x4E00;&#x5E7F;&#x9539;&#x5C31;&#x94F2;&#x4E00;&#x5927;&#x7247;</td>
-<td>&#x6307;&#x94C1;&#x9539;&#x80FD;&#x591F;&#x6380;&#x8D77;&#x6765;&#x7684;&#x4E00;&#x5757;&#x5927;&#x5C0F;</td>
+<td>一广锹</td>
+<td>yì guǎng qiāo</td>
+<td>这次铲雪，一广锹就铲一大片</td>
+<td>指铁锹能够掀起来的一块大小</td>
 </tr>
 <tr>
-<td>&#x4E00;&#x8200;&#x5B50;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
-<td>&#x8200;&#x5B50;&#x3001;&#x6C34;&#x8200;&#x5B50;&#x662F;&#x6307;&#x6C34;&#x74E2;</td>
+<td>一舀子</td>
+<td>略</td>
+<td>略</td>
+<td>舀子、水舀子是指水瓢</td>
 </tr>
 <tr>
-<td>&#x4E00;&#x7FB9;&#x5319;&#x513F;</td>
-<td>&#x7565;</td>
-<td>&#x7565;</td>
-<td>&#x4E00;&#x52FA;</td>
+<td>一羹匙儿</td>
+<td>略</td>
+<td>略</td>
+<td>一勺</td>
 </tr>
 </tbody>
 </table>
-<h3 class="mume-header" id="%E5%90%8D%E8%AF%8D">&#x540D;&#x8BCD;</h3>
-
-<h4 class="mume-header" id="%E8%BA%AB%E4%BD%93%E9%83%A8%E4%BD%8D">&#x8EAB;&#x4F53;&#x90E8;&#x4F4D;</h4>
-
+<h3 id="名词">名词 </h3>
+<h4 id="身体部位">身体部位 </h4>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x8BF4;&#x660E;</th>
+<th>词</th>
+<th>读音</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x8111;&#x888B;&#x74DC;&#x5B50;</td>
-<td>n&#x1CE;o d&#xE0;i gu&#x101; de</td>
-<td>&#x5934;&#x90E8;</td>
+<td>脑袋瓜子</td>
+<td>nǎo dài guā de</td>
+<td>头部</td>
 </tr>
 <tr>
-<td>&#x8138;&#x86CB;&#x5B50;</td>
-<td>li&#x1CE;n d&#xE0;n de</td>
-<td>&#x9762;&#x988A;</td>
+<td>脸蛋子</td>
+<td>liǎn dàn de</td>
+<td>面颊</td>
 </tr>
 <tr>
-<td>&#x5634;&#x5DF4;&#x5B50;</td>
-<td>zu&#x1D0; b&#xE0; zi</td>
-<td>&#x6CE8;&#x610F;&#xFF01;&#x6CE8;&#x610F;&#xFF01;&#x5E76;&#x4E0D;&#x662F;&#x5634;&#x7684;&#x610F;&#x601D;&#xFF0C;&#x800C;&#x662F;&#x8033;&#x5149;</td>
+<td>嘴巴子</td>
+<td>zuǐ bà zi</td>
+<td>注意！注意！并不是嘴的意思，而是耳光</td>
 </tr>
 <tr>
-<td>&#x773C;&#x73E0;&#x5B50;</td>
-<td>y&#x1CE;n zh&#x16B; de</td>
-<td>&#x773C;&#x775B;</td>
+<td>眼珠子</td>
+<td>yǎn zhū de</td>
+<td>眼睛</td>
 </tr>
 <tr>
-<td>&#x5472;&#x4E48;&#x4E4E;</td>
-<td>c&#x12B; me hu</td>
-<td>&#x773C;&#x5C4E;</td>
+<td>呲么乎</td>
+<td>cī me hu</td>
+<td>眼屎</td>
 </tr>
 <tr>
-<td>&#x9F3B;&#x815A;&#x560E;&#x560E;</td>
-<td>b&#xED; d&#xEC;ng g&#xE1; g&#xE1;</td>
-<td>&#x9F3B;&#x5C4E;</td>
+<td>鼻腚嘎嘎</td>
+<td>bí dìng gá gá</td>
+<td>鼻屎</td>
 </tr>
 <tr>
-<td>&#x80F3;&#x818A;&#x8098;&#x5B50;</td>
-<td>g&#x113; bo zh&#x1D2;u de</td>
-<td>&#x624B;&#x8098;</td>
+<td>胳膊肘子</td>
+<td>gē bo zhǒu de</td>
+<td>手肘</td>
 </tr>
 <tr>
-<td>&#x80A9;&#x8180;&#x5B50;</td>
-<td>ji&#x101;n b&#x1CE;ng de</td>
-<td>&#x80A9;&#x8180;</td>
+<td>肩膀子</td>
+<td>jiān bǎng de</td>
+<td>肩膀</td>
 </tr>
 <tr>
-<td>&#x811A;&#x4E2B;&#x5B50;</td>
-<td>ji&#x1CE;o y&#x101; de</td>
-<td>&#x811A;</td>
+<td>脚丫子</td>
+<td>jiǎo yā de</td>
+<td>脚</td>
 </tr>
 <tr>
-<td>&#x5927;&#x817F;&#x91CC;&#x5B50;</td>
-<td>d&#xE0; tu&#x1D0; l&#x1D0; de</td>
-<td>&#x5927;&#x817F;&#x5185;&#x4FA7;</td>
+<td>大腿里子</td>
+<td>dà tuǐ lǐ de</td>
+<td>大腿内侧</td>
 </tr>
 <tr>
-<td>&#x62E8;&#x4E86;&#x76D6;</td>
-<td>b&#x1D2; le g&#xE0;i</td>
-<td>&#x819D;&#x76D6; &#xFF08;&#x62E8;&#x4E86;&#x76D6;&#x5361;&#x79C3;&#x9732;&#x76AE;&#x513F;&#x4E86;&#xFF09;</td>
+<td>拨了盖</td>
+<td>bǒ le gài</td>
+<td>膝盖 （拨了盖卡秃露皮儿了）</td>
 </tr>
 <tr>
-<td>&#x5C41;&#x80A1;&#x86CB;&#x5B50;/&#x5C41;&#x80A1;</td>
-<td>pi&#xE8; hou</td>
-<td>&#x81C0;&#x90E8;&#x3002;&#x5C41;&#x80A1;</td>
+<td>屁股蛋子/屁股</td>
+<td>piè hou</td>
+<td>臀部。屁股</td>
 </tr>
 <tr>
-<td>&#x80F3;&#x80A2;&#x7A9D;</td>
-<td>g&#x1CE; zhi w&#x14D;</td>
-<td>&#x814B;&#x7A9D;</td>
+<td>胳肢窝</td>
+<td>gǎ zhi wō</td>
+<td>腋窝</td>
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="%E6%A4%8D%E7%89%A9-%E9%A3%9F%E7%89%A9">&#x690D;&#x7269;&#x3001;&#x98DF;&#x7269;</h4>
-
+<h4 id="植物-食物">植物、食物 </h4>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x4F8B;&#x5B50;</th>
-<th>&#x8BF4;&#x660E;</th>
+<th>词</th>
+<th>读音</th>
+<th>例子</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x82DE;&#x7C73;</td>
-<td>b&#x101;o m&#x1D0;</td>
-<td>&#x5543;&#x82DE;&#x7C73;&#x3001;&#x63B0;&#x82DE;&#x7C73;&#x3001;&#x70C0;&#x82DE;&#x7C73;</td>
-<td>&#x7389;&#x7C73;</td>
+<td>苞米</td>
+<td>bāo mǐ</td>
+<td>啃苞米、掰苞米、烀苞米</td>
+<td>玉米</td>
 </tr>
 <tr>
-<td>&#x8304;&#x5B50;</td>
-<td>qi&#xE9; de</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&#x571F;&#x8C46;</td>
-<td></td>
-<td></td>
-<td>&#x53EF;&#x4EE5;&#x5FF5;&#x571F;&#x8C46;&#x513F;&#xFF0C;&#x6216;&#x8005;&#x571F;&#x8C46;&#x5B50;&#x3002;</td>
-</tr>
-<tr>
-<td>&#x83E0;&#x83DC;</td>
-<td>b&#x113; c&#xE0;i</td>
+<td>茄子</td>
+<td>qié de</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>&#x5927;&#x767D;&#xFF5E;&#x83DC;</td>
+<td>土豆</td>
 <td></td>
 <td></td>
-<td>&#x767D;&#x7684;&#x97F3;&#x62D6;&#x957F;&#x4E00;&#x4E9B;</td>
+<td>可以念土豆儿，或者土豆子。</td>
 </tr>
 <tr>
-<td>&#x841D;&#x535C;</td>
-<td><br>1. &#x535C;&#xFF0C;&#x5FF5;&#x6210; b&#xE8;i&#xFF0C;&#x5982;&#x5927;&#x841D;&#x8D1D;&#x3001;&#x80E1;&#x841D;&#x8D1D;<br>2. &#x535C;&#xFF0C;&#x901A;&#x5E38;&#x5728;&#x642D;&#x914D;&#x6709;&#x989C;&#x8272;&#x7684;&#x841D;&#x535C;&#x65F6;&#xFF0C;&#x5FF5;&#x6210; be&#xFF0C;&#x6C34;&#x841D; be&#x3001;&#x767D;&#x841D; be</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&#x732A;&#x8098;</td>
-<td>zh&#x16B; zh&#x1D2;u de</td>
-<td>&#x53EF;&#x4EE5;&#x5FF5;&#x732A;&#x8098;&#x513F;&#xFF0C;&#x6216;&#x8005;&#x732A;&#x8098;&#x5B50;</td>
-<td>&#x732A;&#x8098;</td>
-</tr>
-<tr>
-<td>&#x9E21;</td>
-<td>&#x5C0F;&#x9E21;&#x513F;</td>
+<td>菠菜</td>
+<td>bē cài</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>&#x5FC3;&#x7BA1;&#x513F;</td>
+<td>大白～菜</td>
 <td></td>
 <td></td>
-<td>&#x4E00;&#x79CD;&#x98DF;&#x7269;</td>
+<td>白的音拖长一些</td>
 </tr>
 <tr>
-<td>&#x80D7;&#x4E2A;&#x513F;</td>
-<td>zh&#x113;n g&#xE8; er</td>
-<td>&#x9E21;&#x80D7;</td>
-<td></td>
-</tr>
-<tr>
-<td>&#x4E0B;&#x6C34;</td>
-<td>xi&#xE0; shui</td>
-<td>&#x7F8A;&#x4E0B;&#x6C34;&#x3001;&#x725B;&#x4E0B;&#x6C34;</td>
-<td>&#x5185;&#x810F;</td>
-</tr>
-<tr>
-<td>&#x4E94;&#x82B1;&#x4E09;&#x5C42;&#x513F;</td>
-<td>&#x4E94;&#x82B1;&#x8089;</td>
+<td>萝卜</td>
+<td><br>1. 卜，念成 bèi，如大萝贝、胡萝贝<br>2. 卜，通常在搭配有颜色的萝卜时，念成 be，水萝 be、白萝 be</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>&#x786C;&#x83DC;</td>
-<td>&#x6709;&#x5927;&#x9C7C;&#x5927;&#x8089;&#x7684;&#x83DC;</td>
+<td>猪肘</td>
+<td>zhū zhǒu de</td>
+<td>可以念猪肘儿，或者猪肘子</td>
+<td>猪肘</td>
+</tr>
+<tr>
+<td>鸡</td>
+<td>小鸡儿</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>心管儿</td>
+<td></td>
+<td></td>
+<td>一种食物</td>
+</tr>
+<tr>
+<td>胗个儿</td>
+<td>zhēn gè er</td>
+<td>鸡胗</td>
+<td></td>
+</tr>
+<tr>
+<td>下水</td>
+<td>xià shui</td>
+<td>羊下水、牛下水</td>
+<td>内脏</td>
+</tr>
+<tr>
+<td>五花三层儿</td>
+<td>五花肉</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>硬菜</td>
+<td>有大鱼大肉的菜</td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="%E5%8A%A8%E7%89%A9">&#x52A8;&#x7269;</h4>
-
+<h4 id="动物">动物 </h4>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x4E1C;&#x5317;&#x8BDD;&#x8BCD;&#x6C47;</th>
-<th>&#x8BFB;&#x97F3;&#x8BF4;&#x660E;</th>
+<th>词</th>
+<th>东北话词汇</th>
+<th>读音说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x732A;</td>
-<td>&#x732A;&#x543F;&#x5B50;</td>
-<td>zh&#x16B; g&#xE0;o de</td>
+<td>猪</td>
+<td>猪吿子</td>
+<td>zhū gào de</td>
 </tr>
 <tr>
-<td>&#x9E21;</td>
-<td>&#x5C0F;&#x9E21;&#x513F;</td>
+<td>鸡</td>
+<td>小鸡儿</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x86C7;</td>
-<td>&#x5927;&#x957F;&#x866B;</td>
+<td>蛇</td>
+<td>大长虫</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x8708;&#x86A3;</td>
-<td>&#x8772;&#x8772;&#x86C4;</td>
-<td>l&#xE1; l&#xE1; g&#x1D4;</td>
+<td>蜈蚣</td>
+<td>蝲蝲蛄</td>
+<td>lá lá gǔ</td>
 </tr>
 <tr>
-<td>&#x72CD;&#x5B50;</td>
-<td>&#x7C7B;&#x4F3C;&#x4E8E;&#x9E7F;&#x7684;&#x4E00;&#x79CD;&#x52A8;&#x7269;&#x3010;TODO&#x3011;</td>
+<td>狍子</td>
+<td>类似于鹿的一种动物【TODO】</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x8D1D;&#x7C7B;</td>
-<td>&#x7565;</td>
-<td>g&#x11B; le</td>
+<td>贝类</td>
+<td>略</td>
+<td>gě le</td>
 </tr>
 <tr>
-<td>&#x725B;</td>
-<td>&#x725B;&#x728A;&#x5B50;</td>
+<td>牛</td>
+<td>牛犊子</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x5154;&#x5B50;</td>
-<td>&#x5154;&#x732B;&#x513F;</td>
+<td>兔子</td>
+<td>兔猫儿</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x5D3D;&#x5B50;&#x3001;&#x728A;&#x5B50;</td>
-<td>&#x5C0F;&#x9E21;&#x5D3D;&#x5B50;&#x3001;&#x5C0F;&#x9E21;&#x5D3D;&#x513F;&#x3001; &#x5C0F;&#x5154;&#x5D3D;&#x5B50;</td>
-<td>&#x52A8;&#x7269;&#x5E7C;&#x5E74;&#xFF0C;&#x9A82;&#x4EBA;&#x5E38;&#x7528;&#xFF0C;&#x4E0D;&#x793C;&#x8C8C;</td>
+<td>崽子、犊子</td>
+<td>小鸡崽子、小鸡崽儿、 小兔崽子</td>
+<td>动物幼年，骂人常用，不礼貌</td>
 </tr>
 <tr>
-<td>&#x5927;&#x9E45;</td>
-<td>&#x7565;</td>
-<td>&#x5927; n&#xE9;</td>
+<td>大鹅</td>
+<td>略</td>
+<td>大 né</td>
 </tr>
 <tr>
-<td>&#x5BB6;&#x96C0;</td>
-<td>&#x7565;</td>
-<td>ji&#x101; qi&#x1CE;o</td>
+<td>家雀</td>
+<td>略</td>
+<td>jiā qiǎo</td>
 </tr>
 <tr>
-<td>&#x9CA4;&#x9C7C;</td>
-<td>&#x5927;&#x9CA4;&#x7684;</td>
+<td>鲤鱼</td>
+<td>大鲤的</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h3 class="mume-header" id="%E9%A2%9C%E8%89%B2">&#x989C;&#x8272;</h3>
-
-<p>&#x989C;&#x8272; y&#xE1;n s&#x1CE;i er</p>
+<h3 id="颜色">颜色 </h3>
+<p>颜色 yán sǎi er</p>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
+<th>词</th>
+<th>读音</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x7126;&#x7EFF;</td>
-<td>ji&#xE1;o l&#x1DC;</td>
+<td>焦绿</td>
+<td>jiáo lǜ</td>
 </tr>
 <tr>
-<td>&#x5374;&#x9ED1;</td>
+<td>却黑</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x901A;&#x7EA2;</td>
-<td>t&#xF2;ng h&#xF3;ng</td>
+<td>通红</td>
+<td>tòng hóng</td>
 </tr>
 <tr>
-<td>&#x8DF3;&#x767D;</td>
+<td>跳白</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x74E6;&#x84DD;</td>
-<td>w&#xE0; l&#xE1;n</td>
+<td>瓦蓝</td>
+<td>wà lán</td>
 </tr>
 <tr>
-<td>&#x7126;&#x9EC4;</td>
+<td>焦黄</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x5374;&#x7D2B;</td>
+<td>却紫</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p>&#x6CE8;&#x610F;&#xFF1A;&#x8461;&#x8404;&#x9152;&#x53EB;&#x8272;&#xFF08;s&#x1CE;i&#xFF09;&#x9152;&#xFF08;&#x524D;&#x6587;&#x63D0;&#x5230;&#x8FC7;&#xFF09;&#x3002;</p>
-<h3 class="mume-header" id="%E9%BA%BB%E5%B0%86%E6%9C%AF%E8%AF%AD">&#x9EBB;&#x5C06;&#x672F;&#x8BED;</h3>
-
+<p>注意：葡萄酒叫色（sǎi）酒（前文提到过）。</p>
+<h3 id="麻将术语">麻将术语 </h3>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x8BF4;&#x660E;</th>
+<th>词</th>
+<th>读音</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5403;</td>
+<td>吃</td>
 <td></td>
-<td>&#x7EC4;&#x6210; ABC</td>
+<td>组成 ABC</td>
 </tr>
 <tr>
-<td>&#x5DEE;</td>
-<td>ch&#xE0;</td>
-<td>&#x7EC4;&#x6210; AAA</td>
+<td>差</td>
+<td>chà</td>
+<td>组成 AAA</td>
 </tr>
 <tr>
-<td>&#x81ED;&#x4E0B;&#x5BB6;</td>
+<td>臭下家</td>
 <td></td>
-<td>&#x6545;&#x610F;&#x51FA;&#x90A3;&#x4E9B;&#x8BA9;&#x4E0B;&#x4E00;&#x4F4D;&#x73A9;&#x5BB6;&#x4E0D;&#x80FD;&#x7528;&#x5230;&#x7684;&#x724C;</td>
+<td>故意出那些让下一位玩家不能用到的牌</td>
 </tr>
 <tr>
-<td>&#x6CA1;&#x5F00;&#x95E8;</td>
-<td>m&#xE8;i k&#x101;i m&#xE9;n</td>
-<td>&#x6CA1;&#x6709;&#x724C;&#x4EAE;&#x5728;&#x684C;&#x9762;&#x4E0A;</td>
+<td>没开门</td>
+<td>mèi kāi mén</td>
+<td>没有牌亮在桌面上</td>
 </tr>
 </tbody>
 </table>
-<h3 class="mume-header" id="%E5%85%B6%E4%BB%96-1">&#x5176;&#x4ED6;</h3>
-
+<h3 id="其他-1">其他 </h3>
 <table>
 <thead>
 <tr>
-<th>&#x8BCD;</th>
-<th>&#x8BFB;&#x97F3;</th>
-<th>&#x610F;&#x601D;</th>
+<th>词</th>
+<th>读音</th>
+<th>意思</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x5DE6;&#x6487;&#x5B50;</td>
-<td>zu&#x1D2; pi&#x11B; l&#x1CE;i de</td>
-<td>&#x5DE6;&#x6487;&#x6765;&#x5B50;</td>
+<td>左撇子</td>
+<td>zuǒ piě lǎi de</td>
+<td>左撇来子</td>
 </tr>
 <tr>
-<td>&#x597D;&#x997C;</td>
-<td>&#x7565;</td>
-<td>&#x90A3;&#x4E2A;&#x4EBA;&#x4E0D;&#x662F;&#x4EC0;&#x4E48;&#x597D;&#x997C;&#x3002;(&#x4E0D;&#x662F;&#x597D;&#x4EBA;) &#xFF0C;&#x5E38;&#x7528;&#x5426;&#x5B9A;&#x53E5;&#x5F0F;&#xFF0C;&#x5F62;&#x5BB9;&#x4E00;&#x4E2A;&#x4EBA;&#x4E0D;&#x662F;&#x597D;&#x4EBA;&#x3002;</td>
+<td>好饼</td>
+<td>略</td>
+<td>那个人不是什么好饼。(不是好人) ，常用否定句式，形容一个人不是好人。</td>
 </tr>
 <tr>
-<td>&#x9A6C;&#x8DEF;&#x7259;&#x5B50;</td>
-<td>m&#x1CE; l&#xF9; y&#xE1; de</td>
-<td>&#x8DEF;&#x7F18;&#x77F3;</td>
+<td>马路牙子</td>
+<td>mǎ lù yá de</td>
+<td>路缘石</td>
 </tr>
 <tr>
-<td>&#x88AB;&#x5934;&#x7684;</td>
-<td>y&#xF3;u ji g&#x113; n&#x101;i</td>
-<td>&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x5565;&#xFF0C;&#x88AB;&#x5934;&#x7684;&#x603B;&#x662F;&#x6CB9;&#x8FF9;&#x6401;&#x4E43; &#x7684;&#x3002;</td>
+<td>被头的</td>
+<td>yóu ji gē nāi</td>
+<td>不知道为啥，被头的总是油迹搁乃 的。</td>
 </tr>
 <tr>
-<td>&#x8D3C;&#x62C9;</td>
-<td>&#x7565;</td>
-<td>&#x975E;&#x5E38;&#x3001;&#x7279;&#x522B;</td>
+<td>贼拉</td>
+<td>略</td>
+<td>非常、特别</td>
 </tr>
 <tr>
-<td>&#x6210;</td>
-<td>&#x7565;</td>
-<td>&#x975E;&#x5E38;&#x3001;&#x7279;&#x522B;</td>
+<td>成</td>
+<td>略</td>
+<td>非常、特别</td>
 </tr>
 <tr>
-<td>&#x68C9;&#x7334;&#x513F;</td>
-<td>&#x7565;</td>
-<td>&#x68C9;&#x8863;</td>
+<td>棉猴儿</td>
+<td>略</td>
+<td>棉衣</td>
 </tr>
 <tr>
-<td>&#x6C34;&#x8200;&#x5B50;</td>
-<td>sh&#x1D4;i y&#x1CE;o de</td>
-<td>&#x6C34;&#x74E2;</td>
+<td>水舀子</td>
+<td>shǔi yǎo de</td>
+<td>水瓢</td>
 </tr>
 <tr>
-<td>&#x515C;&#x513F;</td>
-<td>d&#x14D;u er</td>
-<td>&#x63E3;&#x515C;&#x513F; &#xFF0C;&#x6307;&#x5305;&#x3001;&#x624B;&#x888B;</td>
+<td>兜儿</td>
+<td>dōu er</td>
+<td>揣兜儿 ，指包、手袋</td>
 </tr>
 <tr>
-<td>&#x655E;&#x6000;&#x513F;</td>
-<td>ch&#x1CE;ng hu&#xE1;i er</td>
-<td>&#x7A7F;&#x5916;&#x5957;&#x65F6;&#x4E0D;&#x62C9;&#x62C9;&#x94FE;</td>
+<td>敞怀儿</td>
+<td>chǎng huái er</td>
+<td>穿外套时不拉拉链</td>
 </tr>
 <tr>
-<td>&#x86DB;&#x86DB;&#x722C;&#x7684;</td>
-<td>zh&#xFA; zhu p&#xE1; de</td>
-<td>&#x5F62;&#x5BB9;&#x5199;&#x5B57;&#x5F88;&#x4E11;&#x3001;&#x96BE;&#x770B;</td>
+<td>蛛蛛爬的</td>
+<td>zhú zhu pá de</td>
+<td>形容写字很丑、难看</td>
 </tr>
 <tr>
-<td>&#x8857;&#x8FB9;&#x5B50;</td>
-<td>g&#x101;i bi&#x101;n de</td>
-<td>&#x90CA;&#x533A;</td>
+<td>街边子</td>
+<td>gāi biān de</td>
+<td>郊区</td>
 </tr>
 </tbody>
 </table>
-<h2 class="mume-header" id="%E7%AC%AC%E4%B8%89%E7%AB%A0%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F">&#x7B2C;&#x4E09;&#x7AE0;&#xFF1A;&#x5E38;&#x7528;&#x53E5;&#x5F0F;</h2>
-
+<h2 id="第三章常用句式">第三章：常用句式 </h2>
 <table>
 <thead>
 <tr>
-<th>&#x53E5;&#x5F0F;</th>
-<th>&#x4F8B;&#x53E5;</th>
+<th>句式</th>
+<th>例句</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x6211;&#x770B;&#x4F60;&#x50CF;</td>
-<td>&#x6211;&#xFF1A;&#x201C;&#x5988;&#x5988;&#x6211;&#x60F3;&#x4E70;&#x4E2A;&#x624B;&#x673A;&#x3002;&#x201D; &#x5988;&#x5988;&#xFF1A;&#x201C;&#x6211;&#x770B;&#x4F60;&#x50CF;&#x624B;&#x673A;&#x3002;&#x201D;</td>
+<td>我看你像</td>
+<td>我：“妈妈我想买个手机。” 妈妈：“我看你像手机。”</td>
 </tr>
 <tr>
-<td>A &#x5F97; B &#x7684;  A de B di</td>
-<td>&#x80D6;&#x5F97;&#x4E4E;&#x7684;/&#x70ED;&#x5F97;&#x4E4E;&#x7684;/&#x4E8C;&#x5F97;&#x5475;&#x7684;&#x3001;&#x50BB;&#x5F97;&#x5475;&#x7684;&#xFF08;&#x7F3A;&#x5FC3;&#x773C;&#x513F;&#xFF09;</td>
+<td>A 得 B 的 A de B di</td>
+<td>胖得乎的/热得乎的/二得呵的、傻得呵的（缺心眼儿）</td>
 </tr>
 <tr>
-<td>&#x5F62;&#x5BB9;&#x8BCD;+&#x52A8;&#x7269;</td>
-<td>&#x5C0F;&#x7B28;&#x9E21;&#x513F; &#x7096;&#x5927;&#x9C7C; &#x50BB;&#x72CD;&#x5B50; &#x5014;&#x9A74;</td>
+<td>形容词+动物</td>
+<td>小笨鸡儿 炖大鱼 傻狍子 倔驴</td>
 </tr>
 </tbody>
 </table>
-<h2 class="mume-header" id="%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%B8%B8%E7%94%A8%E4%BF%97%E8%AF%AD">&#x7B2C;&#x56DB;&#x7AE0;&#xFF1A;&#x5E38;&#x7528;&#x4FD7;&#x8BED;</h2>
-
-<h2 class="mume-header" id="ref">ref</h2>
-
-<p><a href="https://zh.m.wikipedia.org/zh-hans/%E4%B8%9C%E5%8C%97%E5%AE%98%E8%AF%9D">https://zh.m.wikipedia.org/zh-hans/&#x4E1C;&#x5317;&#x5B98;&#x8BDD;</a><br>
+<h2 id="第四章常用俗语">第四章：常用俗语 </h2>
+<h2 id="reference">Reference </h2>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/%E4%B8%9C%E5%8C%97%E5%AE%98%E8%AF%9D">https://zh.m.wikipedia.org/zh-hans/东北官话</a><br>
 <a href="https://www.sohu.com/a/373893794_120009217">https://www.sohu.com/a/373893794_120009217</a><br>
 <a href="https://www.zhihu.com/question/280814779">https://www.zhihu.com/question/280814779</a></p>
-<p><a href="#%E4%B8%9C%E5%8C%97%E8%AF%9D%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B">&#x56DE;&#x5230;&#x9876;&#x90E8;</a><br>
+<p><a href="#%E4%B8%9C%E5%8C%97%E8%AF%9D%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B">回到顶部</a><br>
 <a href="https://shigure624.github.io/">Back To Main Page</a></p>
 
       </div>
-      
-      
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#东北话系统入门教程" class="md-toc-link"><p>东北话系统入门教程</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#第一章通用语音" class="md-toc-link"><p>第一章：通用语音</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#常用读音" class="md-toc-link">
+            <p>常用读音</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#语气词" class="md-toc-link">
+            <p>语气词</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#儿化音" class="md-toc-link">
+            <p>儿化音</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#第二章常用词汇" class="md-toc-link"><p>第二章：常用词汇</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#人称" class="md-toc-link"><p>人称</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#亲戚叫法" class="md-toc-link">
+            <p>亲戚叫法</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#其他" class="md-toc-link">
+            <p>其他</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#时间" class="md-toc-link">
+            <p>时间</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#位置" class="md-toc-link">
+            <p>位置</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#动词" class="md-toc-link">
+            <p>动词</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#数量词" class="md-toc-link">
+            <p>数量词</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#形容词" class="md-toc-link">
+            <p>形容词</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#量词" class="md-toc-link">
+            <p>量词</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#名词" class="md-toc-link"><p>名词</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#身体部位" class="md-toc-link">
+            <p>身体部位</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#植物-食物" class="md-toc-link">
+            <p>植物、食物</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#动物" class="md-toc-link">
+            <p>动物</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#颜色" class="md-toc-link">
+            <p>颜色</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#麻将术语" class="md-toc-link">
+            <p>麻将术语</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#其他-1" class="md-toc-link">
+            <p>其他</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#第三章常用句式" class="md-toc-link">
+            <p>第三章：常用句式</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#第四章常用俗语" class="md-toc-link">
+            <p>第四章：常用俗语</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#reference" class="md-toc-link">
+            <p>Reference</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
     
     
-    <script>
-// config mermaid init call
-// http://knsv.github.io/mermaid/#configuration
-//
-// You can edit the 'MERMAID_CONFIG' variable below.
-MERMAID_CONFIG = {
-  startOnLoad: false
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
 }
 
-if (window['MERMAID_CONFIG']) {
-  window['MERMAID_CONFIG'].startOnLoad = false
-  window['MERMAID_CONFIG'].cloneCssStyles = false
-  window['MERMAID_CONFIG'].theme = "default"
-}
-mermaid.initialize(window['MERMAID_CONFIG'] || {})
+mermaid.initialize(MERMAID_CONFIG || {})
 if (typeof(window['Reveal']) !== 'undefined') {
   function mermaidRevealHelper(event) {
     var currentSlide = event.currentSlide
@@ -2076,16 +2069,32 @@ if (typeof(window['Reveal']) !== 'undefined') {
       }
     }
   }
-  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
   Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
 } else {
-  mermaid.init(null, document.querySelectorAll('.mermaid'))
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
 }
 </script>
     
     
     
-    
-    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
   
     </body></html>
