@@ -1,0 +1,312 @@
+<!DOCTYPE html><html><head>
+      <title>当我做梦时，我在梦些什么</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  background-color: whitesmoke;
+  color: dimgrey;
+  /*Code blocks*/
+  /*Preformatted text*/
+  /*table*/
+}
+.markdown-preview.markdown-preview h1 {
+  color: black;
+}
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3,
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5,
+.markdown-preview.markdown-preview h6 {
+  color: dimgray;
+}
+.markdown-preview.markdown-preview code,
+.markdown-preview.markdown-preview tt {
+  color: cornflowerblue;
+  white-space: nowrap;
+}
+.markdown-preview.markdown-preview pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+.markdown-preview.markdown-preview .highlight pre {
+  background-color: #f8f8f8;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre {
+  background-color: gainsboro;
+  /*font-size:          13px;*/
+  font-size: 0.9em !important;
+  line-height: 1.6em !important;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre code,
+.markdown-preview.markdown-preview pre tt {
+  background-color: transparent;
+  border: none;
+}
+.markdown-preview.markdown-preview table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.markdown-preview.markdown-preview table tr {
+  /* border-top: 1px solid #cccccc; */
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+.markdown-preview.markdown-preview table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.markdown-preview.markdown-preview table tr th {
+  font-weight: bold;
+  /* border: 0.5px solid #cccccc; */
+  /* border-left: 0.5px solid #cccccc;
+        border-right: 0.5px solid #cccccc; */
+  background-color: #eefbff;
+  font-size: 14px;
+  margin: 0;
+  padding: 0.4em 0.35em 0.4em 0.35em;
+}
+.markdown-preview.markdown-preview table tr td {
+  /* border: 1px solid #cccccc; */
+  margin: 0;
+  font-size: 14px;
+  padding: 5px 5px;
+}
+.markdown-preview.markdown-preview table tr th :first-child,
+.markdown-preview.markdown-preview table tr td :first-child {
+  margin-top: 0;
+}
+.markdown-preview.markdown-preview table tr th :last-child,
+.markdown-preview.markdown-preview table tr td :last-child {
+  margin-bottom: 0;
+}
+.md-sidebar-toc.md-sidebar-toc {
+  color: dimgray;
+}
+.md-toc {
+  color: dimgray;
+}
+.md-toc-link {
+  color: dimgray;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p>梦的数据来自于自己的记录，有人问我怎么记下来的：</p>
+<ol>
+<li>如果刚醒来很迷茫，用语音转文字，或者直接发语音给自己</li>
+<li>如果很清醒地醒来，直接打字。</li>
+</ol>
+<p>梦的记录从 2015 年下半年开始。在这里只做简单的词频分析和情绪统计。依赖了 Jieba 和百度的 AipNlp。</p>
+<p>梦有一个性质：大片的内容都是混乱、缺乏逻辑的，类似“黄龙江蓝牙”和今敏《Paprika》中的大片独白。</p>
+<h2 id="初阶分析">初阶分析 </h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>阶段</th>
+<th>文件大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2015 年</td>
+<td>2015 年 5 月开始</td>
+<td>16kb</td>
+</tr>
+<tr>
+<td>2016 年</td>
+<td>全年</td>
+<td>20kb</td>
+</tr>
+<tr>
+<td>2017 年</td>
+<td>全年</td>
+<td>37kb</td>
+</tr>
+<tr>
+<td>2018 年</td>
+<td>全年</td>
+<td>32kb</td>
+</tr>
+<tr>
+<td>2019 年</td>
+<td>全年</td>
+<td>12kb</td>
+</tr>
+</tbody>
+</table>
+<p>做梦的总量比较平均，这几年没有发生太大的变化，除了 2016 年稍微少一些，2016 年有三个月为空值。在做梦数量上就不太相同了，下面的条形图代表从 2015-2018 年每个月的做梦数量。2017 年不论频率还是数量都是最多的一年。而较为突出的几个时间段大概为为：16 年 6 月、16 年 11 月、17 年 2 月和 18 年 3 月，在这几个月我都有非常非常糟糕的回忆，所以心情不好也许是导致做梦变多或是对梦的内容有印象（能够被记录下来）的原因之一。</p>
+<p><img src="./47DB6CD865B63F12E39A6988A64A7828.jpg" alt="IMAGE"></p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>Year Mean STD Max Min MostDream LessDream
+0 2015 5.12 1.62 8.0 3.0 11 7
+1 2016 6.44 3.89 13.0 2.0 10 7
+2 2017 8.00 3.54 15.0 1.0 1 10
+3 2018 4.67 3.40 9.0 1.0 2 1
+</code></pre><p>统计发现，最常做梦的月份是 1、2、10、11，而不常常做梦的月份是 1、10、7 月（2 次）。看来 7 月真的不太会做梦，而 1 月和 10 月要么就不太做梦，要么就使劲做梦。</p>
+<p>从平均数和标准差来看，18 年的梦稍微少了一点，这么看来 18 年的心情可能比前三年稍微好一点（证据在第一自然段）。而 15 年的标准差最低，说明 15 年的梦比较平均，15 年以后每个月做梦数量差别有点大。做梦的最大月份出现在 17 年 2 月，这个月真的是很不愉快的一个月。</p>
+<h2 id="词频分析">词频分析 </h2>
+<p>根据弗洛伊德《梦的解析》，梦的材料来自于日常的生活。这一点确实如此：吃、学校、买、电梯、上课、聊天、下雨、下雪、裙子。比较正常。<br>
+人名的词频是非常高的，具体的人就是爸妈，姥姥姥爷，室友和其他的朋友。<br>
+名人：李泽言出现了两次，陈伟霆居然有四次，我最喜欢的吴彦祖只有一次，难过。<br>
+国家：德国是最多的，5 次，其后是美国日本，各 4 次。ps：夏威夷居然出现了两次。<br>
+低频词数量巨大，内容天马行空：西湖四次，（也许应该再去一次）。还有医院、大提琴、战争、婚礼、血、坠落、跳楼、联合国、丫鬟、庙会、化学、飞船、实验室、基地、风车、舰娘、复仇、和歌山。<br>
+关于情绪：消极情绪词几乎是积极词的二倍…看来我真的不是很开心<br>
+博士出现了四次。。。。。<br>
+低频词（在该素材中，&lt;=4 的词均可视为低频词）的数量占到整体的 90%（1225/1337），而加权以后，低频词占到整体的 71%。<br>
+<img src="./92CE83175E615488B9F1C02AE1A4A6B1.jpg" alt="IMAGE"><br>
+上图是我梦中最常出现的 15 个词汇。回家和家都有上榜，而学校和路是最高的。买看吃比妈妈还多，不知道如果我妈看到这里会不会生气。。。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token comment">## 语料与分词</span>
+corpos <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span>
+corpos <span class="token operator">=</span> is_ustr<span class="token punctuation">(</span>corpos<span class="token punctuation">)</span>
+stopwords <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">.</span>fromkeys<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'我'</span><span class="token punctuation">,</span> <span class="token string">'和'</span><span class="token punctuation">,</span><span class="token string">'梦到'</span><span class="token punctuation">,</span><span class="token string">'中国'</span><span class="token punctuation">,</span><span class="token string">'江苏省'</span><span class="token punctuation">,</span><span class="token string">'南京市'</span><span class="token punctuation">,</span><span class="token string">'上海路'</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token string">'然后'</span><span class="token punctuation">,</span><span class="token string">'我们'</span><span class="token punctuation">,</span><span class="token string">'去'</span><span class="token punctuation">,</span><span class="token string">'一个'</span><span class="token punctuation">,</span>
+<span class="token string">'他'</span><span class="token punctuation">,</span><span class="token string">'你'</span><span class="token punctuation">,</span><span class="token string">'是'</span><span class="token punctuation">,</span><span class="token string">'但'</span><span class="token punctuation">,</span><span class="token string">'了'</span><span class="token punctuation">,</span><span class="token string">'的'</span><span class="token punctuation">,</span><span class="token string">'在'</span><span class="token punctuation">,</span><span class="token string">'年'</span><span class="token punctuation">,</span><span class="token string">'月'</span><span class="token punctuation">,</span><span class="token string">'日'</span><span class="token punctuation">,</span><span class="token string">'但是'</span><span class="token punctuation">,</span><span class="token string">'都'</span><span class="token punctuation">,</span><span class="token string">'要'</span><span class="token punctuation">,</span><span class="token string">'她'</span><span class="token punctuation">,</span><span class="token string">'还'</span><span class="token punctuation">,</span><span class="token string">'有'</span><span class="token punctuation">,</span><span class="token string">'不'</span><span class="token punctuation">,</span>
+<span class="token string">'也'</span><span class="token punctuation">,</span><span class="token string">'让'</span><span class="token punctuation">,</span><span class="token string">'被'</span><span class="token punctuation">,</span><span class="token string">'来'</span><span class="token punctuation">,</span><span class="token string">'上'</span><span class="token punctuation">,</span><span class="token string">'走'</span><span class="token punctuation">,</span><span class="token string">'到'</span><span class="token punctuation">,</span><span class="token string">'带'</span><span class="token punctuation">,</span><span class="token string">'他们'</span><span class="token punctuation">,</span><span class="token string">'大家'</span><span class="token punctuation">,</span><span class="token string">'问'</span><span class="token punctuation">,</span><span class="token string">'知道'</span><span class="token punctuation">,</span><span class="token string">'宁海'</span><span class="token punctuation">,</span><span class="token string">'发现'</span><span class="token punctuation">,</span><span class="token string">'没有'</span><span class="token punctuation">,</span><span class="token string">'于'</span><span class="token punctuation">,</span><span class="token string">'没'</span><span class="token punctuation">,</span><span class="token string">'个'</span><span class="token punctuation">,</span>
+<span class="token string">'特别'</span><span class="token punctuation">,</span><span class="token string">'着'</span><span class="token punctuation">,</span><span class="token string">'说'</span><span class="token punctuation">,</span><span class="token string">'可能'</span><span class="token punctuation">,</span><span class="token string">'会'</span><span class="token punctuation">,</span><span class="token string">'对'</span><span class="token punctuation">,</span><span class="token string">'不对'</span><span class="token punctuation">,</span><span class="token string">'次'</span><span class="token punctuation">,</span><span class="token string">'就'</span><span class="token punctuation">,</span><span class="token string">'给'</span><span class="token punctuation">,</span><span class="token string">'一起'</span><span class="token punctuation">,</span><span class="token string">'里'</span><span class="token punctuation">,</span><span class="token string">'还有'</span><span class="token punctuation">,</span><span class="token string">'很'</span><span class="token punctuation">,</span><span class="token string">'梦见'</span><span class="token punctuation">,</span><span class="token string">'后来'</span><span class="token punctuation">,</span><span class="token string">'我梦到'</span><span class="token punctuation">,</span><span class="token string">'给'</span><span class="token punctuation">,</span>
+<span class="token string">'一起'</span><span class="token punctuation">,</span><span class="token string">'好像'</span><span class="token punctuation">,</span><span class="token string">'把'</span><span class="token punctuation">,</span><span class="token string">'看到'</span><span class="token punctuation">,</span><span class="token string">'告诉'</span><span class="token punctuation">,</span><span class="token string">'能'</span><span class="token punctuation">,</span><span class="token string">'怎么'</span><span class="token punctuation">,</span><span class="token string">'那个'</span><span class="token punctuation">,</span><span class="token string">'这个'</span><span class="token punctuation">,</span><span class="token string">'还梦到'</span><span class="token punctuation">,</span><span class="token string">'为了'</span><span class="token punctuation">,</span><span class="token string">'从'</span><span class="token punctuation">,</span><span class="token string">'上海'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+seg_list <span class="token operator">=</span> jieba<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>corpos<span class="token punctuation">,</span> HMM<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment">## 词频统计</span>
+segStat <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword keyword-for">for</span> seg <span class="token keyword keyword-in">in</span> seg_list<span class="token punctuation">:</span>
+    <span class="token comment"># seg = seg.encode('gbk')</span>
+    <span class="token keyword keyword-if">if</span> seg <span class="token keyword keyword-not">not</span> <span class="token keyword keyword-in">in</span> stopwords<span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> seg <span class="token keyword keyword-in">in</span> segStat<span class="token punctuation">:</span>
+            segStat<span class="token punctuation">[</span>seg<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+            segStat<span class="token punctuation">[</span>seg<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+</code></pre><h2 id="情绪分析">情绪分析 </h2>
+<p>该怎么判断这部分的准确性呢？目前还没有找到什么好的办法。我仅仅随机抽取了几条积极或消极情绪特别明显的梦：<br>
+电梯升降，门是玻璃，总停不对的位置，考试，考化学，我什么都不会。<br>
+{'log_id': 414761676809129532, 'items': [{'sentiment': 0, 'negative_prob': 0.983052, 'positive_prob': 0.0169484, 'confidence': 0.962337}]}<br>
+和 X 一起写作业，奇怪海生物，梦见了死去的鲸鱼。X 妈妈的黄围巾送给我，我扮成了印度女郎，要回家但是忘记拿身份证了，路上拦了私家车帮我，但是路上撞了个大巴车。<br>
+{'log_id': 1157376832996665723, 'items': [{'sentiment': 2, 'negative_prob': 0.0790483, 'positive_prob': 0.920952, 'confidence': 0.824337}]}<br>
+穿越到小学，还带了洗手液，我在学校面包店买了三个喜欢的面包，X 来我们学校参加文艺汇演，制作道具，我帮她做，把胶水涂错了位置，她生气了。后来我坐高铁（木质。轨道铁）铁路和路登宽，在天上运行，后来 X 用撬棍把我救走了。下了车发现 X 爸爸是微服私访的皇帝，在医院边上开了一家冷饮店，X 都有妻子，我还要叫她大嫂。<br>
+{'log_id': 8846260086195230364, 'items': [{'sentiment': 2, 'negative_prob': 0.0334327, 'positive_prob': 0.966567, 'confidence': 0.925705}]}<br>
+大家一起回高中读书，我的学习能力变得好差。<br>
+{'log_id': 3913672109147713363, 'items': [{'sentiment': 0, 'negative_prob': 0.798251, 'positive_prob': 0.201749, 'confidence': 0.551669}]}<br>
+不得不讲的是，在回顾梦的时候，我发现考试、学习这类梦占到了我梦中比例的很大一部分，我总是在梦里担心自己变笨、学习成绩变差、考试考砸。<br>
+周公解梦：梦见考试考砸预示着运势普通,自己需要提高警惕,避免上当受骗,过段日子运势会旺盛。好的，我记住了“过段日子运势会旺盛”。这个情绪判断的结果，我觉得直观感受来看准确率还是很高的，而大多数的梦其实是不包含明确的情绪的。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>client <span class="token operator">=</span> AipNlp<span class="token punctuation">(</span>APP_ID<span class="token punctuation">,</span> API_KEY<span class="token punctuation">,</span>SECRET_KEY<span class="token punctuation">)</span><span class="token comment">#ID和密码可以到百度AI申请。</span>
+result<span class="token operator">=</span>client<span class="token punctuation">.</span>sentimentClassify<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+</code></pre><h2 id="主题分析">主题分析 </h2>
+<p>使用 LDA 算法进行主题提炼，由于素材本身比较小，所以结果设得也小一些：<br>
+结果如下：<br>
+Topic is: 0<br>
+毕业设计 毕业 欺负 没开 水淹 没带 水里 死去 污渍 汇演<br>
+Topic is: 1<br>
+水淹 沙子 气坏 XX 毕业设计 没带 毕业 污渍 水里 汇演<br>
+Topic is: 2<br>
+死去 污渍 水彩笔 比较 水淹 毕业设计 没带 水里 毕业 残暴<br>
+Topic is: 3<br>
+没带 一下子 求婚 XX 水淹 毕业设计 水里 死去 毕业 汇演<br>
+Topic is: 4<br>
+水里 汇演 残暴 毛衣 水淹 毕业设计 没带 死去 毕业 一下子<br>
+这是啥意思？不知道是不是实施算法的过程有问题，用 topic2 组个话题吧：我家被残暴的大水淹了，墙上都是污渍，比较了一下，我选择用水彩笔修补。毕业没带毕业设计，只能去死。<br>
+这个风格倒是很像一个梦。</p>
+<h2 id="主题提取">主题提取 </h2>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>feature_num<span class="token operator">=</span><span class="token number">20</span>
+vector <span class="token operator">=</span> CountVectorizer<span class="token punctuation">(</span>strip_accents<span class="token operator">=</span><span class="token string">'unicode'</span><span class="token punctuation">,</span>max_features<span class="token operator">=</span>feature_num<span class="token punctuation">)</span>
+source <span class="token operator">=</span> vector<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>df<span class="token punctuation">.</span>Word<span class="token punctuation">)</span>
+<span class="token comment">## print(source)</span>
+topic_num<span class="token operator">=</span><span class="token number">5</span>
+lda <span class="token operator">=</span> LatentDirichletAllocation<span class="token punctuation">(</span>topic_num<span class="token punctuation">,</span>max_iter<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span>learning_method<span class="token operator">=</span><span class="token string">'online'</span><span class="token punctuation">)</span>
+lda<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>source<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">show_topic</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span>feature<span class="token punctuation">,</span>n_topic<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-for">for</span> topic_id<span class="token punctuation">,</span>topic <span class="token keyword keyword-in">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span>components_<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">"Topic is: "</span><span class="token punctuation">,</span>topic_id<span class="token punctuation">)</span>
+        <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>feature<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                        <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> topic<span class="token punctuation">.</span>argsort<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span>n_topic <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+show_topic<span class="token punctuation">(</span>lda<span class="token punctuation">,</span>vector<span class="token punctuation">.</span>get_feature_names<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre><h2 id="结论">结论 </h2>
+<ol>
+<li>我的梦中没有表现出高频的极端场景，说明我的心理状况还比较正常，虽然消极词的出现频率比较高。</li>
+<li>今年做梦的次数较上两年少一些，而做梦多的月份由于是我心情比较糟糕的月份，这可能说明 2018 年我的整体心态非常平衡。</li>
+<li>梦中除了停用词以外出现最多的词汇是：路，学校，买看吃，妈妈，家。说明我的梦中大多数的场景还是和学校以及家庭生活相关的。</li>
+<li>在梦中，词频较低的词并不能被认作 Garbage，因为低频词汇都是充满了想象力的场景。而低频词占到整体的 71%，说明我是一个很有想象力的人。</li>
+<li>我不懂为什么陈伟霆出现了四次</li>
+</ol>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#初阶分析" class="md-toc-link">
+            <p>初阶分析</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#词频分析" class="md-toc-link">
+            <p>词频分析</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#情绪分析" class="md-toc-link">
+            <p>情绪分析</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#主题分析" class="md-toc-link">
+            <p>主题分析</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#主题提取" class="md-toc-link">
+            <p>主题提取</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#结论" class="md-toc-link">
+            <p>结论</p>
+
+          </a></div>
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

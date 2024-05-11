@@ -134,53 +134,19 @@
           <a href="#创建库-初始化-配置" class="md-toc-link">
             <p>创建库、初始化、配置</p>
 
-          </a></div><details style="padding:0;;padding-left:24px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#文件的本地修改-添加和撤销" class="md-toc-link"><p>文件的本地修改、添加和撤销</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#difftool-用于本地查看-diff" class="md-toc-link">
-            <p>difftool 用于本地查看 diff</p>
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#本地修改和增删改查文件" class="md-toc-link">
+            <p>本地修改和增删改查文件</p>
 
-          </a></div>
-        </div>
-      </details>
-    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#提交和撤销到分支" class="md-toc-link">
-            <p>提交和撤销到分支</p>
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#本地提交和撤销" class="md-toc-link">
+            <p>本地提交和撤销</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
           <a href="#分支管理" class="md-toc-link">
             <p>分支管理</p>
 
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#冲突解决" class="md-toc-link">
-            <p>冲突解决</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#rebase" class="md-toc-link">
-            <p>rebase</p>
-
           </a></div><details style="padding:0;;padding-left:24px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#撤销-修改" class="md-toc-link"><p>撤销、修改</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#在分支-a-上合并分支-b-的一个-commit" class="md-toc-link">
-            <p>在分支 A 上，合并分支 B 的一个 commit</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#查看文件" class="md-toc-link">
-            <p>查看文件</p>
-
-          </a></div>
-        </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open="">
         <summary class="md-toc-link-wrapper">
           <a href="#错误" class="md-toc-link"><p>错误</p>
 </a>
@@ -193,21 +159,13 @@
           </a></div>
         </div>
       </details>
-    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#commit-description" class="md-toc-link">
-            <p>commit description</p>
-
-          </a></div><details style="padding:0;;padding-left:24px;" open="">
+    <details style="padding:0;;padding-left:24px;" open="">
         <summary class="md-toc-link-wrapper">
           <a href="#示例" class="md-toc-link"><p>示例</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#去掉中间某次-commit" class="md-toc-link">
-            <p>去掉中间某次 commit</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
           <a href="#撤销-amend" class="md-toc-link">
             <p>撤销 amend</p>
 
@@ -223,10 +181,6 @@
           <a href="#合并多个-commit-为一个" class="md-toc-link">
             <p>合并多个 commit 为一个</p>
 
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#git-stash-部分文件" class="md-toc-link">
-            <p>git stash 部分文件</p>
-
           </a></div>
         </div>
       </details>
@@ -236,14 +190,13 @@
     
 </div>
 <h1 id="git-常用指令记录">Git 常用指令记录 </h1>
-<p>总结一些常用的指令。</p>
 <h2 id="创建库-初始化-配置">创建库、初始化、配置 </h2>
-<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> clone git@xxxxx 或者https://xxxx 把文件clone到本地。
-<span class="token function">git</span> clone <span class="token parameter variable">-b</span> dev1 git@xxxx clone这个文件的dev1分支
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> clone git@xxxxx <span class="token comment"># 或https://xxxx，把文件clone到本地。</span>
+<span class="token function">git</span> clone <span class="token parameter variable">-b</span> dev1 git@xxxx <span class="token comment"># clone repo的dev1分支</span>
 
-<span class="token function">git</span> init  初始化git目录（最好空白文件夹的时候）。
+<span class="token function">git</span> init  <span class="token comment"># 初始化git目录（最好空白文件夹的时候）。</span>
 
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> XXXX  修改一些全局变量
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> XXXX  <span class="token comment"># 修改一些全局变量</span>
 <span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"Zhang San"</span>
 <span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email zhangsan@example.com
 
@@ -252,43 +205,98 @@
 <span class="token function">git</span> remote set-url origin http://xx.xx.xx.xx:port/zhang/git_test.git
 
 <span class="token function">git</span> config user.name
-<span class="token function">git</span> config user.email <span class="token comment"># 1.查看用户名和邮箱地址$</span>
-</code></pre><h2 id="文件的本地修改-添加和撤销">文件的本地修改、添加和撤销 </h2>
-<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># 查询</span>
-<span class="token function">git</span> status         <span class="token comment"># 查看文件状态</span>
-<span class="token function">git</span> <span class="token function">diff</span> A.txt     <span class="token comment"># 查看A文件有哪些改动</span>
+<span class="token function">git</span> config user.email <span class="token comment"># 查看用户名和邮箱地址</span>
+</code></pre><h2 id="本地修改和增删改查文件">本地修改和增删改查文件 </h2>
+<ul>
+<li>查看状态 status</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> status         <span class="token comment"># 查看文件状态</span>
+</code></pre><ul>
+<li>查看差异 diff/difftool/show</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> <span class="token function">diff</span> A.txt     <span class="token comment"># 查看A文件有哪些改动</span>
 <span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--cached</span>  <span class="token comment"># 查看已经add过但还没commit的内容</span>
+<span class="token function">git</span> <span class="token function">diff</span> branch1 branch2 -- file.txt <span class="token comment"># 比较两个分支的同个文件</span>
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--cached</span>  <span class="token comment"># 查看已add但没commit的数据</span>
+
+<span class="token function">git</span> difftool --dir-diff commit1 commit2 <span class="token comment"># 本地查看 diff，使用工具</span>
+
 <span class="token function">git</span> show           <span class="token comment"># 查看最近的commit内容</span>
-
-<span class="token comment"># 添加</span>
-<span class="token function">git</span> <span class="token function">add</span> A.txt <span class="token comment"># 提交A文件（add完以后最好stash或者commit，免得丢了）</span>
+</code></pre><ul>
+<li>添加 add</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> <span class="token function">add</span> A.txt <span class="token comment"># 提交A文件（add完以后最好stash或者commit，免得丢了）</span>
 <span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-u</span>    <span class="token comment"># 只提交update文件</span>
-
-<span class="token comment"># 改名</span>
-<span class="token function">git</span> <span class="token function">mv</span> <span class="token operator">&lt;</span>old_file<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>new_file<span class="token operator">&gt;</span>
-
-<span class="token comment"># 移除</span>
-<span class="token function">git</span> <span class="token function">rm</span> A.txt         <span class="token comment"># 把本地和远程文件A都删了</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-p</span>    <span class="token comment"># 逐条选择是否add</span>
+</code></pre><ul>
+<li>改名 mv</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> <span class="token function">mv</span> old_file.txt new_file.txt
+</code></pre><ul>
+<li>移除 rm</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> <span class="token function">rm</span> A.txt         <span class="token comment"># 把本地和远程文件A都删了</span>
 <span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">-cached</span> A.txt <span class="token comment"># 远程删，本地不删</span>
-
-<span class="token comment"># 删除未在repo中的文件</span>
-<span class="token function">git</span> clean <span class="token parameter variable">-n</span> 查看要删除那些多余文件
+</code></pre><ul>
+<li>删除未在 repo 中的文件 clean</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> clean <span class="token parameter variable">-n</span> 查看要删除那些多余文件
 <span class="token function">git</span> clean <span class="token parameter variable">-df</span> 真的删除这些文件
-</code></pre><h3 id="difftool-用于本地查看-diff">difftool 用于本地查看 diff </h3>
-<pre data-role="codeBlock" data-info="git" class="language-git git"><code>git difftool --dir-diff commit1 commit2
-git diff --cached # 查看已经add但是没commit的数据
-</code></pre><h2 id="提交和撤销到分支">提交和撤销到分支 </h2>
-<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># 提交</span>
-<span class="token function">git</span> commit         <span class="token comment"># 提交本地修改：说明修改了啥</span>
+</code></pre><ul>
+<li>查看当前分支的提交历史 log</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> log     <span class="token comment"># 查看文件修改log</span>
+<span class="token function">git</span> log <span class="token parameter variable">-p</span>  <span class="token comment"># 查看指定文件的提交历史</span>
+<span class="token function">git</span> log <span class="token parameter variable">--grep</span> <span class="token string">"test"</span> <span class="token comment"># 查找包含test字段的提交</span>
+<span class="token function">git</span> log <span class="token parameter variable">--author</span><span class="token operator">=</span><span class="token string">"John Doe"</span> <span class="token comment"># 查找所有由"John Doe"撰写的提交记录</span>
+<span class="token function">git</span> log <span class="token parameter variable">--author</span><span class="token operator">=</span><span class="token string">"john@example.com"</span> <span class="token comment"># 查找"john@example.com"撰写的提交记录</span>
+<span class="token function">git</span> log --name-status <span class="token comment"># 每次修改的文件列表, 显示状态</span>
+<span class="token function">git</span> log --name-only <span class="token comment"># 每次修改的文件列表</span>
+<span class="token function">git</span> log <span class="token parameter variable">--stat</span> <span class="token comment"># 每次修改的文件列表, 及文件修改的统计</span>
+<span class="token function">git</span> log commit_id_A<span class="token punctuation">..</span>commit_id_B --no-merges <span class="token parameter variable">--author</span><span class="token operator">=</span><span class="token string">'^(?!John|Bob).*S'</span> --perl-regexp <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token string">"%h %an %s"</span> 
+
+<span class="token comment"># --no-merges 不显示merge的commit</span>
+<span class="token comment"># --perl-regexp 使用perl正则</span>
+<span class="token comment"># --pretty=format: format显示哪些内容</span>
+
+<span class="token function">git</span> blame   <span class="token comment"># 查看列表形式的提交历史</span>
+<span class="token function">git</span> blame file_name
+<span class="token function">git</span> blame <span class="token parameter variable">-L</span> <span class="token number">58,100</span> KeyboardActivity.java
+
+<span class="token function">git</span> reflog  <span class="token comment"># 查看本地所有分支的提交历史</span>
+
+<span class="token function">git</span> whatchanged <span class="token comment"># 每次修改的文件列表</span>
+<span class="token function">git</span> whatchanged <span class="token parameter variable">--stat</span> <span class="token comment"># 每次修改的文件列表, 及文件修改的统计</span>
+</code></pre><ul>
+<li>暂存 stash</li>
+</ul>
+<p>如果在当前分支做了修改，却需要保存但不提交的话，使用 stash。比如当前的修改想挪到其他分支；或者当前的修改还不能 commit，但是要去修改别的分支。stash 的内容包括已经 add 或还没 add 的内容，不包括已经 commit 的内容。</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> stash <span class="token comment"># 暂存目前修改</span>
+<span class="token function">git</span> stash pop <span class="token comment"># 将暂存的最新内容pop出来</span>
+<span class="token function">git</span> stash <span class="token parameter variable">-p</span> <span class="token comment"># 交互式决定每个修改是否暂存</span>
+</code></pre><h2 id="本地提交和撤销">本地提交和撤销 </h2>
+<ul>
+<li>提交</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> commit         <span class="token comment"># 提交本地修改：说明修改了啥</span>
 <span class="token function">git</span> commit <span class="token parameter variable">-m</span>      <span class="token comment"># 一行描述提交commit</span>
 <span class="token function">git</span> commit <span class="token parameter variable">--am</span>    <span class="token comment"># 在当前commit基础上追加</span>
 <span class="token function">git</span> commit <span class="token parameter variable">--amend</span> <span class="token comment"># 同上，修改提交，比如先add，再amend</span>
-
-<span class="token comment"># 撤销--amend</span>
-如果只 amend 了一次, 那么直接用 <span class="token function">git</span> reset HEAD@<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span> 就可以撤销这次 amend.
-如果 amend 多次, 就参考 <span class="token function">git</span> reflog 进行撤销. 找到最近的需要保留的，然后重新pull一下。
-<span class="token comment"># 撤销</span>
-<span class="token function">git</span> reset <span class="token parameter variable">--hard</span> HEAD      <span class="token comment"># 撤销工作目录中没提交的文件的修改内容</span>
+</code></pre><p>commit description，以下为 type 类型</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>feat : 新功能
+fix : 修复bug
+docs : 文档改变
+style : 代码格式改变
+refactor : 某个已有功能重构
+perf : 性能优化
+test : 增加测试
+build : 改变了build工具 如 grunt换成了 npm
+revert : 撤销上一次的 commit
+chore : 构建过程或辅助工具的变动
+</code></pre><ul>
+<li>撤销</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> reset <span class="token parameter variable">--hard</span> HEAD      <span class="token comment"># 撤销工作目录中没提交的文件的修改内容</span>
 <span class="token function">git</span> reset <span class="token parameter variable">--soft</span> commit_id <span class="token comment"># 撤销操作，保留文件</span>
 
 <span class="token function">git</span> checkout HEAD <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>   <span class="token comment"># 撤销指定的未提交文件的修改内容</span>
@@ -298,18 +306,7 @@ git diff --cached # 查看已经add但是没commit的数据
 <span class="token function">git</span> revert <span class="token parameter variable">-m</span> <span class="token number">1</span> start_commit_id^<span class="token punctuation">..</span>end_commit_id <span class="token comment"># -m 用来处理有merge的分支</span>
 <span class="token comment"># 如果我们想把这三个revert不自动生成三个新的commit，而是用一个commit完成，可以这样：</span>
 <span class="token function">git</span> revert <span class="token parameter variable">-n</span> OLDER_COMMIT^<span class="token punctuation">..</span>NEWER_COMMIT
-
 <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"revert OLDER_COMMIT to NEWER_COMMIT"</span>
-
-<span class="token comment"># 查看提交历史</span>
-<span class="token function">git</span> log     <span class="token comment"># 查看文件修改log</span>
-<span class="token function">git</span> log <span class="token parameter variable">-p</span>  <span class="token comment"># 查看指定文件的提交历史</span>
-<span class="token function">git</span> log <span class="token parameter variable">--grep</span> <span class="token string">"test"</span> <span class="token comment"># 查找包含test字段的提交</span>
-<span class="token function">git</span> blame   <span class="token comment"># 查看列表形式的提交历史</span>
-<span class="token function">git</span> blame file_name
-<span class="token function">git</span> blame <span class="token parameter variable">-L</span> <span class="token number">58,100</span> KeyboardActivity.java
-
-<span class="token function">git</span> reflog  <span class="token comment"># 本地所有的提交历史</span>
 
 <span class="token comment"># git rm的撤销</span>
 <span class="token function">git</span> <span class="token function">rm</span> <span class="token punctuation">(</span>-r<span class="token punctuation">)</span> <span class="token function">file</span>
@@ -317,37 +314,67 @@ git diff --cached # 查看已经add但是没commit的数据
 <span class="token function">git</span> reset -- <span class="token function">file</span>
 <span class="token function">git</span> checkout -- ./file
 </code></pre><h2 id="分支管理">分支管理 </h2>
-<p>分支的创建、改名</p>
+<ul>
+<li>分支的创建、改名 branch</li>
+</ul>
 <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> branch           <span class="token comment"># 显示当前分支和所有分支</span>
 <span class="token function">git</span> branch <span class="token parameter variable">-b</span> new_branch   <span class="token comment"># 新增分支 new_branch</span>
 <span class="token function">git</span> branch <span class="token parameter variable">-m</span> old_branch new_branch <span class="token comment"># 重命名本地分支，从旧的old_branch更新为新的new_branch</span>
 <span class="token function">git</span> branch <span class="token parameter variable">-a</span>        <span class="token comment"># 列举本地和远程的所有branch</span>
 <span class="token function">git</span> checkout <span class="token parameter variable">-b</span> new_branch <span class="token comment"># 从当前分支新增且切换到分支dev1</span>
-</code></pre><p>从远程分支拉代码、合并</p>
+</code></pre><ul>
+<li>从远程分支拉代码、合并 merge/fetch/pull/checkout</li>
+</ul>
 <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> merge B          <span class="token comment"># 在分支A上，合并分支B，形成新的commit，对B分支没有影响。</span>
 <span class="token function">git</span> fetch            <span class="token comment"># 更新远程分支上最新的commit，记录到.git/FETCH_HEAD</span>
 <span class="token function">git</span> pull             <span class="token comment"># 更新分支，相当于fetch+merge</span>
 <span class="token function">git</span> pull origin master     <span class="token comment"># 下拉 master 分支的代码，合并到当前分支</span>
 <span class="token function">git</span> pull <span class="token parameter variable">--rebase</span> origin master <span class="token comment"># 下拉合并master并且不增加commit</span>
 <span class="token function">git</span> checkout <span class="token parameter variable">-b</span> A origin/B  <span class="token comment"># 以远程分支B为来源，在本地仓库中创建分支A</span>
-</code></pre><p>推代码到远程分支</p>
+</code></pre><ul>
+<li>推代码到远程分支 push</li>
+</ul>
 <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> push origin remote_branch        <span class="token comment"># 将代码推到 remote_branch 分支</span>
 <span class="token function">git</span> push origin local_branch:master <span class="token comment"># 将代码从 local_branch 分支推到 master</span>
 <span class="token function">git</span> branch <span class="token parameter variable">-D</span> branch_1 <span class="token comment"># 删除本地分支 branch_1</span>
 <span class="token function">git</span> push origin <span class="token parameter variable">--delete</span> remote_branch <span class="token comment"># 删除远程分支 remote_branch</span>
 <span class="token comment"># 以图表形式查看分支，图上每个点表示一个commit，两个commit之间如果有线连接，那么下面的commit是上面一个commit的parent（父节点）。</span>
 <span class="token function">git</span> log <span class="token parameter variable">--graph</span>
-</code></pre><p>比较本地分支和远程分支的区别</p>
+</code></pre><ul>
+<li>比较本地分支和远程分支的区别 diff</li>
+</ul>
 <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> branch <span class="token parameter variable">-r</span> <span class="token comment"># 查看所有远程分支名</span>
 <span class="token function">git</span> <span class="token function">diff</span> local_branch remote_branch
-</code></pre><h2 id="冲突解决">冲突解决 </h2>
-<p>冲突形如：<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code><br>
-选择需要保留的code并提交。</p>
-<h2 id="rebase">rebase </h2>
+</code></pre><ul>
+<li>
+<p>冲突解决：冲突形如：<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>选择需要保留的 code 并提交。</p>
+</li>
+<li>
+<p>rebase：rebase 我觉得是用来缝合的功能。比如 N 个 commit，对其进行排序、修改，对某个历史 commit 的内容修改。</p>
+</li>
+</ul>
 <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> rebase <span class="token parameter variable">--abort</span> <span class="token comment"># 放弃合并，回到rebase操作之前的状态，之前的提交的不会丢弃；</span>
 <span class="token function">git</span> rebase <span class="token parameter variable">--skip</span> <span class="token comment"># 将引起冲突的commits丢掉（慎用）；</span>
 <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span> <span class="token comment"># 合并冲突，分步进行</span>
-</code></pre><h2 id="撤销-修改">撤销、修改 </h2>
+</code></pre><ul>
+<li>按名字查询远程分支 ls-remote</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> ls-remote <span class="token operator">&lt;</span>remote_name<span class="token operator">&gt;</span> <span class="token comment"># 按名称查询远程分支</span>
+<span class="token function">git</span> ls-remote <span class="token operator">&lt;</span>remote_name<span class="token operator">&gt;</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+
+<span class="token comment">#### 去掉中间某次 commit</span>
+
+<span class="token number">1</span>. 首先 <span class="token variable"><span class="token variable">`</span><span class="token function">git</span> log<span class="token variable">`</span></span> 查看提交记录，找到出错的前一笔提交的 commit_id
+<span class="token number">2</span>. 用命令 <span class="token variable"><span class="token variable">`</span><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> commit_id<span class="token variable">`</span></span> ，查找提交记录
+<span class="token number">3</span>. 将出错那笔提交的 pick 改为 drop
+
+```bash
+<span class="token function">git</span> log
+<span class="token function">git</span> rebase <span class="token parameter variable">-i</span> commit_id
+<span class="token comment"># set drop</span>
+</code></pre><ul>
+<li>撤销、修改 reset/revert/checkout/restore</li>
+</ul>
 <pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> reset                  <span class="token comment"># 撤销</span>
 <span class="token function">git</span> reset <span class="token parameter variable">--soft</span> commit_id <span class="token comment"># 撤销到commit_id的对应提交，并且保留吃从commit_id到最近的更改。如果commit已经提交过，需要push --force才能重新推到远端</span>
 <span class="token function">git</span> reset <span class="token parameter variable">--hard</span> commit_id <span class="token comment"># 撤销到commit_id的对应提交，强制，所有之后的改动都会消失。如果commit已经提交过，需要push --force才能重新推到远端</span>
@@ -357,48 +384,33 @@ git diff --cached # 查看已经add但是没commit的数据
 <span class="token function">git</span> checkout ./some_file <span class="token comment"># 撤销对某个文件的未提交修改</span>
 <span class="token function">git</span> commit <span class="token parameter variable">--amend</span> <span class="token comment"># 将修改的代码追加到当前的最近一个commit</span>
 
+
+<span class="token comment"># 撤销 --amend</span>
+如果只 amend 了一次, 那么直接 <span class="token function">git</span> reset HEAD@<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span> 就可以撤销这次 amend.
+如果 amend 多次, 就参考 <span class="token function">git</span> reflog 进行撤销. 找到需要保留的，然后重新pull。
+
 <span class="token function">git</span> rebase <span class="token parameter variable">-i</span>      <span class="token comment"># 在其中调整 commit 的顺序、删除不想要的提交、以及合并提交</span>
 <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> HEAD~4     <span class="token comment"># 调整HEAD最近的4次commit</span>
-</code></pre><p>cherry-pick：我非常爱的指令。</p>
-<p>cherry-pick就是摘樱桃，与merge相比，merge是合并另一个分支上的所有提交，cherry-pick是用来“挑选”需要的commit</p>
-<h3 id="在分支-a-上合并分支-b-的一个-commit">在分支 A 上，合并分支 B 的一个 commit </h3>
+</code></pre><h4 id="在分支-a-上合并分支-b-的一个-commit">在分支 A 上，合并分支 B 的一个 commit </h4>
+<p>cherry-pick，就是把需要的某些个 commit pick 到另一个分支。</p>
 <pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> cherry-pick commit_id <span class="token comment"># commit_id原本属于其他分支，cherry-pick将commit_id 从其他的分支复制到当前的分支的 HEAD 上</span>
 <span class="token function">git</span> cherry-pick commit_1 commit2 <span class="token comment"># cherry-pick多个commit，这些commit可以在时间和分支上都不相关，生成两个新的commit</span>
 <span class="token function">git</span> cherry-pick commit_old^<span class="token punctuation">..</span>commit_new <span class="token comment"># 选择从commit_1到commit_2的所有commit，是闭区间[commit_1, commit_2]</span>
 <span class="token function">git</span> cherry-pick commit_old<span class="token punctuation">..</span>commit_new <span class="token comment"># (commit_1, commit_1] 左开右闭</span>
+<span class="token function">git</span> cherry-pick <span class="token parameter variable">-X</span> ignore-all-space commit-id <span class="token comment"># 提交时不提交那些只有换行符不同的行</span>
 </code></pre><pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> checkout A <span class="token comment"># 先切换到A分支</span>
 <span class="token function">git</span> cherry-pick commit_id_from_branchB <span class="token comment"># 将B分支上的commit挑过来</span>
-</code></pre><p>cherry-pick和rebase一样，通过abort、continue决定每个分支的去留</p>
-<h3 id="查看文件">查看文件 </h3>
-<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> log --name-status 每次修改的文件列表, 显示状态
-<span class="token function">git</span> log --name-only 每次修改的文件列表
-<span class="token function">git</span> log <span class="token parameter variable">--stat</span> 每次修改的文件列表, 及文件修改的统计
-
-<span class="token function">git</span> whatchanged 每次修改的文件列表
-<span class="token function">git</span> whatchanged <span class="token parameter variable">--stat</span> 每次修改的文件列表, 及文件修改的统计
-
-<span class="token function">git</span> show 显示最后一次的文件改变的具体内容
-</code></pre><h2 id="错误">错误 </h2>
+</code></pre><p>cherry-pick 和 rebase 一样，通过 abort、continue 决定每个分支的去留</p>
+<h2 id="错误">错误 </h2>
 <ul>
 <li>Git error - Fatal: Not a git repository</li>
 <li>Permission denied (keyboard-interactive,publickey). fatal: Could not read from remote repository.</li>
 </ul>
 <h3 id="mode-change">mode change </h3>
-<p>git file mode change<br>
-是指用户权限变了，比如 100644-100755 之类的。<br>
-不提交这个的方法：<code>git config core.filemode false</code> <code>git config --global core.filemode false</code></p>
-<h2 id="commit-description">commit description </h2>
-<p>( 1 ) type（必须） : commit 的类别，只允许使用下面几个标识：</p>
-<pre data-role="codeBlock" data-info="C++" class="language-cpp C++"><code>feat <span class="token operator">:</span> 新功能
-fix <span class="token operator">:</span> 修复bug
-docs <span class="token operator">:</span> 文档改变
-style <span class="token operator">:</span> 代码格式改变
-refactor <span class="token operator">:</span> 某个已有功能重构
-perf <span class="token operator">:</span> 性能优化
-test <span class="token operator">:</span> 增加测试
-build <span class="token operator">:</span> 改变了build工具 如 grunt换成了 npm
-revert <span class="token operator">:</span> 撤销上一次的 commit
-chore <span class="token operator">:</span> 构建过程或辅助工具的变动
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> <span class="token function">file</span> mode change
+</code></pre><p>是指用户权限变了，比如 100644-100755 之类的。<br>
+不提交这个的方法：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">git</span> config core.filemode <span class="token boolean">false</span><span class="token variable"><span class="token variable">`</span> <span class="token variable">`</span></span><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.filemode <span class="token boolean">false</span>
 </code></pre><h2 id="示例">示例 </h2>
 <p>在分支 A 上修改文件但是没有提交（commit），切换到分支 B，B 也能看到，状态为 M。<br>
 在分支 A 上修改文件，提交了，切换到分支 B，B 看不到。</p>
@@ -413,12 +425,6 @@ chore <span class="token operator">:</span> 构建过程或辅助工具的变动
 <li>比较上次提交 commit 和上上次提交的差别时，执行如下命令：<code>git diff HEAD^ HEAD</code><br>
 <code>git reflog</code></li>
 </ul>
-<h3 id="去掉中间某次-commit">去掉中间某次 commit </h3>
-<ol>
-<li>首先 <code>git log</code> 查看提交记录，找到出错的前一笔提交的 commit_id</li>
-<li>用命令 <code>git rebase -i commit_id</code> ，查找提交记录</li>
-<li>将出错那笔提交的 pick 改为 drop</li>
-</ol>
 <h3 id="撤销-amend">撤销 amend </h3>
 <p>首先使用 git reflog 命令查看操作记录:</p>
 <pre data-role="codeBlock" data-info="log" class="language-log log"><code><span class="token operator">$</span> git reflog
@@ -473,8 +479,6 @@ Your branch is ahead of <span class="token string">'origin/master'</span> by <sp
 </code></pre></li>
 </ol>
 <p>或者 <code>git reset --soft commit-id</code>，git commit --amend，然后重新提交。</p>
-<h3 id="git-stash-部分文件">git stash 部分文件 </h3>
-<p><code>git stash -p</code>是一个交互式命令，我们可以一个文件一个文件的遍历,决定每个文件的操作方式.遇到我们需要 stash 的文件,我们就 y,不需要 stash 需要 commit 的文件,我们就 n,如果接下来没有需要 stash 的文件,则直接 q 退出就行.</p>
 
       </div>
       <div class="md-sidebar-toc">
@@ -489,53 +493,19 @@ Your branch is ahead of <span class="token string">'origin/master'</span> by <sp
           <a href="#创建库-初始化-配置" class="md-toc-link">
             <p>创建库、初始化、配置</p>
 
-          </a></div><details style="padding:0;;padding-left:24px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#文件的本地修改-添加和撤销" class="md-toc-link"><p>文件的本地修改、添加和撤销</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#difftool-用于本地查看-diff" class="md-toc-link">
-            <p>difftool 用于本地查看 diff</p>
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#本地修改和增删改查文件" class="md-toc-link">
+            <p>本地修改和增删改查文件</p>
 
-          </a></div>
-        </div>
-      </details>
-    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#提交和撤销到分支" class="md-toc-link">
-            <p>提交和撤销到分支</p>
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#本地提交和撤销" class="md-toc-link">
+            <p>本地提交和撤销</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
           <a href="#分支管理" class="md-toc-link">
             <p>分支管理</p>
 
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#冲突解决" class="md-toc-link">
-            <p>冲突解决</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#rebase" class="md-toc-link">
-            <p>rebase</p>
-
           </a></div><details style="padding:0;;padding-left:24px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#撤销-修改" class="md-toc-link"><p>撤销、修改</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#在分支-a-上合并分支-b-的一个-commit" class="md-toc-link">
-            <p>在分支 A 上，合并分支 B 的一个 commit</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#查看文件" class="md-toc-link">
-            <p>查看文件</p>
-
-          </a></div>
-        </div>
-      </details>
-    <details style="padding:0;;padding-left:24px;" open="">
         <summary class="md-toc-link-wrapper">
           <a href="#错误" class="md-toc-link"><p>错误</p>
 </a>
@@ -548,21 +518,13 @@ Your branch is ahead of <span class="token string">'origin/master'</span> by <sp
           </a></div>
         </div>
       </details>
-    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#commit-description" class="md-toc-link">
-            <p>commit description</p>
-
-          </a></div><details style="padding:0;;padding-left:24px;" open="">
+    <details style="padding:0;;padding-left:24px;" open="">
         <summary class="md-toc-link-wrapper">
           <a href="#示例" class="md-toc-link"><p>示例</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#去掉中间某次-commit" class="md-toc-link">
-            <p>去掉中间某次 commit</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
           <a href="#撤销-amend" class="md-toc-link">
             <p>撤销 amend</p>
 
@@ -577,10 +539,6 @@ Your branch is ahead of <span class="token string">'origin/master'</span> by <sp
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
           <a href="#合并多个-commit-为一个" class="md-toc-link">
             <p>合并多个 commit 为一个</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#git-stash-部分文件" class="md-toc-link">
-            <p>git stash 部分文件</p>
 
           </a></div>
         </div>
