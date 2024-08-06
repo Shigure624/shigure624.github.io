@@ -1,0 +1,306 @@
+<!DOCTYPE html><html><head>
+      <title>win10 + centOS7 双系统的安装补充记录-1</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p>在<a href="https://shigure624.github.io/posts/win10%20+%20centos7%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85%E8%A1%A5%E5%85%85%E8%AE%B0%E5%BD%95.html">win10 + centos7 双系统的安装补充记录</a>这篇文章中记录了当时安装双系统的问题，当时只是安装了最小版本。今天本来想把网络配置下，但是不知道怎么回事引发了一系列问题，所以在这里再记录一下。</p>
+<h1 id="问题-1给-centos-配置网络">问题 1：给 CentOS 配置网络 </h1>
+<p>在安装的时候，就看不到 Ethernet 网卡，也没有可用的网络连接。安装好之后，<code>ip a show</code> 也只有 lo0 和 bond0。</p>
+<p>bond0 是采用 bonding 的一个虚拟网络接口。在 Linux 系统中，bond0 接口是<strong>网络接口绑定</strong>（NIC bonding）的一个例子名。<strong>网络接口绑定</strong>是一种将多个物理网络接口组合成一个逻辑接口的技术，以实现冗余性和/或增加带宽。</p>
+<p>bond0 对应的配置文件是<code>/etc/sysconfig/network-scripts/ifcfg-bond0</code></p>
+<p>由于我本地路由器的 DHCP 网段是到 192.168.0.199，而我还不会配 DHCP。。所以先试了下静态 IP</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>bond0
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span>bond0
+<span class="token assign-left variable">BONDING_OPTS</span><span class="token operator">=</span><span class="token string">"mode=1 miimon=100"</span>
+<span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span>static
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">192.168</span>.1.200
+<span class="token assign-left variable">NETMASK</span><span class="token operator">=</span><span class="token number">255.255</span>.255.0
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">192.168</span>.0.1
+<span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span>yes
+</code></pre><pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>systemctl restart network
+systemctl status network
+</code></pre><p>这里看到是 active，但是 ping 网关不通。预料之中的 ping 不通，因为查了一下 lshw，没有 eth0 网口。查了一下解决办法可能是：</p>
+<ol>
+<li>在 Win/BIOS 中关闭网络唤醒功能（试过了，不行）</li>
+<li>手动装驱动（还没试过）</li>
+</ol>
+<p>再次检查了一下，里面 logical name 只有 bond0</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>lshw <span class="token parameter variable">-C</span> network
+</code></pre><p>然后这个问题还没解决，就发现了以下的问题。</p>
+<h1 id="问题-2centos-的网络没配置好windows-的启动引导选项没了">问题 2：CentOS 的网络没配置好，Windows 的启动引导选项没了 </h1>
+<p>查了一些方法：</p>
+<h2 id="grub">grub </h2>
+<p>GRUB (GRand Unified Bootloader) 可以通过配置文件判断和加载不同的操作系统，包括 Windows。</p>
+<p>这里，从 CentOS 安装盘里面，在'Install CentOS7'这行，按'c'进到 grub<img src="./Selection_021.png" alt="image"></p>
+<p>用 ls 列举所有分区，结果类似于这样的。</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>grub<span class="token operator">&gt;</span> <span class="token function">ls</span>
+<span class="token comment"># results</span>
+grub<span class="token operator">&gt;</span> <span class="token punctuation">(</span>hd0<span class="token punctuation">)</span> <span class="token punctuation">(</span>hd0,msdos1<span class="token punctuation">)</span> <span class="token punctuation">(</span>hd0,msdos2<span class="token punctuation">)</span> <span class="token punctuation">(</span>hd1<span class="token punctuation">)</span> <span class="token punctuation">(</span>hd1,gpt1<span class="token punctuation">)</span> <span class="token punctuation">(</span>hd1,gpt2<span class="token punctuation">)</span>
+</code></pre><p>像<code>(hd0,msdos1)</code>的含义是：第一个硬盘的第一个分区。所以用 ls 把每个分区都找了一遍。由于只要找 EFI 分区，所以列举一个包含 EFI 的分区：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">ls</span> <span class="token punctuation">(</span>hd0,msdos1<span class="token punctuation">)</span>/
+</code></pre><p>预期应该是这样的。但是我在我的 grub 上没找到 Microsoft。</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">(</span>hd0,msdos1<span class="token punctuation">)</span>/EFI/Boot/
+<span class="token punctuation">(</span>hd0,msdos1<span class="token punctuation">)</span>/EFI/Microsoft/
+<span class="token punctuation">(</span>hd0,msdos1<span class="token punctuation">)</span>/EFI/ubuntu/
+</code></pre><p>接着尝试加载 FAT 分区：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>insmod fat
+</code></pre><p>然后再次 ls 检查目录还是没有。</p>
+<h2 id="尝试在-linux-上重建-windows-efi-分区">尝试在 Linux 上重建 Windows EFI 分区 </h2>
+<p>有些人的情况是这样的：他的 windows EFI 分区还在，只是找不到了。所以用 grub 的配置文件修改一下就可以了，像上一小节里面在 grub 中挨个 ls，找到对应 Microsoft 的分区+地址，然后配到 grub 配置文件就可以了。假设我找到了<code>(hd0,msdos1)</code>。</p>
+<p>这个有两种方法</p>
+<h3 id="命令行">命令行 </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>grub<span class="token operator">&gt;</span> insmod ntfs
+grub<span class="token operator">&gt;</span> <span class="token builtin class-name">set</span> <span class="token assign-left variable">root</span><span class="token operator">=</span><span class="token punctuation">(</span>hd1, msdos1<span class="token punctuation">)</span>
+grub<span class="token operator">&gt;</span> chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+grub<span class="token operator">&gt;</span> boot
+</code></pre><h3 id="修改-conf-文件">修改 conf 文件 </h3>
+<p>修改<code>/boot/grub/grub.cfg</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>menuentry <span class="token string">'Windows Boot Manager'</span> <span class="token punctuation">{</span>
+		**set <span class="token assign-left variable">root</span><span class="token operator">=</span><span class="token string">'hd0,msdos1'</span>**   <span class="token comment"># 前面如果能查到的分区编号</span>
+		chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+		boot
+<span class="token punctuation">}</span>
+</code></pre><p>然后重新生成<code>gurb.cfg</code>文件</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">sudo</span> <span class="token function">grub-mkconfig</span> <span class="token parameter variable">-o</span> /boot/grub/grub.cfg
+<span class="token function">sudo</span> <span class="token function">update-grub</span>
+</code></pre><h2 id="没招了用-windows-启动盘尝试修复">没招了，用 Windows 启动盘尝试修复 </h2>
+<p>从<a href="https://www.microsoft.com/en-au/software-download/windows10">https://www.microsoft.com/en-au/software-download/windows10</a>下载 iso，然后由于我没有其他 windows 设备，所以用 mac 做了启动 U 盘。参考了这篇文档<a href="https://www.freecodecamp.org/chinese/news/how-make-a-windows-10-usb-using-your-mac-build-a-bootable-iso-from-your-macs-terminal/">如何使用 Mac 制作 Windows 10 U 盘启动盘</a></p>
+<p>然后发现按 F11 并没有在 Boot Menu 上看到。我还以为是 MBR 和 GPT 分区搞错了。后来按 Del 在 UEFI 修改了 Boot 的启动顺序。</p>
+<p><img src="./boot-priority-001.jpg" alt="image"></p>
+<p>然后终于到了 Windows 的安装页面了。</p>
+<p><img src="./windows_start.png" alt="image"><br>
+^ 这里选：下一步</p>
+<br>
+<br>
+<br>
+<p><img src="./windows_repair.png" alt="image"><br>
+^这里选：修复计算机</p>
+<br>
+<br>
+<br>
+<p>结果悲剧了。。。<br>
+<img src="./windows_repair_failed.png" alt="image"></p>
+<p>就在这时我想着反正估计也修不好了，看看还有啥可玩的。然后想起来，还有 diskpart 没试呢!</p>
+<p><img src="./windows_cmd.png" alt="image"></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>diskpart <span class="token comment"># 进入diskpart</span>
+list disk <span class="token comment"># 列出所有磁盘，</span>
+<span class="token keyword keyword-select">select</span> disk <span class="token number">0</span> <span class="token comment"># 进到磁盘0</span>
+list partition <span class="token comment"># 列出磁盘0的所有分区</span>
+<span class="token keyword keyword-select">select</span> partition <span class="token number">1</span> <span class="token comment"># 选择分区1</span>
+</code></pre><p>在这里我终于看到那个坏掉的 EFI 分区了。</p>
+<p>尝试 active，失败：Active 命令只能用于固定 MBR 磁盘。</p>
+<p>尝试<code>delete partition</code>，失败，这个分区受保护</p>
+<p>尝试新建分区：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>create partition efi <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">100</span>
+<span class="token function">format</span> quick <span class="token assign-left variable">fs</span><span class="token operator">=</span>fat32
+assign <span class="token assign-left variable">letter</span><span class="token operator">=</span>s <span class="token comment"># 指定分区为EFI系统分区</span>
+</code></pre><p>新建成功了，但是仿佛并没有什么卵用。</p>
+<p>然后尝试修复 UEFI 引导记录：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>bcdboot C:<span class="token punctuation">\</span>Windows /s S: /f UEFI
+sfc /scannow <span class="token comment"># 运行系统文件检查器，这里显示：windows资源保护无法执行请求的操作</span>
+</code></pre><p>到这里已经开始颠了，狗急跳墙了，没头苍蝇了，打算重装了。我又试了下磁盘修复工具</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>chkdsk C: /f /r
+</code></pre><p>然后修复了半天，1000000 个文件才修复了 20000 个，我心想有他修复这会儿估计我重装都完事了。所以我就强制重启了，结果？！他竟然好了！？？</p>
+<p>所以现在我就用这个修好的系统继续写这个文档了。我的脑海里只有一个声音：又回到最初的起点=。=</p>
+<h1 id="以下是一些补充的内容">以下是一些补充的内容 </h1>
+<h2 id="windows-磁盘管理中什么是扩展卷什么是压缩卷">windows 磁盘管理中，什么是扩展卷，什么是压缩卷 </h2>
+<ul>
+<li>扩展卷 (Extend Volume)：将一个卷的可用空间增加，将未分配的磁盘空间添加到现有的卷中，以扩大该卷的容量。</li>
+<li>压缩卷 (Shrink Volume)：将一个卷的可用空间减少，释放该卷的一部分空间，并将其变为未分配的空间。</li>
+</ul>
+<h2 id="磁盘分区-efi">磁盘分区 EFI </h2>
+<p>EFI (Extensible Firmware Interface) 分区：也被称为 EFI 系统分区 (ESP, EFI System Partition)，是一种在 UEFI (Unified Extensible Firmware Interface) 引导模式下使用的重要分区。它是一个独立的分区，<strong>用于存储启动加载程序和其他系统相关文件</strong>，支持系统启动和引导。</p>
+<p>EFI 分区的文件系统：EFI 分区通常使用 FAT32 文件系统，这是 UEFI 规范中推荐的文件系统类型。文件系统标识符通常是 "EFI System"。</p>
+<p>EFI 目录：在 EFI 分区中，通常会看到以下目录和文件</p>
+<ul>
+<li><code>/EFI/BOOT/</code>：包含默认的引导加载程序，如 BOOTX64.EFI。</li>
+<li><code>/EFI/&lt;操作系统&gt;/</code>：每个操作系统（如 Windows、Linux）会在此分区中创建自己的目录，存放其引导文件。</li>
+</ul>
+<p>创建工具：</p>
+<ul>
+<li>Windows：使用磁盘管理工具 (Disk Management) 或 diskpart 命令。</li>
+<li>Linux：使用 gdisk 或 parted 命令。</li>
+</ul>
+<h3 id="biosuefi">BIOS&amp;UEFI </h3>
+<p>BIOS（基本输入输出系统，Basic Input/Output System）：是计算机系统中用于启动硬件并启动操作系统的一种固件接口。BIOS 是一种预装在计算机主板上的固件程序，在计算机启动时首先运行。</p>
+<p>上面提到了 UEFI：UEFI（统一可扩展固件接口，Unified Extensible Firmware Interface）是一种用于计算机系统的固件接口标准，它是传统 BIOS（基本输入输出系统，Basic Input/Output System）的继任者。UEFI 提供了一种现代化的、灵活的、可扩展的方式来管理计算机硬件，并为操作系统的启动和运行提供支持。</p>
+<p>我使用的主板是微星迫击炮，用 del 开 UEFI，F11 打开 Boot Menu。</p>
+<h3 id="mbr--gpt">MBR &amp; GPT </h3>
+<p>这里再记录下 MBR &amp; GPT：</p>
+<p>MBR（Master Boot Record）和 GPT（GUID Partition Table）是两种不同的分区表格式，用于定义硬盘上的分区布局。它们在处理磁盘分区时有不同的特点和限制。</p>
+<h4 id="mbrmaster-boot-record">MBR（Master Boot Record） </h4>
+<p>MBR 是传统的分区表格式，存在于硬盘的第一个扇区（即磁盘的第一个扇区的引导记录）。它包含分区表和引导加载程序。</p>
+<ol>
+<li>分区限制：</li>
+</ol>
+<ul>
+<li>支持最多 4 个主分区（或 3 个主分区和 1 个扩展分区，扩展分区可以包含多个逻辑分区）。</li>
+<li>单个分区的最大容量为 2 TB。</li>
+</ul>
+<ol start="2">
+<li>启动方式：使用传统的 BIOS 固件进行启动。</li>
+<li>兼容性：大多数旧版系统和 BIOS 固件都支持 MBR。</li>
+</ol>
+<h4 id="gptguid-partition-table">GPT（GUID Partition Table） </h4>
+<p>GPT 是较新的分区表格式，作为 UEFI（Unified Extensible Firmware Interface）的一部分。它提供了更大的灵活性和功能。</p>
+<ol>
+<li>分区限制：</li>
+</ol>
+<ul>
+<li>支持最多 128 个分区（在 Windows 中），或者更多（取决于操作系统）。</li>
+<li>单个分区的最大容量可以超过 9.4 ZB（在理论上），实际上大多数现代系统支持的容量远远高于 2 TB。</li>
+</ul>
+<ol start="2">
+<li>启动方式：使用 UEFI 固件进行启动。</li>
+<li>兼容性：较新的系统和固件都支持 GPT，但旧版 BIOS 可能不支持 GPT。如果系统使用 GPT 分区表，通常需要 UEFI 固件来进行启动。</li>
+</ol>
+<h3 id="分区有几个类型系统-保留-主要-未知删除哪个没关系">分区有几个类型：系统、保留、主要、未知，删除哪个没关系？ </h3>
+<p>系统分区：包含启动引导文件，用于启动 Windows。这通常是 EFI 系统分区（ESP）或传统的活动分区（在 MBR 系统中）。不能删，一般也删不了。</p>
+<p>保留分区：通常是“系统保留分区”，用于存储引导管理器和启动配置数据。对于 Windows 10 及以上版本，通常包含启动文件和 BitLocker 加密所需的文件。可能会用到，别删。</p>
+<p>主要分区：主要分区是存储操作系统和用户数据的主要分区。如果真的确认不用了，删。</p>
+<p>未知分区：可能是操作系统无法识别的分区，可能由其他操作系统或磁盘工具创建。</p>
+<h2 id="补充下lan-口和-wan-口">补充下：LAN 口和 WAN 口 </h2>
+<p>LAN（Local Area Network）口和 WAN（Wide Area Network）口是网络设备（如路由器）的两个不同类型的接口。LAN 口（Local Area Network）</p>
+<p>定义：LAN 口用于连接内部网络设备，例如计算机、打印机、交换机等。这些设备通常位于同一个本地网络中，LAN 口负责内部网络的数据传输。</p>
+<p>WAN 口（Wide Area Network）<br>
+定义：WAN 口用于连接到外部网络（如互联网）。它通常连接到互联网服务提供商（ISP）的设备或调制解调器。</p>
+<p>比如说：电脑上插网线的口是 LAN 口，光猫连的口是 WAN 口。</p>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#问题-1给-centos-配置网络" class="md-toc-link">
+            <p>问题 1：给 CentOS 配置网络</p>
+
+          </a></div><details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#问题-2centos-的网络没配置好windows-的启动引导选项没了" class="md-toc-link"><p>问题 2：CentOS 的网络没配置好，Windows 的启动引导选项没了</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#grub" class="md-toc-link">
+            <p>grub</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#尝试在-linux-上重建-windows-efi-分区" class="md-toc-link"><p>尝试在 Linux 上重建 Windows EFI 分区</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#命令行" class="md-toc-link">
+            <p>命令行</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#修改-conf-文件" class="md-toc-link">
+            <p>修改 conf 文件</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#没招了用-windows-启动盘尝试修复" class="md-toc-link">
+            <p>没招了，用 Windows 启动盘尝试修复</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#以下是一些补充的内容" class="md-toc-link"><p>以下是一些补充的内容</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#windows-磁盘管理中什么是扩展卷什么是压缩卷" class="md-toc-link">
+            <p>windows 磁盘管理中，什么是扩展卷，什么是压缩卷</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#磁盘分区-efi" class="md-toc-link"><p>磁盘分区 EFI</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#biosuefi" class="md-toc-link">
+            <p>BIOS&amp;UEFI</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#mbr--gpt" class="md-toc-link"><p>MBR &amp; GPT</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#mbrmaster-boot-record" class="md-toc-link">
+            <p>MBR（Master Boot Record）</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#gptguid-partition-table" class="md-toc-link">
+            <p>GPT（GUID Partition Table）</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#分区有几个类型系统-保留-主要-未知删除哪个没关系" class="md-toc-link">
+            <p>分区有几个类型：系统、保留、主要、未知，删除哪个没关系？</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#补充下lan-口和-wan-口" class="md-toc-link">
+            <p>补充下：LAN 口和 WAN 口</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
