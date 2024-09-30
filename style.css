@@ -37,3 +37,18 @@ li::marker {
   margin-bottom: -12px;
   color: black;
 }
+#tag-list {
+  list-style-type: none;
+  color: dimgrey;
+}
+#tag-list li {
+  color: dimgrey;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#tag-list li:hover {
+  color: red;
+}
+#result {
+  color: dimgrey;
+}

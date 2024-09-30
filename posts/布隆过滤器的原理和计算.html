@@ -1,12 +1,11 @@
+<!-- TAG: 机器学习 -->
 <!DOCTYPE html><html><head>
       <title>布隆过滤器的原理和计算</title>
+      
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-      
-      
-      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
       
       
       <style>
@@ -207,7 +206,7 @@
 </tbody>
 </table>
 <p>第一步：将 25 化为二进制 11001<br>
-第二步：分别取奇数位和偶数位各自化成整数，比如上例：<font color="red">1</font><font color="blue">1</font><font color="red">0</font><font color="blue">1</font><font color="red">1</font> 奇数位（也就是红色） 101，是 5；偶数位（也就是蓝色） 10，是 2（这两个数用于生成 hashfunc）<br>
+第二步：分别取奇数位和偶数位各自化成整数，比如上例：<font color="red">1</font><font color="blue">1</font><font color="red">0</font><font color="blue">0</font><font color="red">1</font> 奇数位（也就是红色） 101，是 5；偶数位（也就是蓝色） 10，是 2（这两个数用于生成 hashfunc）<br>
 第三步：对 Bit Array 总位数取模，也就是哈希运算，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>m</mi><mi>o</mi><mi>d</mi><mn>11</mn><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">5mod11=5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">5</span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord">11</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span>，将索引 5 的数置 1， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>m</mi><mi>o</mi><mi>d</mi><mn>11</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2mod11=2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">2</span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord">11</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>，将索引 2 的数置 1</p>
 <p>结果如下：</p>
 <table>
