@@ -1,0 +1,1653 @@
+<!-- TAG: 音视频 FFmpeg -->
+<!DOCTYPE html><html><head>
+      <title>FFmpeg Basics 笔记</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ffmpeg-basics-笔记" class="md-toc-link"><p>FFmpeg Basics 笔记</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ffmpeg-fundamentals" class="md-toc-link"><p>FFmpeg Fundamentals</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffmpeg-introduction" class="md-toc-link">
+            <p>FFmpeg Introduction</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#developers-of-ffmpeg" class="md-toc-link">
+            <p>Developers of FFmpeg</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#participation-in-ffmpeg-development" class="md-toc-link">
+            <p>Participation in FFmpeg development</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffmpeg-download" class="md-toc-link">
+            <p>FFmpeg download</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#command-line-syntax" class="md-toc-link">
+            <p>Command line syntax</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#windows-command-prompt-and-its-alternatives" class="md-toc-link">
+            <p>Windows Command Prompt and its alternatives</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#path-setting" class="md-toc-link">
+            <p>Path Setting</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#renaming-to-shortened-form" class="md-toc-link">
+            <p>Renaming to shortened form</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#displaying-output-preview" class="md-toc-link">
+            <p>Displaying output preview</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#si-prefixes-available-in-ffmpeg" class="md-toc-link">
+            <p>SI prefixes available in FFmpeg</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#using-lavfi" class="md-toc-link">
+            <p>Using lavfi</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#intros" class="md-toc-link">
+            <p>Intros</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#reference" class="md-toc-link">
+            <p>reference</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#displaying-help-and-features" class="md-toc-link">
+            <p>Displaying Help and Features</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#bitrate-frame-rate-and-filesize" class="md-toc-link"><p>BitRate, Frame Rate and FileSize</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#frame-rate-setting" class="md-toc-link">
+            <p>Frame rate setting</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#bit-rate-introduction" class="md-toc-link"><p>Bit rate Introduction</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#设置码率" class="md-toc-link">
+            <p>设置码率</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cbr" class="md-toc-link">
+            <p>CBR</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#setting-maximum-size-of-output-file" class="md-toc-link">
+            <p>Setting Maximum size of output file</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#file-size-calculation" class="md-toc-link">
+            <p>file size calculation</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#4-resizing-and-scaling-video" class="md-toc-link">
+            <ol start="4">
+<li>Resizing and Scaling Video</li>
+</ol>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#resizing-and-scaling-video" class="md-toc-link"><p>Resizing and Scaling Video</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#补充which-one-is-correct-when-describing-the-screen-resolution-of-a-smartphone-1920x1080-or-1080x1920" class="md-toc-link">
+            <p>补充：Which one is correct when describing the screen resolution of a smartphone, 1920x1080 or 1080x1920?</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#resizing-video" class="md-toc-link">
+            <p>Resizing video</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#considerations-when-resizeng-nyquist-定理" class="md-toc-link">
+            <p>Considerations when resizeng Nyquist 定理</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#special-enlarging-filter" class="md-toc-link">
+            <p>special Enlarging filter</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#advanced-scaling" class="md-toc-link">
+            <p>Advanced scaling</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#cropping-video" class="md-toc-link"><p>cropping video</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cropping-frame-center" class="md-toc-link">
+            <p>cropping frame center</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#automatic-detection-of-cropping-area" class="md-toc-link">
+            <p>automatic detection of cropping area</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cropping-of-timer" class="md-toc-link">
+            <p>cropping of timer</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#padding-video" class="md-toc-link"><p>padding video</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#padding-basics" class="md-toc-link">
+            <p>padding basics</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#padding-videos-from-43-to-169" class="md-toc-link">
+            <p>padding videos from 4:3 to 16:9</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#padding-from-and-to-various-aspect-ratios" class="md-toc-link">
+            <p>padding from and to various aspect ratios</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#flipping-and-rotating-video" class="md-toc-link">
+            <p>flipping and rotating video</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#blur-sharpen-and-other-denosing" class="md-toc-link"><p>Blur, Sharpen and Other Denosing</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#blur-video-effect" class="md-toc-link">
+            <p>Blur video effect</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#noise-reductino-with-hqdn3d" class="md-toc-link">
+            <p>noise reductino with hqdn3d</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#overlay-picture-in-picture" class="md-toc-link">
+            <p>Overlay picture in picture</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#adding-text-on-video" class="md-toc-link"><p>Adding Text on Video</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction" class="md-toc-link">
+            <p>Introduction</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#dynamic-text" class="md-toc-link">
+            <p>Dynamic text</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#conversion-between-formats" class="md-toc-link"><p>Conversion Between Formats</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#transcoding-and-conversion" class="md-toc-link">
+            <p>transcoding and conversion</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#time-operations" class="md-toc-link"><p>time operations</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#delay-between-input-streams" class="md-toc-link">
+            <p>delay between input streams</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#limit-for-processing-time" class="md-toc-link">
+            <p>limit for processing time</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#shortest-stream-determins-encoding-time" class="md-toc-link">
+            <p>shortest stream determins encoding time</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#timestamp-and-time-bases" class="md-toc-link">
+            <p>timestamp and time bases</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#encoding-timebase-setting" class="md-toc-link">
+            <p>encoding timebase setting</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#audio-and-video-speed-modifications" class="md-toc-link">
+            <p>audio and video speed modifications</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#audio-speed-change" class="md-toc-link"><p>audio speed change</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#synchronizing-audio-data-with-timestamps" class="md-toc-link">
+            <p>synchronizing audio data with timestamps</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#mathematical-functions" class="md-toc-link">
+            <p>Mathematical Functions</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#metadata-and-subtitles" class="md-toc-link"><p>metadata and subtitles</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction-to-metadata" class="md-toc-link">
+            <p>Introduction to metadata</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#saving-and-loading-metadata-to-file" class="md-toc-link">
+            <p>saving and loading metadata to file</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#subtitle" class="md-toc-link">
+            <p>subtitle</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#image-processing" class="md-toc-link"><p>Image Processing</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#creating-images" class="md-toc-link"><p>creating images</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#screenshots-from-videos" class="md-toc-link">
+            <p>screenshots from videos</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#video-conversion-to-images" class="md-toc-link">
+            <p>video conversion to images</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#resizing-cropping-and-padding-images" class="md-toc-link">
+            <p>resizing, cropping and padding images</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#flipping-rotating-and-overlaying" class="md-toc-link">
+            <p>flipping rotating and overlaying</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#conversion-between-image-types" class="md-toc-link">
+            <p>conversion between image types</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#creating-video-from-images" class="md-toc-link"><p>creating video from images</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#creating-video-from-images-1" class="md-toc-link">
+            <p>creating video from images</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#creating-video-from-many-images" class="md-toc-link">
+            <p>creating video from many images</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#digital-audio" class="md-toc-link"><p>Digital Audio</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction-1" class="md-toc-link">
+            <p>introduction</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#audio-file-formats" class="md-toc-link">
+            <p>audio file formats</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#sound-synthesis" class="md-toc-link">
+            <p>sound synthesis</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#stereo-and-more-complex-sounds" class="md-toc-link">
+            <p>stereo and more complex sounds</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#sound-volume-setting" class="md-toc-link">
+            <p>sound volume setting</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#multiple-sounds-mixed-to-one-output" class="md-toc-link">
+            <p>multiple sounds mixed to one output</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#downmixing-stereo-to-mono-surround-to-stereo" class="md-toc-link">
+            <p>downmixing stereo to mono, surround to stereo</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#simple-audio-analyzer" class="md-toc-link">
+            <p>simple audio analyzer</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#adjusting-audio-for-listening-with-headphones" class="md-toc-link">
+            <p>adjusting audio for listening with headphones</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#audio-modifications-with--map_channel-option" class="md-toc-link">
+            <p>audio modifications with -map_channel option</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#merging-2-audio-streams-to-1-multichannel-stream" class="md-toc-link">
+            <p>merging 2 audio streams to 1 multichannel stream</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#audio-stream-forwarding-with-buffer-order-control" class="md-toc-link">
+            <p>audio stream forwarding with buffer order control</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#persets-for-codecs" class="md-toc-link"><p>persets for codecs</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction-2" class="md-toc-link">
+            <p>introduction</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#interlaced-video" class="md-toc-link"><p>Interlaced video</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ntsc-pal-secam-tv-standards" class="md-toc-link"><p>NTSC PAL SECAM TV standards</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#pal" class="md-toc-link">
+            <p>PAL</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ntsc" class="md-toc-link"><p>NTSC</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#扫描线" class="md-toc-link">
+            <p>扫描线</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#各种-fps-总结" class="md-toc-link">
+            <p>各种 fps 总结</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#interlaced-frame-type-setting" class="md-toc-link">
+            <p>Interlaced frame type setting</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#field-order" class="md-toc-link">
+            <p>field order</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#deinterlacing" class="md-toc-link">
+            <p>deinterlacing</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ffmpeg-components-and-projects" class="md-toc-link"><p>ffmpeg components and projects</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffplay-introduction" class="md-toc-link">
+            <p>ffplay introduction</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ffprobe-introduction" class="md-toc-link"><p>ffprobe introduction</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffprobe-相关用法" class="md-toc-link">
+            <p>ffprobe 相关用法</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffserver-introduction" class="md-toc-link">
+            <p>ffserver introduction</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffmpeg-software-libraries" class="md-toc-link">
+            <p>ffmpeg software libraries</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#microphone-and-webcam" class="md-toc-link"><p>Microphone and Webcam</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction-3" class="md-toc-link">
+            <p>Introduction</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#batch-files" class="md-toc-link">
+            <p>batch files</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#color-corrections" class="md-toc-link">
+            <p>color corrections</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#advanced-techniques" class="md-toc-link"><p>Advanced Techniques</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#joining-audio-and-video-files" class="md-toc-link">
+            <p>joining audio and video files</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#去水印" class="md-toc-link">
+            <p>去水印</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#fixing-of-shaking-video-parts" class="md-toc-link">
+            <p>fixing of shaking video parts</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#add-color-box-to-video" class="md-toc-link">
+            <p>add color box to video</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#number-of-frames-detection" class="md-toc-link">
+            <p>number of frames detection</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#detection-of-ads-section-or-currupted-encoding" class="md-toc-link">
+            <p>detection of ads section or currupted encoding</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#selecting-specified-frames-to-output" class="md-toc-link">
+            <p>selecting specified frames to output</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
+<h1 id="ffmpeg-basics-笔记">FFmpeg Basics 笔记 </h1>
+<h2 id="ffmpeg-fundamentals">FFmpeg Fundamentals </h2>
+<p>FF fast forward 快进<br>
+mpeg(moving picture experts group)</p>
+<h3 id="ffmpeg-introduction">FFmpeg Introduction </h3>
+<p>command-line tools:</p>
+<ul>
+<li>ffmpeg</li>
+<li>ffplay</li>
+<li>ffprobe</li>
+<li>ffserver</li>
+</ul>
+<p>ffmpeg software libraries</p>
+<ul>
+<li>libavcodec</li>
+<li>libavdevice</li>
+<li>libavfilter</li>
+<li>libavformat</li>
+<li>libavutil</li>
+<li>libpostproc 后处理</li>
+<li>libswresample: audio resampling</li>
+<li>libswscale: mediascaling</li>
+</ul>
+<h3 id="developers-of-ffmpeg">Developers of FFmpeg </h3>
+<h3 id="participation-in-ffmpeg-development">Participation in FFmpeg development </h3>
+<h3 id="ffmpeg-download">FFmpeg download </h3>
+<h3 id="command-line-syntax">Command line syntax </h3>
+<p>ffmpeg [global options] [input options] -i input_1 [input options] -i input_2 [output_options] output1 [output options] output2</p>
+<p>输入输出可以是 file/pipe/stream/device</p>
+<h3 id="windows-command-prompt-and-its-alternatives">Windows Command Prompt and its alternatives </h3>
+<h3 id="path-setting">Path Setting </h3>
+<h3 id="renaming-to-shortened-form">Renaming to shortened form </h3>
+<h3 id="displaying-output-preview">Displaying output preview </h3>
+<p>ffplay<br>
+SDL</p>
+<h3 id="si-prefixes-available-in-ffmpeg">SI prefixes available in FFmpeg </h3>
+<p>K kilo<br>
+M mega<br>
+G giga</p>
+<h3 id="using-lavfi">Using lavfi </h3>
+<p>lavfi (short for libavfilter)</p>
+<h3 id="intros">Intros </h3>
+<ul>
+<li>decode</li>
+<li>encode</li>
+<li>transcode</li>
+<li>mux:</li>
+<li>demu：x 比如将视频分出视频、音频等等</li>
+<li>stream</li>
+<li>filter</li>
+<li>play ffplay<br>
+libavfilter: 滤镜子系统</li>
+</ul>
+<h3 id="reference">reference </h3>
+<p><a href="https://github.com/FFmpeg/FFmpeg">ffmpeg git addr</a></p>
+<h2 id="displaying-help-and-features">Displaying Help and Features </h2>
+<p>configure 是编译 ffmpeg 的选项，用--list-可以查看选项支持情况<br>
+<code>ffmpeg [global options] [[infile options][‘-i’ infile]]... {[outfile options] outfile}...</code></p>
+<ul>
+<li>
+<p>显示信息</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ffmpeg <span class="token parameter variable">-i</span> h1.mp4 <span class="token comment">## 显示mp4的信息</span>
+ffmpeg <span class="token parameter variable">-i</span> <span class="token parameter variable">-hide_banner</span> h1.mp4
+<span class="token comment">## -hide_banner 仅仅显示媒体文件信息，去掉ffmpeg细节信息 All FFmpeg tools will normally show a copyright notice, build options and library versions. This option can be used to suppress printing this information.</span>
+ffmpeg <span class="token parameter variable">-b</span> <span class="token comment">## bitrate</span>
+ffmpeg <span class="token parameter variable">-formats</span> <span class="token comment">## 查看ffmpeg是否支持对应的视频文件</span>
+ffmpeg <span class="token parameter variable">-codecs</span>
+Codecs:
+D<span class="token punctuation">..</span><span class="token punctuation">..</span>. <span class="token operator">=</span> Decoding supported
+.E<span class="token punctuation">..</span><span class="token punctuation">..</span> <span class="token operator">=</span> Encoding supported
+<span class="token punctuation">..</span>V<span class="token punctuation">..</span>. <span class="token operator">=</span> Video codec
+<span class="token punctuation">..</span>A<span class="token punctuation">..</span>. <span class="token operator">=</span> Audio codec
+<span class="token punctuation">..</span>S<span class="token punctuation">..</span>. <span class="token operator">=</span> Subtitle codec
+<span class="token punctuation">..</span>.I<span class="token punctuation">..</span> <span class="token operator">=</span> Intra frame-only codec
+<span class="token punctuation">..</span><span class="token punctuation">..</span>L. <span class="token operator">=</span> Lossy compression
+<span class="token punctuation">..</span><span class="token punctuation">..</span>.S <span class="token operator">=</span> Lossless compression
+<span class="token parameter variable">-y</span> <span class="token punctuation">(</span>global<span class="token punctuation">)</span>
+Overwrite output files without asking.
+</code></pre></li>
+</ul>
+<p>查看 ffmpeg 当前版本支持的所有解码器</p>
+<p>在源码根目录执行：<code>./configure --list-decoders</code></p>
+<h2 id="bitrate-frame-rate-and-filesize">BitRate, Frame Rate and FileSize </h2>
+<h3 id="frame-rate-setting">Frame rate setting </h3>
+<p>-r 30 表示每一秒 30 帧<br>
+-vf fps=fps=25</p>
+<p>如果比原来帧数多，就会 duplicate，否则会 dropping</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input.avi <span class="token parameter variable">-r</span> <span class="token number">30</span> output.mp4
+ffmpeg <span class="token parameter variable">-i</span> input.avi <span class="token parameter variable">-vf</span> <span class="token assign-left variable">fps</span><span class="token operator">=</span>fps<span class="token operator">=</span><span class="token number">30</span>
+</code></pre><h3 id="bit-rate-introduction">Bit rate Introduction </h3>
+<p>参考 <a href="../FFmpeg/4.%20%E7%A0%81%E7%8E%87%E6%8E%A7%E5%88%B6.md">码率控制</a></p>
+<h4 id="设置码率">设置码率 </h4>
+<p><code>-b</code> <code>-b:v</code> <code>-b:a</code>指定视频或音频</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> file.avi <span class="token parameter variable">-b</span> <span class="token number">1</span>.5M film.mp4
+ffmpeg <span class="token parameter variable">-i</span> file.avi <span class="token parameter variable">-b:v</span> 1500k output.mp4 <span class="token comment">## 只设置video</span>
+</code></pre><h4 id="cbr">CBR </h4>
+<p><code>-b</code> <code>minrate</code> <code>-maxrate</code> 这三个的值相同。<code>-bufsize</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> in.avi <span class="token parameter variable">-b</span> <span class="token number">0</span>.5M <span class="token parameter variable">-minrate</span> <span class="token number">0</span>.5M <span class="token parameter variable">-maxrate</span> <span class="token number">0</span>.5M <span class="token parameter variable">-bufsize</span> 1M output.mkv
+</code></pre><h4 id="setting-maximum-size-of-output-file">Setting Maximum size of output file </h4>
+<p><code>-fs</code> file size</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input.avi <span class="token parameter variable">-fs</span> 10MB output.mp4
+</code></pre><h4 id="file-size-calculation">file size calculation </h4>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mi>i</mi><mi>d</mi><mi>e</mi><msub><mi>o</mi><mi>s</mi></msub><mi>i</mi><mi>z</mi><mi>e</mi><mo>=</mo><mi>v</mi><mi>i</mi><mi>d</mi><mi>e</mi><msub><mi>o</mi><mi>b</mi></msub><mi>i</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>e</mi><mo>∗</mo><mi>t</mi><mi>i</mi><mi>m</mi><msub><mi>e</mi><mi>i</mi></msub><msub><mi>n</mi><mi>s</mi></msub><mi>e</mi><mi>c</mi><mi mathvariant="normal">/</mi><mn>8</mn></mrow><annotation encoding="application/x-tex">video_size=video_bitrate * time_in_sec / 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">i</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord"><span class="mord mathnormal">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">i</span><span class="mord mathnormal">ze</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">i</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord"><span class="mord mathnormal">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">im</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">ec</span><span class="mord">/8</span></span></span></span></span><br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mi>u</mi><mi>d</mi><mi>i</mi><msub><mi>o</mi><mi>s</mi></msub><mi>i</mi><mi>z</mi><msub><mi>e</mi><mi>u</mi></msub><mi>n</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>p</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>s</mi><mo>=</mo><mi>s</mi><mi>a</mi><mi>m</mi><mi>p</mi><mi>l</mi><msub><mi>e</mi><mi>r</mi></msub><mi>a</mi><mi>t</mi><mi>e</mi><mo>∗</mo><mi>b</mi><mi>i</mi><msub><mi>t</mi><mi>d</mi></msub><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi><mo>∗</mo><mi>c</mi><mi>h</mi><mi>a</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>l</mi><mi>s</mi><mo>∗</mo><mi>t</mi><mi>i</mi><mi>m</mi><msub><mi>e</mi><mi>i</mi></msub><msub><mi>n</mi><mi>s</mi></msub><mi>e</mi><mi>c</mi><mi mathvariant="normal">/</mi><mn>8</mn></mrow><annotation encoding="application/x-tex">audio_size_uncompress=sample_rate*bit_depth*channels*time_in_sec/8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">u</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord"><span class="mord mathnormal">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mord mathnormal">co</span><span class="mord mathnormal">m</span><span class="mord mathnormal">p</span><span class="mord mathnormal">ress</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">am</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">bi</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">pt</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">hann</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">im</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">ec</span><span class="mord">/8</span></span></span></span></span><br>
+<span style="color: #ee7f49; font-weight: 500;">ParseError: KaTeX parse error: Undefined control sequence: \* at position 37: …=audio_bitrate \̲*̲ time_in_sec / …</span></p>
+<p>在数字音频与脉冲编码调变中，音频位深度是指每次采样存储着多少比特的信息，数值直接对应着每次采样的分辨率。比如，数字音乐光盘采用 16 位存储采样，则每个采样点可以存储 65,536 种可能振幅值之一；DVD-A 与蓝光光盘则最高可支持 24 位，即每个采样点最多可以存储 16,777,216 种可能振幅值之一。</p>
+<h2 id="4-resizing-and-scaling-video">4. Resizing and Scaling Video </h2>
+<h2 id="resizing-and-scaling-video">Resizing and Scaling Video </h2>
+<h3 id="补充which-one-is-correct-when-describing-the-screen-resolution-of-a-smartphone-1920x1080-or-1080x1920">补充：Which one is correct when describing the screen resolution of a smartphone, 1920x1080 or 1080x1920? </h3>
+<p>Both are correct</p>
+<h3 id="resizing-video">Resizing video </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-s</span> 320x240 output_file
+</code></pre><h3 id="considerations-when-resizeng-nyquist-定理">Considerations when resizeng Nyquist 定理 </h3>
+<p>简单来说：如果采样周期的整数倍时间，无法检测到相位的变化。</p>
+<p>采样周期要小于整数周期的 1/2，采样频率大于原始频率的 2 倍。</p>
+<p>QQVGA 小于 2 像素的都会不可见。至少 3 像素可见。</p>
+<h3 id="special-enlarging-filter">special Enlarging filter </h3>
+<p>super2xsai: 宽高均*2</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> super2xsai output
+</code></pre><h3 id="advanced-scaling">Advanced scaling </h3>
+<p><code>-vf scale=宽：高</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token parameter variable">-vf</span> <span class="token assign-left variable">scale</span><span class="token operator">=</span>iw/2:ih/2
+<span class="token parameter variable">-vf</span> <span class="token assign-left variable">scale</span><span class="token operator">=</span>iw*0.9:ih*0.9
+<span class="token comment">## 等比例缩放</span>
+<span class="token parameter variable">-vf</span> <span class="token assign-left variable">scale</span><span class="token operator">=</span><span class="token number">400</span>:400/a
+<span class="token parameter variable">-vf</span> <span class="token assign-left variable">scale</span><span class="token operator">=</span><span class="token number">300</span>*a:300
+</code></pre><h2 id="cropping-video">cropping video </h2>
+<p>截取画面中的一部分 select a wanted rectangular area</p>
+<p><code>crop=ow:oh:x:y:keep_aspect</code></p>
+<p>ow oh 字面意思<br>
+xy 是从坐上位中心的坐标位置。</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">crop</span><span class="token operator">=</span>iw/3:ih:0:0 output
+ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">crop</span><span class="token operator">=</span>iw/3:ih:iw/3:0 output
+ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">crop</span><span class="token operator">=</span>iw/3:ih:iw/3*2:0 output
+</code></pre><h3 id="cropping-frame-center">cropping frame center </h3>
+<p>xy 默认值是<code>(i-o)/2</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">crop</span><span class="token operator">=</span>w:h output_file
+</code></pre><h3 id="automatic-detection-of-cropping-area">automatic detection of cropping area </h3>
+<p>用来裁掉黑色边框的。</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">cropdetect</span><span class="token operator">=</span>limit<span class="token operator">=</span><span class="token number">0</span> output
+</code></pre><p>0 is complete black</p>
+<h3 id="cropping-of-timer">cropping of timer </h3>
+<h2 id="padding-video">padding video </h2>
+<p>增加额外的空白面积</p>
+<h3 id="padding-basics">padding basics </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token parameter variable">-vf</span> <span class="token assign-left variable">pad</span><span class="token operator">=</span>width:height:x:y:color
+<span class="token parameter variable">-vf</span> <span class="token assign-left variable">pad</span><span class="token operator">=</span><span class="token number">860</span>:660:30:30:pink
+</code></pre><h3 id="padding-videos-from-43-to-169">padding videos from 4:3 to 16:9 </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">pad</span><span class="token operator">=</span>ih*16/9:ih:<span class="token punctuation">(</span>ow-iw<span class="token punctuation">)</span>/2:0 film_wide.avi
+ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">pad</span><span class="token operator">=</span>iw:iw*3/4:0:<span class="token punctuation">(</span>oh-ih<span class="token punctuation">)</span>/2:color output
+</code></pre><h3 id="padding-from-and-to-various-aspect-ratios">padding from and to various aspect ratios </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">pad</span><span class="token operator">=</span>ih*ar:ih<span class="token punctuation">(</span>ow-iw<span class="token punctuation">)</span>/2:0:color output
+</code></pre><h2 id="flipping-and-rotating-video">flipping and rotating video </h2>
+<p><code>-vf hflip</code> 水平左右翻转<br>
+<code>-vf vflip</code> 上下翻转</p>
+<p><code>-vf transpose=0</code><br>
+0 逆时针 90 度，然后上下翻转<br>
+1 顺时针 90 度<br>
+2 逆时针 90 度<br>
+3 顺时针 90 度，然后上下翻转</p>
+<h2 id="blur-sharpen-and-other-denosing">Blur, Sharpen and Other Denosing </h2>
+<h3 id="blur-video-effect">Blur video effect </h3>
+<h3 id="noise-reductino-with-hqdn3d">noise reductino with hqdn3d </h3>
+<p><code>-vf hqdn3d</code></p>
+<p>high quality denoise 3-dimensional</p>
+<p><code>-nr</code> noise redution</p>
+<h2 id="overlay-picture-in-picture">Overlay picture in picture </h2>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-i</span> input_2 <span class="token parameter variable">-filter_complex</span> <span class="token assign-left variable">overlay</span><span class="token operator">=</span>x:y output
+ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-i</span> input_2 <span class="token parameter variable">-filter_complex</span> overlay output <span class="token comment">## 左上角</span>
+ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-i</span> input_2 <span class="token parameter variable">-filter_complex</span> <span class="token assign-left variable">overlay</span><span class="token operator">=</span>W-w output <span class="token comment">## 右上角</span>
+ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-i</span> input_2 <span class="token parameter variable">-filter_complex</span> <span class="token assign-left variable">overlay</span><span class="token operator">=</span>W-w:H-h output <span class="token comment">## 右下角</span>
+ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-i</span> input_2 <span class="token parameter variable">-filter_complex</span> <span class="token assign-left variable">overlay</span><span class="token operator">=</span><span class="token number">0</span>:H-h output <span class="token comment">## 左下角</span>
+</code></pre><p>以左上角为中心，添加 logo 用得比较多。</p>
+<h2 id="adding-text-on-video">Adding Text on Video </h2>
+<h3 id="introduction">Introduction </h3>
+<p><code>drawtext=fontfile=font_f=text=text1</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffplay <span class="token parameter variable">-f</span> lavfi <span class="token parameter variable">-i</span> <span class="token assign-left variable">color</span><span class="token operator">=</span>c<span class="token operator">=</span>white <span class="token parameter variable">-vf</span> <span class="token assign-left variable">drawtext</span><span class="token operator">=</span>fontfile<span class="token operator">=</span>/usr/share/fonts/TTF:text<span class="token operator">=</span>Welcome
+ffplay <span class="token parameter variable">-f</span> lavfi <span class="token parameter variable">-i</span> <span class="token assign-left variable">color</span><span class="token operator">=</span>c<span class="token operator">=</span>white <span class="token parameter variable">-vf</span> <span class="token assign-left variable">drawtext</span><span class="token operator">=</span><span class="token string">"fontfile=/usr/share/fonts/TTF:text='Welcome':x=(w-tw)/2:y=(h-th)/2"</span>
+ffplay <span class="token parameter variable">-f</span> lavfi <span class="token parameter variable">-i</span> <span class="token assign-left variable">color</span><span class="token operator">=</span>c<span class="token operator">=</span>white <span class="token parameter variable">-vf</span> <span class="token assign-left variable">drawtext</span><span class="token operator">=</span><span class="token string">"fontfile=/usr/share/fonts/TTF:text='Welcome':x=(w-tw)/2:y=(h-th)/2:fontcolor=green:fontsize=30"</span>
+</code></pre><h3 id="dynamic-text">Dynamic text </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-f</span> lavfi <span class="token parameter variable">-i</span> <span class="token assign-left variable">color</span><span class="token operator">=</span>c<span class="token operator">=</span>white <span class="token parameter variable">-vf</span> <span class="token assign-left variable">drawtext</span><span class="token operator">=</span><span class="token string">"fontfile=/usr/share/fonts/TTF:text='Welcome':x=w-t*50"</span>
+</code></pre><h2 id="conversion-between-formats">Conversion Between Formats </h2>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-formats</span>
+</code></pre><ol>
+<li>container change, codec remain</li>
+</ol>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-q</span> <span class="token number">1</span> <span class="token parameter variable">-c</span> copy output.mpv
+</code></pre><h3 id="transcoding-and-conversion">transcoding and conversion </h3>
+<p><code>-c copy</code> codec copy</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-codecs</span>
+ffmepg <span class="token parameter variable">-decoders</span>
+ffmepg <span class="token parameter variable">-encoders</span>
+</code></pre><p><code>-q</code> <code>-qscale</code> keep same quality</p>
+<h2 id="time-operations">time operations </h2>
+<p><code>-t</code> 设置时间，单位秒数</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> music.mp3 <span class="token parameter variable">-t</span> <span class="token number">180</span> music_3.mp3
+</code></pre><p><code>-vframes</code> <code>-aframes</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> video <span class="token parameter variable">-vframes</span> <span class="token number">25000</span> output.mp4
+</code></pre><p><code>-ss</code> seek from start</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-ss</span> <span class="token number">10</span> output
+</code></pre><h3 id="delay-between-input-streams">delay between input streams </h3>
+<p><code>-map</code> select particular stream.</p>
+<p><code>-itsoffset</code> input timestamp offset</p>
+<p>话音不同步</p>
+<p>假设视频快 5 秒，用 command 矫正：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-map</span> <span class="token number">0</span>:v <span class="token parameter variable">-itsoffset</span> <span class="token number">5</span> <span class="token parameter variable">-map</span> <span class="token number">0</span>:a <span class="token parameter variable">-c:a</span> copy <span class="token parameter variable">-c:v</span> copy output
+</code></pre><h3 id="limit-for-processing-time">limit for processing time </h3>
+<p><code>ffmpeg  -i input -timelimit 600 output</code><br>
+限制编码 600 后结束</p>
+<h3 id="shortest-stream-determins-encoding-time">shortest stream determins encoding time </h3>
+<p><code>ffmpeg -i video.avi -i audio.mp3 -shortest output.mp4</code></p>
+<h3 id="timestamp-and-time-bases">timestamp and time bases </h3>
+<p>tbn：对应容器中的时间基。值是 AVStream.time_base 的倒数<br>
+tbc：对应编解码器中的时间基。值是 AVCodecContext.time_base 的倒数<br>
+tbr：从视频流中猜算得到，可能是帧率或场率(帧率的 2 倍)</p>
+<h3 id="encoding-timebase-setting">encoding timebase setting </h3>
+<p><code>copytb</code> specify an encoder timebase for the stream copy</p>
+<pre data-role="codeBlock" data-info="log" class="language-log log"><code>The <span class="token string">"-c copy"</span> means it will just copy the audio and video tracks without re<span class="token operator">-</span>encoding them<span class="token punctuation">.</span>
+The <span class="token string">"-copyts"</span> flag means it will copy timestamps<span class="token punctuation">,</span> which should help with syncing audio and video<span class="token punctuation">.</span>
+å
+<span class="token operator">-</span>c copy is used to copy all video<span class="token operator">/</span>audio<span class="token operator">/</span>subtitles streams
+<span class="token operator">-</span>copyts copy timestamps from original source <span class="token operator">(</span>does not create new timestamps<span class="token operator">)</span>
+Are there Pros<span class="token operator">/</span> Cons to <span class="token string">"Copy Timestamps"</span> vs <span class="token string">"Create New Timestaps"</span><span class="token operator">?</span>
+<span class="token operator">-</span>copytb copy timebase which is for example<span class="token punctuation">,</span> the same thing as your timeline timebase
+</code></pre><h3 id="audio-and-video-speed-modifications">audio and video speed modifications </h3>
+<p><code>setpts=expresssion</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffplay <span class="token parameter variable">-i</span> input <span class="token parameter variable">-vf</span> <span class="token assign-left variable">setpts</span><span class="token operator">=</span>PTS/3
+</code></pre><h3 id="audio-speed-change">audio speed change </h3>
+<p><code>atempo=</code></p>
+<p>二倍速</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffplay <span class="token parameter variable">-i</span> speech.mp4 <span class="token parameter variable">-af</span> <span class="token assign-left variable">atempo</span><span class="token operator">=</span><span class="token number">2</span>
+</code></pre><h4 id="synchronizing-audio-data-with-timestamps">synchronizing audio data with timestamps </h4>
+<p><code>asyncts=param</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-af</span> <span class="token assign-left variable">asyncts</span><span class="token operator">=</span>compensate<span class="token operator">=</span><span class="token number">1</span> <span class="token parameter variable">-f</span> mpegts music.ts
+</code></pre><h2 id="mathematical-functions">Mathematical Functions </h2>
+<h2 id="metadata-and-subtitles">metadata and subtitles </h2>
+<h3 id="introduction-to-metadata">Introduction to metadata </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-metadata</span> <span class="token assign-left variable">artist</span><span class="token operator">=</span>FFmpeg <span class="token parameter variable">-metadata</span> <span class="token assign-left variable">title</span><span class="token operator">=</span><span class="token string">"Test 1"</span> output.mp4
+</code></pre><p>metadata 是 kv 对，asf/flv/matroska/wma/wmv 支持各种 metadata，就是输入啥都行。</p>
+<pre data-role="codeBlock" data-info="log" class="language-log log"><code>Input <span class="token operator">#</span><span class="token number">0</span><span class="token punctuation">,</span> mov<span class="token punctuation">,</span>mp4<span class="token punctuation">,</span>m4a<span class="token punctuation">,</span><span class="token number">3gp</span><span class="token punctuation">,</span>3g2<span class="token punctuation">,</span>mj2<span class="token punctuation">,</span> from <span class="token string">'output.mp4'</span><span class="token operator">:</span>
+  <span class="token property">Metadata:</span>
+    major_brand     <span class="token operator">:</span> isom
+    minor_version   <span class="token operator">:</span> <span class="token number">512</span>
+    <span class="token property">compatible_brands:</span> isomiso2mp41
+    title           <span class="token operator">:</span> test <span class="token number">1</span>
+    artist          <span class="token operator">:</span> FFmpeg
+    encoder         <span class="token operator">:</span> Lavf58<span class="token punctuation">.</span>65<span class="token punctuation">.</span>101
+  <span class="token property">Duration:</span> <span class="token time number">00:07:37.02</span><span class="token punctuation">,</span> start<span class="token operator">:</span> <span class="token number">0.000000</span><span class="token punctuation">,</span> bitrate<span class="token operator">:</span> <span class="token number">1571</span> kb<span class="token operator">/</span>s
+    Stream <span class="token operator">#</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">0</span><span class="token operator">(</span>und<span class="token operator">)</span><span class="token operator">:</span> Video<span class="token operator">:</span> mpeg4 <span class="token operator">(</span>Simple Profile<span class="token operator">)</span> <span class="token operator">(</span>mp4v <span class="token operator">/</span> <span class="token number">0x7634706D</span><span class="token operator">)</span><span class="token punctuation">,</span> yuv420p<span class="token punctuation">,</span> 1920x1080 <span class="token punctuation">[</span>SAR <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span> DAR <span class="token number">16</span><span class="token operator">:</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1439</span> kb<span class="token operator">/</span>s<span class="token punctuation">,</span> <span class="token number">23.98</span> fps<span class="token punctuation">,</span> <span class="token number">23.98</span> tbr<span class="token punctuation">,</span> <span class="token number">24k</span> tbn<span class="token punctuation">,</span> <span class="token number">24k</span> tbc <span class="token operator">(</span>default<span class="token operator">)</span>
+    <span class="token property">Metadata:</span>
+      handler_name    <span class="token operator">:</span> VideoByEZMediaEditor
+      vendor_id       <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    Stream <span class="token operator">#</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">(</span>jpn<span class="token operator">)</span><span class="token operator">:</span> Audio<span class="token operator">:</span> aac <span class="token operator">(</span>LC<span class="token operator">)</span> <span class="token operator">(</span>mp4a <span class="token operator">/</span> <span class="token number">0x6134706D</span><span class="token operator">)</span><span class="token punctuation">,</span> <span class="token number">44100</span> Hz<span class="token punctuation">,</span> stereo<span class="token punctuation">,</span> fltp<span class="token punctuation">,</span> <span class="token number">128</span> kb<span class="token operator">/</span>s <span class="token operator">(</span>default<span class="token operator">)</span>
+    <span class="token property">Metadata:</span>
+      handler_name    <span class="token operator">:</span> Audio1<span class="token operator">-</span>jpn
+      vendor_id       <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+At least one output file must be specified
+</code></pre><h3 id="saving-and-loading-metadata-to-file">saving and loading metadata to file </h3>
+<p>save</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-f</span> ffmetadata data.txt
+</code></pre><p>load</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> data.txt <span class="token parameter variable">-i</span> input.mp4 output.mp4
+</code></pre><h3 id="subtitle">subtitle </h3>
+<p>srt 格式</p>
+<p>也有不同的 codec</p>
+<h2 id="image-processing">Image Processing </h2>
+<h3 id="creating-images">creating images </h3>
+<h4 id="screenshots-from-videos">screenshots from videos </h4>
+<p>在第 180 秒截图一张</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-ss</span> <span class="token number">180</span> image.type
+</code></pre><p>这里 pixel format 必须 rgb24</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> input <span class="token parameter variable">-pix_fmt</span> rgb24 res.gif
+</code></pre><p>创建一个纯色图片用 color 参数</p>
+<h4 id="video-conversion-to-images">video conversion to images </h4>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> clip.avi frame%d.jpg <span class="token comment">## 1 2 3 4 ...112 223 ...</span>
+ffmpeg <span class="token parameter variable">-i</span> clip.avi frame%4d.jpg <span class="token comment">## 0001 0002 0003 0004</span>
+</code></pre><h4 id="resizing-cropping-and-padding-images">resizing, cropping and padding images </h4>
+<p>同 video</p>
+<h4 id="flipping-rotating-and-overlaying">flipping rotating and overlaying </h4>
+<p>hflip vflip，同 video</p>
+<h4 id="conversion-between-image-types">conversion between image types </h4>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> image.type1 image.type2
+</code></pre><h3 id="creating-video-from-images">creating video from images </h3>
+<h4 id="creating-video-from-images-1">creating video from images </h4>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-loop</span> <span class="token number">1</span> <span class="token parameter variable">-i</span> photo.jpg <span class="token parameter variable">-t</span> <span class="token number">10</span> photo.mp4
+</code></pre><h4 id="creating-video-from-many-images">creating video from many images </h4>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-f</span> image2 <span class="token parameter variable">-i</span> img%d.jpg <span class="token parameter variable">-r</span> <span class="token number">25</span> video.mp4
+</code></pre><h2 id="digital-audio">Digital Audio </h2>
+<h3 id="introduction-1">introduction </h3>
+<h3 id="audio-file-formats">audio file formats </h3>
+<h3 id="sound-synthesis">sound synthesis </h3>
+<h3 id="stereo-and-more-complex-sounds">stereo and more complex sounds </h3>
+<h3 id="sound-volume-setting">sound volume setting </h3>
+<p><code>-volume=vol</code></p>
+<p><code>-volume=10db</code></p>
+<p><code>-volume=2/3</code></p>
+<h3 id="multiple-sounds-mixed-to-one-output">multiple sounds mixed to one output </h3>
+<p><code>amix=inputs=4:dropout_transition=5</code></p>
+<h3 id="downmixing-stereo-to-mono-surround-to-stereo">downmixing stereo to mono, surround to stereo </h3>
+<p><code>pan=</code></p>
+<h3 id="simple-audio-analyzer">simple audio analyzer </h3>
+<p><code>-af ashowinfo</code></p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-report</span> <span class="token parameter variable">-i</span> <span class="token number">264</span>.mp3 <span class="token parameter variable">-af</span> ashowinfo <span class="token parameter variable">-f</span> null /dev/null
+</code></pre><pre data-role="codeBlock" data-info="log" class="language-log log"><code><span class="token punctuation">[</span>Parsed_ashowinfo_0 <span class="token operator">@</span> <span class="token number">0x7fe1cbd1a2c0</span><span class="token punctuation">]</span> n<span class="token operator">:</span><span class="token number">41230</span> pts<span class="token operator">:</span><span class="token number">47495855</span> pts_time<span class="token operator">:</span><span class="token number">1077</span> pos<span class="token operator">:</span><span class="token number">17232841</span> fmt<span class="token operator">:</span>fltp channels<span class="token operator">:</span><span class="token number">2</span> chlayout<span class="token operator">:</span>stereo rate<span class="token operator">:</span><span class="token number">44100</span> nb_samples<span class="token operator">:</span><span class="token number">1152</span> checksum<span class="token operator">:</span><span class="token number">58E5F619</span> plane_checksums<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">2015F984</span> E98DFC86 <span class="token punctuation">]</span>
+<span class="token punctuation">[</span>Parsed_ashowinfo_0 <span class="token operator">@</span> <span class="token number">0x7fe1cbd1a2c0</span><span class="token punctuation">]</span> n<span class="token operator">:</span><span class="token number">41231</span> pts<span class="token operator">:</span><span class="token number">47497007</span> pts_time<span class="token operator">:</span><span class="token number">1077.03</span> pos<span class="token operator">:</span><span class="token number">17233259</span> fmt<span class="token operator">:</span>fltp channels<span class="token operator">:</span><span class="token number">2</span> chlayout<span class="token operator">:</span>stereo rate<span class="token operator">:</span><span class="token number">44100</span> nb_samples<span class="token operator">:</span><span class="token number">1152</span> checksum<span class="token operator">:</span><span class="token number">8E980E93</span> plane_checksums<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">85F6FE29</span> <span class="token number">1A82105B</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span>Parsed_ashowinfo_0 <span class="token operator">@</span> <span class="token number">0x7fe1cbd1a2c0</span><span class="token punctuation">]</span> n<span class="token operator">:</span><span class="token number">41232</span> pts<span class="token operator">:</span><span class="token number">47498159</span> pts_time<span class="token operator">:</span><span class="token number">1077.06</span> pos<span class="token operator">:</span><span class="token number">17233677</span> fmt<span class="token operator">:</span>fltp channels<span class="token operator">:</span><span class="token number">2</span> chlayout<span class="token operator">:</span>stereo rate<span class="token operator">:</span><span class="token number">44100</span> nb_samples<span class="token operator">:</span><span class="token number">1152</span> checksum<span class="token operator">:</span><span class="token number">07338488</span> plane_checksums<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">166FBEB5</span> <span class="token number">6D8EC5C4</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span>Parsed_ashowinfo_0 <span class="token operator">@</span> <span class="token number">0x7fe1cbd1a2c0</span><span class="token punctuation">]</span> n<span class="token operator">:</span><span class="token number">41233</span> pts<span class="token operator">:</span><span class="token number">47499311</span> pts_time<span class="token operator">:</span><span class="token number">1077.08</span> pos<span class="token operator">:</span><span class="token number">17234095</span> fmt<span class="token operator">:</span>fltp channels<span class="token operator">:</span><span class="token number">2</span> chlayout<span class="token operator">:</span>stereo rate<span class="token operator">:</span><span class="token number">44100</span> nb_samples<span class="token operator">:</span><span class="token number">1152</span> checksum<span class="token operator">:</span><span class="token number">88DF8EF9</span> plane_checksums<span class="token operator">:</span> <span class="token punctuation">[</span> AE7FC290 ED10CC5A <span class="token punctuation">]</span>
+<span class="token punctuation">[</span>Parsed_ashowinfo_0 <span class="token operator">@</span> <span class="token number">0x7fe1cbd1a2c0</span><span class="token punctuation">]</span> n<span class="token operator">:</span><span class="token number">41234</span> pts<span class="token operator">:</span><span class="token number">47500463</span> pts_time<span class="token operator">:</span><span class="token number">1077.11</span> pos<span class="token operator">:</span><span class="token number">17234513</span> fmt<span class="token operator">:</span>fltp channels<span class="token operator">:</span><span class="token number">2</span> chlayout<span class="token operator">:</span>stereo rate<span class="token operator">:</span><span class="token number">44100</span> nb_samples<span class="token operator">:</span><span class="token number">1152</span> checksum<span class="token operator">:</span>A6B1ACD7 plane_checksums<span class="token operator">:</span> <span class="token punctuation">[</span> B158BEC9 <span class="token number">0A14EDFF</span> <span class="token punctuation">]</span>
+</code></pre><h3 id="adjusting-audio-for-listening-with-headphones">adjusting audio for listening with headphones </h3>
+<p><code>-af earwax</code></p>
+<h3 id="audio-modifications-with--map_channel-option">audio modifications with -map_channel option </h3>
+<h3 id="merging-2-audio-streams-to-1-multichannel-stream">merging 2 audio streams to 1 multichannel stream </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> moni1.mp3 <span class="token parameter variable">-af</span> <span class="token assign-left variable">amovie</span><span class="token operator">=</span>moni2.mp3<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">[</span>in<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>amerge stereo.mp3
+</code></pre><h3 id="audio-stream-forwarding-with-buffer-order-control">audio stream forwarding with buffer order control </h3>
+<p>astreamsync</p>
+<h2 id="persets-for-codecs">persets for codecs </h2>
+<h3 id="introduction-2">introduction </h3>
+<p>preset files: 文本文件，用于容器化，包含选项，主要是 kv 对。</p>
+<p><code>-fpre mpeg2.ffpreset</code></p>
+<h2 id="interlaced-video">Interlaced video </h2>
+<p>场（Field）：是电视成像中的单位，电视成像还有摄像机采集都是通过隔行扫描来实现。先扫描奇数行，再扫描偶数行，这么做的原因是，如果一次扫描所有行，过程消耗的时间比较长，电视屏幕上的荧光衰减会造成人眼视觉的闪烁感。注意：将相邻的场拼起来并不能和帧完全相同。因为存在着时间差，比如 PAL 规定中，一场的时间大概是 1/50 秒。场一般是帧数的 2 倍。</p>
+<p>interlace scan：隔行扫描，将图像显示在扫描式的显示设备上的方法，比如显示在阴极射线管（CRT），传统电视。隔行扫描：实际上电视所使用的扫描方式为“间条式 interlance”或称交错式的扫描，此一方法首先扫描 1，3，5，7……等奇数扫描线以构成第一个图场（field），然后再扫描 2，4，6，8……等。偶数扫描线以构成第二个图场（field），两个图场构成一个图框，如下图所示，以 NTSC 电视系统而言，每一秒可产生 30 个图框（60 个图场），等效上，相当于每秒出现 60 桢的画像，可以减少画面的闪烁（flicker）现象，并节省一半的频率。<br>
+progressive scan：逐行扫描，在显示设备表示运动图像的方法，这种方法将每帧的所有像素同时显示。<br>
+deinterlacing：将隔行扫描的影像信号转换为逐行扫描影像信号的一种方法。</p>
+<p>帧：和场一样，都是用来形成画面的。电影用帧比较多，一般人眼在 24 帧以上就会感受到连续画面。</p>
+<p>电脑的萤幕为非交错式扫描，因此其使用之扫描频率比较高。</p>
+<h3 id="ntsc-pal-secam-tv-standards">NTSC PAL SECAM TV standards </h3>
+<p>制式。</p>
+<h4 id="pal">PAL </h4>
+<p>Phase Alternating Line (PAL) is a colour encoding system for analogue television used in broadcast television systems in most countries broadcasting at 625-line / 50 field per second (576i).</p>
+<p>欧洲制式，中国也是采用的这种制式，帧率 25 fps，即 50i. 电影工业中，因为人眼对 24 fps 的图像即可认为是连续的，电影成本胶卷成本也是成本，所以一般就固定 24 fps 了。</p>
+<h4 id="ntsc">NTSC </h4>
+<p>The abbreviation NTSC can refer to the National Television System Committee, which developed the analog television color system that was introduced in North America in 1954 and stayed in use until digital conversion.</p>
+<p>主要是美国的信号制式，帧率 30 fps，实际传输中，一帧 frame 会分为 2 场来表示，也就是是 60i，传输时，信号 60Hz。</p>
+<p>每秒 60/1.001 场，扫描线</p>
+<h5 id="扫描线">扫描线 </h5>
+<p>一个图框的扫描线数是 525 条或 625 条，美国国家电视系统委员会（National Television System Committee，NTSC）制订的电视画面播映标准，明定每幅画面必需具备五百二十五条扫描线，及每秒钟必需播映三十幅画面，而欧洲国家则有每个图框 625 条扫描线，且每秒 25 个图框的电视系统。通俗地说，我们可以把电视上的画面以水平方向分割成很多很多扫瞄线，分得越细，这些画面就越清楚，而水平线数的扫瞄线数量也就越多。清晰度的单位是“电视行（TVLine）”也称线。意思是从水平方向上看，相当于将每行扫瞄线竖立起来，然后乘上 4：3 或者 16：9 的宽高比，构成水平方向的总线数。</p>
+<h4 id="各种-fps-总结">各种 fps 总结 </h4>
+<ol>
+<li>23.98(24000/1001) 23.98fps 是伴随着怎样将 24 fps 的电影转为 NTSC 信号出现的。24 fps 的电影要逐帧转为 29.97 fps 的 NTSC 的信号时，需要进行一个 3:2 pull down. <a href="https://en.wikipedia.org/wiki/Three-two_pull_down">https://en.wikipedia.org/wiki/Three-two_pull_down</a> 23.98fps 给 DVD、广播电视用，但是 PC 或者什么其他都会支持的，用这个最安全。</li>
+<li>30 29.97(30000/1001)</li>
+<li>24fps 只是电影用，pc 用，不用考虑兼容性.</li>
+<li>24-&gt;PAL: The most popular method is to speed up the material by 1/24 (≈4.1%).</li>
+</ol>
+<h3 id="interlaced-frame-type-setting">Interlaced frame type setting </h3>
+<h3 id="field-order">field order </h3>
+<h3 id="deinterlacing">deinterlacing </h3>
+<h2 id="ffmpeg-components-and-projects">ffmpeg components and projects </h2>
+<h3 id="ffplay-introduction">ffplay introduction </h3>
+<p>ffplay -showmode 1 x.mp3 将音频数据的波形显示出来。<br>
+ffplay -flags2 +export_mvs ~/Downloads/h1.mp4 -vf codecview=mv_type=fp 使用 ffplay 对所有帧的前向预测宏块运动向量做可视化处理<br>
+vis_mb_type 用来展示宏块，已经不用了</p>
+<h3 id="ffprobe-introduction">ffprobe introduction </h3>
+<p>ffprobe gathers information from multimedia streams and prints it in human- and machine-readable fashion.<br>
+ffprobe -show_streams h1.mp4<br>
+ffprobe -show_packets -print_format compact xxxx.flv<br>
+<code>ffprobe -v trace -i xxx.flv</code></p>
+<p>显示 <code>pict_type</code></p>
+<p><code>ffprobe -show_frames 好想告诉你\ -\ 第3集.MP4| grep -E 'pict_type'</code></p>
+<p>ffprobe -show_frames input.bin | grep key_frame<br>
+key_frame=1<br>
+key_frame=0<br>
+key_frame=0<br>
+key_frame=0<br>
+key_frame=0<br>
+key_frame=0</p>
+<p>从 pict_type=I 可以看出这是个关键帧，然后 key_frame=1 表示这是 IDR frame，如果 key_frame=0 表示这是 Non-IDR frame.</p>
+<p>Frames with pict_type=I yet key_frame=0</p>
+<p>This means although it is and I-frame, the decoder might still use/need previously sent frames for decoding. In contrast if key_frame=1 this would be an IDR-Frame (Instantaneous Decoder Refresh).</p>
+<h4 id="ffprobe-相关用法">ffprobe 相关用法 </h4>
+<p>ffprobe -show_packets</p>
+<pre data-role="codeBlock" data-info="log" class="language-log log"><code> <span class="token punctuation">[</span>PACKET<span class="token punctuation">]</span>
+ codec_type<span class="token operator">=</span>video
+ stream_index<span class="token operator">=</span><span class="token number">0</span>
+ pts<span class="token operator">=</span>N<span class="token operator">/</span>A
+ pts_time<span class="token operator">=</span>N<span class="token operator">/</span>A
+ dts<span class="token operator">=</span>N<span class="token operator">/</span>A
+ dts_time<span class="token operator">=</span>N<span class="token operator">/</span>A
+ duration<span class="token operator">=</span><span class="token number">48000</span>
+ duration_time<span class="token operator">=</span><span class="token number">0.040000</span>
+ convergence_duration<span class="token operator">=</span>N<span class="token operator">/</span>A
+ convergence_duration_time<span class="token operator">=</span>N<span class="token operator">/</span>A
+ size<span class="token operator">=</span><span class="token number">1075</span>
+ pos<span class="token operator">=</span><span class="token number">0</span>
+ flags<span class="token operator">=</span>K_
+ <span class="token punctuation">[</span><span class="token file-path string">/PACKET</span><span class="token punctuation">]</span>
+
+ <span class="token punctuation">[</span>PACKET<span class="token punctuation">]</span>
+ codec_type<span class="token operator">=</span>video
+ stream_index<span class="token operator">=</span><span class="token number">0</span>
+ pts<span class="token operator">=</span><span class="token number">0</span>
+ pts_time<span class="token operator">=</span><span class="token number">0.000000</span>
+ dts<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2002</span>
+ dts_time<span class="token operator">=</span><span class="token operator">-</span><span class="token number">0.083417</span>
+ duration<span class="token operator">=</span><span class="token number">1001</span>
+ duration_time<span class="token operator">=</span><span class="token number">0.041708</span>
+ convergence_duration<span class="token operator">=</span>N<span class="token operator">/</span>A
+ convergence_duration_time<span class="token operator">=</span>N<span class="token operator">/</span>A
+ size<span class="token operator">=</span><span class="token number">1051</span>
+ pos<span class="token operator">=</span><span class="token number">48</span>
+ flags<span class="token operator">=</span>K_
+ <span class="token punctuation">[</span><span class="token file-path string">/PACKET</span><span class="token punctuation">]</span>
+</code></pre><p>flags=K_</p>
+<h3 id="ffserver-introduction">ffserver introduction </h3>
+<h3 id="ffmpeg-software-libraries">ffmpeg software libraries </h3>
+<h2 id="microphone-and-webcam">Microphone and Webcam </h2>
+<h3 id="introduction-3">Introduction </h3>
+<h2 id="batch-files">batch files </h2>
+<h2 id="color-corrections">color corrections </h2>
+<h2 id="advanced-techniques">Advanced Techniques </h2>
+<h3 id="joining-audio-and-video-files">joining audio and video files </h3>
+<p>连接两个文件</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>ffmpeg <span class="token parameter variable">-i</span> concat:<span class="token string">"v1.mpg|v2.mpg"</span> <span class="token parameter variable">-c</span> copy video.mpg
+</code></pre><h3 id="去水印">去水印 </h3>
+<p><code>-vf delogo</code></p>
+<h3 id="fixing-of-shaking-video-parts">fixing of shaking video parts </h3>
+<p><code>-vf deshake</code></p>
+<h3 id="add-color-box-to-video">add color box to video </h3>
+<p><code>-vf drawbox</code></p>
+<h3 id="number-of-frames-detection">number of frames detection </h3>
+<p>ffmpeg -i 264.mp4 -c copy -f null /dev/null</p>
+<pre data-role="codeBlock" data-info="log" class="language-log log"><code>frame<span class="token operator">=</span><span class="token number">32520</span> fps<span class="token operator">=</span><span class="token number">0.0</span> q<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1.0</span> Lsize<span class="token operator">=</span>N<span class="token operator">/</span>A time<span class="token operator">=</span><span class="token time number">00:22:36.34</span> bitrate<span class="token operator">=</span>N<span class="token operator">/</span>A speed<span class="token operator">=</span><span class="token number">4.47e+03x</span>
+video<span class="token operator">:</span><span class="token number">188431kB</span> audio<span class="token operator">:</span><span class="token number">24745kB</span> subtitle<span class="token operator">:</span><span class="token number">0kB</span> other streams<span class="token operator">:</span><span class="token number">0kB</span> global headers<span class="token operator">:</span><span class="token number">0kB</span> muxing overhead<span class="token operator">:</span> unknown
+</code></pre><h3 id="detection-of-ads-section-or-currupted-encoding">detection of ads section or currupted encoding </h3>
+<p>blackdetect blackframe</p>
+<h3 id="selecting-specified-frames-to-output">selecting specified frames to output </h3>
+<p><code>select=expression</code></p>
+<p>aspect ratio: 纵横比;屏幕高宽比</p>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ffmpeg-basics-笔记" class="md-toc-link"><p>FFmpeg Basics 笔记</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ffmpeg-fundamentals" class="md-toc-link"><p>FFmpeg Fundamentals</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffmpeg-introduction" class="md-toc-link">
+            <p>FFmpeg Introduction</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#developers-of-ffmpeg" class="md-toc-link">
+            <p>Developers of FFmpeg</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#participation-in-ffmpeg-development" class="md-toc-link">
+            <p>Participation in FFmpeg development</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffmpeg-download" class="md-toc-link">
+            <p>FFmpeg download</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#command-line-syntax" class="md-toc-link">
+            <p>Command line syntax</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#windows-command-prompt-and-its-alternatives" class="md-toc-link">
+            <p>Windows Command Prompt and its alternatives</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#path-setting" class="md-toc-link">
+            <p>Path Setting</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#renaming-to-shortened-form" class="md-toc-link">
+            <p>Renaming to shortened form</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#displaying-output-preview" class="md-toc-link">
+            <p>Displaying output preview</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#si-prefixes-available-in-ffmpeg" class="md-toc-link">
+            <p>SI prefixes available in FFmpeg</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#using-lavfi" class="md-toc-link">
+            <p>Using lavfi</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#intros" class="md-toc-link">
+            <p>Intros</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#reference" class="md-toc-link">
+            <p>reference</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#displaying-help-and-features" class="md-toc-link">
+            <p>Displaying Help and Features</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#bitrate-frame-rate-and-filesize" class="md-toc-link"><p>BitRate, Frame Rate and FileSize</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#frame-rate-setting" class="md-toc-link">
+            <p>Frame rate setting</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#bit-rate-introduction" class="md-toc-link"><p>Bit rate Introduction</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#设置码率" class="md-toc-link">
+            <p>设置码率</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cbr" class="md-toc-link">
+            <p>CBR</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#setting-maximum-size-of-output-file" class="md-toc-link">
+            <p>Setting Maximum size of output file</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#file-size-calculation" class="md-toc-link">
+            <p>file size calculation</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#4-resizing-and-scaling-video" class="md-toc-link">
+            <ol start="4">
+<li>Resizing and Scaling Video</li>
+</ol>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#resizing-and-scaling-video" class="md-toc-link"><p>Resizing and Scaling Video</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#补充which-one-is-correct-when-describing-the-screen-resolution-of-a-smartphone-1920x1080-or-1080x1920" class="md-toc-link">
+            <p>补充：Which one is correct when describing the screen resolution of a smartphone, 1920x1080 or 1080x1920?</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#resizing-video" class="md-toc-link">
+            <p>Resizing video</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#considerations-when-resizeng-nyquist-定理" class="md-toc-link">
+            <p>Considerations when resizeng Nyquist 定理</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#special-enlarging-filter" class="md-toc-link">
+            <p>special Enlarging filter</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#advanced-scaling" class="md-toc-link">
+            <p>Advanced scaling</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#cropping-video" class="md-toc-link"><p>cropping video</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cropping-frame-center" class="md-toc-link">
+            <p>cropping frame center</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#automatic-detection-of-cropping-area" class="md-toc-link">
+            <p>automatic detection of cropping area</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cropping-of-timer" class="md-toc-link">
+            <p>cropping of timer</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#padding-video" class="md-toc-link"><p>padding video</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#padding-basics" class="md-toc-link">
+            <p>padding basics</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#padding-videos-from-43-to-169" class="md-toc-link">
+            <p>padding videos from 4:3 to 16:9</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#padding-from-and-to-various-aspect-ratios" class="md-toc-link">
+            <p>padding from and to various aspect ratios</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#flipping-and-rotating-video" class="md-toc-link">
+            <p>flipping and rotating video</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#blur-sharpen-and-other-denosing" class="md-toc-link"><p>Blur, Sharpen and Other Denosing</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#blur-video-effect" class="md-toc-link">
+            <p>Blur video effect</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#noise-reductino-with-hqdn3d" class="md-toc-link">
+            <p>noise reductino with hqdn3d</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#overlay-picture-in-picture" class="md-toc-link">
+            <p>Overlay picture in picture</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#adding-text-on-video" class="md-toc-link"><p>Adding Text on Video</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction" class="md-toc-link">
+            <p>Introduction</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#dynamic-text" class="md-toc-link">
+            <p>Dynamic text</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#conversion-between-formats" class="md-toc-link"><p>Conversion Between Formats</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#transcoding-and-conversion" class="md-toc-link">
+            <p>transcoding and conversion</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#time-operations" class="md-toc-link"><p>time operations</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#delay-between-input-streams" class="md-toc-link">
+            <p>delay between input streams</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#limit-for-processing-time" class="md-toc-link">
+            <p>limit for processing time</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#shortest-stream-determins-encoding-time" class="md-toc-link">
+            <p>shortest stream determins encoding time</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#timestamp-and-time-bases" class="md-toc-link">
+            <p>timestamp and time bases</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#encoding-timebase-setting" class="md-toc-link">
+            <p>encoding timebase setting</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#audio-and-video-speed-modifications" class="md-toc-link">
+            <p>audio and video speed modifications</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#audio-speed-change" class="md-toc-link"><p>audio speed change</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#synchronizing-audio-data-with-timestamps" class="md-toc-link">
+            <p>synchronizing audio data with timestamps</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#mathematical-functions" class="md-toc-link">
+            <p>Mathematical Functions</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#metadata-and-subtitles" class="md-toc-link"><p>metadata and subtitles</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction-to-metadata" class="md-toc-link">
+            <p>Introduction to metadata</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#saving-and-loading-metadata-to-file" class="md-toc-link">
+            <p>saving and loading metadata to file</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#subtitle" class="md-toc-link">
+            <p>subtitle</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#image-processing" class="md-toc-link"><p>Image Processing</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#creating-images" class="md-toc-link"><p>creating images</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#screenshots-from-videos" class="md-toc-link">
+            <p>screenshots from videos</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#video-conversion-to-images" class="md-toc-link">
+            <p>video conversion to images</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#resizing-cropping-and-padding-images" class="md-toc-link">
+            <p>resizing, cropping and padding images</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#flipping-rotating-and-overlaying" class="md-toc-link">
+            <p>flipping rotating and overlaying</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#conversion-between-image-types" class="md-toc-link">
+            <p>conversion between image types</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#creating-video-from-images" class="md-toc-link"><p>creating video from images</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#creating-video-from-images-1" class="md-toc-link">
+            <p>creating video from images</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#creating-video-from-many-images" class="md-toc-link">
+            <p>creating video from many images</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#digital-audio" class="md-toc-link"><p>Digital Audio</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction-1" class="md-toc-link">
+            <p>introduction</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#audio-file-formats" class="md-toc-link">
+            <p>audio file formats</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#sound-synthesis" class="md-toc-link">
+            <p>sound synthesis</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#stereo-and-more-complex-sounds" class="md-toc-link">
+            <p>stereo and more complex sounds</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#sound-volume-setting" class="md-toc-link">
+            <p>sound volume setting</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#multiple-sounds-mixed-to-one-output" class="md-toc-link">
+            <p>multiple sounds mixed to one output</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#downmixing-stereo-to-mono-surround-to-stereo" class="md-toc-link">
+            <p>downmixing stereo to mono, surround to stereo</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#simple-audio-analyzer" class="md-toc-link">
+            <p>simple audio analyzer</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#adjusting-audio-for-listening-with-headphones" class="md-toc-link">
+            <p>adjusting audio for listening with headphones</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#audio-modifications-with--map_channel-option" class="md-toc-link">
+            <p>audio modifications with -map_channel option</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#merging-2-audio-streams-to-1-multichannel-stream" class="md-toc-link">
+            <p>merging 2 audio streams to 1 multichannel stream</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#audio-stream-forwarding-with-buffer-order-control" class="md-toc-link">
+            <p>audio stream forwarding with buffer order control</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#persets-for-codecs" class="md-toc-link"><p>persets for codecs</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction-2" class="md-toc-link">
+            <p>introduction</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#interlaced-video" class="md-toc-link"><p>Interlaced video</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ntsc-pal-secam-tv-standards" class="md-toc-link"><p>NTSC PAL SECAM TV standards</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#pal" class="md-toc-link">
+            <p>PAL</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ntsc" class="md-toc-link"><p>NTSC</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#扫描线" class="md-toc-link">
+            <p>扫描线</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#各种-fps-总结" class="md-toc-link">
+            <p>各种 fps 总结</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#interlaced-frame-type-setting" class="md-toc-link">
+            <p>Interlaced frame type setting</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#field-order" class="md-toc-link">
+            <p>field order</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#deinterlacing" class="md-toc-link">
+            <p>deinterlacing</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ffmpeg-components-and-projects" class="md-toc-link"><p>ffmpeg components and projects</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffplay-introduction" class="md-toc-link">
+            <p>ffplay introduction</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ffprobe-introduction" class="md-toc-link"><p>ffprobe introduction</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffprobe-相关用法" class="md-toc-link">
+            <p>ffprobe 相关用法</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffserver-introduction" class="md-toc-link">
+            <p>ffserver introduction</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ffmpeg-software-libraries" class="md-toc-link">
+            <p>ffmpeg software libraries</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#microphone-and-webcam" class="md-toc-link"><p>Microphone and Webcam</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#introduction-3" class="md-toc-link">
+            <p>Introduction</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#batch-files" class="md-toc-link">
+            <p>batch files</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#color-corrections" class="md-toc-link">
+            <p>color corrections</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#advanced-techniques" class="md-toc-link"><p>Advanced Techniques</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#joining-audio-and-video-files" class="md-toc-link">
+            <p>joining audio and video files</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#去水印" class="md-toc-link">
+            <p>去水印</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#fixing-of-shaking-video-parts" class="md-toc-link">
+            <p>fixing of shaking video parts</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#add-color-box-to-video" class="md-toc-link">
+            <p>add color box to video</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#number-of-frames-detection" class="md-toc-link">
+            <p>number of frames detection</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#detection-of-ads-section-or-currupted-encoding" class="md-toc-link">
+            <p>detection of ads section or currupted encoding</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#selecting-specified-frames-to-output" class="md-toc-link">
+            <p>selecting specified frames to output</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

@@ -1,0 +1,696 @@
+<!-- TAG: ObjectiveC -->
+<!DOCTYPE html><html><head>
+  <title>学习 The Objective-C Programming Language</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  
+  
+  
+  
+  
+  <style>
+  code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+  </style>
+  <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+// your code here
+});
+</script></head><body for="html-export">
+
+
+  <div class="crossnote markdown-preview  ">
+  
+<div class="md-toc">
+<div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+      <a href="#the-objective-c-programming-language-笔记" class="md-toc-link">
+        <p>The Objective-C Programming Language 笔记</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+      <a href="#1-introduction" class="md-toc-link">
+        <p>1 Introduction</p>
+
+      </a></div><details style="padding:0;;padding-left:0px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#2-object-oriented-programming" class="md-toc-link"><p>2 Object-Oriented Programming</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#interface--implementation" class="md-toc-link">
+        <p>interface &amp; implementation</p>
+
+      </a></div><details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#the-object-model" class="md-toc-link"><p>The Object Model</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-messaging-metaphor" class="md-toc-link">
+        <p>The Messaging Metaphor</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#classes" class="md-toc-link">
+        <p>Classes</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#mechanisms-of-abstraction" class="md-toc-link">
+        <p>Mechanisms Of Abstraction</p>
+
+      </a></div><details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#dynamism" class="md-toc-link"><p>Dynamism</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#dynamic-type" class="md-toc-link">
+        <p>Dynamic Type</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#dynamic-binding" class="md-toc-link">
+        <p>Dynamic Binding</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#dynamic-loading" class="md-toc-link">
+        <p>Dynamic Loading</p>
+
+      </a></div>
+    </div>
+  </details>
+
+    </div>
+  </details>
+
+    </div>
+  </details>
+<details style="padding:0;;padding-left:0px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#3-the-objective-c-language" class="md-toc-link"><p>3 The Objective-C Language</p>
+</a>
+      </summary>
+    <div>
+      <details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#object-messaging" class="md-toc-link"><p>Object Messaging</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-receivers-instance-variables" class="md-toc-link">
+        <p>The Receiver’s Instance Variables</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#dynamic-binding-1" class="md-toc-link">
+        <p>Dynamic Binding</p>
+
+      </a></div>
+    </div>
+  </details>
+<details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#classes-1" class="md-toc-link"><p>Classes</p>
+</a>
+      </summary>
+    <div>
+      <details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#inheritance" class="md-toc-link"><p>Inheritance</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-nsobject-class" class="md-toc-link">
+        <p>The NSObject Class</p>
+
+      </a></div>
+    </div>
+  </details>
+<details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#class-objects" class="md-toc-link"><p>Class Objects</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#create-instances" class="md-toc-link">
+        <p>Create Instances</p>
+
+      </a></div>
+    </div>
+  </details>
+
+    </div>
+  </details>
+<details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#defining-a-class" class="md-toc-link"><p>Defining a Class</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-interface" class="md-toc-link">
+        <p>The Interface</p>
+
+      </a></div><details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#the-implementation" class="md-toc-link"><p>The Implementation</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#referring-to-instance-variables" class="md-toc-link">
+        <p>Referring to Instance Variables</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-scope-of-instance-variables" class="md-toc-link">
+        <p>The Scope of Instance Variables</p>
+
+      </a></div>
+    </div>
+  </details>
+
+    </div>
+  </details>
+<details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#how-messaging-works" class="md-toc-link"><p>How Messaging Works</p>
+</a>
+      </summary>
+    <div>
+      <details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#selector" class="md-toc-link"><p>Selector</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#method-return-and-argument-types" class="md-toc-link">
+        <p>Method Return and Argument Types</p>
+
+      </a></div>
+    </div>
+  </details>
+
+    </div>
+  </details>
+
+    </div>
+  </details>
+<details style="padding:0;;padding-left:0px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#5-objective-c-runtime-functions-and-data-structures" class="md-toc-link"><p>5 Objective-C Runtime Functions and Data Structures</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#objective-c-functions" class="md-toc-link">
+        <p>Objective-C Functions</p>
+
+      </a></div>
+    </div>
+  </details>
+<details style="padding:0;;padding-left:0px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#appendix-a-objective-c-language-summary" class="md-toc-link"><p>Appendix A: Objective-C Language Summary</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#messages" class="md-toc-link">
+        <p>Messages</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#method-declarations" class="md-toc-link">
+        <p>Method Declarations</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#method-implementations" class="md-toc-link">
+        <p>Method Implementations</p>
+
+      </a></div>
+    </div>
+  </details>
+<div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+      <a href="#reference" class="md-toc-link">
+        <p>Reference</p>
+
+      </a></div>
+</div>
+<h1 id="the-objective-c-programming-language-笔记">The Objective-C Programming Language 笔记 </h1>
+<p><a href="http://andrewd.ces.clemson.edu/courses/cpsc102/notes/ObjC.pdf">The Objective-C Programming Language</a></p>
+<p>这个文档其实不怎么长，一共五个章，前两章是介绍，中间三章围绕语言、运行时、运行时函数展开。后面附录里的两章是总结和语法。</p>
+<p><a href="http://xn--ciq8a543eqmfu3ag3pi56a6vqrqr6po.mm">学这个主要是想能看懂.mm</a> 代码在干啥。另外了解了一下，Swift 和 Objective-C 可以互相调用，通过桥接头文件。</p>
+<h1 id="1-introduction">1 Introduction </h1>
+<h1 id="2-object-oriented-programming">2 Object-Oriented Programming </h1>
+<h2 id="interface--implementation">interface &amp; implementation </h2>
+<p>抽象。</p>
+<h2 id="the-object-model">The Object Model </h2>
+<p>这里提到 method 这个概念：</p>
+<blockquote>
+<p>For example, in C++ methods are called “member functions” and instance variables are “data members.” This book uses the terminology of Objective-C, which has its basis in Smalltalk.</p>
+</blockquote>
+<h3 id="the-messaging-metaphor">The Messaging Metaphor </h3>
+<p>message 是对象之间用来通讯的载体，一种交互方式。</p>
+<h3 id="classes">Classes </h3>
+<blockquote>
+<p>Every instance is characterized by its access to the methods defined for the class.</p>
+</blockquote>
+<h3 id="mechanisms-of-abstraction">Mechanisms Of Abstraction </h3>
+<p>抽象：封装和多态</p>
+<h3 id="dynamism">Dynamism </h3>
+<h4 id="dynamic-type">Dynamic Type </h4>
+<p>运行时再检查类型。</p>
+<h4 id="dynamic-binding">Dynamic Binding </h4>
+<p>动态绑定就是运行时（runtime）决定用哪个调用：delaying the decision of exactly which method to perform until the program is running.</p>
+<blockquote>
+<p>Dynamic binding is routine in Objective-C. You don’t need to arrange for it specially, so your design never needs to bother with what’s being done when.</p>
+</blockquote>
+<p>在 Objective-C 中，动态绑定是一种核心特性，允许方法调用在运行时决定具体的实现。</p>
+<h4 id="dynamic-loading">Dynamic Loading </h4>
+<h1 id="3-the-objective-c-language">3 The Objective-C Language </h1>
+<blockquote>
+<p>Apple’s compilers are based on the compilers of the GNU Compiler Collection. Objective-C syntax is a superset of GNU C/C++ syntax, and the Objective-C compiler works for C, C++ and Objective-C source code. The compiler recognizes Objective-C source files by the filename extension .m, just as it recognizes files containing only standard C syntax by filename extension .c. Similarly, the compiler recognizes C++ files that use Objective-C by the extension .mm.</p>
+</blockquote>
+<h2 id="object-messaging">Object Messaging </h2>
+<p>To get an object to do something, you send it a message telling it to apply a method. In Objective-C, message expressions are enclosed in square brackets:</p>
+<pre data-role="codeBlock" data-info="objective-C" class="language-objectivec objective-C"><code><span class="token punctuation">[</span>receiver message<span class="token punctuation">]</span>
+</code></pre><p>message: In source code, the message is simply the name of a method and any arguments that are passed to it.</p>
+<pre data-role="codeBlock" data-info="objective-C" class="language-objectivec objective-C"><code><span class="token punctuation">[</span>receiver message<span class="token punctuation">]</span> <span class="token comment">// [object method]</span>
+<span class="token punctuation">[</span>myRect display<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// object: myRect, method: display告诉myRect执行display</span>
+<span class="token comment">// take arguments</span>
+<span class="token punctuation">[</span>myRect setOrigin<span class="token punctuation">:</span><span class="token number">30.0</span> <span class="token punctuation">:</span><span class="token number">50.0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>myRect setWidth<span class="token punctuation">:</span><span class="token number">10.0</span> height<span class="token punctuation">:</span><span class="token number">15.0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// variable number of arguments</span>
+<span class="token punctuation">[</span>receiver makeGroup<span class="token punctuation">:</span>group<span class="token punctuation">,</span> memberOne<span class="token punctuation">,</span> memberTwo<span class="token punctuation">,</span> memberThree<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><p>与传统的函数调用不同，message 消息发送更接近于动态语言的调用方式。消息发送时，运行时会在对象的类中查找对应的方法实现。</p>
+<p>我理解这两个东西：method 和 message 就是函数和函数调用，只不过 message 是基于运行时的。</p>
+<h3 id="the-receivers-instance-variables">The Receiver’s Instance Variables </h3>
+<blockquote>
+<p>A method has automatic access to the receiving object’s instance variables. You don’t need to pass them to the method as arguments.</p>
+</blockquote>
+<h3 id="dynamic-binding-1">Dynamic Binding </h3>
+<p>The method name in a message thus serves to “select” a method implementation. For this reason, method names in messages are often referred to as selectors.</p>
+<p>这句话的意思是，方法名（method name）在消息（message）中用来“选择”一个方法的实现。因此，方法名在消息中通常被称为选择器（selector）。在面向对象编程中，尤其是像 Objective-C 这样的语言中，选择器（selector）指的就是方法名。每个方法名可以被视为一个标识符，用来选择具体的实现。当一个对象接收到一个消息时，它会使用这个消息中的选择器来确定哪个方法需要被调用。因此，选择器基本上就是方法名。</p>
+<h2 id="classes-1">Classes </h2>
+<h3 id="inheritance">Inheritance </h3>
+<h4 id="the-nsobject-class">The NSObject Class </h4>
+<p>NSObject being a root class, doesn’t have a superclass.</p>
+<p>所有类的基础，提供对象和运行时能力。</p>
+<h3 id="class-objects">Class Objects </h3>
+<blockquote>
+<p>Although a class object keeps the prototype of a class instance, it’s not an instance itself. It has no instance variables of its own and it can’t perform methods intended for instances of the class. However, a class definition can include methods intended specifically for the class object—class methods as opposed to instance methods. A class object inherits class methods from the classes above it in the hierarchy, just as instances inherit instance methods.</p>
+</blockquote>
+<p>类方法和实例方法：类方法不需要实例。我理解类似于 C++ 类的 static 函数</p>
+<h4 id="create-instances">Create Instances </h4>
+<p>This code tells the Rectangle class to create a new Rectangle instance and assign it to the myRect variable:</p>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code>id myRect<span class="token punctuation">;</span>
+myRect <span class="token operator">=</span> <span class="token punctuation">[</span>Rectangle alloc<span class="token punctuation">]</span>
+</code></pre><p>动态分配内存。下面的是在分配内存之后初始化，是个比较常用的写法</p>
+<pre data-role="codeBlock" data-info="objective-C" class="language-objectivec objective-C"><code>myRect <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>Rectangle alloc<span class="token punctuation">]</span> init<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><h2 id="defining-a-class">Defining a Class </h2>
+<p>定义类：用 interface 和 implementation</p>
+<ul>
+<li>An interface that declares the methods and instance variables of the class and names its superclass</li>
+<li>An implementation that actually defines the class (contains the code that implements its methods)</li>
+</ul>
+<h3 id="the-interface">The Interface </h3>
+<p><code>@interface</code>开始<code>@end</code>结束</p>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token keyword keyword-@interface">@interface</span> ClassName <span class="token punctuation">:</span> ItsSuperclass
+<span class="token punctuation">{</span>
+instance variable declarations
+<span class="token punctuation">}</span>
+method declarations
+<span class="token keyword keyword-@end">@end</span>
+</code></pre><ul>
+<li>在类里面定义：interface variables，</li>
+</ul>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token keyword keyword-float">float</span> width<span class="token punctuation">;</span>
+<span class="token keyword keyword-float">float</span> height<span class="token punctuation">;</span>
+BOOL filled<span class="token punctuation">;</span>
+NSColor <span class="token operator">*</span>fillColor<span class="token punctuation">;</span>
+</code></pre><ul>
+<li>在类里面定义：class methods</li>
+</ul>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token operator">+</span> alloc<span class="token punctuation">;</span>
+</code></pre><ul>
+<li>定义 instance methods</li>
+</ul>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword keyword-void">void</span><span class="token punctuation">)</span>display<span class="token punctuation">;</span>
+</code></pre><p>这里面有个 trick</p>
+<blockquote>
+<p>Although it’s not a common practice, you can define a class method and an instance method with the same name. A method can also have the same name as an instance variable. This is more common, especially if the method returns the value in the variable. For example, Circle has a radius method that could match a radius instance variable.</p>
+</blockquote>
+<ul>
+<li>带返回值的 method</li>
+</ul>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword keyword-float">float</span><span class="token punctuation">)</span>radius<span class="token punctuation">;</span>
+</code></pre><ul>
+<li>带参数和返回值的 method</li>
+</ul>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword keyword-void">void</span><span class="token punctuation">)</span>setRadius<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token keyword keyword-float">float</span><span class="token punctuation">)</span>aRadius<span class="token punctuation">;</span>
+</code></pre><p>这里要注意下返回值和参数的默认类型：</p>
+<blockquote>
+<p>If a return or argument type isn’t explicitly declared, it’s assumed to be the default type for methods and messages—an id. The alloc method illustrated above returns id.</p>
+</blockquote>
+<ul>
+<li>多参数，带返回值的 method</li>
+</ul>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword keyword-void">void</span><span class="token punctuation">)</span>setWidth<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token keyword keyword-float">float</span><span class="token punctuation">)</span>width height<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token keyword keyword-float">float</span><span class="token punctuation">)</span>height<span class="token punctuation">;</span>
+</code></pre><h3 id="the-implementation">The Implementation </h3>
+<p><code>@implementation</code>开始<code>@end</code>结束</p>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token keyword keyword-@interface">@interface</span> ClassName <span class="token punctuation">:</span> ItsSuperclass
+<span class="token punctuation">{</span>
+instance variable declarations
+<span class="token punctuation">}</span>
+method declarations
+<span class="token keyword keyword-@end">@end</span>
+</code></pre><blockquote>
+<p>Methods for a class are defined, like C functions, within a pair of braces. Before the braces, they’re declared in the same manner as in the interface file, but without the semicolon. For example:</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>+ alloc
+<span class="token punctuation">{</span>
+<span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span>
+<span class="token punctuation">}</span>
+- <span class="token punctuation">(</span>BOOL<span class="token punctuation">)</span>isfilled
+<span class="token punctuation">{</span>
+<span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span>
+<span class="token punctuation">}</span>
+- <span class="token punctuation">(</span>void<span class="token punctuation">)</span>setFilled:<span class="token punctuation">(</span>BOOL<span class="token punctuation">)</span>flag
+<span class="token punctuation">{</span>
+<span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span>
+<span class="token punctuation">}</span>
+</code></pre><p>变长参数：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>- getGroup:group, <span class="token punctuation">..</span>.
+<span class="token punctuation">{</span>
+va_list ap<span class="token punctuation">;</span>
+va_start<span class="token punctuation">(</span>ap, group<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span>
+<span class="token punctuation">}</span>
+</code></pre><p>方法名的每个部分必须用冒号 : 来标记，并且每个冒号后面应该紧接着参数类型和参数名。</p>
+<h4 id="referring-to-instance-variables">Referring to Instance Variables </h4>
+<p>引用 Instance Variables。假设这个 receiver 有个变量叫 filled：</p>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword keyword-void">void</span><span class="token punctuation">)</span>setFilled<span class="token punctuation">:</span><span class="token punctuation">(</span>BOOL<span class="token punctuation">)</span>flag
+<span class="token punctuation">{</span>
+filled <span class="token operator">=</span> flag<span class="token punctuation">;</span>
+<span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="the-scope-of-instance-variables">The Scope of Instance Variables </h4>
+<p><img src="./scope_of_instance_variables.png" alt=""><br>
+private/protected/public，instance variables 的作用范围：<br>
+private：自己<br>
+protected：自己和继承的类<br>
+public：任意<br>
+和其他面向对象语言一样的。</p>
+<h2 id="how-messaging-works">How Messaging Works </h2>
+<p>In Objective-C, messages aren’t bound to method implementations until runtime. The compiler converts a message expression,</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token punctuation">[</span>receiver message<span class="token punctuation">]</span>
+</code></pre><p>into a call on a messaging function, objc_msgSend(). This function takes the receiver and the name of the method mentioned in the message—that is, the method selector—as its two principal arguments: objc_msgSend(receiver, selector)</p>
+<h3 id="selector">Selector </h3>
+<blockquote>
+<p>The @selector() directive lets Objective-C source code refer to the compiled selector, rather than to the full method name. Here the selector for setWidth:height: is assigned to the setWidthHeight variable:</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="objective-C" class="language-objectivec objective-C"><code>SEL setWidthHeight<span class="token punctuation">;</span>
+setWidthHeight <span class="token operator">=</span> <span class="token keyword keyword-@selector">@selector</span><span class="token punctuation">(</span>setWidth<span class="token punctuation">:</span>height<span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="method-return-and-argument-types">Method Return and Argument Types </h4>
+<blockquote>
+<p>The messaging routine has access to method implementations only through selectors, so it treats all methods with the same selector alike. It discovers the return type of a method, and the data types of its arguments, from the selector. Therefore, except for messages sent to statically typed receivers, dynamic binding requires all implementations of identically named methods to have the same return type and the same argument types.</p>
+</blockquote>
+<h1 id="5-objective-c-runtime-functions-and-data-structures">5 Objective-C Runtime Functions and Data Structures </h1>
+<h2 id="objective-c-functions">Objective-C Functions </h2>
+<h1 id="appendix-a-objective-c-language-summary">Appendix A: Objective-C Language Summary </h1>
+<h2 id="messages">Messages </h2>
+<p>Message expressions are enclosed in square brackets:</p>
+<pre data-role="codeBlock" data-info="objective-c" class="language-objectivec objective-c"><code><span class="token punctuation">[</span>receiver message<span class="token punctuation">]</span>
+</code></pre><p>The receiver can be:</p>
+<ul>
+<li>A variable or expression that evaluates to an object (including the variable self)</li>
+<li>A class name (indicating the class object)</li>
+<li>super (indicating an alternative search for the method implementation)<br>
+The message is the name of a method plus any arguments passed to it.</li>
+</ul>
+<h2 id="method-declarations">Method Declarations </h2>
+<ul>
+<li>A “+” precedes declarations of class methods.</li>
+<li>A “-” precedes declarations of instance methods.</li>
+<li>Arguments are declared after colons (😃. Typically, a label describing the argument precedes the colon. Both labels and colons are considered part of the<br>
+method name.</li>
+<li>Argument and return types are declared using the C syntax for type casting.</li>
+<li>The default return and argument type for methods is id, not int as it is for functions. (However, the modifier unsigned when used without a following type always means unsigned int).</li>
+</ul>
+<h2 id="method-implementations">Method Implementations </h2>
+<p>Each method implementation is passed two hidden arguments:</p>
+<ul>
+<li>The receiving object (self)</li>
+<li>The selector for the method (_cmd)</li>
+</ul>
+<h1 id="reference">Reference </h1>
+<p><a href="http://andrewd.ces.clemson.edu/courses/cpsc102/notes/ObjC.pdf">http://andrewd.ces.clemson.edu/courses/cpsc102/notes/ObjC.pdf</a></p>
+
+  </div>
+  <div class="md-sidebar-toc">
+<div class="md-toc">
+<div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+      <a href="#the-objective-c-programming-language-笔记" class="md-toc-link">
+        <p>The Objective-C Programming Language 笔记</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+      <a href="#1-introduction" class="md-toc-link">
+        <p>1 Introduction</p>
+
+      </a></div><details style="padding:0;;padding-left:0px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#2-object-oriented-programming" class="md-toc-link"><p>2 Object-Oriented Programming</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#interface--implementation" class="md-toc-link">
+        <p>interface &amp; implementation</p>
+
+      </a></div><details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#the-object-model" class="md-toc-link"><p>The Object Model</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-messaging-metaphor" class="md-toc-link">
+        <p>The Messaging Metaphor</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#classes" class="md-toc-link">
+        <p>Classes</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#mechanisms-of-abstraction" class="md-toc-link">
+        <p>Mechanisms Of Abstraction</p>
+
+      </a></div><details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#dynamism" class="md-toc-link"><p>Dynamism</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#dynamic-type" class="md-toc-link">
+        <p>Dynamic Type</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#dynamic-binding" class="md-toc-link">
+        <p>Dynamic Binding</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#dynamic-loading" class="md-toc-link">
+        <p>Dynamic Loading</p>
+
+      </a></div>
+    </div>
+  </details>
+
+    </div>
+  </details>
+
+    </div>
+  </details>
+<details style="padding:0;;padding-left:0px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#3-the-objective-c-language" class="md-toc-link"><p>3 The Objective-C Language</p>
+</a>
+      </summary>
+    <div>
+      <details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#object-messaging" class="md-toc-link"><p>Object Messaging</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-receivers-instance-variables" class="md-toc-link">
+        <p>The Receiver’s Instance Variables</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#dynamic-binding-1" class="md-toc-link">
+        <p>Dynamic Binding</p>
+
+      </a></div>
+    </div>
+  </details>
+<details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#classes-1" class="md-toc-link"><p>Classes</p>
+</a>
+      </summary>
+    <div>
+      <details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#inheritance" class="md-toc-link"><p>Inheritance</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-nsobject-class" class="md-toc-link">
+        <p>The NSObject Class</p>
+
+      </a></div>
+    </div>
+  </details>
+<details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#class-objects" class="md-toc-link"><p>Class Objects</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#create-instances" class="md-toc-link">
+        <p>Create Instances</p>
+
+      </a></div>
+    </div>
+  </details>
+
+    </div>
+  </details>
+<details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#defining-a-class" class="md-toc-link"><p>Defining a Class</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-interface" class="md-toc-link">
+        <p>The Interface</p>
+
+      </a></div><details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#the-implementation" class="md-toc-link"><p>The Implementation</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#referring-to-instance-variables" class="md-toc-link">
+        <p>Referring to Instance Variables</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#the-scope-of-instance-variables" class="md-toc-link">
+        <p>The Scope of Instance Variables</p>
+
+      </a></div>
+    </div>
+  </details>
+
+    </div>
+  </details>
+<details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#how-messaging-works" class="md-toc-link"><p>How Messaging Works</p>
+</a>
+      </summary>
+    <div>
+      <details style="padding:0;;padding-left:24px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#selector" class="md-toc-link"><p>Selector</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#method-return-and-argument-types" class="md-toc-link">
+        <p>Method Return and Argument Types</p>
+
+      </a></div>
+    </div>
+  </details>
+
+    </div>
+  </details>
+
+    </div>
+  </details>
+<details style="padding:0;;padding-left:0px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#5-objective-c-runtime-functions-and-data-structures" class="md-toc-link"><p>5 Objective-C Runtime Functions and Data Structures</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#objective-c-functions" class="md-toc-link">
+        <p>Objective-C Functions</p>
+
+      </a></div>
+    </div>
+  </details>
+<details style="padding:0;;padding-left:0px;" open="">
+    <summary class="md-toc-link-wrapper">
+      <a href="#appendix-a-objective-c-language-summary" class="md-toc-link"><p>Appendix A: Objective-C Language Summary</p>
+</a>
+      </summary>
+    <div>
+      <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#messages" class="md-toc-link">
+        <p>Messages</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#method-declarations" class="md-toc-link">
+        <p>Method Declarations</p>
+
+      </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+      <a href="#method-implementations" class="md-toc-link">
+        <p>Method Implementations</p>
+
+      </a></div>
+    </div>
+  </details>
+<div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+      <a href="#reference" class="md-toc-link">
+        <p>Reference</p>
+
+      </a></div>
+</div>
+</div>
+  <a id="sidebar-toc-btn">≡</a>
+
+
+
+
+
+
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+event.stopPropagation()
+if (document.body.hasAttribute('html-show-sidebar-toc')) {
+document.body.removeAttribute('html-show-sidebar-toc')
+} else {
+document.body.setAttribute('html-show-sidebar-toc', true)
+}
+})
+</script>
+  
+
+</body></html>
