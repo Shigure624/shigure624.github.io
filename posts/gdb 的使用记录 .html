@@ -1,0 +1,289 @@
+<!-- TAG: 工具 -->
+<!DOCTYPE html><html><head><!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TW7QJP7LS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-4TW7QJP7LS');
+  </script>
+      <title>gdb 的使用记录</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="gdb-的使用记录">gdb 的使用记录 </h1>
+<p>记录 gdb 工具。</p>
+<blockquote>
+<p>GDB, the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed.</p>
+</blockquote>
+<p>安装 debuginfo</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>debuginfo-install glibc-2.17-317.el7.x86_64 libgcc-4.8.5-44.el7.x86_64 libstdc++-4.8.5-44.el7.x86_64
+</code></pre><h2 id="例子">例子 </h2>
+<h3 id="调试可执行文件">调试可执行文件 </h3>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp C++"><code><span class="token comment">// area.cpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword keyword-using">using</span> <span class="token keyword keyword-namespace">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword keyword-struct">struct</span> <span class="token class-name">Rectangle</span><span class="token punctuation">{</span>
+    <span class="token keyword keyword-int">int</span> width<span class="token punctuation">;</span>
+    <span class="token keyword keyword-int">int</span> height<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">Rectangle</span><span class="token operator">&amp;</span> rec<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-return">return</span> rec<span class="token punctuation">.</span>width <span class="token operator">*</span> rec<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Rectangle rec <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-int">int</span> result <span class="token operator">=</span> <span class="token function">area</span><span class="token punctuation">(</span>rec<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> result <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>编译时加上-g 选项，用于生成 debug 信息。</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>g++ <span class="token parameter variable">-g</span> ./area.cpp <span class="token parameter variable">-o</span> area
+</code></pre><p>然后尝试 gdb 打开可执行文件：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>gdb area
+</code></pre><p>如果找不到 symbols，可以尝试检查：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>nm <span class="token parameter variable">-C</span> area <span class="token comment"># 查看symbols</span>
+<span class="token function">file</span> area <span class="token comment"># 确认symbols是否剥离(strpped)了</span>
+</code></pre><p>进入交互式环境之后：</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> <span class="token builtin class-name">break</span> area.cpp:9
+Breakpoint <span class="token number">1</span> at 0x4007b5: <span class="token function">file</span> ./area.cpp, line <span class="token number">9</span>.
+
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> run
+Starting program: /home/fay/codes/area
+
+Breakpoint <span class="token number">1</span>, area <span class="token punctuation">(</span>rec<span class="token operator">=</span><span class="token punctuation">..</span>.<span class="token punctuation">)</span> at ./area.cpp:10
+<span class="token number">10</span>          <span class="token builtin class-name">return</span> rec.width * rec.height<span class="token punctuation">;</span>
+
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> print rec
+<span class="token variable">$1</span> <span class="token operator">=</span> <span class="token punctuation">(</span>const Rectangle <span class="token operator">&amp;</span><span class="token punctuation">)</span> @0x7fffffffe4a0: <span class="token punctuation">{</span>width <span class="token operator">=</span> <span class="token number">10</span>, height <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">}</span>
+</code></pre><h3 id="core-文件调试">core 文件调试 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">ulimit</span> <span class="token parameter variable">-c</span> <span class="token number">1024</span> <span class="token comment"># 允许开启core dump，在程序出错时生成core文件</span>
+<span class="token comment"># 确认一下是否生效了</span>
+<span class="token builtin class-name">ulimit</span> –c
+</code></pre><p>1024 限制产生的 core 文件的大小不能超过 1024kb，可以使用参数 unlimited，取消该限制</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token builtin class-name">ulimit</span> <span class="token parameter variable">-c</span> unlimited
+</code></pre><p>随便写一个程序，然后模拟一下：</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp C++"><code><span class="token comment">// fault.cpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-int">int</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token operator">/</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>g++ <span class="token parameter variable">-g</span> fault.cpp <span class="token parameter variable">-o</span> fault
+<span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> <span class="token string">"fault"</span> <span class="token comment"># 找到pid</span>
+<span class="token function">kill</span> <span class="token parameter variable">-s</span> SIGSEGV pid <span class="token comment"># kill 获取core文件</span>
+gcore PID <span class="token comment"># 也可以用gcore获取core文件</span>
+</code></pre><pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>gdb forever core.31212
+
+Program terminated with signal <span class="token number">8</span>, Arithmetic exception.
+<span class="token comment">#0  0x000000000040065c in main () at ./fault.cpp:5</span>
+<span class="token number">5</span>           int x <span class="token operator">=</span> <span class="token number">10</span>/0<span class="token punctuation">;</span>
+
+</code></pre><h2 id="常用指令">常用指令 </h2>
+<p>输入 gdb，进入交互式环境。</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>bt <span class="token comment"># 查看backtrace，显示当前程序的调用栈（call stack）</span>
+
+info <span class="token comment"># 显示当前调试状态的各种详细信息</span>
+info variables
+info variables *param_name*
+info locals
+info args
+info breaks
+info frame
+info threads
+
+<span class="token builtin class-name">set</span> args           <span class="token comment"># 设置可执行文件需要或者会用到的参数</span>
+
+<span class="token builtin class-name">break</span> file.cpp:800 <span class="token comment"># 设置断点</span>
+delete breaks      <span class="token comment"># 删除断点</span>
+run                <span class="token comment"># run 可执行程序</span>
+next <span class="token comment"># 单步执行当前代码行，不进入函数。遇到函数调用时，next 会执行函数，停在函数调用后的下一行。</span>
+step <span class="token comment"># 单步执行当前代码行，如果遇到函数调用，会进入函数内部，逐行执行函数代码。</span>
+
+<span class="token builtin class-name">set</span> print pretty off <span class="token comment"># 禁用“美化输出”（pretty-printing），显示更简单。</span>
+<span class="token builtin class-name">set</span> print array
+<span class="token builtin class-name">set</span> print array on
+
+print param_name     <span class="token comment"># 输出某个变量</span>
+print param_name-<span class="token operator">&gt;</span>sub_param
+
+f <span class="token number">9</span>                  <span class="token comment"># 切换到frame 9</span>
+info f
+
+where                <span class="token comment"># 查看当前位置</span>
+
+thread apply all bt  <span class="token comment"># 查看所用线程堆栈信息</span>
+info threads
+thread <span class="token number">1</span>
+</code></pre><h2 id="q">Q </h2>
+<h3 id="has-no-line-number-information">has no line number information </h3>
+<p>In my case, the problem was version skew between gcc and gdb.</p>
+<p>After landing here from search and none of these answers fit my situation, I figured out that (because of aliases / symlinks / Makefile / environment variables) I was accidentally using a newer GCC (4.8.x) and an older GDB (7.2). Stepping up to a newer version of GDB (7.8) fixed the problem. For some reason, using a newer GCC and older GDB didn't work.</p>
+<h3 id="attempt-to-dereference-a-generic-pointer">Attempt to dereference a generic pointer </h3>
+<p>加*</p>
+<h3 id="no-symbol-i-in-current-context">No symbol "i" in current context </h3>
+<p>I encountered this issue recently. I compiled GCC 5.1 and then used it to compile a C++11 codebase. And, although I could step through the program's code in gdb, I couldn't print the value of any variable, I kept getting “No symbol "xyz" in current context” errors, for every variable.</p>
+<p>I was using gdb 7.4, but the latest version available at the time was 7.9. I downloaded the latest version of gdb and compiled it (using GCC 5.1) and when using gdb 7.9 I was able to successfully inspect variable values again.</p>
+<p>I guess the debug information of GCC 5.1 is incompatible with gdb 7.4.</p>
+<h3 id="break-where-if-cond">break WHERE if COND </h3>
+<p>eg: linux kernel, stop whenever init got scheduled.</p>
+<blockquote>
+<p>break context_switch if next == init_task</p>
+</blockquote>
+<h3 id="optimized-out">optimized out </h3>
+<blockquote>
+<p>The values of arguments that were not saved in their stack frames are shown as `value optimized out'.</p>
+</blockquote>
+<p>Im guessing you compiled with -O(somevalue) and are accessing variables a,b,c in a function where optimization has occurred.</p>
+<h3 id="command">command </h3>
+<p>specify commands to be run every time you hit a breakpoint.</p>
+<h3 id="memory-failure-in---using-gdb">Memory failure in "?? ()" using GDB </h3>
+<blockquote>
+<p>Compile your project with -g -O0 flag. Without -g flag the gcc compiler will strip all the symbol out and that's why you cannot see any symbol. If you want debug 3rd party library then you should configure it with --with-debug or other debug option.</p>
+</blockquote>
+<blockquote>
+<p>First, getting the complete stack trace here will likely not help you: any crash inside free implementation is due to heap corruption. Here we have heap corruption that GLIBC has already detected and told you about on the console.</p>
+</blockquote>
+<p>Knowing where the corrupted block is being freed usually doesn't help to find where the block was corrupted; use specialized tools like Valgrind or AddressSanitizer for that.</p>
+<p>Second, you are not getting file/line info because the crash is happening inside libc.so.6, and you have not installed debuginfo symbols for it. How to install debuginfo depends on your Linux distribution, which you have not told us about.</p>
+<p>Last, the reason you have an "apparently corrupt" stack with addresses that don't correspond to any symbols is likely that the calls are coming from hand-coded assembly code (from libopenssl.a), which doesn't use frame pointers and doesn't have correct unwind descriptors. GDB needs one or the other to produce correct stack trace.</p>
+<h3 id="please-check-gdb-is-codesigned---see-taskgated8">please check gdb is codesigned - see taskgated(8) </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token function">sudo</span> <span class="token function">killall</span> taskgated
+codesign <span class="token parameter variable">-fs</span> gdb-cert <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">which</span> gdb<span class="token variable">)</span></span>"</span>
+</code></pre><ul>
+<li>error: The specified item could not be found in the keychain.</li>
+</ul>
+<h2 id="reference">Reference </h2>
+<p><a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Command-and-Variable-Index.html">https://sourceware.org/gdb/current/onlinedocs/gdb/Command-and-Variable-Index.html</a></p>
+<p>No source file named ffmpeg_src/libavcodec/libx264.c.<br>
+~~</p>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#gdb-的使用记录" class="md-toc-link"><p>gdb 的使用记录</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#例子" class="md-toc-link"><p>例子</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#调试可执行文件" class="md-toc-link">
+            <p>调试可执行文件</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#core-文件调试" class="md-toc-link">
+            <p>core 文件调试</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#常用指令" class="md-toc-link">
+            <p>常用指令</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#q" class="md-toc-link"><p>Q</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#has-no-line-number-information" class="md-toc-link">
+            <p>has no line number information</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#attempt-to-dereference-a-generic-pointer" class="md-toc-link">
+            <p>Attempt to dereference a generic pointer</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#no-symbol-i-in-current-context" class="md-toc-link">
+            <p>No symbol "i" in current context</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#break-where-if-cond" class="md-toc-link">
+            <p>break WHERE if COND</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#optimized-out" class="md-toc-link">
+            <p>optimized out</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#command" class="md-toc-link">
+            <p>command</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#memory-failure-in---using-gdb" class="md-toc-link">
+            <p>Memory failure in "?? ()" using GDB</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#please-check-gdb-is-codesigned---see-taskgated8" class="md-toc-link">
+            <p>please check gdb is codesigned - see taskgated(8)</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#reference" class="md-toc-link">
+            <p>Reference</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

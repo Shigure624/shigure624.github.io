@@ -1,18 +1,9 @@
-<!-- TAG: 工具 -->
-<!DOCTYPE html><html><head><!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TW7QJP7LS"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-4TW7QJP7LS');
-  </script>
-      <title>win10 + centos7双系统的安装补充记录</title>
+<!DOCTYPE html><html><head>
+      <title>ADB（Android Debug Bridge）命令行工具</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
       
       
       
@@ -22,105 +13,6 @@
       code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
-.markdown-preview.markdown-preview {
-  background-color: whitesmoke;
-  color: dimgrey;
-  /*Code blocks*/
-  /*Preformatted text*/
-  /*table*/
-}
-.markdown-preview.markdown-preview h1 {
-  color: black;
-}
-.markdown-preview.markdown-preview h2,
-.markdown-preview.markdown-preview h3,
-.markdown-preview.markdown-preview h4,
-.markdown-preview.markdown-preview h5,
-.markdown-preview.markdown-preview h6 {
-  color: dimgray;
-}
-.markdown-preview.markdown-preview code,
-.markdown-preview.markdown-preview tt {
-  color: cornflowerblue;
-  white-space: nowrap;
-}
-.markdown-preview.markdown-preview pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent;
-}
-.markdown-preview.markdown-preview .highlight pre {
-  background-color: #f8f8f8;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px;
-}
-.markdown-preview.markdown-preview pre {
-  background-color: gainsboro;
-  /*font-size:          13px;*/
-  font-size: 0.9em !important;
-  line-height: 1.6em !important;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px;
-}
-.markdown-preview.markdown-preview pre code,
-.markdown-preview.markdown-preview pre tt {
-  background-color: transparent;
-  border: none;
-}
-.markdown-preview.markdown-preview table {
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-.markdown-preview.markdown-preview table tr {
-  /* border-top: 1px solid #cccccc; */
-  background-color: white;
-  margin: 0;
-  padding: 0;
-}
-.markdown-preview.markdown-preview table tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
-.markdown-preview.markdown-preview table tr th {
-  font-weight: bold;
-  /* border: 0.5px solid #cccccc; */
-  /* border-left: 0.5px solid #cccccc;
-        border-right: 0.5px solid #cccccc; */
-  background-color: #eefbff;
-  font-size: 14px;
-  margin: 0;
-  padding: 0.4em 0.35em 0.4em 0.35em;
-}
-.markdown-preview.markdown-preview table tr td {
-  /* border: 1px solid #cccccc; */
-  margin: 0;
-  font-size: 14px;
-  padding: 5px 5px;
-}
-.markdown-preview.markdown-preview table tr th :first-child,
-.markdown-preview.markdown-preview table tr td :first-child {
-  margin-top: 0;
-}
-.markdown-preview.markdown-preview table tr th :last-child,
-.markdown-preview.markdown-preview table tr td :last-child {
-  margin-bottom: 0;
-}
-.md-sidebar-toc.md-sidebar-toc {
-  color: dimgray;
-}
-.md-toc {
-  color: dimgray;
-}
-.md-toc-link {
-  color: dimgray;
-}
 
       </style>
       <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
@@ -132,53 +24,120 @@
     
       <div class="crossnote markdown-preview  ">
       
-<div class="md-toc">
-<details style="padding:0;;padding-left:0px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#win10--centos7双系统的安装补充记录" class="md-toc-link"><p>win10 + centos7双系统的安装补充记录</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#分区了但安装位置中显示的磁盘可用空间与之前分区的大小不同" class="md-toc-link">
-            <p>分区了，但安装位置中显示的磁盘可用空间与之前分区的大小不同</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#安装完成了但是仍然显示dracut超时错误" class="md-toc-link">
-            <p>安装完成了，但是仍然显示dracut超时错误</p>
-
-          </a></div>
-        </div>
-      </details>
-    
-</div>
-<h1 id="win10--centos7双系统的安装补充记录">win10 + centos7双系统的安装补充记录 </h1>
-<p>本文记录了安装win10 + centos双系统过程中的一些问题。对于安装方法，已经有很多博客有详细的说明，比如<a href="https://jlhxxxx.github.io/win-install-centos.html">win10下安装CentOS双系统</a>。因此仅在这里进行一些补充说明。</p>
-<h2 id="分区了但安装位置中显示的磁盘可用空间与之前分区的大小不同">分区了，但安装位置中显示的磁盘可用空间与之前分区的大小不同 </h2>
-<p>   注意：需要的分区是一个空白区，可以用diskgenius，或者磁盘管理-压缩盘。注意分区的内容是 free 即可。我之前用diskgenius直接分出一个E盘，自然是用不了的。</p>
-<h2 id="安装完成了但是仍然显示dracut超时错误">安装完成了，但是仍然显示dracut超时错误 </h2>
-<p>   google到的结果，这个问题绝大多数都发生在在linux安装之前：由于inst.stage2值为Label，没有设置USB位置，导致安装界面显示不了。</p>
-<p>   但此时我已经安装成功了。后来我想要尝试通过 bios 进入引导盘，进行troubleshoot时发现bios进不去，也无法通过grub选择系统。</p>
-<p>分析原因是我使用的主板是微星迫击炮b660，选择过快速启动选项，导致开机时进不了bios，也就进不了安装过的系统。解决方法参考了<a href="https://www.bilibili.com/video/BV1614y157Ka/?spm_id_from=333.788.recommend_more_video.5">主板进不去bios的几个解决办法-微星主板</a>最后通过拔电池解决。</p>
+<h1 id="adbandroid-debug-bridge命令行工具">ADB（Android Debug Bridge）命令行工具 </h1>
+<p>学习这个用来霍霍家里的索尼电视。</p>
+<h2 id="android-studio安卓开发环境">Android Studio：安卓开发环境 </h2>
+<h3 id="设置开发环境">设置开发环境 </h3>
+<p>下载 android studio <a href="https://developer.android.com/studio">https://developer.android.com/studio</a></p>
+<h3 id="建立项目">建立项目 </h3>
+<ol>
+<li>打开 Android Studio，点击“新建项目”，比如可以选择“空活动（Empty Activity）”，设置项目名称比如DemoProject，并选择应用包名。</li>
+<li>设置项目结构：
+<ul>
+<li>项目主目录为 DemoProject</li>
+<li>主要的 Activity 文件是 Activity.java。</li>
+<li>布局文件为 activity.xml。</li>
+</ul>
+</li>
+<li>打包应用：
+<ol>
+<li>在Android Studio中点击“Build”菜单，选择“Build APK”选项来生成APK文件。
+<ol>
+<li>如果在安装时提示需要带签名的apk，需要选择 "Build" &gt; "Generate Signed Bundle / APK..."。在弹出窗口中选择 "APK"，然后点击 "Next"。根据提示输入你的密钥库信息和其他相关设置。选择 "Finish"，Android Studio 将生成签名的 APK 文件。</li>
+</ol>
+</li>
+<li>使用ADB（Android Debug Bridge）命令行工具，或者通过文件传输工具将生成的APK文件传输到设备并安装。</li>
+</ol>
+</li>
+<li>其他备忘：
+<ol>
+<li>apk的版本如何指定debug还是release？"View" 菜单，选择 "Tool Windows"，然后选择 "Build Variants"。</li>
+<li>查看日志：logcat，是一个猫猫头图标</li>
+</ol>
+</li>
+</ol>
+<h2 id="adb">ADB </h2>
+<p>ADB（Android Debug Bridge）是一个命令行工具，用于与 Android 设备进行交互。用户可以通过 adb 执行各种操作：安装应用、调试、查看设备状态等。</p>
+<h3 id="安装">安装 </h3>
+<ol>
+<li>首先，下载 platform-tools <a href="https://developer.android.com/studio/releases/platform-tools">https://developer.android.com/studio/releases/platform-tools</a>，下载目标机器对应的 zip 文件，解压到目录。</li>
+<li>配置环境变量</li>
+<li>运行<code>adb version</code>查看是否成功。</li>
+</ol>
+<h3 id="命令">命令 </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>adb devices <span class="token comment"># 查看连接的设备</span>
+adb <span class="token function">install</span> path/to/your/app.apk <span class="token comment"># 安装apk</span>
+adb uninstall package.name.of.app <span class="token comment"># 卸载应用</span>
+adb shell am start <span class="token parameter variable">-n</span> package.name.of.app/.MainActivity <span class="token comment"># 启动应用</span>
+adb logcat <span class="token comment"># 查看log，和android studio上的logcat一样（猫猫头）</span>
+adb push local/file/path /sdcard/remote/file/path <span class="token comment"># 复制文件到设备</span>
+adb pull /sdcard/remote/file/path local/file/path <span class="token comment"># 从设备复制文件到本地</span>
+adb <span class="token function">reboot</span> <span class="token comment"># 重启设备</span>
+adb shell dumpsys activity 查看活动信息
+</code></pre><pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>adb shell <span class="token comment"># 进入设备的shell</span>
+pm list packages <span class="token comment"># 进入设备后，列举所有的包，可以grep</span>
+pm uninstall com.example.packagesname <span class="token comment"># 可以卸载某个包</span>
+</code></pre><h3 id="adb-连接-sony-电视">ADB 连接 Sony 电视 </h3>
+<ol>
+<li>进入电视的“设置” &gt; “关于” &gt; 找到“构建号”，连续点击 7 次，直到提示已启用开发者选项。</li>
+<li>返回“设置”，找到“开发者选项”，并启用“USB 调试”。</li>
+<li>连接电视：用 USB 数据线，或者通过 wifi 连。
+<ol>
+<li>如果通过 wifi，在“网络”中找到电视的 ip 地址，用 ip 连接`adb connect &lt;TV_IP_ADDRESS&gt;</li>
+<li>如果用 USB 数据线：<code>adb devices</code></li>
+</ol>
+</li>
+<li>确认连接：<code>adb devices</code></li>
+</ol>
 
       </div>
       <div class="md-sidebar-toc">
 <div class="md-toc">
 <details style="padding:0;;padding-left:0px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#win10--centos7双系统的安装补充记录" class="md-toc-link"><p>win10 + centos7双系统的安装补充记录</p>
+          <a href="#adbandroid-debug-bridge命令行工具" class="md-toc-link"><p>ADB（Android Debug Bridge）命令行工具</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#android-studio安卓开发环境" class="md-toc-link"><p>Android Studio：安卓开发环境</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#分区了但安装位置中显示的磁盘可用空间与之前分区的大小不同" class="md-toc-link">
-            <p>分区了，但安装位置中显示的磁盘可用空间与之前分区的大小不同</p>
+          <a href="#设置开发环境" class="md-toc-link">
+            <p>设置开发环境</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#安装完成了但是仍然显示dracut超时错误" class="md-toc-link">
-            <p>安装完成了，但是仍然显示dracut超时错误</p>
+          <a href="#建立项目" class="md-toc-link">
+            <p>建立项目</p>
 
           </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#adb" class="md-toc-link"><p>ADB</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#安装" class="md-toc-link">
+            <p>安装</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#命令" class="md-toc-link">
+            <p>命令</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#adb-连接-sony-电视" class="md-toc-link">
+            <p>ADB 连接 Sony 电视</p>
+
+          </a></div>
+        </div>
+      </details>
+    
         </div>
       </details>
     
@@ -192,7 +151,7 @@
     
     
 <script>
-document.body.setAttribute('html-show-sidebar-toc', true)
+
 var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
 sidebarTOCBtn.addEventListener('click', function(event) {
   event.stopPropagation()
