@@ -18,9 +18,92 @@
   <div class="content" style="left: 25%;top: 5%;bottom:auto">
     <h1>Welcome to this area. 这里是学习笔记们</h1>
     <h2>All Notes</h2>
-      <ul>
-        <li class="line"><a href="./posts/计算机网络谢希仁/计算机网络谢希仁.html" rel="stylesheet">[2024-09-14] 计算机网络谢希仁</a></li>  
-      </ul>
+    <li class="line">
+      <a href="./posts/ADB（Android Debug Bridge）命令行工具.html"
+        target="_blank">[2024-11-23] ADB（Android Debug Bridge）命令行工具</a>
+    </li>
+    <li class="line">
+      <a href="./posts/gdb 的使用记录.html"
+        target="_blank">[2024-11-19] gdb 的使用记录</a>
+    </li>
+      <li class="line">
+        <a href="计算机网络谢希仁/计算机网络谢希仁.html" rel="stylesheet">[2024-09-14] 计算机网络谢希仁</a>
+      </li>
+      <li class="line">
+        <a href="./posts/The Objective-C Programming Language 笔记/The Objective-C Programming Language 笔记.html"
+          target="_blank">[2024-07-08] The Objective-C Programming Language 笔记</a>
+      </li>
+      <li class="line">
+        <a href="./posts/Windows开发工具记录：Batch、VisualStudio、MSBuild.html" target="_blank">[2022-09-10]
+          Windows开发工具记录：Batch、VisualStudio、MSBuild</a>
+      </li>
+      <li class="line">
+        <a href="./posts/Git 常用指令记录.html" target="_blank">[2021-10-14] Git常用指令记录</a>
+      </li>
+      <li class="line">
+        <a href="./posts/vim：从安装到使用.html" target="_blank">[2021-10-14] vim：从安装到使用</a>
+      </li>
+      <li class="line">
+        <a href="./posts/FFmpeg Basics 笔记.html" target="_blank">[2021-09-18] FFmpeg Basics 笔记</a>
+      </li>
+      <h2>Tag List</h2>
+      <ul id="tag-list"></ul>
+      <pre id="result"></pre>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const tagList = {};
+          const titleList = {};
+          const fileList = document.querySelectorAll("#file-list .line a");
+  
+          // Function to extract tags from HTML files
+          const extractTags = async (url) => {
+            const response = await fetch(url);
+            const text = await response.text();
+  
+            // Extract title
+            const titleMatch = text.match(/<title>(.*?)<\/title>/);
+            const title = titleMatch ? titleMatch[1] : 'Untitled';
+  
+            const regex = /<!--\s*TAG:\s*([^-->]*)\s*-->/g;
+              let match;
+            while ((match = regex.exec(text)) !== null) {
+              const tags = match[1].trim().split(/\s/);
+              tags.forEach((tag) => {
+                if (!tagList[tag]) {
+                  tagList[tag] = [];
+                }
+                tagList[tag].push({ title, url }); // Save title and URL
+              });
+            }
+          };
+  
+          const populateTagList = () => {
+            const tagListElement = document.getElementById("tag-list");
+            for (const [tag, entries] of Object.entries(tagList)) {
+              const li = document.createElement("li");
+              li.innerHTML = `${tag} (${entries.length})`;
+              li.addEventListener("click", () => {
+                const resultElement = document.getElementById("result");
+                resultElement.innerHTML = `<h3>${tag} Links:</h3><ul>${entries
+                  .map(
+                    (entry) =>
+                      `<li><a href="${entry.url}" target="_blank" class="line">${entry.title}</a></li>`
+                  )
+                  .join("")}</ul>`;
+                resultElement.scrollIntoView({ behavior: "smooth" });
+              });
+              tagListElement.appendChild(li);
+            }
+          };
+  
+  
+          // Extract tags from all file links
+          const promises = Array.from(fileList).map((link) =>
+            extractTags(link.href)
+          );
+          Promise.all(promises).then(populateTagList);
+        });
+      </script>
   </div>
 </body>
 

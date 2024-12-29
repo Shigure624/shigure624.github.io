@@ -6,7 +6,7 @@
 }
 
 .hidden_line {
-  color:whitesmoke !important;
+  color:whitesmoke;
 }
 
 li::marker {
